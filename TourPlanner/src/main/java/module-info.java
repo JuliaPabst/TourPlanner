@@ -1,8 +1,9 @@
-module org.example.tourplanner {
+module org.tourplanner {
     requires javafx.controls;
     requires javafx.fxml;
 
+    requires org.kordamp.bootstrapfx.core;
 
-    opens org.example.tourplanner to javafx.fxml;
-    exports org.example.tourplanner;
+    opens org.tourplanner to javafx.fxml;
+    exports org.tourplanner;
 }
