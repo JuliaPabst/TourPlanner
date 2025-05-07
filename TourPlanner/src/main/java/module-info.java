@@ -6,4 +6,6 @@ module org.tourplanner {
 
     opens org.tourplanner to javafx.fxml;
     exports org.tourplanner;
+    exports org.tourplanner.view;
+    opens org.tourplanner.view to javafx.fxml;
 }
