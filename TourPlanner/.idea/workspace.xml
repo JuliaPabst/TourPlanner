@@ -5,17 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="28563466-d155-4117-a6f3-036ad5da4c5f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/tourplanner/model/Hike.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/tourplanner/model/Route.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/tourplanner/model/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/tourplanner/viewmodel/MainViewModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tourplanner/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tourplanner/TourPlannerApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tourplanner/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tourplanner/view/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/tourplanner/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/tourplanner/main-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tourplanner/view/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tourplanner/view/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/tourplanner/main-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/tourplanner/main-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,7 +95,7 @@
       <option name="presentableId" value="Default" />
       <updated>1746526087196</updated>
       <workItem from="1746526088302" duration="2202000" />
-      <workItem from="1746609321368" duration="464000" />
+      <workItem from="1746609321368" duration="1913000" />
     </task>
     <servers />
   </component>
