@@ -5,8 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="28563466-d155-4117-a6f3-036ad5da4c5f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tourplanner/view/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tourplanner/view/MainController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/org/tourplanner/mainStyle.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/org/tourplanner/main-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/tourplanner/main-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -95,7 +94,7 @@
       <option name="presentableId" value="Default" />
       <updated>1746526087196</updated>
       <workItem from="1746526088302" duration="2202000" />
-      <workItem from="1746609321368" duration="1913000" />
+      <workItem from="1746609321368" duration="3383000" />
     </task>
     <servers />
   </component>
