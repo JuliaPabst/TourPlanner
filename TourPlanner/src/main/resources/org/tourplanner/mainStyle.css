@@ -25,15 +25,9 @@
     -fx-background-color: #4a4949;
 }
 
-.search-field {
-    -fx-background-color: #f0f0f0;
-    -fx-text-fill: white;
-    -fx-prompt-text-fill: #2e2e2e;
-    -fx-background-radius: 5;
-    -fx-border-color: transparent;
-}
 
-.search-button {
+
+.action-button {
     -fx-background-color: #58d68d; /* light green */
     -fx-text-fill: black;
     -fx-font-weight: bold;
@@ -46,4 +40,8 @@
 
 .content {
     -fx-background-color: #121212;
+}
+
+.label-white {
+    -fx-text-fill: white;
 }

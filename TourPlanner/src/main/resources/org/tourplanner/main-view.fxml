@@ -10,6 +10,14 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.control.Label?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ListView?>
+<?import com.sun.javafx.scene.control.IntegerField?>
 <BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="org.tourplanner.view.MainController"
@@ -39,14 +47,51 @@
       <HBox spacing="10" alignment="CENTER_LEFT" styleClass="search-bar">
         <TextField fx:id="searchField" promptText="Search for a location or route..." HBox.hgrow="ALWAYS"
                    styleClass="search-field"/>
-        <Button text="Search" onAction="#onSearch" styleClass="search-button"/>
+        <Button text="Search" onAction="#onSearch" styleClass="action-button"/>
       </HBox>
     </VBox>
   </top>
 
   <center>
-    <AnchorPane fx:id="mapContainer" styleClass="content"/>
-  </center>
+  <GridPane prefHeight="200.0" prefWidth="400.0">
+    <columnConstraints>
+      <ColumnConstraints hgrow="NEVER"/>
+      <ColumnConstraints hgrow="ALWAYS"/>
+      <ColumnConstraints hgrow="NEVER"/>
+      <ColumnConstraints hgrow="NEVER"/>
+    </columnConstraints>
+    <rowConstraints>
+      <RowConstraints vgrow="NEVER"/>
+      <RowConstraints vgrow="ALWAYS"/>
+      <RowConstraints vgrow="NEVER"/>
+    </rowConstraints>
 
+    <padding>
+      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+    </padding>
+
+    <Label text="Enter new Route:" minWidth="90"
+           maxWidth="Infinity"
+           GridPane.hgrow="ALWAYS" styleClass="label-white">
+      <GridPane.margin>
+        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+      </GridPane.margin>
+    </Label>
+    <TextField fx:id="newRouteNameField" minWidth="50" GridPane.columnIndex="1">
+      <GridPane.margin>
+        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+      </GridPane.margin>
+    </TextField>
+    <TextField fx:id="newRouteDistanceField"  minWidth="64" GridPane.columnIndex="2"/>
+    <Button onAction="#onAddButtonClick" text="_Add" GridPane.columnIndex="3" minWidth="64" styleClass="action-button">
+      <GridPane.margin>
+        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+      </GridPane.margin>
+    </Button>
+    <ListView fx:id="routeList" GridPane.columnSpan="4" GridPane.halignment="CENTER" GridPane.rowIndex="1"/>
+    <Button onAction="#onExitButtonClick" text="E_xit" GridPane.columnSpan="4" GridPane.halignment="CENTER"
+            GridPane.rowIndex="2" minWidth="64" styleClass="action-button"/>
+  </GridPane>
+  </center>
 </BorderPane>
 

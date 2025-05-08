@@ -3,6 +3,7 @@ module org.tourplanner {
     requires javafx.fxml;
 
     requires org.kordamp.bootstrapfx.core;
+    requires java.desktop;
 
     opens org.tourplanner to javafx.fxml;
     exports org.tourplanner;
