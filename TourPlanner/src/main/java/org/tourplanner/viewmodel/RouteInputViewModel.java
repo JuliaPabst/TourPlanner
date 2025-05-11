@@ -32,4 +32,8 @@ public class RouteInputViewModel {
         newRouteName.set("");
         newRouteDistance.set(0);
     }
+
+    public void addRouteCreatedListener(PropertyChangeListener listener) {
+        routeCreatedEvent.addPropertyChangeListener(listener);
+    }
 }
