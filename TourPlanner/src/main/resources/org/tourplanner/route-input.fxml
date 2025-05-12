@@ -18,12 +18,12 @@
         <ColumnConstraints hgrow="NEVER"/>
     </columnConstraints>
 
-    <Label text="Route Name:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+    <Label text="Route Name:" GridPane.columnIndex="0" GridPane.rowIndex="0" styleClass="label-white"/>
     <TextField fx:id="newRouteNameField" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
 
-    <Label text="Distance (km):" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+    <Label text="Distance (km):" GridPane.columnIndex="0" GridPane.rowIndex="1" styleClass="label-white"/>
     <TextField fx:id="newRouteDistanceField" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
 
     <Button text="Add Route" fx:id="addRouteButton" onAction="#onAddButtonClick"
-            GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.halignment="RIGHT"/>
+            GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.halignment="RIGHT" styleClass="action-button"/>
 </GridPane>
