@@ -58,7 +58,7 @@
         <Insets top="10.0" right="10.0" bottom="10.0" left="10.0"/>
       </padding>
       <fx:include source="route-input.fxml"/>
-      <ListView fx:id="routeList"/>
+      <fx:include source="route-list.fxml"/>
       <Button onAction="#onExitButtonClick" text="E_xit" minWidth="64"/>
     </VBox>
   </center>

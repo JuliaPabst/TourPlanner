@@ -14,17 +14,12 @@ import java.util.ResourceBundle;
 public class MainController implements Initializable {
     private final MainViewModel viewModel;
 
-    @FXML
-    private ListView<Route> routeList;
-
     public MainController(MainViewModel viewModel) {
         this.viewModel = viewModel;
     }
 
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        routeList.setItems(viewModel.getRouteList());
-    }
+    public void initialize(URL url, ResourceBundle resourceBundle) {}
 
     @FXML
     public void onExitButtonClick(ActionEvent actionEvent) {

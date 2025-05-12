@@ -7,8 +7,10 @@ import javafx.stage.Stage;
 import org.tourplanner.service.RouteManager;
 import org.tourplanner.view.MainController;
 import org.tourplanner.view.RouteInputController;
+import org.tourplanner.view.RouteListController;
 import org.tourplanner.viewmodel.MainViewModel;
 import org.tourplanner.viewmodel.RouteInputViewModel;
+import org.tourplanner.viewmodel.RouteListViewModel;
 
 import java.io.IOException;
 
@@ -18,6 +20,7 @@ public class TourPlannerApplication extends Application {
         RouteManager routeManager = new RouteManager();
         RouteInputViewModel routeInputViewModel = new RouteInputViewModel();
         MainViewModel mainViewModel = new MainViewModel(routeManager, routeInputViewModel);
+        RouteListViewModel routeListViewModel = new RouteListViewModel(routeManager);
 
         FXMLLoader fxmlLoader = new FXMLLoader(TourPlannerApplication.class.getResource("main-view.fxml"));
         fxmlLoader.setControllerFactory(controllerClass -> {
@@ -25,6 +28,8 @@ public class TourPlannerApplication extends Application {
                 return new MainController(mainViewModel);
             } else if(controllerClass == RouteInputController.class) {
                 return new RouteInputController(routeInputViewModel);
+            } else if(controllerClass == RouteListController.class) {
+                return new RouteListController(routeListViewModel);
             } else {
                 throw new IllegalArgumentException("Unknown contorller: " + controllerClass);
             }
