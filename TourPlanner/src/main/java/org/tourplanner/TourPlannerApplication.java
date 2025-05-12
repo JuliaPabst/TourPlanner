@@ -5,10 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import org.tourplanner.service.RouteManager;
-import org.tourplanner.view.MainController;
-import org.tourplanner.view.RouteInputController;
-import org.tourplanner.view.RouteListController;
-import org.tourplanner.view.SearchBarController;
+import org.tourplanner.view.*;
 import org.tourplanner.viewmodel.MainViewModel;
 import org.tourplanner.viewmodel.RouteInputViewModel;
 import org.tourplanner.viewmodel.RouteListViewModel;
@@ -35,6 +32,8 @@ public class TourPlannerApplication extends Application {
                 return new RouteListController(routeListViewModel);
             } else if(controllerClass == SearchBarController.class) {
                 return new SearchBarController(searchBarViewModel);
+            } else if(controllerClass == MenuBarController.class) {
+                return new MenuBarController();
             } else {
                 throw new IllegalArgumentException("Unknown contorller: " + controllerClass);
             }

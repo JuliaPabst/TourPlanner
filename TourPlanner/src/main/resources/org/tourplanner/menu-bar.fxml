@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<MenuBar xmlns="http://javafx.com/javafx"
+         xmlns:fx="http://javafx.com/fxml"
+         fx:controller="org.tourplanner.view.MenuBarController"
+         styleClass="menu-bar">
+
+    <Menu text="File">
+        <MenuItem text="New Route"/>
+        <MenuItem text="Open..."/>
+        <MenuItem text="Save"/>
+        <SeparatorMenuItem/>
+        <MenuItem text="Exit"/>
+    </Menu>
+    <Menu text="Edit">
+        <MenuItem text="Undo"/>
+        <MenuItem text="Redo"/>
+    </Menu>
+    <Menu text="Help">
+        <MenuItem text="About"/>
+    </Menu>
+</MenuBar>

@@ -26,22 +26,7 @@
   <top>
     <VBox>
       <!-- MenuBar -->
-      <MenuBar fx:id="menuBar" styleClass="menu-bar">
-        <Menu text="File">
-          <MenuItem text="New Route"/>
-          <MenuItem text="Open..."/>
-          <MenuItem text="Save"/>
-          <SeparatorMenuItem/>
-          <MenuItem text="Exit"/>
-        </Menu>
-        <Menu text="Edit">
-          <MenuItem text="Undo"/>
-          <MenuItem text="Redo"/>
-        </Menu>
-        <Menu text="Help">
-          <MenuItem text="About"/>
-        </Menu>
-      </MenuBar>
+      <fx:include source="menu-bar.fxml"/>
 
       <!-- SearchBar -->
       <fx:include source="search-bar.fxml"/>
