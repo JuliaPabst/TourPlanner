@@ -23,7 +23,7 @@ public class TourPlannerApplication extends Application {
         RouteInputViewModel routeInputViewModel = new RouteInputViewModel();
         MainViewModel mainViewModel = new MainViewModel(routeManager, routeInputViewModel);
         RouteListViewModel routeListViewModel = new RouteListViewModel(routeManager);
-        SearchBarViewModel searchBarViewModel = new SearchBarViewModel();
+        SearchBarViewModel searchBarViewModel = new SearchBarViewModel(routeListViewModel);
 
         FXMLLoader fxmlLoader = new FXMLLoader(TourPlannerApplication.class.getResource("main-view.fxml"));
         fxmlLoader.setControllerFactory(controllerClass -> {
