@@ -13,6 +13,6 @@
       xmlns:fx="http://javafx.com/fxml"
       fx:controller="org.tourplanner.view.RouteListController"
       spacing="5">
-    <Label text="Available Routes:"/>
+    <Label text="Available Routes:" styleClass="label-white"/>
     <ListView fx:id="routeList"/>
 </VBox>

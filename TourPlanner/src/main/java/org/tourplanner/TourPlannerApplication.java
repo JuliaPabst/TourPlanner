@@ -8,9 +8,11 @@ import org.tourplanner.service.RouteManager;
 import org.tourplanner.view.MainController;
 import org.tourplanner.view.RouteInputController;
 import org.tourplanner.view.RouteListController;
+import org.tourplanner.view.SearchBarController;
 import org.tourplanner.viewmodel.MainViewModel;
 import org.tourplanner.viewmodel.RouteInputViewModel;
 import org.tourplanner.viewmodel.RouteListViewModel;
+import org.tourplanner.viewmodel.SearchBarViewModel;
 
 import java.io.IOException;
 
@@ -21,6 +23,7 @@ public class TourPlannerApplication extends Application {
         RouteInputViewModel routeInputViewModel = new RouteInputViewModel();
         MainViewModel mainViewModel = new MainViewModel(routeManager, routeInputViewModel);
         RouteListViewModel routeListViewModel = new RouteListViewModel(routeManager);
+        SearchBarViewModel searchBarViewModel = new SearchBarViewModel();
 
         FXMLLoader fxmlLoader = new FXMLLoader(TourPlannerApplication.class.getResource("main-view.fxml"));
         fxmlLoader.setControllerFactory(controllerClass -> {
@@ -30,6 +33,8 @@ public class TourPlannerApplication extends Application {
                 return new RouteInputController(routeInputViewModel);
             } else if(controllerClass == RouteListController.class) {
                 return new RouteListController(routeListViewModel);
+            } else if(controllerClass == SearchBarController.class) {
+                return new SearchBarController(searchBarViewModel);
             } else {
                 throw new IllegalArgumentException("Unknown contorller: " + controllerClass);
             }

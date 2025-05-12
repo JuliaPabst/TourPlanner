@@ -44,11 +44,7 @@
       </MenuBar>
 
       <!-- SearchBar -->
-      <HBox spacing="10" alignment="CENTER_LEFT" styleClass="search-bar">
-        <TextField fx:id="searchField" promptText="Search for a location or route..." HBox.hgrow="ALWAYS"
-                   styleClass="search-field"/>
-        <Button text="Search" onAction="#onSearch" styleClass="action-button"/>
-      </HBox>
+      <fx:include source="search-bar.fxml"/>
     </VBox>
   </top>
 
@@ -59,7 +55,9 @@
       </padding>
       <fx:include source="route-input.fxml"/>
       <fx:include source="route-list.fxml"/>
-      <Button onAction="#onExitButtonClick" text="E_xit" minWidth="64"/>
+      <HBox alignment="CENTER">
+        <Button onAction="#onExitButtonClick" text="E_xit" minWidth="64" styleClass="action-button"/>
+      </HBox>
     </VBox>
   </center>
 
