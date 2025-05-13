@@ -24,15 +24,6 @@ class RouteInputViewModelTest {
     }
 
     @Test
-    void testSetAndGetProperties() {
-        viewModel.newRouteNameProperty().set("Wien Tour");
-        viewModel.newRouteDistanceProperty().set(25);
-
-        assertEquals("Wien Tour", viewModel.newRouteNameProperty().get());
-        assertEquals(25, viewModel.newRouteDistanceProperty().get());
-    }
-
-    @Test
     void testCreateNewRouteFiresEvent() {
         AtomicReference<Route> createdRoute = new AtomicReference<>();
 

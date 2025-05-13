@@ -6,8 +6,8 @@ import org.tourplanner.model.Route;
 
 public class RouteManager {
     private ObservableList<Route> routeList = FXCollections.observableArrayList(
-            new Route("Route 1", 5),
-            new Route("Route 2", 10)
+            new Route("Wienerwald", 5),
+            new Route("Oberlaa", 10)
     );
 
     // read the list of tasks
