@@ -1,6 +1,5 @@
 package org.tourplanner.viewmodel;
 
-import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import org.tourplanner.model.Route;
 import org.tourplanner.service.RouteManager;

@@ -35,7 +35,7 @@ public class TourPlannerApplication extends Application {
             } else if(controllerClass == MenuBarController.class) {
                 return new MenuBarController();
             } else {
-                throw new IllegalArgumentException("Unknown contorller: " + controllerClass);
+                throw new IllegalArgumentException("Unknown controller: " + controllerClass);
             }
         });
 

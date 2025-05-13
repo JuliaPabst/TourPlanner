@@ -5,18 +5,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="28563466-d155-4117-a6f3-036ad5da4c5f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/tourplanner/service/RouteManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/org/tourplanner/route-view.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/tourplanner/viewmodel/RouteInputViewModelTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/tourplanner/viewmodel/RouteListViewModelTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/tourplanner/viewmodel/SearchBarViewModelTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tourplanner/view/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tourplanner/view/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tourplanner/TourPlannerApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tourplanner/TourPlannerApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/tourplanner/viewmodel/MainViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tourplanner/viewmodel/MainViewModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/tourplanner/main-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/tourplanner/main-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/tourplanner/mainStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/tourplanner/mainStyle.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tourplanner/viewmodel/RouteInputViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tourplanner/viewmodel/RouteInputViewModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tourplanner/viewmodel/RouteListViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tourplanner/viewmodel/RouteListViewModel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="FxmlFile" />
+        <option value="JUnit5 Test Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -40,8 +50,12 @@
   "keyToString": {
     "Application.HelloApplication.executor": "Run",
     "Application.TourPlannerApplication.executor": "Run",
+    "JUnit.RouteInputViewModelTest.executor": "Run",
+    "JUnit.RouteListViewModelTest.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/Users/julia.pabst/Library/Mobile Documents/com~apple~CloudDocs/Desktop/FH_Technikum/Semester4/SWEN2/TourPlanner/TourPlanner/src/main/java/org/tourplanner",
@@ -58,6 +72,12 @@
       <recent name="$PROJECT_DIR$/src/main/java/org/tourplanner" />
       <recent name="$PROJECT_DIR$/src/main/java/org/tourplanner/model" />
       <recent name="$PROJECT_DIR$/src/main/java/org/tourplanner/viewmodel" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="org.tourplanner.viewmodel" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="org.tourplanner.model" />
@@ -101,7 +121,8 @@
       <updated>1746526087196</updated>
       <workItem from="1746526088302" duration="2202000" />
       <workItem from="1746609321368" duration="4269000" />
-      <workItem from="1746704471593" duration="2876000" />
+      <workItem from="1746704471593" duration="5103000" />
+      <workItem from="1747132208638" duration="3857000" />
     </task>
     <servers />
   </component>

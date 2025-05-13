@@ -24,6 +24,12 @@
       <artifactId>javafx-fxml</artifactId>
       <version>21</version>
     </dependency>
+    <dependency>
+      <groupId>org.mockito</groupId>
+      <artifactId>mockito-core</artifactId>
+      <version>5.11.0</version>
+      <scope>test</scope>
+    </dependency>
 <dependency>
       <groupId>org.kordamp.bootstrapfx</groupId>
       <artifactId>bootstrapfx-core</artifactId>
@@ -41,7 +47,6 @@
       <version>${junit.version}</version>
       <scope>test</scope>
     </dependency>  </dependencies>
-
   <build>
     <plugins>
       <plugin>

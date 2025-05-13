@@ -28,7 +28,7 @@ public class RouteInputViewModel {
         Route newRoute = new Route(newRouteName.get(), newRouteDistance.get());
         routeCreatedEvent.firePropertyChange("newRoute", null, newRoute);
 
-        // REset the fields
+        // Reset the fields
         newRouteName.set("");
         newRouteDistance.set(0);
     }
