@@ -25,10 +25,4 @@ public class MainController implements Initializable {
     public void onExitButtonClick(ActionEvent actionEvent) {
         System.exit(0);
     }
-
-    @FXML
-    public void onSearch() {
-        //TODO: ... left empty for now
-        System.out.println("Search clicked (doesn't work yet)");
-    }
 }
