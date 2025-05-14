@@ -1,23 +1,23 @@
+.tour-list-item {
+    -fx-background-color: white;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-padding: 10;
+    -fx-border-color: #e0e0e0;
+    -fx-spacing: 5;
+}
+
 .tour-title {
-    -fx-font-size: 18px;
     -fx-font-weight: bold;
-    -fx-text-fill: white;
+    -fx-font-size: 14px;
 }
 
-.tour-section-title {
-    -fx-font-weight: bold;
-    -fx-text-fill: #cccccc;
+.tour-subtitle {
+    -fx-text-fill: #666;
+    -fx-font-size: 12px;
 }
 
-.tour-detail-box {
-    -fx-background-color: #1e1e1e;
-    -fx-border-radius: 5;
-    -fx-background-radius: 5;
-    -fx-padding: 15;
-}
-
-.danger-button {
-    -fx-background-color: #e74c3c;
-    -fx-text-fill: white;
-    -fx-background-radius: 5;
+.tour-meta {
+    -fx-font-size: 12px;
+    -fx-text-fill: #333;
 }

@@ -36,6 +36,8 @@ public class TourPlannerApplication extends Application {
                 return new MenuBarController();
             } else if(controllerClass == TourDetailController.class) {
                 return new TourDetailController();
+            } else if(controllerClass == TourListItemController.class) {
+                return new TourListItemController();
             } else {
                 throw new IllegalArgumentException("Unknown controller: " + controllerClass);
             }

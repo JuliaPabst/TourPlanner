@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="org.tourplanner.view.TourListItemController"
+      spacing="5" styleClass="tour-list-item">
+
+    <Label fx:id="titleLabel" styleClass="tour-title"/>
+
+    <Label fx:id="fromLabel" styleClass="tour-subtitle"/>
+    <Label fx:id="toLabel" styleClass="tour-subtitle"/>
+
+    <HBox spacing="10">
+        <Label fx:id="distanceLabel" styleClass="tour-meta"/>
+        <Label fx:id="popularityLabel" styleClass="tour-meta"/>
+    </HBox>
+</VBox>

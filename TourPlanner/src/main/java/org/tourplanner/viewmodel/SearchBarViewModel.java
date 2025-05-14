@@ -5,7 +5,7 @@ import javafx.beans.property.StringProperty;
 
 public class SearchBarViewModel {
     private final StringProperty searchQuery = new SimpleStringProperty("");
-    private final TourListViewModel routeListViewModel;
+    private final TourListViewModel tourListViewModel;
 
     public StringProperty searchQueryProperty() {
         return searchQuery;
@@ -15,11 +15,11 @@ public class SearchBarViewModel {
         return searchQuery.get();
     }
 
-    public SearchBarViewModel(TourListViewModel routeListViewModel) {
-        this.routeListViewModel = routeListViewModel;
+    public SearchBarViewModel(TourListViewModel tourListViewModel) {
+        this.tourListViewModel = tourListViewModel;
     }
 
     public void performSearch() {
-        routeListViewModel.filterByName(getSearchQuery());
+        tourListViewModel.filterByName(getSearchQuery());
     }
 }
