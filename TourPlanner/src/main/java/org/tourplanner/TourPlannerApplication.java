@@ -4,11 +4,11 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import org.tourplanner.service.RouteManager;
+import org.tourplanner.service.TourManager;
 import org.tourplanner.view.*;
 import org.tourplanner.viewmodel.MainViewModel;
-import org.tourplanner.viewmodel.RouteInputViewModel;
-import org.tourplanner.viewmodel.RouteListViewModel;
+import org.tourplanner.viewmodel.TourInputViewModel;
+import org.tourplanner.viewmodel.TourListViewModel;
 import org.tourplanner.viewmodel.SearchBarViewModel;
 
 import java.io.IOException;
@@ -16,20 +16,20 @@ import java.io.IOException;
 public class TourPlannerApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        RouteManager routeManager = new RouteManager();
-        RouteInputViewModel routeInputViewModel = new RouteInputViewModel();
-        MainViewModel mainViewModel = new MainViewModel(routeManager, routeInputViewModel);
-        RouteListViewModel routeListViewModel = new RouteListViewModel(routeManager);
-        SearchBarViewModel searchBarViewModel = new SearchBarViewModel(routeListViewModel);
+        TourManager tourManager = new TourManager();
+        TourInputViewModel tourInputViewModel = new TourInputViewModel();
+        MainViewModel mainViewModel = new MainViewModel(tourManager, tourInputViewModel);
+        TourListViewModel tourListViewModel = new TourListViewModel(tourManager);
+        SearchBarViewModel searchBarViewModel = new SearchBarViewModel(tourListViewModel);
 
         FXMLLoader fxmlLoader = new FXMLLoader(TourPlannerApplication.class.getResource("main-view.fxml"));
         fxmlLoader.setControllerFactory(controllerClass -> {
             if(controllerClass == MainController.class) {
                 return new MainController(mainViewModel);
-            } else if(controllerClass == RouteInputController.class) {
-                return new RouteInputController(routeInputViewModel);
-            } else if(controllerClass == RouteListController.class) {
-                return new RouteListController(routeListViewModel);
+            } else if(controllerClass == TourInputController.class) {
+                return new TourInputController(tourInputViewModel);
+            } else if(controllerClass == TourListController.class) {
+                return new TourListController(tourListViewModel);
             } else if(controllerClass == SearchBarController.class) {
                 return new SearchBarController(searchBarViewModel);
             } else if(controllerClass == MenuBarController.class) {

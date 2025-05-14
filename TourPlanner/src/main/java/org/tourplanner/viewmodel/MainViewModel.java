@@ -1,23 +1,23 @@
 package org.tourplanner.viewmodel;
 
 import javafx.collections.ObservableList;
-import org.tourplanner.model.Route;
-import org.tourplanner.service.RouteManager;
+import org.tourplanner.model.Tour;
+import org.tourplanner.service.TourManager;
 
 public class MainViewModel {
-    private final RouteManager routeManager;
+    private final TourManager tourManager;
 
-    public MainViewModel(RouteManager routeManager, RouteInputViewModel routeInputViewModel) {
-        this.routeManager = routeManager;
+    public MainViewModel(TourManager tourManager, TourInputViewModel routeInputViewModel) {
+        this.tourManager = tourManager;
 
-        routeInputViewModel.addRouteCreatedListener(evt -> {
-            Route route = (Route) evt.getNewValue();
-            routeManager.createNewRoute(route.routeName(), route.distance());
+        routeInputViewModel.addTourCreatedListener(evt -> {
+            Tour tour = (Tour) evt.getNewValue();
+            tourManager.createNewTour(tour.name(), tour.distance());
         });
     }
 
-    public ObservableList<Route> getRouteList() {
-        return routeManager.getRouteList();
+    public ObservableList<Tour> getTourList() {
+        return tourManager.getTourList();
     }
 }
 

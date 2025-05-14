@@ -38,8 +38,8 @@
       <padding>
         <Insets top="10.0" right="10.0" bottom="10.0" left="10.0"/>
       </padding>
-      <fx:include source="route-input.fxml"/>
-      <fx:include source="route-list.fxml"/>
+      <fx:include source="tour-input.fxml"/>
+      <fx:include source="tour-list.fxml"/>
       <HBox alignment="CENTER">
         <Button onAction="#onExitButtonClick" text="E_xit" minWidth="64" styleClass="action-button"/>
       </HBox>

@@ -12,7 +12,7 @@
          styleClass="menu-bar">
 
     <Menu text="File">
-        <MenuItem text="New Route"/>
+        <MenuItem text="New Tour"/>
         <MenuItem text="Open..."/>
         <MenuItem text="Save"/>
         <SeparatorMenuItem/>

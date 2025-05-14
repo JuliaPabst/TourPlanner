@@ -10,13 +10,13 @@ import static org.mockito.Mockito.*;
 
 class SearchBarViewModelTest {
 
-    private RouteListViewModel mockRouteListViewModel;
+    private TourListViewModel mockTourListViewModel;
     private SearchBarViewModel viewModel;
 
     @BeforeEach
     void setUp() {
-        mockRouteListViewModel = Mockito.mock(RouteListViewModel.class);
-        viewModel = new SearchBarViewModel(mockRouteListViewModel);
+        mockTourListViewModel = Mockito.mock(TourListViewModel.class);
+        viewModel = new SearchBarViewModel(mockTourListViewModel);
     }
 
     @Test
@@ -33,11 +33,11 @@ class SearchBarViewModelTest {
     }
 
     @Test
-    void testPerformSearchDelegatesToRouteListViewModel() {
+    void testPerformSearchDelegatesToTourListViewModel() {
         viewModel.searchQueryProperty().set("alps");
 
         viewModel.performSearch();
 
-        verify(mockRouteListViewModel, times(1)).filterByName("alps");
+        verify(mockTourListViewModel, times(1)).filterByName("alps");
     }
 }

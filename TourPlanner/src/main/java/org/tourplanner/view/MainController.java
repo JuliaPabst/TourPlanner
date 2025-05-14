@@ -1,12 +1,9 @@
 package org.tourplanner.view;
 
-import org.tourplanner.model.Route;
-import org.tourplanner.service.RouteManager;
 import org.tourplanner.viewmodel.MainViewModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.*;
 
 import java.net.URL;
 import java.util.ResourceBundle;

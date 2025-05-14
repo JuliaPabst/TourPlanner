@@ -11,7 +11,7 @@
       fx:controller="org.tourplanner.view.SearchBarController"
       spacing="10" alignment="CENTER_LEFT" styleClass="search-bar">
 
-    <TextField fx:id="searchField" promptText="Search for a location or route..." HBox.hgrow="ALWAYS"
+    <TextField fx:id="searchField" promptText="Search for a location or tour..." HBox.hgrow="ALWAYS"
                styleClass="search-field"/>
     <Button text="Search" onAction="#onSearchClicked" styleClass="action-button"/>
 </HBox>
