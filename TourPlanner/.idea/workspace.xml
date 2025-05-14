@@ -5,30 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="28563466-d155-4117-a6f3-036ad5da4c5f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/tourplanner/model/TransportType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/tourplanner/viewmodel/TourInputViewModelTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/tourplanner/viewmodel/TourListViewModelTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/tourplanner/view/TourDetailController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/org/tourplanner/tour-detail.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/tourplanner/TourPlannerApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tourplanner/TourPlannerApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tourplanner/model/Hike.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tourplanner/model/TourLog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tourplanner/model/Route.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tourplanner/model/Tour.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tourplanner/service/RouteManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tourplanner/service/TourManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tourplanner/view/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tourplanner/view/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tourplanner/view/RouteInputController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tourplanner/view/TourInputController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tourplanner/view/RouteListController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tourplanner/view/TourListController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tourplanner/service/TourManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tourplanner/service/TourManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tourplanner/view/TourInputController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tourplanner/view/TourInputController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/tourplanner/viewmodel/MainViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tourplanner/viewmodel/MainViewModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tourplanner/viewmodel/RouteInputViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tourplanner/viewmodel/TourInputViewModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tourplanner/viewmodel/RouteListViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tourplanner/viewmodel/TourListViewModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tourplanner/viewmodel/SearchBarViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tourplanner/viewmodel/SearchBarViewModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tourplanner/viewmodel/TourInputViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tourplanner/viewmodel/TourInputViewModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/org/tourplanner/main-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/tourplanner/main-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/tourplanner/menu-bar.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/tourplanner/menu-bar.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/tourplanner/route-input.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/tourplanner/tour-input.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/tourplanner/route-list.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/tourplanner/tour-list.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/tourplanner/route-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/tourplanner/tour-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/tourplanner/search-bar.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/tourplanner/search-bar.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/tourplanner/viewmodel/RouteInputViewModelTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/tourplanner/viewmodel/RouteListViewModelTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/tourplanner/viewmodel/SearchBarViewModelTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/tourplanner/viewmodel/SearchBarViewModelTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/tourplanner/mainStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/tourplanner/mainStyle.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/tourplanner/tour-input.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/tourplanner/tour-input.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,6 +28,7 @@
         <option value="FxmlFile" />
         <option value="JUnit5 Test Class" />
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -159,7 +147,7 @@
       <workItem from="1746704471593" duration="5103000" />
       <workItem from="1747132208638" duration="4190000" />
       <workItem from="1747148010603" duration="911000" />
-      <workItem from="1747214674623" duration="5185000" />
+      <workItem from="1747214674623" duration="7553000" />
     </task>
     <servers />
   </component>

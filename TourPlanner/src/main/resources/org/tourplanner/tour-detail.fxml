@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="org.tourplanner.view.TourDetailController"
+      spacing="10" styleClass="tour-detail-box">
+    <padding>
+        <Insets top="10" right="10" bottom="10" left="10"/>
+    </padding>
+    <Label fx:id="titleLabel" text="Tour Title" styleClass="tour-title"/>
+
+    <VBox spacing="5">
+        <Label text="Route" styleClass="tour-section-title"/>
+        <Label fx:id="fromLabel" text="From: Stephansplatz"/>
+        <Label fx:id="toLabel" text="To: Schönbrunn Palace"/>
+    </VBox>
+
+    <VBox spacing="5">
+        <Label text="Transport Type" styleClass="tour-section-title"/>
+        <Label fx:id="transportTypeLabel" text="Walking"/>
+    </VBox>
+
+    <VBox spacing="5">
+        <Label text="Stats" styleClass="tour-section-title"/>
+        <Label fx:id="distanceLabel" text="Distance: 5.2 km"/>
+        <Label fx:id="timeLabel" text="Est. time: 120 min"/>
+    </VBox>
+
+    <VBox spacing="5">
+        <Label text="Metrics" styleClass="tour-section-title"/>
+        <Label fx:id="popularityLabel" text="Popularity: ★★★★"/>
+        <Label fx:id="childFriendlyLabel" text="Child-friendly: ★★★"/>
+    </VBox>
+
+    <VBox spacing="5">
+        <Label text="Map" styleClass="tour-section-title"/>
+        <ImageView fx:id="mapImageView" fitWidth="300" fitHeight="150" preserveRatio="true"/>
+    </VBox>
+
+    <HBox spacing="10">
+        <Button text="Edit" fx:id="editButton" styleClass="action-button"/>
+        <Button text="Delete" fx:id="deleteButton" styleClass="danger-button"/>
+    </HBox>
+
+    <VBox spacing="5">
+        <Label text="Description" styleClass="tour-section-title"/>
+        <TextArea fx:id="descriptionText" editable="false" wrapText="true" prefRowCount="4"/>
+    </VBox>
+
+</VBox>

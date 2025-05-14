@@ -1,9 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
+<?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.geometry.Insets?>
-
 <GridPane xmlns="http://javafx.com/javafx"
           xmlns:fx="http://javafx.com/fxml"
           fx:controller="org.tourplanner.view.TourInputController"
@@ -15,15 +18,38 @@
     <columnConstraints>
         <ColumnConstraints hgrow="NEVER"/>
         <ColumnConstraints hgrow="ALWAYS"/>
-        <ColumnConstraints hgrow="NEVER"/>
     </columnConstraints>
 
-    <Label text="Tour Name:" GridPane.columnIndex="0" GridPane.rowIndex="0" styleClass="label-white"/>
-    <TextField fx:id="newTourNameField" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+    <Label text="Tour Name:" GridPane.rowIndex="0"/>
+    <TextField fx:id="newTourNameField" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
 
-    <Label text="Distance (km):" GridPane.columnIndex="0" GridPane.rowIndex="1" styleClass="label-white"/>
-    <TextField fx:id="newTourDistanceField" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+    <Label text="Description:" GridPane.rowIndex="1"/>
+    <TextField fx:id="newTourDescriptionField" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+    <Label text="From:" GridPane.rowIndex="2"/>
+    <TextField fx:id="newTourFromField" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+    <Label text="To:" GridPane.rowIndex="3"/>
+    <TextField fx:id="newTourToField" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+    <Label text="Transport Type:" GridPane.rowIndex="4"/>
+    <ComboBox fx:id="newTourTransportTypeBox" GridPane.rowIndex="4" GridPane.columnIndex="1">
+        <items>
+            <FXCollections fx:factory="observableArrayList">
+                <String fx:value="BIKE"/>
+                <String fx:value="HIKE"/>
+                <String fx:value="RUNNING"/>
+            </FXCollections>
+        </items>
+    </ComboBox>
+
+    <Label text="Distance (km):" GridPane.rowIndex="5"/>
+    <TextField fx:id="newTourDistanceField" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
+
+    <Label text="Estimated Time (min):" GridPane.rowIndex="6"/>
+    <TextField fx:id="newTourEstimatedTimeField" GridPane.rowIndex="6" GridPane.columnIndex="1"/>
 
     <Button text="Add Tour" fx:id="addTourButton" onAction="#onAddButtonClick"
-            GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.halignment="RIGHT" styleClass="action-button"/>
+            GridPane.rowIndex="7" GridPane.columnIndex="1" GridPane.halignment="RIGHT"
+            styleClass="action-button"/>
 </GridPane>

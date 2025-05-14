@@ -7,12 +7,12 @@ import org.tourplanner.service.TourManager;
 public class MainViewModel {
     private final TourManager tourManager;
 
-    public MainViewModel(TourManager tourManager, TourInputViewModel routeInputViewModel) {
+    public MainViewModel(TourManager tourManager, TourInputViewModel tourInputViewModel) {
         this.tourManager = tourManager;
 
-        routeInputViewModel.addTourCreatedListener(evt -> {
+        tourInputViewModel.addTourCreatedListener(evt -> {
             Tour tour = (Tour) evt.getNewValue();
-            tourManager.createNewTour(tour.name(), tour.distance());
+            tourManager.createNewTour(tour);
         });
     }
 
@@ -20,5 +20,3 @@ public class MainViewModel {
         return tourManager.getTourList();
     }
 }
-
-
