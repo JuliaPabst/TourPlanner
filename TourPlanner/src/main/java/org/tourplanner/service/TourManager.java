@@ -37,15 +37,8 @@ public class TourManager {
     }
 
     // Creates tour from individual values
-    public Tour createNewTour(String name, String tourDescription, String from, String to,
-                              TransportType transportType, int distance, int estimatedTime, Image routeInformation) {
-        Tour newTour = new Tour(name, tourDescription, from, to, transportType, distance, estimatedTime, routeInformation);
+    public Tour createNewTour(Tour newTour) {
         tourList.add(newTour);
         return newTour;
-    }
-
-    public Tour createNewTour(Tour tour) {
-        tourList.add(tour);
-        return tour;
     }
 }

@@ -12,27 +12,29 @@
   <!-- Top: Menu and Search -->
   <top>
     <VBox spacing="5">
-      <fx:include source="menu-bar.fxml"/>
       <fx:include source="search-bar.fxml"/>
     </VBox>
   </top>
 
   <!-- Center: Responsive Main Content -->
   <center>
-    <HBox spacing="10" alignment="TOP_LEFT" HBox.hgrow="ALWAYS" styleClass="main-layout">
-      <VBox spacing="10" prefWidth="250" VBox.vgrow="ALWAYS">
-        <fx:include source="tour-input.fxml"/>
-        <fx:include source="tour-list.fxml"/>
-      </VBox>
+    <ScrollPane fitToWidth="true" fitToHeight="false"
+                vbarPolicy="AS_NEEDED" hbarPolicy="NEVER">
+      <HBox spacing="10" alignment="TOP_LEFT" HBox.hgrow="ALWAYS" styleClass="main-layout">
+        <VBox spacing="10" prefWidth="250" VBox.vgrow="ALWAYS">
+          <Button text="Add Route" onAction="#onOpenAddRouteDialog" styleClass="action-button"/>
+          <fx:include source="tour-list.fxml"/>
+        </VBox>
 
-      <VBox spacing="10" VBox.vgrow="ALWAYS" HBox.hgrow="ALWAYS">
-        <fx:include source="tour-detail.fxml"/>
-      </VBox>
+        <VBox spacing="10" VBox.vgrow="ALWAYS" HBox.hgrow="ALWAYS">
+          <fx:include source="tour-detail.fxml"/>
+        </VBox>
 
-      <VBox spacing="10" prefWidth="250" VBox.vgrow="ALWAYS">
+        <VBox spacing="10" prefWidth="250" VBox.vgrow="ALWAYS">
 
-      </VBox>
-    </HBox>
+        </VBox>
+      </HBox>
+    </ScrollPane>
   </center>
 
   <bottom>

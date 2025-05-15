@@ -3,12 +3,15 @@ package org.tourplanner.viewmodel;
 import javafx.beans.property.*;
 import org.tourplanner.model.Tour;
 import org.tourplanner.model.TransportType;
+import org.tourplanner.service.TourManager;
 
 import java.awt.Image;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 
 public class TourInputViewModel {
+    private final TourManager tourManager;
+
     private final StringProperty name = new SimpleStringProperty("");
     private final StringProperty description = new SimpleStringProperty("");
     private final StringProperty from = new SimpleStringProperty("");
@@ -17,6 +20,10 @@ public class TourInputViewModel {
     private final IntegerProperty distance = new SimpleIntegerProperty(0);
     private final IntegerProperty estimatedTime = new SimpleIntegerProperty(0);
     private final PropertyChangeSupport tourCreatedEvent = new PropertyChangeSupport(this);
+
+    public TourInputViewModel(TourManager tourManager) {
+        this.tourManager = tourManager;
+    }
 
     public StringProperty nameProperty() { return name; }
     public StringProperty descriptionProperty() { return description; }
@@ -39,6 +46,8 @@ public class TourInputViewModel {
         );
 
         tourCreatedEvent.firePropertyChange("newTour", null, newTour);
+
+        tourManager.createNewTour(newTour);
 
         // Reset fields
         name.set("");

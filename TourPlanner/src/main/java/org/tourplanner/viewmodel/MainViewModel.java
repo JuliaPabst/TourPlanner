@@ -10,10 +10,7 @@ public class MainViewModel {
     public MainViewModel(TourManager tourManager, TourInputViewModel tourInputViewModel) {
         this.tourManager = tourManager;
 
-        tourInputViewModel.addTourCreatedListener(evt -> {
-            Tour tour = (Tour) evt.getNewValue();
-            tourManager.createNewTour(tour);
-        });
+
     }
 
     public ObservableList<Tour> getTourList() {

@@ -5,6 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.stage.Stage;
 import javafx.util.converter.NumberStringConverter;
 import org.tourplanner.model.Tour;
 import org.tourplanner.model.TransportType;
@@ -15,6 +16,11 @@ import java.util.ResourceBundle;
 
 public class TourInputController implements Initializable {
     private final TourInputViewModel viewModel;
+    private Stage dialogStage;
+
+    public void setDialogStage(Stage dialogStage) {
+        this.dialogStage = dialogStage;
+    }
 
     public TourInputController(TourInputViewModel viewModel) {
         this.viewModel = viewModel;
@@ -70,6 +76,9 @@ public class TourInputController implements Initializable {
     public void onAddButtonClick(ActionEvent actionEvent) {
         try {
             viewModel.createNewTour();
+            if (dialogStage != null) {
+                dialogStage.close();
+            }
         } catch (Exception e) {
             Alert alert = new Alert(Alert.AlertType.ERROR, "Could not create tour: " + e.getMessage());
             alert.showAndWait();

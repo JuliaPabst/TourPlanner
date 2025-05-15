@@ -17,7 +17,7 @@ public class TourPlannerApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         TourManager tourManager = new TourManager();
-        TourInputViewModel tourInputViewModel = new TourInputViewModel();
+        TourInputViewModel tourInputViewModel = new TourInputViewModel(tourManager);
         MainViewModel mainViewModel = new MainViewModel(tourManager, tourInputViewModel);
         TourListViewModel tourListViewModel = new TourListViewModel(tourManager);
         SearchBarViewModel searchBarViewModel = new SearchBarViewModel(tourListViewModel);
@@ -25,15 +25,13 @@ public class TourPlannerApplication extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(TourPlannerApplication.class.getResource("main-view.fxml"));
         fxmlLoader.setControllerFactory(controllerClass -> {
             if(controllerClass == MainController.class) {
-                return new MainController(mainViewModel);
+                return new MainController(mainViewModel, tourInputViewModel );
             } else if(controllerClass == TourInputController.class) {
                 return new TourInputController(tourInputViewModel);
             } else if(controllerClass == TourListController.class) {
                 return new TourListController(tourListViewModel);
             } else if(controllerClass == SearchBarController.class) {
                 return new SearchBarController(searchBarViewModel);
-            } else if(controllerClass == MenuBarController.class) {
-                return new MenuBarController();
             } else if(controllerClass == TourDetailController.class) {
                 return new TourDetailController();
             } else if(controllerClass == TourListItemController.class) {
@@ -43,7 +41,7 @@ public class TourPlannerApplication extends Application {
             }
         });
 
-        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
+        Scene scene = new Scene(fxmlLoader.load(), 1080, 500);
         stage.setTitle("TourPlanner");
         stage.setScene(scene);
         stage.show();
