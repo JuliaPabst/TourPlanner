@@ -12,29 +12,29 @@
     <padding>
         <Insets top="10" right="10" bottom="10" left="10"/>
     </padding>
-    <Label fx:id="titleLabel" text="Tour Title" styleClass="tour-title"/>
+    <Label fx:id="titleLabel" styleClass="tour-title"/>
 
     <VBox spacing="5">
         <Label text="Route" styleClass="tour-section-title"/>
-        <Label fx:id="fromLabel" text="From: Stephansplatz"/>
-        <Label fx:id="toLabel" text="To: Schönbrunn Palace"/>
+        <Label fx:id="fromLabel"/>
+        <Label fx:id="toLabel"/>
     </VBox>
 
     <VBox spacing="5">
         <Label text="Transport Type" styleClass="tour-section-title"/>
-        <Label fx:id="transportTypeLabel" text="Walking"/>
+        <Label fx:id="transportTypeLabel"/>
     </VBox>
 
     <VBox spacing="5">
         <Label text="Stats" styleClass="tour-section-title"/>
-        <Label fx:id="distanceLabel" text="Distance: 5.2 km"/>
-        <Label fx:id="timeLabel" text="Est. time: 120 min"/>
+        <Label fx:id="distanceLabel"/>
+        <Label fx:id="timeLabel"/>
     </VBox>
 
     <VBox spacing="5">
         <Label text="Metrics" styleClass="tour-section-title"/>
-        <Label fx:id="popularityLabel" text="Popularity: ★★★★"/>
-        <Label fx:id="childFriendlyLabel" text="Child-friendly: ★★★"/>
+        <Label fx:id="popularityLabel"/>
+        <Label fx:id="childFriendlyLabel"/>
     </VBox>
 
     <VBox spacing="5">
@@ -49,7 +49,7 @@
 
     <VBox spacing="5">
         <Label text="Description" styleClass="tour-section-title"/>
-        <TextArea fx:id="descriptionText" editable="false" wrapText="true" prefRowCount="4"/>
+        <Label fx:id="descriptionText"/>
     </VBox>
 
 </VBox>

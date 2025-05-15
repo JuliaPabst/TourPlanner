@@ -33,7 +33,7 @@ public class TourPlannerApplication extends Application {
             } else if(controllerClass == SearchBarController.class) {
                 return new SearchBarController(searchBarViewModel);
             } else if(controllerClass == TourDetailController.class) {
-                return new TourDetailController();
+                return new TourDetailController(tourListViewModel);
             } else if(controllerClass == TourListItemController.class) {
                 return new TourListItemController();
             } else {

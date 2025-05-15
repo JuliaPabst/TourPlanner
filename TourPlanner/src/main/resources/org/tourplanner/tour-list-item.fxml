@@ -7,7 +7,8 @@
 <VBox xmlns="http://javafx.com/javafx"
       xmlns:fx="http://javafx.com/fxml"
       fx:controller="org.tourplanner.view.TourListItemController"
-      spacing="5" styleClass="tour-list-item">
+      spacing="5" styleClass="tour-list-item"
+      onMouseClicked="#onClick">
 
     <Label fx:id="titleLabel" styleClass="tour-title"/>
 

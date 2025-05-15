@@ -1,5 +1,7 @@
 package org.tourplanner.viewmodel;
 
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.transformation.FilteredList;
 import org.tourplanner.model.Tour;
 import org.tourplanner.service.TourManager;
@@ -9,6 +11,20 @@ public class TourListViewModel {
 
     public TourListViewModel(TourManager tourManager) {
         this.filteredTours = new FilteredList<>(tourManager.getTourList(), p -> true);
+
+        if (!filteredTours.isEmpty()) {
+            selectedTour.set(filteredTours.getFirst());
+        }
+    }
+
+    private final ObjectProperty<Tour> selectedTour = new SimpleObjectProperty<>();
+
+    public ObjectProperty<Tour> selectedTourProperty() {
+        return selectedTour;
+    }
+
+    public void selectTour(Tour tour) {
+        selectedTour.set(tour);
     }
 
     public FilteredList<Tour> getTours() {

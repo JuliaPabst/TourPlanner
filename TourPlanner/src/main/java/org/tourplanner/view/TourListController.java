@@ -1,5 +1,7 @@
 package org.tourplanner.view;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.ListChangeListener;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -28,6 +30,13 @@ public class TourListController implements Initializable {
         rebuildTourList();
 
         viewModel.getTours().addListener((ListChangeListener<Tour>) change -> rebuildTourList());
+
+        viewModel.selectedTourProperty().addListener(new ChangeListener<Tour>() {
+            @Override
+            public void changed(ObservableValue<? extends Tour> observable, Tour oldValue, Tour newValue) {
+                System.out.println("Selected Tour: " + newValue);
+            }
+        });
     }
 
     private void rebuildTourList() {
@@ -40,6 +49,7 @@ public class TourListController implements Initializable {
 
                 TourListItemController controller = loader.getController();
                 controller.setTour(tour);
+                controller.setViewModel(viewModel);
 
                 tourListContainer.getChildren().add(tourBox);
             } catch (IOException e) {
