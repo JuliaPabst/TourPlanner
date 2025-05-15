@@ -1,23 +1,171 @@
-.tour-list-item {
-    -fx-background-color: white;
+/* === Global === */
+.root {
+    -fx-font-family: "Roboto", sans-serif;
+    -fx-background-color: #f9f9fb;
+    -fx-font-size: 13px;
+}
+
+.tour-planner-title {
+    -fx-font-weight: bold;
+    -fx-font-size: 30px;
+}
+
+/* === Buttons === */
+.action-button {
+    -fx-background-color: #0052cc;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 4px;
+    -fx-padding: 6px 12px;
+}
+
+.danger-button {
+    -fx-background-color: #e53935;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 4px;
+    -fx-padding: 6px 12px;
+}
+
+.action-button:hover,
+.danger-button:hover {
+    -fx-opacity: 0.85;
+    -fx-cursor: hand;
+}
+
+/* === Search Bar === */
+.search-bar {
+    -fx-background-color: #ffffff;
+    -fx-padding: 10 16;
+    -fx-border-color: #dddddd;
+    -fx-border-width: 0 0 1px 0;
+}
+
+.search-field {
+    -fx-background-radius: 4px;
+    -fx-background-color: #f1f3f5;
+    -fx-border-color: transparent;
+    -fx-prompt-text-fill: #999;
+}
+
+/* === Tour List === */
+.tour-list-wrapper {
+    -fx-background-color: #ffffff;
+    -fx-padding: 10;
     -fx-border-radius: 8;
     -fx-background-radius: 8;
-    -fx-padding: 10;
     -fx-border-color: #e0e0e0;
-    -fx-spacing: 5;
+    -fx-border-width: 1px;
+}
+
+.tour-list-item {
+    -fx-background-color: #f7f7f7;
+    -fx-padding: 10;
+    -fx-background-radius: 6;
+    -fx-border-color: #dedede;
+    -fx-border-radius: 6;
+    -fx-border-width: 1;
+}
+
+.tour-list-item:hover {
+    -fx-background-color: #eaeaea;
+    -fx-cursor: hand;
+}
+
+/* === Tour Detail === */
+.tour-detail-box {
+    -fx-background-color: #ffffff;
+    -fx-padding: 20;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-border-color: #ddd;
+    -fx-border-width: 1px;
 }
 
 .tour-title {
+    -fx-font-size: 18px;
     -fx-font-weight: bold;
-    -fx-font-size: 14px;
 }
 
 .tour-subtitle {
-    -fx-text-fill: #666;
     -fx-font-size: 12px;
+    -fx-text-fill: #555;
 }
 
 .tour-meta {
-    -fx-font-size: 12px;
-    -fx-text-fill: #333;
+    -fx-font-size: 11px;
+    -fx-text-fill: #666;
 }
+
+.tour-section-title {
+    -fx-font-weight: bold;
+    -fx-text-fill: #333;
+    -fx-padding: 5 0 0 0;
+}
+
+.section-title {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #222;
+}
+
+.dialog-root {
+    -fx-background-color: white;
+    -fx-padding: 20px;
+    -fx-spacing: 15px;
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 4);
+    -fx-font-family: "Segoe UI", sans-serif;
+}
+
+.dialog-title {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+}
+
+.dialog-subtitle {
+    -fx-font-size: 13px;
+    -fx-text-fill: #666666;
+}
+
+.text-field, .combo-box {
+    -fx-background-color: #f9f9f9;
+    -fx-border-color: #cccccc;
+    -fx-border-radius: 6px;
+    -fx-background-radius: 6px;
+    -fx-padding: 6px;
+    -fx-font-size: 14px;
+}
+
+.text-area {
+    -fx-background-color: #f9f9f9;
+    -fx-border-color: #cccccc;
+    -fx-border-radius: 6px;
+    -fx-background-radius: 6px;
+    -fx-padding: 6px;
+    -fx-font-size: 14px;
+}
+
+.button {
+    -fx-font-size: 13px;
+    -fx-padding: 8px 16px;
+    -fx-background-radius: 6px;
+    -fx-border-radius: 6px;
+    -fx-cursor: hand;
+}
+
+.cancel-button {
+    -fx-background-color: transparent;
+    -fx-border-color: #ccc;
+    -fx-text-fill: black;
+}
+
+.file-chooser-box {
+    -fx-background-color: #f3f4f6;
+    -fx-padding: 8px;
+    -fx-border-color: #d1d5db;
+    -fx-border-radius: 6px;
+    -fx-background-radius: 6px;
+}
+

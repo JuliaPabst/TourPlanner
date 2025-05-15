@@ -47,4 +47,8 @@ public class TourManager {
             tourList.set(index, newTour);
         }
     }
+
+    public void deleteTour(Tour tour) {
+        tourList.remove(tour);
+    }
 }

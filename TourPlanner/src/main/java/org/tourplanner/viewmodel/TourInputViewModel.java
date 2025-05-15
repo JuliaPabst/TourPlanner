@@ -98,7 +98,20 @@ public class TourInputViewModel {
 
         tourManager.replaceTour(editingTour.get(), updated);
         editingTour.set(null); // clear edit mode
+        resetFields();
     }
+
+    public void resetFields() {
+        nameProperty().set("");
+        descriptionProperty().set("");
+        fromProperty().set("");
+        toProperty().set("");
+        distanceProperty().set(0);
+        estimatedTimeProperty().set(0);
+        transportTypeProperty().set(TransportType.HIKE);
+        editingTour.set(null);
+    }
+
 
     public void addTourCreatedListener(PropertyChangeListener listener) {
         tourCreatedEvent.addPropertyChangeListener(listener);

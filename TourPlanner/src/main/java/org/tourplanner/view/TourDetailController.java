@@ -20,7 +20,18 @@ import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class TourDetailController implements Initializable {
-
+    @FXML
+    public Label routeSectionTitle;
+    @FXML
+    public Label transportTypeSectionTitle;
+    @FXML
+    public Label statsSectionTitle;
+    @FXML
+    public Label metricsSectionTitle;
+    @FXML
+    public Label mapSectionTitle;
+    @FXML
+    public Label descriptionSectionTitle;
     @FXML
     private Label titleLabel;
     @FXML
@@ -61,19 +72,47 @@ public class TourDetailController implements Initializable {
         listViewModel.selectedTourProperty().addListener((obs, oldTour, newTour) -> {
             if (newTour != null) {
                 updateView(newTour);
+            } else {
+                showNoSelectionMessage();
             }
         });
 
         Tour current = listViewModel.selectedTourProperty().get();
         if (current != null) {
             updateView(current);
+        } else {
+            showNoSelectionMessage();
         }
 
-        // Todo: button actions
-        deleteButton.setDisable(true);
+        deleteButton.setDisable(false); // optional
+    }
+
+    private void showNoSelectionMessage() {
+        editButton.setVisible(false);
+        deleteButton.setVisible(false);
+
+        titleLabel.setText("Please select a tour from the overview on the left");
+        fromLabel.setText("");
+        toLabel.setText("");
+        transportTypeLabel.setText("");
+        distanceLabel.setText("");
+        timeLabel.setText("");
+        descriptionText.setText("");
+        popularityLabel.setText("");
+        childFriendlyLabel.setText("");
+        mapImageView.setImage(null);
+        routeSectionTitle.setText("");
+        transportTypeSectionTitle.setText("");
+        statsSectionTitle.setText("");
+        metricsSectionTitle.setText("");
+        mapSectionTitle.setText("");
+        descriptionSectionTitle.setText("");
     }
 
     private void updateView(Tour tour) {
+        editButton.setVisible(true);
+        deleteButton.setVisible(true);
+
         titleLabel.setText(tour.name());
         fromLabel.setText("From: " + tour.from());
         toLabel.setText("To: " + tour.to());
@@ -85,6 +124,13 @@ public class TourDetailController implements Initializable {
         // Placeholder values
         popularityLabel.setText("Popularity: ★★★★");
         childFriendlyLabel.setText("Child-friendly: ★★★");
+
+        routeSectionTitle.setText("Route");
+        transportTypeSectionTitle.setText("Transport Type");
+        statsSectionTitle.setText("Stats");
+        metricsSectionTitle.setText("Metrics");
+        mapSectionTitle.setText("Map");
+        descriptionSectionTitle.setText("Description");
 
         // TODO: Load actual image
         mapImageView.setImage(new Image(Objects.requireNonNull(getClass().getResource("/testImage.jpeg")).toExternalForm()));
@@ -113,4 +159,26 @@ public class TourDetailController implements Initializable {
             e.printStackTrace();
         }
     }
+
+    @FXML
+    private void onDeleteButtonClicked() {
+        Tour selected = listViewModel.selectedTourProperty().get();
+        if (selected == null) return;
+
+        Alert confirmDialog = new Alert(Alert.AlertType.CONFIRMATION);
+        confirmDialog.setTitle("Delete Tour");
+        confirmDialog.setHeaderText("Are you sure you want to delete \"" + selected.name() + "\"?");
+        confirmDialog.setContentText("This action cannot be undone and will also delete all associated tour logs.");
+
+        ButtonType cancelButton = new ButtonType("Cancel", ButtonBar.ButtonData.CANCEL_CLOSE);
+        ButtonType deleteButton = new ButtonType("Delete", ButtonBar.ButtonData.OK_DONE);
+        confirmDialog.getButtonTypes().setAll(cancelButton, deleteButton);
+
+        confirmDialog.showAndWait().ifPresent(result -> {
+            if (result == deleteButton) {
+                listViewModel.deleteTour(selected);
+            }
+        });
+    }
+
 }

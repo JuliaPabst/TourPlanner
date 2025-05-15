@@ -12,41 +12,41 @@
     
     <HBox spacing="10">
         <Button fx:id="editButton" styleClass="action-button" text="Edit" onAction="#onEditButtonClicked"/>
-        <Button fx:id="deleteButton" styleClass="danger-button" text="Delete" />
+        <Button fx:id="deleteButton" styleClass="danger-button" text="Delete" onAction='#onDeleteButtonClicked'/>
     </HBox>
 
     <Label fx:id="titleLabel" styleClass="tour-title" />
 
     <VBox spacing="5">
-        <Label styleClass="tour-section-title" text="Route" />
+        <Label fx:id="routeSectionTitle" styleClass="tour-section-title" text="Route" />
         <Label fx:id="fromLabel" />
         <Label fx:id="toLabel" />
     </VBox>
 
     <VBox spacing="5">
-        <Label styleClass="tour-section-title" text="Transport Type" />
+        <Label fx:id="transportTypeSectionTitle" styleClass="tour-section-title" text="Transport Type" />
         <Label fx:id="transportTypeLabel" />
     </VBox>
 
     <VBox spacing="5">
-        <Label styleClass="tour-section-title" text="Stats" />
+        <Label fx:id="statsSectionTitle" styleClass="tour-section-title" text="Stats" />
         <Label fx:id="distanceLabel" />
         <Label fx:id="timeLabel" />
     </VBox>
 
     <VBox spacing="5">
-        <Label styleClass="tour-section-title" text="Metrics" />
+        <Label fx:id="metricsSectionTitle" styleClass="tour-section-title" text="Metrics" />
         <Label fx:id="popularityLabel" />
         <Label fx:id="childFriendlyLabel" />
     </VBox>
 
     <VBox spacing="5">
-        <Label styleClass="tour-section-title" text="Map" />
+        <Label fx:id="mapSectionTitle" styleClass="tour-section-title" text="Map" />
         <ImageView fx:id="mapImageView" fitHeight="150" fitWidth="300" preserveRatio="true" />
     </VBox>
 
     <VBox spacing="5">
-        <Label styleClass="tour-section-title" text="Description" />
+        <Label fx:id="descriptionSectionTitle" styleClass="tour-section-title" text="Description" />
         <Label fx:id="descriptionText" />
     </VBox>
 

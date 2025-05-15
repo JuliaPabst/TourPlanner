@@ -8,9 +8,11 @@ import org.tourplanner.service.TourManager;
 
 public class TourListViewModel {
     private final FilteredList<Tour> filteredTours;
+    private final TourManager tourManager;
 
     public TourListViewModel(TourManager tourManager) {
         this.filteredTours = new FilteredList<>(tourManager.getTourList(), p -> true);
+        this.tourManager = tourManager;
 
         if (!filteredTours.isEmpty()) {
             selectedTour.set(filteredTours.getFirst());
@@ -36,6 +38,13 @@ public class TourListViewModel {
             filteredTours.setPredicate(tour -> true);
         } else {
             filteredTours.setPredicate(tour -> tour.name().toLowerCase().contains(query.toLowerCase()));
+        }
+    }
+
+    public void deleteTour(Tour tour) {
+        tourManager.deleteTour(tour);
+        if (selectedTour.get() == tour) {
+            selectedTour.set(null); // Clear selection
         }
     }
 }
