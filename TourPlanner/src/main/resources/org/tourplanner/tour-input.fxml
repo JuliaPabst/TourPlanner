@@ -49,7 +49,7 @@
     <Label text="Estimated Time (min):" GridPane.rowIndex="6"/>
     <TextField fx:id="newTourEstimatedTimeField" GridPane.rowIndex="6" GridPane.columnIndex="1"/>
 
-    <Button text="Add Tour" fx:id="addTourButton" onAction="#onAddButtonClick"
+    <Button text="Save Tour" fx:id="saveTourButton" onAction="#onSaveButtonClick"
             GridPane.rowIndex="7" GridPane.columnIndex="1" GridPane.halignment="RIGHT"
             styleClass="action-button"/>
 </GridPane>

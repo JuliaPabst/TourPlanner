@@ -33,6 +33,7 @@ public class TourInputController implements Initializable {
     @FXML private ComboBox<String> newTourTransportTypeBox;
     @FXML private TextField newTourDistanceField;
     @FXML private TextField newTourEstimatedTimeField;
+    @FXML private Button saveTourButton;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -73,14 +74,12 @@ public class TourInputController implements Initializable {
     }
 
     @FXML
-    public void onAddButtonClick(ActionEvent actionEvent) {
+    public void onSaveButtonClick(ActionEvent actionEvent) {
         try {
-            viewModel.createNewTour();
-            if (dialogStage != null) {
-                dialogStage.close();
-            }
+            viewModel.saveOrUpdateTour();
+            ((Stage) saveTourButton.getScene().getWindow()).close(); // close modal
         } catch (Exception e) {
-            Alert alert = new Alert(Alert.AlertType.ERROR, "Could not create tour: " + e.getMessage());
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Could not save tour: " + e.getMessage());
             alert.showAndWait();
         }
     }

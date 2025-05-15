@@ -36,9 +36,15 @@ public class TourManager {
         return tourList;
     }
 
-    // Creates tour from individual values
     public Tour createNewTour(Tour newTour) {
         tourList.add(newTour);
         return newTour;
+    }
+
+    public void replaceTour(Tour oldTour, Tour newTour) {
+        int index = tourList.indexOf(oldTour);
+        if (index >= 0) {
+            tourList.set(index, newTour);
+        }
     }
 }

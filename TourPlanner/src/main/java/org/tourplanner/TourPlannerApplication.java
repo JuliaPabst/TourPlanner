@@ -17,15 +17,15 @@ public class TourPlannerApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         TourManager tourManager = new TourManager();
-        TourInputViewModel tourInputViewModel = new TourInputViewModel(tourManager);
-        MainViewModel mainViewModel = new MainViewModel(tourManager, tourInputViewModel);
         TourListViewModel tourListViewModel = new TourListViewModel(tourManager);
+        TourInputViewModel tourInputViewModel = new TourInputViewModel(tourManager, tourListViewModel);
+        MainViewModel mainViewModel = new MainViewModel(tourManager, tourInputViewModel);
         SearchBarViewModel searchBarViewModel = new SearchBarViewModel(tourListViewModel);
 
         FXMLLoader fxmlLoader = new FXMLLoader(TourPlannerApplication.class.getResource("main-view.fxml"));
         fxmlLoader.setControllerFactory(controllerClass -> {
             if(controllerClass == MainController.class) {
-                return new MainController(mainViewModel, tourInputViewModel );
+                return new MainController(mainViewModel, tourInputViewModel);
             } else if(controllerClass == TourInputController.class) {
                 return new TourInputController(tourInputViewModel);
             } else if(controllerClass == TourListController.class) {
@@ -33,7 +33,7 @@ public class TourPlannerApplication extends Application {
             } else if(controllerClass == SearchBarController.class) {
                 return new SearchBarController(searchBarViewModel);
             } else if(controllerClass == TourDetailController.class) {
-                return new TourDetailController(tourListViewModel);
+                return new TourDetailController(tourListViewModel, tourInputViewModel);
             } else if(controllerClass == TourListItemController.class) {
                 return new TourListItemController();
             } else {
