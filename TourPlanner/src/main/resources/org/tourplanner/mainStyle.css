@@ -169,3 +169,21 @@
     -fx-background-radius: 6px;
 }
 
+/* === Modal Information === */
+
+.modal {
+    -fx-background-color: #f5f5f5;
+    -fx-border-color: #cccccc;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-padding: 15;
+}
+
+.modal-header {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+.modal-content {
+    -fx-font-size: 14px;
+}

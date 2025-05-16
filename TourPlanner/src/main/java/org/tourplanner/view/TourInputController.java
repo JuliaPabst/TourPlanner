@@ -9,6 +9,7 @@ import javafx.stage.Stage;
 import javafx.util.converter.NumberStringConverter;
 import org.tourplanner.model.Tour;
 import org.tourplanner.model.TransportType;
+import org.tourplanner.view.util.ModalService;
 import org.tourplanner.viewmodel.TourInputViewModel;
 
 import java.net.URL;
@@ -62,14 +63,12 @@ public class TourInputController implements Initializable {
             }
         });
 
-        // Success alert on tour creation
         viewModel.addTourCreatedListener(evt -> {
             Tour created = (Tour) evt.getNewValue();
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Tour Created");
-            alert.setHeaderText("New tour added successfully");
-            alert.setContentText("Tour: " + created.name() + " from " + created.from() + " to " + created.to());
-            alert.showAndWait();
+            ModalService.showInfoModal(
+                    "Tour Created",
+                    "Tour \"" + created.name() + "\" has been successfully created."
+            );
         });
     }
 

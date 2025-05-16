@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="org.tourplanner.view.ModalController"
+      spacing="10" styleClass="modal"  stylesheets="@mainStyle.css">
+
+    <padding><Insets top="15" bottom="15" left="20" right="20"/></padding>
+
+    <Label fx:id="headerLabel" styleClass="modal-header"/>
+    <Label fx:id="contentLabel" wrapText="true" styleClass="modal-content"/>
+    <HBox spacing="10" alignment="CENTER_RIGHT">
+        <Button fx:id="okButton" text="OK" onAction="#onOk" styleClass="action-button" />
+        <Button fx:id="cancelButton" text="Cancel" onAction="#onCancel" styleClass="action-button"/>
+        <Button  fx:id="deleteButton" text="Delete" onAction="#onConfirmDelete" styleClass="danger-button"/>
+    </HBox>
+</VBox>

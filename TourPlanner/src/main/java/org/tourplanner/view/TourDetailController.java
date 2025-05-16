@@ -11,6 +11,7 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import org.tourplanner.model.Tour;
+import org.tourplanner.view.util.ModalService;
 import org.tourplanner.viewmodel.TourInputViewModel;
 import org.tourplanner.viewmodel.TourListViewModel;
 
@@ -165,20 +166,12 @@ public class TourDetailController implements Initializable {
         Tour selected = listViewModel.selectedTourProperty().get();
         if (selected == null) return;
 
-        Alert confirmDialog = new Alert(Alert.AlertType.CONFIRMATION);
-        confirmDialog.setTitle("Delete Tour");
-        confirmDialog.setHeaderText("Are you sure you want to delete \"" + selected.name() + "\"?");
-        confirmDialog.setContentText("This action cannot be undone and will also delete all associated tour logs.");
-
-        ButtonType cancelButton = new ButtonType("Cancel", ButtonBar.ButtonData.CANCEL_CLOSE);
-        ButtonType deleteButton = new ButtonType("Delete", ButtonBar.ButtonData.OK_DONE);
-        confirmDialog.getButtonTypes().setAll(cancelButton, deleteButton);
-
-        confirmDialog.showAndWait().ifPresent(result -> {
-            if (result == deleteButton) {
-                listViewModel.deleteTour(selected);
-            }
-        });
+        ModalService.showDeleteConfirmation(
+                "Delete Tour",
+                "Are you sure you want to delete \"" + selected.name() + "\"?",
+                () -> listViewModel.deleteTour(selected)
+        );
     }
+
 
 }

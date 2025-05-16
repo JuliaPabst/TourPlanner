@@ -38,6 +38,12 @@ public class TourInputViewModel {
     public IntegerProperty distanceProperty() { return distance; }
     public IntegerProperty estimatedTimeProperty() { return estimatedTime; }
 
+    private final PropertyChangeSupport pcs = new PropertyChangeSupport(this);
+
+    private void fireTourCreated(Tour createdTour) {
+        pcs.firePropertyChange("tourCreated", null, createdTour);
+    }
+
     public void createNewTour() {
         Tour newTour = new Tour(
                 name.get(),
@@ -53,6 +59,8 @@ public class TourInputViewModel {
         tourCreatedEvent.firePropertyChange("newTour", null, newTour);
 
         tourManager.createNewTour(newTour);
+
+        fireTourCreated(newTour);
 
         // Reset fields
         name.set("");
