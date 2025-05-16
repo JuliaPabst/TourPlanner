@@ -1,4 +1,4 @@
-package org.tourplanner.setup;
+package org.tourplanner.utils;
 
 import org.tourplanner.model.Tour;
 import org.tourplanner.view.util.ModalService;

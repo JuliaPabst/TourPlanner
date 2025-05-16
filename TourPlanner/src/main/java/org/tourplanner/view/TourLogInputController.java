@@ -42,6 +42,7 @@ public class TourLogInputController implements Initializable {
         usernameField.textProperty().bindBidirectional(viewModel.usernameProperty());
 
         totalTimeField.setTextFormatter(new TextFormatter<>(new IntegerStringConverter()));
+        totalTimeField.setText(String.valueOf(viewModel.totalTimeProperty().get()));
         totalTimeField.textProperty().addListener((obs, oldVal, newVal) -> {
             try {
                 if(!newVal.isBlank()) {
@@ -51,6 +52,7 @@ public class TourLogInputController implements Initializable {
         });
 
         totalDistanceField.setTextFormatter(new TextFormatter<>(new DoubleStringConverter()));
+        totalDistanceField.setText(String.valueOf(viewModel.totalDistanceProperty().get()));
         totalDistanceField.textProperty().addListener((obs, oldVal, newVal) -> {
             try {
                 if(!newVal.isBlank()) {

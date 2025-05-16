@@ -37,6 +37,7 @@ public class TourLogInputViewModel {
     public ObjectProperty<Difficulty> difficultyProperty() { return difficulty; }
     public IntegerProperty ratingProperty() { return rating; }
     public StringProperty commentProperty() { return comment; }
+    public TourLogListViewModel getLogListViewModel() { return logListViewModel; }
 
     public void startEditing(TourLog log) {
         editingLog.set(log);

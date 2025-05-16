@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="org.tourplanner.view.TourLogListItemController"
+      spacing="5"
+      styleClass="tour-list-item">
+
+    <Label fx:id="logHeaderLabel" styleClass="tour-title"/>
+    <Label fx:id="logDetailsLabel" styleClass="tour-meta"/>
+    <Label fx:id="commentLabel" wrapText="true" styleClass="tour-subtitle"/>
+
+    <HBox spacing="10">
+        <Button fx:id="editButton"
+                text="Edit"
+                onAction="#onEditClicked"
+                styleClass="action-button"/>
+        <Button fx:id="deleteButton"
+                text="Delete"
+                onAction="#onDeleteClicked"
+                styleClass="danger-button"/>
+    </HBox>
+
+</VBox>

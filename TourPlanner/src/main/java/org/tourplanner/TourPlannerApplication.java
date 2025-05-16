@@ -8,7 +8,7 @@ import org.tourplanner.model.Tour;
 import org.tourplanner.service.TourManager;
 import org.tourplanner.view.*;
 import org.tourplanner.view.util.ModalService;
-import org.tourplanner.setup.ViewModelInitializer;
+import org.tourplanner.utils.ViewModelInitializer;
 import org.tourplanner.viewmodel.MainViewModel;
 import org.tourplanner.viewmodel.TourInputViewModel;
 import org.tourplanner.viewmodel.TourListViewModel;
@@ -47,6 +47,8 @@ public class TourPlannerApplication extends Application {
                 return new TourDetailController(tourListViewModel, tourInputViewModel, tourLogInputViewModel);
             } else if(controllerClass == TourListItemController.class) {
                 return new TourListItemController();
+            } else if(controllerClass == TourLogListController.class) {
+                return new TourLogListController(tourLogListViewModel, tourLogInputViewModel);
             } else {
                 throw new IllegalArgumentException("Unknown controller: " + controllerClass);
             }

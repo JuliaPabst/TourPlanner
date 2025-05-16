@@ -28,6 +28,7 @@
 
         <VBox spacing="10" VBox.vgrow="ALWAYS" HBox.hgrow="ALWAYS">
           <fx:include source="tour-detail.fxml"/>
+          <fx:include source="tour-log-list.fxml"/>
         </VBox>
 
         <VBox spacing="10" prefWidth="250" VBox.vgrow="ALWAYS">
