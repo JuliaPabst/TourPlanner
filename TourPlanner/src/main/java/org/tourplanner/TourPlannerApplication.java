@@ -4,8 +4,11 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import org.tourplanner.model.Tour;
 import org.tourplanner.service.TourManager;
 import org.tourplanner.view.*;
+import org.tourplanner.view.util.ModalService;
+import org.tourplanner.setup.ViewModelInitializer;
 import org.tourplanner.viewmodel.MainViewModel;
 import org.tourplanner.viewmodel.TourInputViewModel;
 import org.tourplanner.viewmodel.TourListViewModel;
@@ -21,6 +24,8 @@ public class TourPlannerApplication extends Application {
         TourInputViewModel tourInputViewModel = new TourInputViewModel(tourManager, tourListViewModel);
         MainViewModel mainViewModel = new MainViewModel(tourManager, tourInputViewModel);
         SearchBarViewModel searchBarViewModel = new SearchBarViewModel(tourListViewModel);
+
+        ViewModelInitializer.setupListeners(tourInputViewModel);
 
         FXMLLoader fxmlLoader = new FXMLLoader(TourPlannerApplication.class.getResource("main-view.fxml"));
         fxmlLoader.setControllerFactory(controllerClass -> {

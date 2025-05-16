@@ -23,7 +23,9 @@ public class TourInputViewModel {
     private final ObjectProperty<TransportType> transportType = new SimpleObjectProperty<>(TransportType.BIKE);
     private final IntegerProperty distance = new SimpleIntegerProperty(0);
     private final IntegerProperty estimatedTime = new SimpleIntegerProperty(0);
+
     private final PropertyChangeSupport tourCreatedEvent = new PropertyChangeSupport(this);
+    private final PropertyChangeSupport tourEditedEvent = new PropertyChangeSupport(this);
 
     public TourInputViewModel(TourManager tourManager, TourListViewModel tourListViewModel) {
         this.tourManager = tourManager;
@@ -40,11 +42,9 @@ public class TourInputViewModel {
 
     private final PropertyChangeSupport pcs = new PropertyChangeSupport(this);
 
-    private void fireTourCreated(Tour createdTour) {
-        pcs.firePropertyChange("tourCreated", null, createdTour);
-    }
-
     public void createNewTour() {
+        validateInput();
+
         Tour newTour = new Tour(
                 name.get(),
                 description.get(),
@@ -55,8 +55,6 @@ public class TourInputViewModel {
                 estimatedTime.get(),
                 null
         );
-
-        tourCreatedEvent.firePropertyChange("newTour", null, newTour);
 
         tourManager.createNewTour(newTour);
 
@@ -86,6 +84,7 @@ public class TourInputViewModel {
     }
 
     public void saveOrUpdateTour() {
+        validateInput();
         if (editingTour.get() == null) {
             createNewTour();
             return;
@@ -102,9 +101,11 @@ public class TourInputViewModel {
                 editingTour.get().routeInformation()
         );
 
+        tourManager.replaceTour(editingTour.get(), updated);
         tourListViewModel.selectTour(updated);
 
-        tourManager.replaceTour(editingTour.get(), updated);
+        fireTourEdited(updated);
+
         editingTour.set(null); // clear edit mode
         resetFields();
     }
@@ -120,8 +121,33 @@ public class TourInputViewModel {
         editingTour.set(null);
     }
 
+    private void validateInput() {
+        if (name.get().isBlank() || from.get().isBlank() || to.get().isBlank()) {
+            throw new IllegalArgumentException("Required fields must not be empty.");
+        }
+
+        if (distance.get() <= 0) {
+            throw new IllegalArgumentException("Distance must be greater than 0.");
+        }
+
+        if (estimatedTime.get() <= 0) {
+            throw new IllegalArgumentException("Estimated time must be greater than 0.");
+        }
+    }
 
     public void addTourCreatedListener(PropertyChangeListener listener) {
         tourCreatedEvent.addPropertyChangeListener(listener);
+    }
+
+    private void fireTourCreated(Tour createdTour) {
+        tourCreatedEvent.firePropertyChange("newTour", null, createdTour);
+    }
+
+    public void addTourEditedListener(PropertyChangeListener listener) {
+        tourEditedEvent.addPropertyChangeListener("tourEdited", listener);
+    }
+
+    private void fireTourEdited(Tour updatedTour) {
+        tourEditedEvent.firePropertyChange("tourEdited", null, updatedTour);
     }
 }

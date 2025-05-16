@@ -18,6 +18,7 @@ import java.util.ResourceBundle;
 public class TourInputController implements Initializable {
     private final TourInputViewModel viewModel;
     private Stage dialogStage;
+    private boolean listenersInitialized = false;
 
     public void setDialogStage(Stage dialogStage) {
         this.dialogStage = dialogStage;
@@ -62,24 +63,25 @@ public class TourInputController implements Initializable {
                 newTourTransportTypeBox.getSelectionModel().select(newVal.name());
             }
         });
-
-        viewModel.addTourCreatedListener(evt -> {
-            Tour created = (Tour) evt.getNewValue();
-            ModalService.showInfoModal(
-                    "Tour Created",
-                    "Tour \"" + created.name() + "\" has been successfully created."
-            );
-        });
     }
 
     @FXML
     public void onSaveButtonClick(ActionEvent actionEvent) {
         try {
             viewModel.saveOrUpdateTour();
-            ((Stage) saveTourButton.getScene().getWindow()).close(); // close modal
+            closeModal();
+        }  catch (IllegalArgumentException e) {
+            ModalService.showInfoModal("Invalid Input", e.getMessage());
         } catch (Exception e) {
-            Alert alert = new Alert(Alert.AlertType.ERROR, "Could not save tour: " + e.getMessage());
-            alert.showAndWait();
+            ModalService.showInfoModal(
+                    "Unexpected Error",
+                    "Something went wrong: " + e.getMessage()
+            );
         }
     }
+
+    private void closeModal() {
+        ((Stage) saveTourButton.getScene().getWindow()).close();
+    }
+
 }

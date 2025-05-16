@@ -5,15 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="28563466-d155-4117-a6f3-036ad5da4c5f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/tourplanner/model/ModalType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/tourplanner/view/ModalController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/tourplanner/view/util/ModalService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/tourplanner/confirmation-modal.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/tourplanner/utils/ViewModelInitializer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tourplanner/view/TourDetailController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tourplanner/view/TourDetailController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tourplanner/TourPlannerApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tourplanner/TourPlannerApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/tourplanner/view/TourInputController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tourplanner/view/TourInputController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/tourplanner/viewmodel/TourInputViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tourplanner/viewmodel/TourInputViewModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/tourplanner/mainStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/tourplanner/mainStyle.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,8 +21,8 @@
       <list>
         <option value="JUnit5 Test Class" />
         <option value="FxmlFile" />
-        <option value="Class" />
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -148,7 +144,7 @@
       <workItem from="1747148010603" duration="911000" />
       <workItem from="1747214674623" duration="9936000" />
       <workItem from="1747306238560" duration="9738000" />
-      <workItem from="1747383542653" duration="3105000" />
+      <workItem from="1747383542653" duration="5257000" />
     </task>
     <servers />
   </component>
