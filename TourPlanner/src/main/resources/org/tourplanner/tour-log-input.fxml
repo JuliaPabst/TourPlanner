@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<GridPane xmlns="http://javafx.com/javafx"
+          xmlns:fx="http://javafx.com/fxml"
+          fx:controller="org.tourplanner.view.TourLogInputController"
+          hgap="10" vgap="8"
+          stylesheets="@mainStyle.css"
+          styleClass="dialog-root">
+
+    <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+
+    <Label text="Date:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+    <DatePicker fx:id="logDatePicker" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+    <Label text="User:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+    <TextField fx:id="usernameField" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+    <Label text="Total Time (min):" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+    <TextField fx:id="totalTimeField" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+    <Label text="Distance (km):" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+    <TextField fx:id="totalDistanceField" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+    <Label text="Difficulty:" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+    <ComboBox fx:id="difficultyBox" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+
+    <Label text="Rating:" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
+    <Spinner fx:id="ratingSpinner" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
+
+    <Label text="Comment:" GridPane.rowIndex="6" GridPane.columnIndex="0"/>
+    <TextArea fx:id="commentArea" GridPane.rowIndex="6" GridPane.columnIndex="1"
+              prefRowCount="3" wrapText="true"/>
+
+    <Button text="Save Log" fx:id="saveLogButton" onAction="#onSaveLogClicked"
+            GridPane.rowIndex="7" GridPane.columnIndex="1" GridPane.halignment="RIGHT"
+            styleClass="action-button"/>
+</GridPane>

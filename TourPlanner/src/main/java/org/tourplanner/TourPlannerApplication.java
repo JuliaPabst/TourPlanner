@@ -13,6 +13,9 @@ import org.tourplanner.viewmodel.MainViewModel;
 import org.tourplanner.viewmodel.TourInputViewModel;
 import org.tourplanner.viewmodel.TourListViewModel;
 import org.tourplanner.viewmodel.SearchBarViewModel;
+import org.tourplanner.viewmodel.TourLogInputViewModel;
+import org.tourplanner.service.TourLogManager;
+import org.tourplanner.viewmodel.TourLogListViewModel;
 
 import java.io.IOException;
 
@@ -24,6 +27,9 @@ public class TourPlannerApplication extends Application {
         TourInputViewModel tourInputViewModel = new TourInputViewModel(tourManager, tourListViewModel);
         MainViewModel mainViewModel = new MainViewModel(tourManager, tourInputViewModel);
         SearchBarViewModel searchBarViewModel = new SearchBarViewModel(tourListViewModel);
+        TourLogManager tourLogManager = new TourLogManager();
+        TourLogListViewModel tourLogListViewModel = new TourLogListViewModel(tourLogManager, tourListViewModel);
+        TourLogInputViewModel tourLogInputViewModel = new TourLogInputViewModel(tourLogListViewModel, tourListViewModel);
 
         ViewModelInitializer.setupListeners(tourInputViewModel);
 
@@ -38,7 +44,7 @@ public class TourPlannerApplication extends Application {
             } else if(controllerClass == SearchBarController.class) {
                 return new SearchBarController(searchBarViewModel);
             } else if(controllerClass == TourDetailController.class) {
-                return new TourDetailController(tourListViewModel, tourInputViewModel);
+                return new TourDetailController(tourListViewModel, tourInputViewModel, tourLogInputViewModel);
             } else if(controllerClass == TourListItemController.class) {
                 return new TourListItemController();
             } else {

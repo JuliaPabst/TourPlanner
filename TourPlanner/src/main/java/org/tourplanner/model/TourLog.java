@@ -1,4 +1,14 @@
 package org.tourplanner.model;
 
-public record TourLog(User user, Tour tour, int duration) {
-}
+import java.time.LocalDate;
+
+public record TourLog(
+        LocalDate date,
+        String username,
+        int totalTime,
+        double totalDistance,
+        Difficulty difficulty,
+        int rating,
+        String comment,
+        Tour tour
+) {}
