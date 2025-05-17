@@ -36,15 +36,15 @@ public class TourPlannerApplication extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(TourPlannerApplication.class.getResource("main-view.fxml"));
         fxmlLoader.setControllerFactory(controllerClass -> {
             if(controllerClass == MainController.class) {
-                return new MainController(mainViewModel, tourInputViewModel);
+                return new MainController(mainViewModel, tourInputViewModel, tourLogInputViewModel);
             } else if(controllerClass == TourInputController.class) {
                 return new TourInputController(tourInputViewModel);
             } else if(controllerClass == TourListController.class) {
-                return new TourListController(tourListViewModel);
+                return new TourListController(tourInputViewModel, tourListViewModel);
             } else if(controllerClass == SearchBarController.class) {
                 return new SearchBarController(searchBarViewModel);
             } else if(controllerClass == TourDetailController.class) {
-                return new TourDetailController(tourListViewModel, tourInputViewModel, tourLogInputViewModel);
+                return new TourDetailController(tourListViewModel, tourInputViewModel);
             } else if(controllerClass == TourListItemController.class) {
                 return new TourListItemController();
             } else if(controllerClass == TourLogListController.class) {

@@ -16,24 +16,54 @@
     </VBox>
   </top>
 
-  <!-- Center: Responsive Main Content -->
+  <!-- Center: Main Content -->
   <center>
     <ScrollPane fitToWidth="true" fitToHeight="false"
                 vbarPolicy="AS_NEEDED" hbarPolicy="NEVER">
-      <HBox spacing="10" alignment="TOP_LEFT" HBox.hgrow="ALWAYS" styleClass="main-layout">
+      <HBox spacing="20" alignment="TOP_LEFT" HBox.hgrow="ALWAYS" styleClass="main-layout">
+
+        <!-- LEFT COLUMN -->
         <VBox spacing="10" prefWidth="250" VBox.vgrow="ALWAYS">
-          <Button text="Add Route" onAction="#onOpenAddRouteDialog" styleClass="action-button"/>
           <fx:include source="tour-list.fxml"/>
         </VBox>
 
+        <!-- CENTER COLUMN -->
         <VBox spacing="10" VBox.vgrow="ALWAYS" HBox.hgrow="ALWAYS">
           <fx:include source="tour-detail.fxml"/>
+        </VBox>
+
+        <!-- RIGHT COLUMN -->
+        <VBox spacing="10" prefWidth="300" VBox.vgrow="ALWAYS">
           <fx:include source="tour-log-list.fxml"/>
+
+          <!-- Data Management & Reports -->
+          <VBox spacing="10" prefWidth="300">
+            <Label text="Data Management" styleClass="section-title"/>
+            <GridPane hgap="10">
+              <columnConstraints>
+                <ColumnConstraints percentWidth="50"/>
+                <ColumnConstraints percentWidth="50"/>
+              </columnConstraints>
+              <Button text="Import Tours" styleClass="secondary-button"
+                      GridPane.columnIndex="0" maxWidth="Infinity"/>
+              <Button text="Export Tours" styleClass="secondary-button"
+                      GridPane.columnIndex="1" maxWidth="Infinity"/>
+            </GridPane>
+
+            <Label text="Reports" styleClass="section-title"/>
+            <GridPane hgap="10">
+              <columnConstraints>
+                <ColumnConstraints percentWidth="50"/>
+                <ColumnConstraints percentWidth="50"/>
+              </columnConstraints>
+              <Button text="Tour Report" styleClass="secondary-button"
+                      GridPane.columnIndex="0" maxWidth="Infinity"/>
+              <Button text="Summary Report" styleClass="secondary-button"
+                      GridPane.columnIndex="1" maxWidth="Infinity"/>
+            </GridPane>
+          </VBox>
         </VBox>
 
-        <VBox spacing="10" prefWidth="250" VBox.vgrow="ALWAYS">
-
-        </VBox>
       </HBox>
     </ScrollPane>
   </center>

@@ -11,9 +11,8 @@
     </padding>
     
     <HBox spacing="10">
-        <Button fx:id="editButton" styleClass="action-button" text="Edit" onAction="#onEditButtonClicked"/>
-        <Button fx:id="deleteButton" styleClass="danger-button" text="Delete" onAction='#onDeleteButtonClicked'/>
-        <Button fx:id="addLogButton" styleClass="action-button" text="Add Log" onAction="#onAddLogButtonClicked"/>
+        <Button fx:id="editButton" text="Edit" onAction="#onEditButtonClicked" styleClass="secondary-button"/>
+        <Button fx:id="deleteButton" text="Delete" onAction="#onDeleteButtonClicked" styleClass="danger-button"/>
     </HBox>
 
     <Label fx:id="titleLabel" styleClass="tour-title" />

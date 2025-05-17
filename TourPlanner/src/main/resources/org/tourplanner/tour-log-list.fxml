@@ -16,5 +16,6 @@
       styleClass="tour-list-wrapper">
 
     <Label text="Tour Logs" styleClass="section-title"/>
+    <Button text="+ Add Log" onAction="#onAddLogClicked" styleClass="primary-button" maxWidth="Infinity"/>
     <VBox fx:id="logListContainer" spacing="10" VBox.vgrow="ALWAYS"/>
 </VBox>

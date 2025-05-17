@@ -14,7 +14,6 @@ import org.tourplanner.model.Tour;
 import org.tourplanner.view.util.ModalService;
 import org.tourplanner.viewmodel.TourInputViewModel;
 import org.tourplanner.viewmodel.TourListViewModel;
-import org.tourplanner.viewmodel.TourLogInputViewModel;
 
 import java.io.IOException;
 import java.net.URL;
@@ -63,12 +62,10 @@ public class TourDetailController implements Initializable {
 
     private final TourListViewModel listViewModel;
     private final TourInputViewModel inputViewModel;
-    private final TourLogInputViewModel logInputViewModel;
 
-    public TourDetailController(TourListViewModel listViewModel, TourInputViewModel inputViewModel, TourLogInputViewModel logInputViewModel) {
+    public TourDetailController(TourListViewModel listViewModel, TourInputViewModel inputViewModel) {
         this.listViewModel = listViewModel;
         this.inputViewModel = inputViewModel;
-        this.logInputViewModel = logInputViewModel;
     }
 
     @Override
@@ -174,28 +171,5 @@ public class TourDetailController implements Initializable {
                 "Are you sure you want to delete \"" + selected.name() + "\"?",
                 () -> listViewModel.deleteTour(selected)
         );
-    }
-
-    @FXML
-    private void onAddLogButtonClicked() {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/tourplanner/tour-log-input.fxml"));
-            loader.setControllerFactory(clazz -> new TourLogInputController(logInputViewModel));
-
-            Parent root = loader.load();
-
-            Stage dialog = new Stage();
-            dialog.setTitle("Add Tour Log");
-            dialog.setScene(new Scene(root));
-            dialog.initModality(Modality.APPLICATION_MODAL);
-
-            TourLogInputController controller = loader.getController();
-            controller.setDialogStage(dialog);
-
-            dialog.showAndWait();
-
-        } catch(IOException e) {
-            e.printStackTrace();
-        }
     }
 }

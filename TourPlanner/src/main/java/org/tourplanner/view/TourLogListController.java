@@ -3,8 +3,12 @@ package org.tourplanner.view;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.layout.VBox;
 import javafx.collections.ListChangeListener;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 import org.tourplanner.model.TourLog;
 import org.tourplanner.viewmodel.TourLogInputViewModel;
 import org.tourplanner.viewmodel.TourLogListViewModel;
@@ -47,6 +51,29 @@ public class TourLogListController implements Initializable {
             } catch(IOException e) {
                 e.printStackTrace();
             }
+        }
+    }
+
+    @FXML
+    public void onAddLogClicked() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/tourplanner/tour-log-input.fxml"));
+            loader.setControllerFactory(clazz -> new TourLogInputController(inputViewModel));
+
+            Parent root = loader.load();
+
+            Stage dialog = new Stage();
+            dialog.setTitle("Add Tour Log");
+            dialog.setScene(new Scene(root));
+            dialog.initModality(Modality.APPLICATION_MODAL);
+
+            TourLogInputController controller = loader.getController();
+            controller.setDialogStage(dialog);
+
+            dialog.showAndWait();
+
+        } catch(IOException e) {
+            e.printStackTrace();
         }
     }
 }

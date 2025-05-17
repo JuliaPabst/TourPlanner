@@ -3,6 +3,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.VBox?>
 
+<?import javafx.scene.control.Button?>
 <VBox xmlns="http://javafx.com/javafx"
       xmlns:fx="http://javafx.com/fxml"
       fx:controller="org.tourplanner.view.TourListController"
@@ -10,7 +11,7 @@
       styleClass="tour-list-wrapper">
 
     <Label text="Tours" styleClass="section-title"/>
-
+    <Button text="+ New Tour" onAction="#onOpenAddRouteDialog" styleClass="primary-button" maxWidth="Infinity"/>
     <!-- This VBox will be filled with reusable FXML tour item boxes -->
     <VBox fx:id="tourListContainer" spacing="10" VBox.vgrow="ALWAYS"/>
 

@@ -6,8 +6,12 @@ import javafx.collections.ListChangeListener;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.layout.VBox;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 import org.tourplanner.model.Tour;
+import org.tourplanner.viewmodel.TourInputViewModel;
 import org.tourplanner.viewmodel.TourListViewModel;
 
 import java.io.IOException;
@@ -15,10 +19,11 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class TourListController implements Initializable {
-
+    private final TourInputViewModel tourInputViewModel;
     private final TourListViewModel viewModel;
 
-    public TourListController(TourListViewModel viewModel) {
+    public TourListController(TourInputViewModel tourInputViewModel, TourListViewModel viewModel) {
+        this.tourInputViewModel = tourInputViewModel;
         this.viewModel = viewModel;
     }
 
@@ -55,6 +60,29 @@ public class TourListController implements Initializable {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+        }
+    }
+
+    @FXML
+    public void onOpenAddRouteDialog() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/tourplanner/tour-input.fxml"));
+            loader.setControllerFactory(clazz -> new TourInputController(tourInputViewModel));
+
+            Scene scene = new Scene(loader.load());
+
+            // Access controller to inject dialog stage
+            TourInputController controller = loader.getController();
+            Stage dialogStage = new Stage();
+            controller.setDialogStage(dialogStage);
+
+            dialogStage.setTitle("Add New Tour");
+            dialogStage.initModality(Modality.APPLICATION_MODAL);
+            dialogStage.setScene(scene);
+            dialogStage.showAndWait();
+
+        } catch(IOException e) {
+            e.printStackTrace();
         }
     }
 }

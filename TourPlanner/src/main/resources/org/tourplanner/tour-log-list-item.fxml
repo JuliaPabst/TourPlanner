@@ -17,14 +17,8 @@
     <Label fx:id="commentLabel" wrapText="true" styleClass="tour-subtitle"/>
 
     <HBox spacing="10">
-        <Button fx:id="editButton"
-                text="Edit"
-                onAction="#onEditClicked"
-                styleClass="action-button"/>
-        <Button fx:id="deleteButton"
-                text="Delete"
-                onAction="#onDeleteClicked"
-                styleClass="danger-button"/>
+        <Button fx:id="editButton" text="Edit" onAction="#onEditClicked" styleClass="secondary-button"/>
+        <Button fx:id="deleteButton" text="Delete" onAction="#onDeleteClicked" styleClass="danger-button"/>
     </HBox>
 
 </VBox>
