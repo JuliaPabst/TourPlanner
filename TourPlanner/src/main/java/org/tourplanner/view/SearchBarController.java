@@ -22,6 +22,9 @@ public class SearchBarController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         Bindings.bindBidirectional(searchField.textProperty(), viewModel.searchQueryProperty());
+
+        // Press 'Enter' to search
+        searchField.setOnAction(e -> viewModel.performSearch());
     }
 
     @FXML

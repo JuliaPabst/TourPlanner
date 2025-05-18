@@ -87,4 +87,27 @@ public class TourListViewModel {
         else if(score >= 20) return 2;
         else return 1;
     }
+
+    public void filterByFullText(String query, TourLogManager logManager) {
+        if(query == null || query.isBlank()) {
+            filteredTours.setPredicate(tour -> true);
+            return;
+        }
+
+        String lowerQuery = query.toLowerCase();
+
+        filteredTours.setPredicate(tour -> {
+            boolean matchesTourName = tour.name().toLowerCase().contains(lowerQuery);
+
+            boolean matchesLog = logManager.getLogList().stream()
+                    .filter(log -> log.tour().equals(tour))
+                    .anyMatch(log ->
+                            (log.comment() != null && log.comment().toLowerCase().contains(lowerQuery)) ||
+                                    (log.username() != null && log.username().toLowerCase().contains(lowerQuery))
+                    );
+
+            return matchesTourName || matchesLog;
+        });
+    }
+
 }

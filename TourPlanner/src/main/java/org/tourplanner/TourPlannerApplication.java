@@ -27,7 +27,7 @@ public class TourPlannerApplication extends Application {
         TourListViewModel tourListViewModel = new TourListViewModel(tourManager, tourLogManager);
         TourInputViewModel tourInputViewModel = new TourInputViewModel(tourManager, tourListViewModel);
         MainViewModel mainViewModel = new MainViewModel(tourManager, tourInputViewModel);
-        SearchBarViewModel searchBarViewModel = new SearchBarViewModel(tourListViewModel);
+        SearchBarViewModel searchBarViewModel = new SearchBarViewModel(tourListViewModel, tourLogManager);
         TourLogListViewModel tourLogListViewModel = new TourLogListViewModel(tourLogManager, tourListViewModel);
         TourLogInputViewModel tourLogInputViewModel = new TourLogInputViewModel(tourLogListViewModel, tourListViewModel);
 

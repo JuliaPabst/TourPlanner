@@ -2,10 +2,17 @@ package org.tourplanner.viewmodel;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import org.tourplanner.service.TourLogManager;
 
 public class SearchBarViewModel {
     private final StringProperty searchQuery = new SimpleStringProperty("");
     private final TourListViewModel tourListViewModel;
+    private final TourLogManager tourLogManager;
+
+    public SearchBarViewModel(TourListViewModel tourListViewModel, TourLogManager tourLogManager) {
+        this.tourListViewModel = tourListViewModel;
+        this.tourLogManager = tourLogManager;
+    }
 
     public StringProperty searchQueryProperty() {
         return searchQuery;
@@ -15,11 +22,7 @@ public class SearchBarViewModel {
         return searchQuery.get();
     }
 
-    public SearchBarViewModel(TourListViewModel tourListViewModel) {
-        this.tourListViewModel = tourListViewModel;
-    }
-
     public void performSearch() {
-        tourListViewModel.filterByName(getSearchQuery());
+        tourListViewModel.filterByFullText(getSearchQuery(), tourLogManager);
     }
 }
