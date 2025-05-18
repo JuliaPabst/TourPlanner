@@ -18,15 +18,27 @@ public class TourListItemController {
 
     public void setTour(Tour tour) {
         this.tour = tour;
-        titleLabel.setText(tour.name());
-        fromLabel.setText("From: " + tour.from());
-        toLabel.setText("To: " + tour.to());
-        distanceLabel.setText(tour.distance() + " km | " + tour.estimatedTime() + " min");
-        popularityLabel.setText("Popularity: ★★★★"); // Todo: calculate dynamic popularity
+        updateView();
     }
 
     public void setViewModel(TourListViewModel viewModel) {
         this.viewModel = viewModel;
+        updateView();
+    }
+
+    public void updateView() {
+        if(tour == null) return;
+
+        titleLabel.setText(tour.name());
+        fromLabel.setText("From: " + tour.from());
+        toLabel.setText("To: " + tour.to());
+        distanceLabel.setText(tour.distance() + " km | " + tour.estimatedTime() + " min");
+        if(viewModel != null) {
+            int popularity = viewModel.getPopularity(tour);
+            popularityLabel.setText("Popularity: " + "★".repeat(popularity));
+        } else {
+            popularityLabel.setText("Popularity: N/A");
+        }
     }
 
     @FXML

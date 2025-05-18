@@ -10,7 +10,10 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.collections.ListChangeListener;
 import org.tourplanner.model.Tour;
+import org.tourplanner.model.TourLog;
+import org.tourplanner.service.TourLogManager;
 import org.tourplanner.view.util.ModalService;
 import org.tourplanner.viewmodel.TourInputViewModel;
 import org.tourplanner.viewmodel.TourListViewModel;
@@ -62,10 +65,12 @@ public class TourDetailController implements Initializable {
 
     private final TourListViewModel listViewModel;
     private final TourInputViewModel inputViewModel;
+    private final TourLogManager logManager;
 
-    public TourDetailController(TourListViewModel listViewModel, TourInputViewModel inputViewModel) {
+    public TourDetailController(TourListViewModel listViewModel, TourInputViewModel inputViewModel, TourLogManager logManager) {
         this.listViewModel = listViewModel;
         this.inputViewModel = inputViewModel;
+        this.logManager = logManager;
     }
 
     @Override
@@ -75,6 +80,13 @@ public class TourDetailController implements Initializable {
                 updateView(newTour);
             } else {
                 showNoSelectionMessage();
+            }
+        });
+
+        logManager.getLogList().addListener((ListChangeListener<TourLog>) change -> {
+            Tour current = listViewModel.selectedTourProperty().get();
+            if(current != null) {
+                updateView(current);
             }
         });
 
@@ -122,9 +134,11 @@ public class TourDetailController implements Initializable {
         timeLabel.setText("Est. time: " + tour.estimatedTime() + " min");
         descriptionText.setText(tour.tourDescription());
 
-        // Placeholder values
-        popularityLabel.setText("Popularity: ★★★★");
-        childFriendlyLabel.setText("Child-friendly: ★★★");
+        int popularity = listViewModel.getPopularity(tour);
+        int childFriendly = listViewModel.getChildFriendliness(tour);
+
+        popularityLabel.setText("Popularity: " + "★".repeat(popularity));
+        childFriendlyLabel.setText("Child-friendly: " + "★".repeat(childFriendly));
 
         routeSectionTitle.setText("Route");
         transportTypeSectionTitle.setText("Transport Type");

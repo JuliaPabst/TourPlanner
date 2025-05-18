@@ -23,11 +23,11 @@ public class TourPlannerApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         TourManager tourManager = new TourManager();
-        TourListViewModel tourListViewModel = new TourListViewModel(tourManager);
+        TourLogManager tourLogManager = new TourLogManager();
+        TourListViewModel tourListViewModel = new TourListViewModel(tourManager, tourLogManager);
         TourInputViewModel tourInputViewModel = new TourInputViewModel(tourManager, tourListViewModel);
         MainViewModel mainViewModel = new MainViewModel(tourManager, tourInputViewModel);
         SearchBarViewModel searchBarViewModel = new SearchBarViewModel(tourListViewModel);
-        TourLogManager tourLogManager = new TourLogManager();
         TourLogListViewModel tourLogListViewModel = new TourLogListViewModel(tourLogManager, tourListViewModel);
         TourLogInputViewModel tourLogInputViewModel = new TourLogInputViewModel(tourLogListViewModel, tourListViewModel);
 
@@ -40,11 +40,11 @@ public class TourPlannerApplication extends Application {
             } else if(controllerClass == TourInputController.class) {
                 return new TourInputController(tourInputViewModel);
             } else if(controllerClass == TourListController.class) {
-                return new TourListController(tourInputViewModel, tourListViewModel);
+                return new TourListController(tourInputViewModel, tourListViewModel, tourLogManager);
             } else if(controllerClass == SearchBarController.class) {
                 return new SearchBarController(searchBarViewModel);
             } else if(controllerClass == TourDetailController.class) {
-                return new TourDetailController(tourListViewModel, tourInputViewModel);
+                return new TourDetailController(tourListViewModel, tourInputViewModel, tourLogManager);
             } else if(controllerClass == TourListItemController.class) {
                 return new TourListItemController();
             } else if(controllerClass == TourLogListController.class) {

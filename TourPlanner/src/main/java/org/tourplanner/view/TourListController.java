@@ -11,6 +11,8 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import org.tourplanner.model.Tour;
+import org.tourplanner.model.TourLog;
+import org.tourplanner.service.TourLogManager;
 import org.tourplanner.viewmodel.TourInputViewModel;
 import org.tourplanner.viewmodel.TourListViewModel;
 
@@ -21,10 +23,12 @@ import java.util.ResourceBundle;
 public class TourListController implements Initializable {
     private final TourInputViewModel tourInputViewModel;
     private final TourListViewModel viewModel;
+    private final TourLogManager logManager;
 
-    public TourListController(TourInputViewModel tourInputViewModel, TourListViewModel viewModel) {
+    public TourListController(TourInputViewModel tourInputViewModel, TourListViewModel viewModel, TourLogManager logManager) {
         this.tourInputViewModel = tourInputViewModel;
         this.viewModel = viewModel;
+        this.logManager = logManager;
     }
 
     @FXML
@@ -35,6 +39,7 @@ public class TourListController implements Initializable {
         rebuildTourList();
 
         viewModel.getTours().addListener((ListChangeListener<Tour>) change -> rebuildTourList());
+        logManager.getLogList().addListener((ListChangeListener<TourLog>) change -> rebuildTourList());
 
         viewModel.selectedTourProperty().addListener(new ChangeListener<Tour>() {
             @Override
