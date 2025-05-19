@@ -5,11 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="28563466-d155-4117-a6f3-036ad5da4c5f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/tourplanner/utils/ViewModelInitializer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tourplanner/TourPlannerApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tourplanner/TourPlannerApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tourplanner/view/TourInputController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tourplanner/view/TourInputController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tourplanner/viewmodel/TourInputViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tourplanner/viewmodel/TourInputViewModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/tourplanner/viewmodel/SearchBarViewModelTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/tourplanner/viewmodel/SearchBarViewModelTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/tourplanner/viewmodel/TourInputViewModelTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/tourplanner/viewmodel/TourInputViewModelTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/tourplanner/viewmodel/TourListViewModelTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/tourplanner/viewmodel/TourListViewModelTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,9 +114,64 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="SearchBarViewModelTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TourPlanner" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.tourplanner.viewmodel.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.tourplanner.viewmodel" />
+      <option name="MAIN_CLASS_NAME" value="org.tourplanner.viewmodel.SearchBarViewModelTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TourInputViewModelTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TourPlanner" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.tourplanner.viewmodel.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.tourplanner.viewmodel" />
+      <option name="MAIN_CLASS_NAME" value="org.tourplanner.viewmodel.TourInputViewModelTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TourListViewModelTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TourPlanner" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.tourplanner.viewmodel.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.tourplanner.viewmodel" />
+      <option name="MAIN_CLASS_NAME" value="org.tourplanner.viewmodel.TourListViewModelTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.TourPlannerApplication" />
+      <item itemvalue="JUnit.RouteInputViewModelTest" />
+      <item itemvalue="JUnit.SearchBarViewModelTest" />
+      <item itemvalue="JUnit.TourInputViewModelTest" />
+      <item itemvalue="JUnit.TourListViewModelTest" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.TourPlannerApplication" />
+        <item itemvalue="JUnit.TourListViewModelTest" />
+        <item itemvalue="JUnit.TourInputViewModelTest" />
+        <item itemvalue="JUnit.SearchBarViewModelTest" />
       </list>
     </recent_temporary>
   </component>

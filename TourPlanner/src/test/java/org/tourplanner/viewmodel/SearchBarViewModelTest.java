@@ -3,20 +3,22 @@ package org.tourplanner.viewmodel;
 import javafx.beans.property.StringProperty;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
+import org.tourplanner.service.TourLogManager;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 
 class SearchBarViewModelTest {
 
     private TourListViewModel mockTourListViewModel;
+    private TourLogManager mockTourLogManager;
     private SearchBarViewModel viewModel;
 
     @BeforeEach
     void setUp() {
-        mockTourListViewModel = Mockito.mock(TourListViewModel.class);
-        viewModel = new SearchBarViewModel(mockTourListViewModel);
+        mockTourListViewModel = mock(TourListViewModel.class);
+        mockTourLogManager = mock(TourLogManager.class);
+        viewModel = new SearchBarViewModel(mockTourListViewModel, mockTourLogManager);
     }
 
     @Test
@@ -25,19 +27,28 @@ class SearchBarViewModelTest {
     }
 
     @Test
-    void testSearchQueryPropertyUpdatesValue() {
-        StringProperty queryProperty = viewModel.searchQueryProperty();
-        queryProperty.set("test search");
+    void testSearchQueryPropertyCanBeUpdated() {
+        StringProperty searchProperty = viewModel.searchQueryProperty();
+        searchProperty.set("donau");
 
-        assertEquals("test search", viewModel.getSearchQuery());
+        assertEquals("donau", viewModel.getSearchQuery());
     }
 
     @Test
-    void testPerformSearchDelegatesToTourListViewModel() {
-        viewModel.searchQueryProperty().set("alps");
+    void testPerformSearchDelegatesToTourListViewModelWithQueryAndLogManager() {
+        viewModel.searchQueryProperty().set("adventure");
 
         viewModel.performSearch();
 
-        verify(mockTourListViewModel, times(1)).filterByName("alps");
+        verify(mockTourListViewModel, times(1)).filterByFullText("adventure", mockTourLogManager);
+    }
+
+    @Test
+    void testPerformSearchWithEmptyStringStillCallsFilter() {
+        viewModel.searchQueryProperty().set("");
+
+        viewModel.performSearch();
+
+        verify(mockTourListViewModel, times(1)).filterByFullText("", mockTourLogManager);
     }
 }
