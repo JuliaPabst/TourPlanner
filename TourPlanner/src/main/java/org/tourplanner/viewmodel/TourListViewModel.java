@@ -8,11 +8,13 @@ import org.tourplanner.model.TourLog;
 import org.tourplanner.model.Difficulty;
 import org.tourplanner.service.TourManager;
 import org.tourplanner.service.TourLogManager;
+import org.tourplanner.service.TourMetricsCalculator;
 
 public class TourListViewModel {
     private final FilteredList<Tour> filteredTours;
     private final TourManager tourManager;
     private final TourLogManager logManager;
+    private final TourMetricsCalculator metricsCalculator;
 
     private final ObjectProperty<Tour> selectedTour = new SimpleObjectProperty<>();
 
@@ -20,6 +22,7 @@ public class TourListViewModel {
         this.filteredTours = new FilteredList<>(tourManager.getTourList(), p -> true);
         this.tourManager = tourManager;
         this.logManager = logManager;
+        this.metricsCalculator = new TourMetricsCalculator();
 
         if (!filteredTours.isEmpty()) {
             selectedTour.set(filteredTours.getFirst());
@@ -54,38 +57,13 @@ public class TourListViewModel {
     }
 
     public int getPopularity(Tour tour) {
-        if(tour == null) return 0;
-        long count = logManager.getLogList().stream().filter(log -> log.tour().equals(tour)).count();
-
-        if(count >= 10) return 5;
-        else if(count >= 7) return 4;
-        else if(count >= 4) return 3;
-        else if(count >= 2) return 2;
-        else if(count >= 1) return 1;
-        else return 0;
+        if (tour == null) return 0;
+        return metricsCalculator.calculatePopularity(logManager.getLogList(), tour);
     }
 
     public int getChildFriendliness(Tour tour) {
         if(tour == null) return 0;
-        var logs = logManager.getLogList().stream().filter(log -> log.tour().equals(tour)).toList();
-        if(logs.isEmpty()) return 0;
-
-        double avgDifficulty = logs.stream().mapToInt(log -> switch(log.difficulty()) {
-            case EASY -> 1;
-            case MEDIUM -> 2;
-            case HARD -> 3;
-        }).average().orElse(2);
-
-        double avgDistance = logs.stream().mapToDouble(log -> log.totalDistance()).average().orElse(0);
-        double avgTime = logs.stream().mapToInt(log -> log.totalTime()).average().orElse(0);
-
-        double score = 100 - (avgDifficulty * 20 + avgDistance * 2 + avgTime * 0.5);
-
-        if(score >= 80) return 5;
-        else if(score >= 60) return 4;
-        else if(score >= 40) return 3;
-        else if(score >= 20) return 2;
-        else return 1;
+        return metricsCalculator.calculateChildFriendliness(logManager.getLogList(), tour);
     }
 
     public void filterByFullText(String query, TourLogManager logManager) {
