@@ -8,14 +8,24 @@ import java.util.List;
 
 public class TourMetricsCalculator {
     public int calculatePopularity(List<TourLog> allLogs, Tour tour) {
-        long count = allLogs.stream().filter(log -> log.tour().equals(tour)).count();
+        var logs = allLogs.stream().filter(log -> log.tour().equals(tour)).toList();
 
-        if(count >= 10) return 5;
-        else if(count >= 7) return 4;
-        else if(count >= 4) return 3;
-        else if(count >= 2) return 2;
-        else if(count >= 1) return 1;
-        else return 0;
+        if(logs.isEmpty()) return 0;
+
+        int countStars;
+        int size = logs.size();
+
+        if(size >= 10) countStars = 5;
+        else if(size >= 7) countStars = 4;
+        else if(size >= 4) countStars = 3;
+        else if(size >= 2) countStars = 2;
+        else countStars = 1;
+
+        double avgRating = logs.stream().mapToInt(TourLog::rating).average().orElse(3.0);
+
+        double combined = (0.7 * countStars) + (0.3 * avgRating);
+
+        return (int) Math.round(combined);
     }
 
     public int calculateChildFriendliness(List<TourLog> allLogs, Tour tour) {
