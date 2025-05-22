@@ -2,6 +2,8 @@ package org.tourplanner.viewmodel;
 
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import javafx.collections.transformation.FilteredList;
 import org.tourplanner.model.Tour;
 import org.tourplanner.model.TourLog;
@@ -17,6 +19,16 @@ public class TourListViewModel {
     private final TourMetricsCalculator metricsCalculator;
 
     private final ObjectProperty<Tour> selectedTour = new SimpleObjectProperty<>();
+
+    // Display properties fpr View Binding
+    private final StringProperty fromLabel = new SimpleStringProperty();
+    private final StringProperty toLabel = new SimpleStringProperty();
+    private final StringProperty transportTypeLabel = new SimpleStringProperty();
+    private final StringProperty distanceLabel = new SimpleStringProperty();
+    private final StringProperty timeLabel = new SimpleStringProperty();
+    private final StringProperty descriptionText = new SimpleStringProperty();
+    private final StringProperty popularityText = new SimpleStringProperty();
+    private final StringProperty childFriendlyText = new SimpleStringProperty();
 
     public TourListViewModel(TourManager tourManager, TourLogManager logManager) {
         this.filteredTours = new FilteredList<>(tourManager.getTourList(), p -> true);
@@ -88,4 +100,30 @@ public class TourListViewModel {
         });
     }
 
+    // View Bindings
+    public StringProperty fromLabelProperty() { return fromLabel; }
+    public StringProperty toLabelProperty() { return toLabel; }
+    public StringProperty transportTypeLabelProperty() { return transportTypeLabel; }
+    public StringProperty distanceLabelProperty() { return distanceLabel; }
+    public StringProperty timeLabelProperty() { return timeLabel; }
+    public StringProperty descriptionTextProperty() { return descriptionText; }
+    public StringProperty popularityTextProperty() { return popularityText; }
+    public StringProperty childFriendlyTextProperty() { return childFriendlyText; }
+
+    public void updateDisplayData(Tour tour) {
+        if(tour == null) return;
+
+        fromLabel.set("From: " + tour.from());
+        toLabel.set("To: " + tour.to());
+        transportTypeLabel.set(tour.transportType().name());
+        distanceLabel.set("Distance: " + tour.distance() + " km");
+        timeLabel.set("Est. time: " + tour.estimatedTime() + " min");
+        descriptionText.set(tour.tourDescription());
+
+        int popularity = getPopularity(tour);
+        popularityText.set("Popularity: " + "★".repeat(popularity));
+
+        int childFriendliness = getChildFriendliness(tour);
+        childFriendlyText.set("Child-friendly: " + "★".repeat(childFriendliness));
+    }
 }

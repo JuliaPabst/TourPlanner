@@ -56,10 +56,8 @@ public class TourDetailController implements Initializable {
     private ImageView mapImageView;
     @FXML
     private Label descriptionText;
-
     @FXML
     private Button editButton;
-
     @FXML
     private Button deleteButton;
 
@@ -75,6 +73,17 @@ public class TourDetailController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        // Bind display porperties
+        fromLabel.textProperty().bind(listViewModel.fromLabelProperty());
+        toLabel.textProperty().bind(listViewModel.toLabelProperty());
+        transportTypeLabel.textProperty().bind(listViewModel.transportTypeLabelProperty());
+        distanceLabel.textProperty().bind(listViewModel.distanceLabelProperty());
+        timeLabel.textProperty().bind(listViewModel.timeLabelProperty());
+        descriptionText.textProperty().bind(listViewModel.descriptionTextProperty());
+        popularityLabel.textProperty().bind(listViewModel.popularityTextProperty());
+        childFriendlyLabel.textProperty().bind(listViewModel.childFriendlyTextProperty());
+
+        // When selection changes recalculate UI
         listViewModel.selectedTourProperty().addListener((obs, oldTour, newTour) -> {
             if (newTour != null) {
                 updateView(newTour);
@@ -105,6 +114,15 @@ public class TourDetailController implements Initializable {
         deleteButton.setVisible(false);
 
         titleLabel.setText("Please select a tour from the overview on the left");
+        fromLabel.textProperty().unbind();
+        toLabel.textProperty().unbind();
+        transportTypeLabel.textProperty().unbind();
+        distanceLabel.textProperty().unbind();
+        timeLabel.textProperty().unbind();
+        descriptionText.textProperty().unbind();
+        popularityLabel.textProperty().unbind();
+        childFriendlyLabel.textProperty().unbind();
+
         fromLabel.setText("");
         toLabel.setText("");
         transportTypeLabel.setText("");
@@ -113,6 +131,7 @@ public class TourDetailController implements Initializable {
         descriptionText.setText("");
         popularityLabel.setText("");
         childFriendlyLabel.setText("");
+
         mapImageView.setImage(null);
         routeSectionTitle.setText("");
         transportTypeSectionTitle.setText("");
@@ -127,18 +146,8 @@ public class TourDetailController implements Initializable {
         deleteButton.setVisible(true);
 
         titleLabel.setText(tour.name());
-        fromLabel.setText("From: " + tour.from());
-        toLabel.setText("To: " + tour.to());
-        transportTypeLabel.setText(tour.transportType().name());
-        distanceLabel.setText("Distance: " + tour.distance() + " km");
-        timeLabel.setText("Est. time: " + tour.estimatedTime() + " min");
-        descriptionText.setText(tour.tourDescription());
 
-        int popularity = listViewModel.getPopularity(tour);
-        int childFriendly = listViewModel.getChildFriendliness(tour);
-
-        popularityLabel.setText("Popularity: " + "★".repeat(popularity));
-        childFriendlyLabel.setText("Child-friendly: " + "★".repeat(childFriendly));
+        listViewModel.updateDisplayData(tour);
 
         routeSectionTitle.setText("Route");
         transportTypeSectionTitle.setText("Transport Type");
