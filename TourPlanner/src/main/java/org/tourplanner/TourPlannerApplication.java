@@ -22,8 +22,11 @@ import java.io.IOException;
 public class TourPlannerApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        TourManager tourManager = new TourManager();
+        // Managers
         TourLogManager tourLogManager = new TourLogManager();
+        TourManager tourManager = new TourManager(tourLogManager);
+
+        // ViewModels
         TourListViewModel tourListViewModel = new TourListViewModel(tourManager, tourLogManager);
         TourInputViewModel tourInputViewModel = new TourInputViewModel(tourManager, tourListViewModel);
         MainViewModel mainViewModel = new MainViewModel(tourManager, tourInputViewModel);
@@ -31,9 +34,11 @@ public class TourPlannerApplication extends Application {
         TourLogListViewModel tourLogListViewModel = new TourLogListViewModel(tourLogManager, tourListViewModel);
         TourLogInputViewModel tourLogInputViewModel = new TourLogInputViewModel(tourLogListViewModel, tourListViewModel);
 
+        // Feedback-Listener
         ViewModelInitializer.setupListeners(tourInputViewModel);
         ViewModelInitializer.setupListeners(tourLogInputViewModel);
 
+        // Main Scene
         FXMLLoader fxmlLoader = new FXMLLoader(TourPlannerApplication.class.getResource("main-view.fxml"));
         fxmlLoader.setControllerFactory(controllerClass -> {
             if(controllerClass == MainController.class) {
@@ -55,6 +60,7 @@ public class TourPlannerApplication extends Application {
             }
         });
 
+        // Show
         Scene scene = new Scene(fxmlLoader.load(), 1080, 500);
         stage.setTitle("TourPlanner");
         stage.setScene(scene);
