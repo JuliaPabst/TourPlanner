@@ -1,9 +1,6 @@
 package org.tourplanner.viewmodel;
 
-import javafx.beans.property.ObjectProperty;
-import javafx.beans.property.SimpleObjectProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
+import javafx.beans.property.*;
 import javafx.collections.transformation.FilteredList;
 import org.tourplanner.model.Tour;
 import org.tourplanner.model.TourLog;
@@ -19,8 +16,9 @@ public class TourListViewModel {
     private final TourMetricsCalculator metricsCalculator;
 
     private final ObjectProperty<Tour> selectedTour = new SimpleObjectProperty<>();
+    private final BooleanProperty showNoSelectionMessage = new SimpleBooleanProperty(true);
 
-    // Display properties fpr View Binding
+    // Display properties for View Binding
     private final StringProperty fromLabel = new SimpleStringProperty();
     private final StringProperty toLabel = new SimpleStringProperty();
     private final StringProperty transportTypeLabel = new SimpleStringProperty();
@@ -49,16 +47,10 @@ public class TourListViewModel {
         selectedTour.set(tour);
     }
 
+    public BooleanProperty showNoSelectionMessageProperty() { return showNoSelectionMessage; }
+
     public FilteredList<Tour> getTours() {
         return filteredTours;
-    }
-
-    public void filterByName(String query) {
-        if(query == null || query.isBlank()) {
-            filteredTours.setPredicate(tour -> true);
-        } else {
-            filteredTours.setPredicate(tour -> tour.name().toLowerCase().contains(query.toLowerCase()));
-        }
     }
 
     public void deleteTour(Tour tour) {

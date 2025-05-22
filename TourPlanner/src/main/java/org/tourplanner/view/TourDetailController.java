@@ -71,9 +71,7 @@ public class TourDetailController implements Initializable {
         this.logManager = logManager;
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        // Bind display porperties
+    private void bindDetailLabels() {
         fromLabel.textProperty().bind(listViewModel.fromLabelProperty());
         toLabel.textProperty().bind(listViewModel.toLabelProperty());
         transportTypeLabel.textProperty().bind(listViewModel.transportTypeLabelProperty());
@@ -82,16 +80,34 @@ public class TourDetailController implements Initializable {
         descriptionText.textProperty().bind(listViewModel.descriptionTextProperty());
         popularityLabel.textProperty().bind(listViewModel.popularityTextProperty());
         childFriendlyLabel.textProperty().bind(listViewModel.childFriendlyTextProperty());
+    }
 
-        // When selection changes recalculate UI
+    private void unbindDetailLabels() {
+        fromLabel.textProperty().unbind();
+        toLabel.textProperty().unbind();
+        transportTypeLabel.textProperty().unbind();
+        distanceLabel.textProperty().unbind();
+        timeLabel.textProperty().unbind();
+        descriptionText.textProperty().unbind();
+        popularityLabel.textProperty().unbind();
+        childFriendlyLabel.textProperty().unbind();
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        bindDetailLabels();
+
+        // React to selection changes
         listViewModel.selectedTourProperty().addListener((obs, oldTour, newTour) -> {
-            if (newTour != null) {
+            if(newTour != null) {
+                listViewModel.showNoSelectionMessageProperty().set(false);
                 updateView(newTour);
             } else {
-                showNoSelectionMessage();
+                listViewModel.showNoSelectionMessageProperty().set(true);
             }
         });
 
+        // Listen for changes in logs that may require an UI update
         logManager.getLogList().addListener((ListChangeListener<TourLog>) change -> {
             Tour current = listViewModel.selectedTourProperty().get();
             if(current != null) {
@@ -99,11 +115,20 @@ public class TourDetailController implements Initializable {
             }
         });
 
+        // Bind visibility and messages to boolean property
+        listViewModel.showNoSelectionMessageProperty().addListener((obs, wasVisible, isVisible) -> {
+            if(isVisible) {
+                showNoSelectionMessage();
+            }
+        });
+
+        // Initial state
         Tour current = listViewModel.selectedTourProperty().get();
-        if (current != null) {
+        if(current != null) {
+            listViewModel.showNoSelectionMessageProperty().set(false);
             updateView(current);
         } else {
-            showNoSelectionMessage();
+            listViewModel.showNoSelectionMessageProperty().set(true);
         }
 
         deleteButton.setDisable(false); // optional
@@ -114,14 +139,7 @@ public class TourDetailController implements Initializable {
         deleteButton.setVisible(false);
 
         titleLabel.setText("Please select a tour from the overview on the left");
-        fromLabel.textProperty().unbind();
-        toLabel.textProperty().unbind();
-        transportTypeLabel.textProperty().unbind();
-        distanceLabel.textProperty().unbind();
-        timeLabel.textProperty().unbind();
-        descriptionText.textProperty().unbind();
-        popularityLabel.textProperty().unbind();
-        childFriendlyLabel.textProperty().unbind();
+        unbindDetailLabels();
 
         fromLabel.setText("");
         toLabel.setText("");
@@ -146,7 +164,7 @@ public class TourDetailController implements Initializable {
         deleteButton.setVisible(true);
 
         titleLabel.setText(tour.name());
-
+        bindDetailLabels();
         listViewModel.updateDisplayData(tour);
 
         routeSectionTitle.setText("Route");
