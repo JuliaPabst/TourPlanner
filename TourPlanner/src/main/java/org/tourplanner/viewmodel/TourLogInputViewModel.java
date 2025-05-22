@@ -23,7 +23,8 @@ public class TourLogInputViewModel {
 
     private final ObjectProperty<TourLog> editingLog = new SimpleObjectProperty<>(null);
 
-    private final PropertyChangeSupport logSavedEvent = new PropertyChangeSupport(this);
+    private final PropertyChangeSupport logCreatedEvent = new PropertyChangeSupport(this);
+    private final PropertyChangeSupport logEditedEvent = new PropertyChangeSupport(this);
 
     public TourLogInputViewModel(TourLogListViewModel logListViewModel, TourListViewModel tourListViewModel) {
         this.logListViewModel = logListViewModel;
@@ -37,6 +38,7 @@ public class TourLogInputViewModel {
     public ObjectProperty<Difficulty> difficultyProperty() { return difficulty; }
     public IntegerProperty ratingProperty() { return rating; }
     public StringProperty commentProperty() { return comment; }
+
     public TourLogListViewModel getLogListViewModel() { return logListViewModel; }
 
     public void startEditing(TourLog log) {
@@ -73,11 +75,12 @@ public class TourLogInputViewModel {
 
         if(editingLog.get() != null) {
             logListViewModel.updateLog(editingLog.get(), newLog);
+            fireLogEdited(newLog);
         } else {
             logListViewModel.addLog(newLog);
+            fireLogCreated(newLog);
         }
 
-        fireLogSaved(newLog);
         clear();
     }
 
@@ -93,12 +96,20 @@ public class TourLogInputViewModel {
         }
     }
 
-    public void addLogSavedListener(PropertyChangeListener listener) {
-        logSavedEvent.addPropertyChangeListener(listener);
+    public void addLogCreatedListener(PropertyChangeListener listener) {
+        logCreatedEvent.addPropertyChangeListener("logCreated", listener);
     }
 
-    private void fireLogSaved(TourLog newLog) {
-        logSavedEvent.firePropertyChange("logSaved", null, newLog);
+    public void addLogEditedListener(PropertyChangeListener listener) {
+        logEditedEvent.addPropertyChangeListener("logEdited", listener);
+    }
+
+    private void fireLogCreated(TourLog createdLog) {
+        logCreatedEvent.firePropertyChange("logCreated", null, createdLog);
+    }
+
+    private void fireLogEdited(TourLog editedLog) {
+        logEditedEvent.firePropertyChange("logEdited", null, editedLog);
     }
 
     public void clear() {

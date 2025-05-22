@@ -32,6 +32,7 @@ public class TourPlannerApplication extends Application {
         TourLogInputViewModel tourLogInputViewModel = new TourLogInputViewModel(tourLogListViewModel, tourListViewModel);
 
         ViewModelInitializer.setupListeners(tourInputViewModel);
+        ViewModelInitializer.setupListeners(tourLogInputViewModel);
 
         FXMLLoader fxmlLoader = new FXMLLoader(TourPlannerApplication.class.getResource("main-view.fxml"));
         fxmlLoader.setControllerFactory(controllerClass -> {
