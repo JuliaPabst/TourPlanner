@@ -22,21 +22,35 @@ public class TourMetricsCalculator {
         var logs = allLogs.stream().filter(log -> log.tour().equals(tour)).toList();
         if(logs.isEmpty()) return 0;
 
+        // Convert difficulty to stars
         double avgDifficulty = logs.stream().mapToInt(log -> switch(log.difficulty()) {
-            case EASY -> 1;
-            case MEDIUM -> 2;
-            case HARD -> 3;
-        }).average().orElse(2);
+            case EASY -> 5;
+            case MEDIUM -> 3;
+            case HARD -> 1;
+        }).average().orElse(3); // Default 3
 
-        double avgDistance = logs.stream().mapToDouble(TourLog::totalDistance).average().orElse(0);
-        double avgTime = logs.stream().mapToInt(TourLog::totalTime).average().orElse(0);
+        // Convert distance to stars
+        double avgDistance = logs.stream().mapToDouble(log -> {
+            double dist = log.totalDistance();
+            if(dist <= 3) return 5;
+            else if(dist <= 6) return 4;
+            else if(dist <= 9) return 3;
+            else if(dist <= 12) return 2;
+            else return 1;
+        }).average().orElse(3);
 
-        double score = 100 - (avgDifficulty * 20 + avgDistance * 2 + avgTime * 0.5);
+        // Convert time to stars
+        double avgTime = logs.stream().mapToDouble(log -> {
+            int time = log.totalTime();
+            if(time <= 30) return 5;
+            else if(time <= 45) return 4;
+            else if(time <= 60) return 3;
+            else if(time <= 90) return 2;
+            else return 1;
+        }).average().orElse(3);
 
-        if(score >= 80) return 5;
-        else if(score >= 60) return 4;
-        else if(score >= 40) return 3;
-        else if(score >= 20) return 2;
-        else return 1;
+        // Round overall average to get final score
+        double score = (avgDifficulty + avgDistance + avgTime) / 3.0;
+        return (int) Math.round(score);
     }
 }
