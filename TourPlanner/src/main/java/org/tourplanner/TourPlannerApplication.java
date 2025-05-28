@@ -4,13 +4,10 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ConfigurableApplicationContext;
-import org.tourplanner.model.Tour;
 import org.tourplanner.service.TourManager;
 import org.tourplanner.view.*;
-import org.tourplanner.view.util.ModalService;
 import org.tourplanner.utils.ViewModelInitializer;
 import org.tourplanner.viewmodel.MainViewModel;
 import org.tourplanner.viewmodel.TourInputViewModel;
@@ -22,6 +19,7 @@ import org.tourplanner.viewmodel.TourLogListViewModel;
 
 import java.io.IOException;
 
+// dont need controller factory anymore bc we will use controller from spring boot
 public class TourPlannerApplication extends Application {
     private ConfigurableApplicationContext springContext;
 

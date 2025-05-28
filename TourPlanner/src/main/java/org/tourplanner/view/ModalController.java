@@ -3,8 +3,10 @@ package org.tourplanner.view;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
-import org.tourplanner.model.ModalType;
+import org.springframework.stereotype.Controller;
+import org.tourplanner.persistence.entity.ModalType;
 
+@Controller
 public class ModalController {
 
     @FXML private Button cancelButton;

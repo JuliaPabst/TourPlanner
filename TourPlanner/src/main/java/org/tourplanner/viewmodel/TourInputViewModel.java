@@ -1,14 +1,15 @@
 package org.tourplanner.viewmodel;
 
 import javafx.beans.property.*;
-import org.tourplanner.model.Tour;
-import org.tourplanner.model.TransportType;
+import org.springframework.stereotype.Component;
+import org.tourplanner.persistence.entity.Tour;
+import org.tourplanner.persistence.entity.TransportType;
 import org.tourplanner.service.TourManager;
 
-import java.awt.Image;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 
+@Component
 public class TourInputViewModel {
     private final TourManager tourManager;
 

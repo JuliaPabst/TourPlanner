@@ -1,14 +1,16 @@
 package org.tourplanner.viewmodel;
 
 import javafx.beans.property.*;
-import org.tourplanner.model.Difficulty;
-import org.tourplanner.model.Tour;
-import org.tourplanner.model.TourLog;
+import org.springframework.stereotype.Component;
+import org.tourplanner.persistence.entity.Difficulty;
+import org.tourplanner.persistence.entity.Tour;
+import org.tourplanner.persistence.entity.TourLog;
 
 import java.time.LocalDate;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 
+@Component
 public class TourLogInputViewModel {
     private final TourLogListViewModel logListViewModel;
     private final TourListViewModel tourListViewModel;

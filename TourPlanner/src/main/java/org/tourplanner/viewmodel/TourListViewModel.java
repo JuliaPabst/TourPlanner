@@ -2,13 +2,13 @@ package org.tourplanner.viewmodel;
 
 import javafx.beans.property.*;
 import javafx.collections.transformation.FilteredList;
-import org.tourplanner.model.Tour;
-import org.tourplanner.model.TourLog;
-import org.tourplanner.model.Difficulty;
+import org.springframework.stereotype.Component;
+import org.tourplanner.persistence.entity.Tour;
 import org.tourplanner.service.TourManager;
 import org.tourplanner.service.TourLogManager;
 import org.tourplanner.service.TourMetricsCalculator;
 
+@Component
 public class TourListViewModel {
     private final FilteredList<Tour> filteredTours;
     private final TourManager tourManager;

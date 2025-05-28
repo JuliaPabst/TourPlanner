@@ -1,7 +1,7 @@
 package org.tourplanner.utils;
 
-import org.tourplanner.model.Tour;
-import org.tourplanner.model.TourLog;
+import org.tourplanner.persistence.entity.Tour;
+import org.tourplanner.persistence.entity.TourLog;
 import org.tourplanner.view.util.ModalService;
 import org.tourplanner.viewmodel.TourInputViewModel;
 import org.tourplanner.viewmodel.TourLogInputViewModel;

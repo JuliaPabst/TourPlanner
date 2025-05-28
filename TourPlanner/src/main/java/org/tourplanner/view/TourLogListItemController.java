@@ -8,12 +8,12 @@ import javafx.stage.Stage;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import org.tourplanner.model.TourLog;
+import org.springframework.stereotype.Controller;
+import org.tourplanner.persistence.entity.TourLog;
 import org.tourplanner.viewmodel.TourLogInputViewModel;
 import org.tourplanner.view.util.ModalService;
-import org.tourplanner.view.TourLogInputController;
-import java.io.IOException;
 
+@Controller
 public class TourLogListItemController {
     @FXML private Label logHeaderLabel;
     @FXML private Label logDetailsLabel;

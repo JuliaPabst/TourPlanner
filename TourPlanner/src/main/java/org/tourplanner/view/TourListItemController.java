@@ -2,9 +2,11 @@ package org.tourplanner.view;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
-import org.tourplanner.model.Tour;
+import org.springframework.stereotype.Controller;
+import org.tourplanner.persistence.entity.Tour;
 import org.tourplanner.viewmodel.TourListViewModel;
 
+@Controller
 public class TourListItemController {
 
     @FXML private Label titleLabel;

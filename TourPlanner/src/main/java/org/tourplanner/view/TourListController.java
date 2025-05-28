@@ -10,8 +10,9 @@ import javafx.scene.Scene;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import org.tourplanner.model.Tour;
-import org.tourplanner.model.TourLog;
+import org.springframework.stereotype.Controller;
+import org.tourplanner.persistence.entity.Tour;
+import org.tourplanner.persistence.entity.TourLog;
 import org.tourplanner.service.TourLogManager;
 import org.tourplanner.viewmodel.TourInputViewModel;
 import org.tourplanner.viewmodel.TourListViewModel;
@@ -20,6 +21,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+@Controller
 public class TourListController implements Initializable {
     private final TourInputViewModel tourInputViewModel;
     private final TourListViewModel viewModel;

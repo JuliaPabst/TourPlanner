@@ -7,7 +7,8 @@ import javafx.scene.control.*;
 import javafx.stage.Stage;
 import javafx.util.converter.DoubleStringConverter;
 import javafx.util.converter.IntegerStringConverter;
-import org.tourplanner.model.Difficulty;
+import org.springframework.stereotype.Controller;
+import org.tourplanner.persistence.entity.Difficulty;
 import org.tourplanner.view.util.ModalService;
 import org.tourplanner.viewmodel.TourLogInputViewModel;
 
@@ -15,6 +16,7 @@ import java.net.URL;
 import java.time.format.DateTimeParseException;
 import java.util.ResourceBundle;
 
+@Controller
 public class TourLogInputController implements Initializable {
     private final TourLogInputViewModel viewModel;
     private Stage dialogStage;

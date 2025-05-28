@@ -2,9 +2,15 @@ package org.tourplanner.service;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import org.tourplanner.model.TourLog;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.tourplanner.persistence.entity.TourLog;
 
+@Service
 public class TourLogManager {
+    @Autowired
+    public TourLogManager() {}
+
     private final ObservableList<TourLog> logList = FXCollections.observableArrayList();
 
     public ObservableList<TourLog> getLogList() {

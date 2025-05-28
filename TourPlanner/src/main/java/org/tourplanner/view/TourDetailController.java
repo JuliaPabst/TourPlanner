@@ -11,8 +11,9 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.collections.ListChangeListener;
-import org.tourplanner.model.Tour;
-import org.tourplanner.model.TourLog;
+import org.springframework.stereotype.Controller;
+import org.tourplanner.persistence.entity.Tour;
+import org.tourplanner.persistence.entity.TourLog;
 import org.tourplanner.service.TourLogManager;
 import org.tourplanner.view.util.ModalService;
 import org.tourplanner.viewmodel.TourInputViewModel;
@@ -23,6 +24,7 @@ import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
+@Controller
 public class TourDetailController implements Initializable {
     @FXML
     public Label routeSectionTitle;

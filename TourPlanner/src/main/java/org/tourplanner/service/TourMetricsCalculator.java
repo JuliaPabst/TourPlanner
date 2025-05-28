@@ -1,8 +1,7 @@
 package org.tourplanner.service;
 
-import org.tourplanner.model.Tour;
-import org.tourplanner.model.TourLog;
-import org.tourplanner.model.Difficulty;
+import org.tourplanner.persistence.entity.Tour;
+import org.tourplanner.persistence.entity.TourLog;
 
 import java.util.List;
 

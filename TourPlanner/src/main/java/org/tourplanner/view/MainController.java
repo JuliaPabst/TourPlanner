@@ -19,6 +19,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+@Controller
 public class MainController implements Initializable {
     private final MainViewModel mainViewModel;
     private final TourInputViewModel tourInputViewModel;

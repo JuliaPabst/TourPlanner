@@ -1,9 +1,11 @@
 package org.tourplanner.viewmodel;
 
 import javafx.collections.ObservableList;
-import org.tourplanner.model.Tour;
+import org.springframework.stereotype.Component;
+import org.tourplanner.persistence.entity.Tour;
 import org.tourplanner.service.TourManager;
 
+@Component
 public class MainViewModel {
     private final TourManager tourManager;
 
@@ -13,6 +15,7 @@ public class MainViewModel {
 
     }
 
+    // create observable Array list here 
     public ObservableList<Tour> getTourList() {
         return tourManager.getTourList();
     }

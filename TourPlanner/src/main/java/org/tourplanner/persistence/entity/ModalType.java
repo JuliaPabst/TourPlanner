@@ -1,4 +1,4 @@
-package org.tourplanner.model;
+package org.tourplanner.persistence.entity;
 
 public enum ModalType {
     INFO,

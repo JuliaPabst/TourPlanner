@@ -3,10 +3,12 @@ package org.tourplanner.viewmodel;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.transformation.FilteredList;
-import org.tourplanner.model.Tour;
-import org.tourplanner.model.TourLog;
+import org.springframework.stereotype.Component;
+import org.tourplanner.persistence.entity.Tour;
+import org.tourplanner.persistence.entity.TourLog;
 import org.tourplanner.service.TourLogManager;
 
+@Component
 public class TourLogListViewModel {
     private final TourLogManager logManager;
     private final TourListViewModel tourListViewModel;

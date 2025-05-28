@@ -5,7 +5,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import org.tourplanner.model.ModalType;
+import org.tourplanner.persistence.entity.ModalType;
 import org.tourplanner.view.ModalController;
 
 import java.io.IOException;

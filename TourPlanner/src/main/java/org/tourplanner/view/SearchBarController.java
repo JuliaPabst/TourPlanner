@@ -4,11 +4,13 @@ import javafx.beans.binding.Bindings;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
+import org.springframework.stereotype.Controller;
 import org.tourplanner.viewmodel.SearchBarViewModel;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
+@Controller
 public class SearchBarController implements Initializable {
     private final SearchBarViewModel viewModel;
 

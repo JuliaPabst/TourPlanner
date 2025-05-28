@@ -2,8 +2,8 @@ package org.tourplanner.viewmodel;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.tourplanner.model.Tour;
-import org.tourplanner.model.TransportType;
+import org.tourplanner.persistence.entity.Tour;
+import org.tourplanner.persistence.entity.TransportType;
 import org.tourplanner.service.TourManager;
 
 import java.util.concurrent.atomic.AtomicReference;

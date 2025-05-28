@@ -7,14 +7,15 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 import javafx.util.converter.NumberStringConverter;
-import org.tourplanner.model.Tour;
-import org.tourplanner.model.TransportType;
+import org.springframework.stereotype.Controller;
+import org.tourplanner.persistence.entity.TransportType;
 import org.tourplanner.view.util.ModalService;
 import org.tourplanner.viewmodel.TourInputViewModel;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
+@Controller
 public class TourInputController implements Initializable {
     private final TourInputViewModel viewModel;
     private Stage dialogStage;

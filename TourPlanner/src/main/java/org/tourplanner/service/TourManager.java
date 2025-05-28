@@ -2,19 +2,26 @@ package org.tourplanner.service;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import org.tourplanner.model.Tour;
-import org.tourplanner.model.TourLog;
-import org.tourplanner.model.TransportType;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.tourplanner.persistence.entity.Tour;
+import org.tourplanner.persistence.entity.TourLog;
+import org.tourplanner.persistence.entity.TransportType;
+import org.tourplanner.persistence.repository.TourRepository;
 
-import java.awt.*;
+import java.util.List;
 
+@Service
 public class TourManager {
+    TourRepository tourRepo;
 
     private final ObservableList<Tour> tourList;
     private final TourLogManager tourLogManager;
 
-    public TourManager(TourLogManager tourLogManager) {
+    @Autowired
+    public TourManager(TourLogManager tourLogManager, TourRepository repository) {
         this.tourLogManager = tourLogManager;
+        this.tourRepo = repository;
 
         this.tourList = FXCollections.observableArrayList(
             new Tour(
@@ -40,9 +47,10 @@ public class TourManager {
         );
     }
 
-    public ObservableList<Tour> getTourList() {
-        return tourList;
+    public List<Tour> getTourList() {
+        return tourRepo.findAll();
     }
+
 
     public Tour createNewTour(Tour newTour) {
         tourList.add(newTour);
