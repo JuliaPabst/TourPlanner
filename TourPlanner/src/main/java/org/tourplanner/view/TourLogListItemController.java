@@ -26,9 +26,9 @@ public class TourLogListItemController {
 
     public void setLog(TourLog log) {
         this.log = log;
-        logHeaderLabel.setText(log.date() + " - " + log.username());
-        logDetailsLabel.setText("Time: " + log.totalTime() + " min | Distance: " + log.totalDistance() + " km | Difficulty: " + log.difficulty() + " | Rating: " + log.rating());
-        commentLabel.setText("Comment: " + log.comment());
+        logHeaderLabel.setText(log.getDate() + " - " + log.getUsername());
+        logDetailsLabel.setText("Time: " + log.getTotalTime() + " min | Distance: " + log.getTotalDistance() + " km | Difficulty: " + log.getDifficulty() + " | Rating: " + log.getRating());
+        commentLabel.setText("Comment: " + log.getComment());
     }
 
     public void setViewModel(TourLogInputViewModel viewModel) {
@@ -64,7 +64,7 @@ public class TourLogListItemController {
     public void onDeleteClicked() {
         ModalService.showDeleteConfirmation(
                 "Delete Tour Log",
-                "Are you sure you want to delete this log entry from " + log.date() + "?",
+                "Are you sure you want to delete this log entry from " + log.getDate() + "?",
                 () -> logInputViewModel.getLogListViewModel().deleteLog(log)
         );
     }

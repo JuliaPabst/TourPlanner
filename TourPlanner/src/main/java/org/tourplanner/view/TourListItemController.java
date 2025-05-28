@@ -31,10 +31,10 @@ public class TourListItemController {
     public void updateView() {
         if(tour == null) return;
 
-        titleLabel.setText(tour.name());
-        fromLabel.setText("From: " + tour.from());
-        toLabel.setText("To: " + tour.to());
-        distanceLabel.setText(tour.distance() + " km | " + tour.estimatedTime() + " min");
+        titleLabel.setText(tour.getTourName());
+        fromLabel.setText("From: " + tour.getFrom());
+        toLabel.setText("To: " + tour.getTo());
+        distanceLabel.setText(tour.getDistance() + " km | " + tour.getEstimatedTime() + " min");
         if(viewModel != null) {
             int popularity = viewModel.getPopularity(tour);
             popularityLabel.setText("Popularity: " + "★".repeat(popularity));

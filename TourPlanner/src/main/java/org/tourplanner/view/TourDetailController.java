@@ -165,7 +165,7 @@ public class TourDetailController implements Initializable {
         editButton.setVisible(true);
         deleteButton.setVisible(true);
 
-        titleLabel.setText(tour.name());
+        titleLabel.setText(tour.getTourName());
         bindDetailLabels();
         listViewModel.updateDisplayData(tour);
 
@@ -211,7 +211,7 @@ public class TourDetailController implements Initializable {
 
         ModalService.showDeleteConfirmation(
                 "Delete Tour",
-                "Are you sure you want to delete \"" + selected.name() + "\"?",
+                "Are you sure you want to delete \"" + selected.getTourName() + "\"?",
                 () -> listViewModel.deleteTour(selected)
         );
     }

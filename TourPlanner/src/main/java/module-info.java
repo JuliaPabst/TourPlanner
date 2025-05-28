@@ -1,22 +1,23 @@
 module org.tourplanner {
-    //Java FX
-    requires javafx.controls;
-    requires javafx.fxml;
-    requires javafx.base;
-    requires java.desktop;
-
     // Spring Boot
     requires spring.core;
     requires spring.beans;
+    requires spring.boot;
     requires spring.boot.autoconfigure;
     requires spring.context;
-    requires spring.boot;
-    requires jakarta.persistence;
-    requires static lombok;
     requires spring.data.jpa;
+    requires jakarta.persistence;
+    requires org.hibernate.orm.core;
+
+    // JavaFX
+    requires javafx.controls;
+    requires javafx.fxml;
+    requires java.desktop;
+    requires static lombok;
 
     opens org.tourplanner.view to javafx.fxml;
     opens org.tourplanner to javafx.fxml;
+    opens org.tourplanner.persistence.entity;
 
     exports org.tourplanner;
     exports org.tourplanner.view;

@@ -29,7 +29,10 @@ public class TourLogListViewModel {
 
     private boolean filterBySelectedTour(TourLog log) {
         Tour selectedTour = tourListViewModel.selectedTourProperty().get();
-        return selectedTour != null && log.tour().equals(selectedTour);
+        return selectedTour != null &&
+                log.getTour() != null &&
+                selectedTour.getTourId() != null &&
+                selectedTour.getTourId().equals(log.getTour().getTourId());
     }
 
     public FilteredList<TourLog> getLogs() {

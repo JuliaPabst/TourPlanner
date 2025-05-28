@@ -46,13 +46,13 @@ public class TourLogInputViewModel {
     public void startEditing(TourLog log) {
         editingLog.set(log);
         if(log != null) {
-            date.set(log.date());
-            username.set(log.username());
-            totalTime.set(log.totalTime());
-            totalDistance.set(log.totalDistance());
-            difficulty.set(log.difficulty());
-            rating.set(log.rating());
-            comment.set(log.comment());
+            date.set(log.getDate());
+            username.set(log.getUsername());
+            totalTime.set(log.getTotalTime());
+            totalDistance.set(log.getTotalDistance());
+            difficulty.set(log.getDifficulty());
+            rating.set(log.getRating());
+            comment.set(log.getComment());
         }
     }
 

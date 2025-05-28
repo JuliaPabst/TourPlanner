@@ -59,13 +59,13 @@ class TourInputViewModelTest {
         // Assert
         Tour createdTour = createdTourRef.get();
         assertNotNull(createdTour);
-        assertEquals("Alpenrunde", createdTour.name());
-        assertEquals("Through the Alps", createdTour.tourDescription());
-        assertEquals("Innsbruck", createdTour.from());
-        assertEquals("Salzburg", createdTour.to());
-        assertEquals(150, createdTour.distance());
-        assertEquals(300, createdTour.estimatedTime());
-        assertEquals(TransportType.HIKE, createdTour.transportType());
+        assertEquals("Alpenrunde", createdTour.getTourName());
+        assertEquals("Through the Alps", createdTour.getTourDescription());
+        assertEquals("Innsbruck", createdTour.getFrom());
+        assertEquals("Salzburg", createdTour.getTo());
+        assertEquals(150, createdTour.getDistance());
+        assertEquals(300, createdTour.getEstimatedTime());
+        assertEquals(TransportType.HIKE, createdTour.getTransportType());
 
         verify(mockTourManager).createNewTour(createdTour);
 
@@ -112,6 +112,7 @@ class TourInputViewModelTest {
     @Test
     void testStartEditingPopulatesFields() {
         Tour tour = new Tour(
+                null,
                 "Donau Tour",
                 "Along the Danube",
                 "Vienna",
@@ -119,6 +120,7 @@ class TourInputViewModelTest {
                 TransportType.BIKE,
                 200,
                 240,
+                null,
                 null
         );
 
@@ -136,6 +138,7 @@ class TourInputViewModelTest {
     @Test
     void testSaveOrUpdateDelegatesUpdateIfEditingTourExists() {
         Tour oldTour = new Tour(
+                null,
                 "Test Old",
                 "Old desc",
                 "A",
@@ -143,6 +146,7 @@ class TourInputViewModelTest {
                 TransportType.HIKE,
                 10,
                 20,
+                null,
                 null
         );
 
@@ -167,13 +171,13 @@ class TourInputViewModelTest {
 
         Tour updatedTour = updatedRef.get();
         assertNotNull(updatedTour);
-        assertEquals("Updated", updatedTour.name());
-        assertEquals("Updated desc", updatedTour.tourDescription());
-        assertEquals("X", updatedTour.from());
-        assertEquals("Y", updatedTour.to());
-        assertEquals(99, updatedTour.distance());
-        assertEquals(999, updatedTour.estimatedTime());
-        assertEquals(TransportType.RUNNING, updatedTour.transportType());
+        assertEquals("Updated", updatedTour.getTourName());
+        assertEquals("Updated desc", updatedTour.getTourDescription());
+        assertEquals("X", updatedTour.getFrom());
+        assertEquals("Y", updatedTour.getTo());
+        assertEquals(99, updatedTour.getDistance());
+        assertEquals(999, updatedTour.getEstimatedTime());
+        assertEquals(TransportType.RUNNING, updatedTour.getTransportType());
 
         verify(mockTourManager).replaceTour(oldTour, updatedTour);
         verify(mockTourListViewModel).selectTour(updatedTour);

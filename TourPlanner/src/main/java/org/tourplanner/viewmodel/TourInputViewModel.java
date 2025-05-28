@@ -8,6 +8,7 @@ import org.tourplanner.service.TourManager;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
+import java.util.ArrayList;
 
 @Component
 public class TourInputViewModel {
@@ -47,6 +48,7 @@ public class TourInputViewModel {
         validateInput();
 
         Tour newTour = new Tour(
+                null, // tourId (null for new)
                 name.get(),
                 description.get(),
                 from.get(),
@@ -54,7 +56,8 @@ public class TourInputViewModel {
                 transportType.get(),
                 distance.get(),
                 estimatedTime.get(),
-                null
+                null, // routeInformation
+                new ArrayList<>() // tourLogs
         );
 
         tourManager.createNewTour(newTour);
@@ -74,13 +77,13 @@ public class TourInputViewModel {
     public void startEditing(Tour tour) {
         editingTour.set(tour);
         if (tour != null) {
-            nameProperty().set(tour.name());
-            descriptionProperty().set(tour.tourDescription());
-            fromProperty().set(tour.from());
-            toProperty().set(tour.to());
-            distanceProperty().set(tour.distance());
-            estimatedTimeProperty().set(tour.estimatedTime());
-            transportTypeProperty().set(tour.transportType());
+            nameProperty().set(tour.getTourName());
+            descriptionProperty().set(tour.getTourDescription());
+            fromProperty().set(tour.getFrom());
+            toProperty().set(tour.getTo());
+            distanceProperty().set(tour.getDistance());
+            estimatedTimeProperty().set(tour.getEstimatedTime());
+            transportTypeProperty().set(tour.getTransportType());
         }
     }
 
@@ -92,6 +95,7 @@ public class TourInputViewModel {
         }
 
         Tour updated = new Tour(
+                null,
                 nameProperty().get(),
                 descriptionProperty().get(),
                 fromProperty().get(),
@@ -99,7 +103,8 @@ public class TourInputViewModel {
                 transportTypeProperty().get(),
                 distanceProperty().get(),
                 estimatedTimeProperty().get(),
-                editingTour.get().routeInformation()
+                editingTour.get().getRouteInformation(),
+                new ArrayList<>()
         );
 
         tourManager.replaceTour(editingTour.get(), updated);

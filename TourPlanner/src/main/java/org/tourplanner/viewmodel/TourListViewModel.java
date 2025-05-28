@@ -79,13 +79,13 @@ public class TourListViewModel {
         String lowerQuery = query.toLowerCase();
 
         filteredTours.setPredicate(tour -> {
-            boolean matchesTourName = tour.name().toLowerCase().contains(lowerQuery);
+            boolean matchesTourName = tour.getTourName().toLowerCase().contains(lowerQuery);
 
             boolean matchesLog = logManager.getLogList().stream()
-                    .filter(log -> log.tour().equals(tour))
+                    .filter(log -> log.getTour().equals(tour))
                     .anyMatch(log ->
-                            (log.comment() != null && log.comment().toLowerCase().contains(lowerQuery)) ||
-                                    (log.username() != null && log.username().toLowerCase().contains(lowerQuery))
+                            (log.getComment() != null && log.getComment().toLowerCase().contains(lowerQuery)) ||
+                                    (log.getUsername() != null && log.getUsername().toLowerCase().contains(lowerQuery))
                     );
 
             return matchesTourName || matchesLog;
@@ -105,12 +105,12 @@ public class TourListViewModel {
     public void updateDisplayData(Tour tour) {
         if(tour == null) return;
 
-        fromLabel.set("From: " + tour.from());
-        toLabel.set("To: " + tour.to());
-        transportTypeLabel.set(tour.transportType().name());
-        distanceLabel.set("Distance: " + tour.distance() + " km");
-        timeLabel.set("Est. time: " + tour.estimatedTime() + " min");
-        descriptionText.set(tour.tourDescription());
+        fromLabel.set("From: " + tour.getFrom());
+        toLabel.set("To: " + tour.getTo());
+        transportTypeLabel.set(tour.getTransportType().name());
+        distanceLabel.set("Distance: " + tour.getDistance() + " km");
+        timeLabel.set("Est. time: " + tour.getEstimatedTime() + " min");
+        descriptionText.set(tour.getTourDescription());
 
         int popularity = getPopularity(tour);
         popularityText.set("Popularity: " + "★".repeat(popularity));

@@ -7,7 +7,7 @@ import java.util.List;
 
 public class TourMetricsCalculator {
     public int calculatePopularity(List<TourLog> allLogs, Tour tour) {
-        var logs = allLogs.stream().filter(log -> log.tour().equals(tour)).toList();
+        var logs = allLogs.stream().filter(log -> log.getTour().equals(tour)).toList();
 
         if(logs.isEmpty()) return 0;
 
@@ -20,7 +20,7 @@ public class TourMetricsCalculator {
         else if(size >= 2) countStars = 2;
         else countStars = 1;
 
-        double avgRating = logs.stream().mapToInt(TourLog::rating).average().orElse(3.0);
+        double avgRating = logs.stream().mapToInt(TourLog::getRating).average().orElse(3.0);
 
         double combined = (0.7 * countStars) + (0.3 * avgRating);
 
@@ -28,11 +28,11 @@ public class TourMetricsCalculator {
     }
 
     public int calculateChildFriendliness(List<TourLog> allLogs, Tour tour) {
-        var logs = allLogs.stream().filter(log -> log.tour().equals(tour)).toList();
+        var logs = allLogs.stream().filter(log -> log.getTour().equals(tour)).toList();
         if(logs.isEmpty()) return 0;
 
         // Convert difficulty to stars
-        double avgDifficulty = logs.stream().mapToInt(log -> switch(log.difficulty()) {
+        double avgDifficulty = logs.stream().mapToInt(log -> switch(log.getDifficulty()) {
             case EASY -> 5;
             case MEDIUM -> 3;
             case HARD -> 1;
@@ -40,7 +40,7 @@ public class TourMetricsCalculator {
 
         // Convert distance to stars
         double avgDistance = logs.stream().mapToDouble(log -> {
-            double dist = log.totalDistance();
+            double dist = log.getTotalDistance();
             if(dist <= 3) return 5;
             else if(dist <= 6) return 4;
             else if(dist <= 9) return 3;
@@ -50,7 +50,7 @@ public class TourMetricsCalculator {
 
         // Convert time to stars
         double avgTime = logs.stream().mapToDouble(log -> {
-            int time = log.totalTime();
+            int time = log.getTotalTime();
             if(time <= 30) return 5;
             else if(time <= 45) return 4;
             else if(time <= 60) return 3;

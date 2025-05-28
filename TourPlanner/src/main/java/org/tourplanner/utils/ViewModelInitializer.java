@@ -13,7 +13,7 @@ public class ViewModelInitializer {
             Tour created = (Tour) evt.getNewValue();
             ModalService.showInfoModal(
                     "Tour Created",
-                    "Tour \"" + created.name() + "\" has been successfully created."
+                    "Tour \"" + created.getTourName() + "\" has been successfully created."
             );
         });
 
@@ -21,7 +21,7 @@ public class ViewModelInitializer {
             Tour updated = (Tour) evt.getNewValue();
             ModalService.showInfoModal(
                     "Tour Updated",
-                    "Tour \"" + updated.name() + "\" has been successfully updated."
+                    "Tour \"" + updated.getTourName() + "\" has been successfully updated."
             );
         });
     }
@@ -31,7 +31,7 @@ public class ViewModelInitializer {
             TourLog created = (TourLog) evt.getNewValue();
             ModalService.showInfoModal(
                     "Log Created",
-                    "Tour log for \"" + created.username() + "\" has been successfully created."
+                    "Tour log for \"" + created.getUsername() + "\" has been successfully created."
             );
         });
 
@@ -39,7 +39,7 @@ public class ViewModelInitializer {
             TourLog updated = (TourLog) evt.getNewValue();
             ModalService.showInfoModal(
                     "Log Updated",
-                    "Tour log for \"" + updated.username() + "\" has been successfully updated."
+                    "Tour log for \"" + updated.getUsername() + "\" has been successfully updated."
             );
         });
     }

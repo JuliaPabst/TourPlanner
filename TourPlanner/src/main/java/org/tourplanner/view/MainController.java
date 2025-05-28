@@ -1,6 +1,7 @@
 package org.tourplanner.view;
 
 import javafx.scene.Parent;
+import org.springframework.stereotype.Controller;
 import org.tourplanner.service.TourManager;
 import org.tourplanner.viewmodel.MainViewModel;
 import javafx.event.ActionEvent;

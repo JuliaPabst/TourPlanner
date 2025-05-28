@@ -2,20 +2,19 @@ package org.tourplanner.service;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.tourplanner.persistence.entity.Tour;
 import org.tourplanner.persistence.entity.TourLog;
-import org.tourplanner.persistence.entity.TransportType;
 import org.tourplanner.persistence.repository.TourRepository;
-
-import java.util.List;
 
 @Service
 public class TourManager {
     TourRepository tourRepo;
 
-    private final ObservableList<Tour> tourList;
+    @Getter
+    private final ObservableList<Tour> tourList = FXCollections.observableArrayList();
     private final TourLogManager tourLogManager;
 
     @Autowired
@@ -23,65 +22,47 @@ public class TourManager {
         this.tourLogManager = tourLogManager;
         this.tourRepo = repository;
 
-        this.tourList = FXCollections.observableArrayList(
-            new Tour(
-                "City Explorer",
-                "A scenic city tour through the historic center.",
-                "Vienna",
-                "Vienna",
-                TransportType.BIKE,
-                12,
-                60,
-                null
-        ),
-        new Tour(
-                "Mountain Adventure",
-                "Hike from valley to summit with panoramic views.",
-                "Innsbruck",
-                "Hafelekarspitze",
-                TransportType.HIKE,
-                9,
-                180,
-                null
-            )
-        );
+        // Load initial tours from the database
+        tourList.setAll(tourRepo.findAll());
     }
 
-    public List<Tour> getTourList() {
-        return tourRepo.findAll();
-    }
-
-
-    public Tour createNewTour(Tour newTour) {
+    public void createNewTour(Tour newTour) {
         tourList.add(newTour);
-        return newTour;
+        tourRepo.save(newTour);
     }
 
     public void replaceTour(Tour oldTour, Tour newTour) {
         int index = tourList.indexOf(oldTour);
         if (index >= 0) {
-            tourList.set(index, newTour);
-        }
+            // Ensure we update the existing DB entry, not insert a new one
+            newTour.setTourId(oldTour.getTourId());
 
-        for(int i = 0; i < tourLogManager.getLogList().size(); i++) {
-            TourLog log = tourLogManager.getLogList().get(i);
-            if(log.tour().equals(oldTour)) {
-                TourLog updatedLog = new TourLog(
-                        log.date(),
-                        log.username(),
-                        log.totalTime(),
-                        log.totalDistance(),
-                        log.difficulty(),
-                        log.rating(),
-                        log.comment(),
-                        newTour
-                );
-                tourLogManager.updateLog(log, updatedLog);
+            // Persist updated tour
+            Tour savedTour = tourRepo.save(newTour);
+
+            tourList.set(index, savedTour);
+            for (int i = 0; i < tourLogManager.getLogList().size(); i++) {
+                TourLog log = tourLogManager.getLogList().get(i);
+                if (log.getTour().equals(oldTour)) {
+                    TourLog updatedLog = new TourLog(
+                            log.getDate(),
+                            log.getUsername(),
+                            log.getTotalTime(),
+                            log.getTotalDistance(),
+                            log.getDifficulty(),
+                            log.getRating(),
+                            log.getComment(),
+                            savedTour
+                    );
+
+                    tourLogManager.updateLog(log, updatedLog);
+                }
             }
         }
     }
 
     public void deleteTour(Tour tour) {
         tourList.remove(tour);
+        tourRepo.delete(tour); // Delete from DB
     }
 }
