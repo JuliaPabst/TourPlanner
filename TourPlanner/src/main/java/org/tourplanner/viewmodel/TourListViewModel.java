@@ -82,7 +82,9 @@ public class TourListViewModel {
             boolean matchesTourName = tour.getTourName().toLowerCase().contains(lowerQuery);
 
             boolean matchesLog = logManager.getLogList().stream()
-                    .filter(log -> log.getTour().equals(tour))
+                    .filter(log -> log.getTour() != null
+                            && tour.getTourId() != null
+                            && tour.getTourId().equals(log.getTour().getTourId()))
                     .anyMatch(log ->
                             (log.getComment() != null && log.getComment().toLowerCase().contains(lowerQuery)) ||
                                     (log.getUsername() != null && log.getUsername().toLowerCase().contains(lowerQuery))

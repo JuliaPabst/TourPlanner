@@ -6,27 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="28563466-d155-4117-a6f3-036ad5da4c5f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tourplanner/TourPlannerApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tourplanner/TourPlannerApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tourplanner/persistence/entity/Tour.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tourplanner/persistence/entity/Tour.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tourplanner/persistence/entity/TourLog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tourplanner/persistence/entity/TourLog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tourplanner/persistence/entity/User.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tourplanner/persistence/repository/TourLogRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tourplanner/persistence/repository/TourLogRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tourplanner/persistence/repository/TourRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tourplanner/persistence/repository/TourRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tourplanner/service/TourLogManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tourplanner/service/TourLogManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tourplanner/service/TourManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tourplanner/service/TourManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tourplanner/service/TourMetricsCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tourplanner/service/TourMetricsCalculator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tourplanner/utils/ViewModelInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tourplanner/utils/ViewModelInitializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tourplanner/view/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tourplanner/view/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tourplanner/view/TourDetailController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tourplanner/view/TourDetailController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tourplanner/view/TourListItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tourplanner/view/TourListItemController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tourplanner/view/TourLogListItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tourplanner/view/TourLogListItemController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tourplanner/viewmodel/TourInputViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tourplanner/viewmodel/TourInputViewModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tourplanner/viewmodel/TourListViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tourplanner/viewmodel/TourListViewModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tourplanner/viewmodel/TourLogInputViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tourplanner/viewmodel/TourLogInputViewModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tourplanner/viewmodel/TourLogListViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tourplanner/viewmodel/TourLogListViewModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/tourplanner/viewmodel/TourInputViewModelTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/tourplanner/viewmodel/TourInputViewModelTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -254,7 +233,7 @@
       <workItem from="1747306238560" duration="9738000" />
       <workItem from="1747383542653" duration="5257000" />
       <workItem from="1748272670680" duration="633000" />
-      <workItem from="1748355130665" duration="13969000" />
+      <workItem from="1748355130665" duration="14929000" />
     </task>
     <servers />
   </component>
