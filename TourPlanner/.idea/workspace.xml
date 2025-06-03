@@ -5,7 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="28563466-d155-4117-a6f3-036ad5da4c5f" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/OpenRouteService-tests.http" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/tourplanner/GeoCoord.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/tourplanner/OpenRouteServiceAgent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/tourplanner/OpenRouteServiceAgentTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,10 +31,10 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="KubernetesApiPersistence"><![CDATA[{}]]></component>
-  <component name="KubernetesApiProvider"><![CDATA[{
-  "isMigrated": true
-}]]></component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
@@ -48,6 +54,13 @@
   "keyToString": {
     "Application.HelloApplication.executor": "Run",
     "Application.TourPlannerApplication.executor": "Run",
+    "HTTP Request.OpenRouteService-tests | Directions from FHTW to Rotenturmstrasse 1.executor": "Run",
+    "HTTP Request.OpenRouteService-tests | Directions from FHTW to Zanoni.executor": "Run",
+    "HTTP Request.OpenRouteService-tests | GeoCode-Search FHTW.executor": "Run",
+    "HTTP Request.OpenRouteService-tests | GeoCode-Search Rotenturmstrasse 1.executor": "Run",
+    "HTTP Request.OpenRouteService-tests | GeoCode-Search Zanoni.executor": "Run",
+    "JUnit.OpenRouteServiceAgentTest.directions_whenFHTWtoZanoni_thenOk.executor": "Run",
+    "JUnit.OpenRouteServiceAgentTest.executor": "Run",
     "JUnit.RouteInputViewModelTest.executor": "Run",
     "JUnit.RouteListViewModelTest.executor": "Run",
     "JUnit.SearchBarViewModelTest.executor": "Run",
@@ -91,6 +104,9 @@
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
     </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="org.tourplanner" />
+    </key>
     <key name="CreateTestDialog.RecentsKey">
       <recent name="org.tourplanner" />
       <recent name="org.tourplanner.viewmodel" />
@@ -100,7 +116,7 @@
       <recent name="org.tourplanner.model" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.TourPlannerApplication">
+  <component name="RunManager" selected="JUnit.OpenRouteServiceAgentTest">
     <configuration name="TourPlannerApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.tourplanner.TourPlannerApplication" />
       <module name="TourPlanner" />
@@ -110,6 +126,46 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OpenRouteService-tests | Directions from FHTW to Rotenturmstrasse 1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/OpenRouteService-tests.http" index="3" requestIdentifier="Directions from FHTW to Rotenturmstrasse 1" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="OpenRouteService-tests | GeoCode-Search FHTW" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/OpenRouteService-tests.http" requestIdentifier="GeoCode-Search FHTW" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="OpenRouteService-tests | GeoCode-Search Rotenturmstrasse 1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/OpenRouteService-tests.http" index="2" requestIdentifier="GeoCode-Search Rotenturmstrasse 1" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="OpenRouteServiceAgentTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TourPlanner" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.tourplanner.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.tourplanner" />
+      <option name="MAIN_CLASS_NAME" value="org.tourplanner.OpenRouteServiceAgentTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OpenRouteServiceAgentTest.directions_whenFHTWtoZanoni_thenOk" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TourPlanner" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.tourplanner.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.tourplanner" />
+      <option name="MAIN_CLASS_NAME" value="org.tourplanner.OpenRouteServiceAgentTest" />
+      <option name="METHOD_NAME" value="directions_whenFHTWtoZanoni_thenOk" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -130,81 +186,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SearchBarViewModelTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="TourPlanner" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.tourplanner.viewmodel.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="org.tourplanner.viewmodel" />
-      <option name="MAIN_CLASS_NAME" value="org.tourplanner.viewmodel.SearchBarViewModelTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TourInputViewModelTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="TourPlanner" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.tourplanner.viewmodel.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="org.tourplanner.viewmodel" />
-      <option name="MAIN_CLASS_NAME" value="org.tourplanner.viewmodel.TourInputViewModelTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TourListViewModelTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="TourPlanner" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.tourplanner.viewmodel.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="org.tourplanner.viewmodel" />
-      <option name="MAIN_CLASS_NAME" value="org.tourplanner.viewmodel.TourListViewModelTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TourPlannerConfigTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="TourPlanner" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.tourplanner.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="org.tourplanner" />
-      <option name="MAIN_CLASS_NAME" value="org.tourplanner.TourPlannerConfigTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <list>
       <item itemvalue="Application.TourPlannerApplication" />
+      <item itemvalue="HTTP Request.OpenRouteService-tests | Directions from FHTW to Rotenturmstrasse 1" />
+      <item itemvalue="HTTP Request.OpenRouteService-tests | GeoCode-Search Rotenturmstrasse 1" />
+      <item itemvalue="HTTP Request.OpenRouteService-tests | GeoCode-Search FHTW" />
       <item itemvalue="JUnit.RouteInputViewModelTest" />
-      <item itemvalue="JUnit.TourPlannerConfigTest" />
-      <item itemvalue="JUnit.SearchBarViewModelTest" />
-      <item itemvalue="JUnit.TourInputViewModelTest" />
-      <item itemvalue="JUnit.TourListViewModelTest" />
+      <item itemvalue="JUnit.OpenRouteServiceAgentTest" />
+      <item itemvalue="JUnit.OpenRouteServiceAgentTest.directions_whenFHTWtoZanoni_thenOk" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.TourPlannerConfigTest" />
-        <item itemvalue="Application.TourPlannerApplication" />
-        <item itemvalue="JUnit.TourListViewModelTest" />
-        <item itemvalue="JUnit.TourInputViewModelTest" />
-        <item itemvalue="JUnit.SearchBarViewModelTest" />
+        <item itemvalue="JUnit.OpenRouteServiceAgentTest" />
+        <item itemvalue="JUnit.OpenRouteServiceAgentTest.directions_whenFHTWtoZanoni_thenOk" />
+        <item itemvalue="HTTP Request.OpenRouteService-tests | Directions from FHTW to Rotenturmstrasse 1" />
+        <item itemvalue="HTTP Request.OpenRouteService-tests | GeoCode-Search Rotenturmstrasse 1" />
+        <item itemvalue="HTTP Request.OpenRouteService-tests | GeoCode-Search FHTW" />
       </list>
     </recent_temporary>
   </component>
@@ -233,11 +230,28 @@
       <workItem from="1747306238560" duration="9738000" />
       <workItem from="1747383542653" duration="5257000" />
       <workItem from="1748272670680" duration="633000" />
-      <workItem from="1748355130665" duration="14929000" />
+      <workItem from="1748355130665" duration="15591000" />
+      <workItem from="1748861927230" duration="2786000" />
+      <workItem from="1748948786312" duration="3310000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/test/java/org/tourplanner/OpenRouteServiceAgentTest.java</url>
+          <line>17</line>
+          <properties class="org.tourplanner.OpenRouteServiceAgentTest" method="GeoCoord_whenFHTWPostal_thenFHTWGeoCoords">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

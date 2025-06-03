@@ -1,0 +1,27 @@
+# Variables to be used in all requests like the API
+@apikey=5b3ce3597851110001cf6248b8e1f20dec4249ed8b7c216a8d9057d5
+
+### GeoCode-Search FHTW
+@address1="Höchstädtplatz%206%201200%20Wien"
+
+GET https://api.openrouteservice.org/geocode/search?api_key={{apikey}}&text={{address1}}
+
+### GeoCode-Search Rotenturmstrasse 1
+@address2="Rotenturmstrasse%201%201010%20Wien"
+
+GET https://api.openrouteservice.org/geocode/search?api_key={{apikey}}&text={{address2}}
+
+### Directions from FHTW to Rotenturmstrasse 1
+
+@routeType=driving-car
+@startAt=16.378317,48.238992
+@endAt=16.372924,48.209379
+
+GET https://api.openrouteservice.org/v2/directions/{{routeType}}?api_key={{apikey}}&start={{startAt}}&end={{endAt}}
+
+# ---> bbox for map "bbox": [
+#        16.371256,
+#        48.20916,
+#        16.383488,
+#        48.238904
+#      ],

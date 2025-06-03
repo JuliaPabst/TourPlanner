@@ -1,0 +1,125 @@
+{
+  "geocoding": {
+    "version": "0.2",
+    "attribution": "https://openrouteservice.org/terms-of-service/#attribution-geocode",
+    "query": {
+      "text": "Höchstädtplatz 6 1200 Wien",
+      "size": 10,
+      "private": false,
+      "lang": {
+        "name": "English",
+        "iso6391": "en",
+        "iso6393": "eng",
+        "via": "default",
+        "defaulted": true
+      },
+      "querySize": 20,
+      "parser": "libpostal",
+      "parsed_text": {
+        "street": "höchstädtplatz",
+        "housenumber": "6",
+        "postalcode": "1200",
+        "city": "wien"
+      }
+    },
+    "engine": {
+      "name": "Pelias",
+      "author": "Mapzen",
+      "version": "1.0"
+    },
+    "timestamp": 1748950751740
+  },
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.378317,
+          48.238992
+        ]
+      },
+      "properties": {
+        "id": "node/4176139109",
+        "gid": "openstreetmap:address:node/4176139109",
+        "layer": "address",
+        "source": "openstreetmap",
+        "source_id": "node/4176139109",
+        "name": "Höchstädtplatz 6",
+        "housenumber": "6",
+        "street": "Höchstädtplatz",
+        "postalcode": "1200",
+        "confidence": 1,
+        "match_type": "exact",
+        "accuracy": "point",
+        "country": "Austria",
+        "country_gid": "whosonfirst:country:85632785",
+        "country_a": "AUT",
+        "region": "Vienna",
+        "region_gid": "whosonfirst:region:85681667",
+        "region_a": "WI",
+        "localadmin": "Wien",
+        "localadmin_gid": "whosonfirst:localadmin:1108838101",
+        "locality": "Vienna",
+        "locality_gid": "whosonfirst:locality:101748073",
+        "neighbourhood": "Brigittenauer Brucke",
+        "neighbourhood_gid": "whosonfirst:neighbourhood:85898649",
+        "continent": "Europe",
+        "continent_gid": "whosonfirst:continent:102191581",
+        "label": "Höchstädtplatz 6, Vienna, Austria",
+        "addendum": {
+          "osm": {
+            "website": "https://www.htw.wien/",
+            "phone": "+4313334077396"
+          }
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.377631,
+          48.239223
+        ]
+      },
+      "properties": {
+        "id": "relation/5242214",
+        "gid": "openstreetmap:address:relation/5242214",
+        "layer": "address",
+        "source": "openstreetmap",
+        "source_id": "relation/5242214",
+        "name": "Höchstädtplatz 6",
+        "housenumber": "6",
+        "street": "Höchstädtplatz",
+        "postalcode": "1200",
+        "confidence": 1,
+        "match_type": "exact",
+        "accuracy": "point",
+        "country": "Austria",
+        "country_gid": "whosonfirst:country:85632785",
+        "country_a": "AUT",
+        "region": "Vienna",
+        "region_gid": "whosonfirst:region:85681667",
+        "region_a": "WI",
+        "localadmin": "Wien",
+        "localadmin_gid": "whosonfirst:localadmin:1108838101",
+        "locality": "Vienna",
+        "locality_gid": "whosonfirst:locality:101748073",
+        "neighbourhood": "Brigittenau",
+        "neighbourhood_gid": "whosonfirst:neighbourhood:85898647",
+        "continent": "Europe",
+        "continent_gid": "whosonfirst:continent:102191581",
+        "label": "Höchstädtplatz 6, Vienna, Austria"
+      }
+    }
+  ],
+  "bbox": [
+    16.377631,
+    48.238992,
+    16.378317,
+    48.239223
+  ]
+}

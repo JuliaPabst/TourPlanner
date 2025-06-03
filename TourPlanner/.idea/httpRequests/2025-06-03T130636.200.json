@@ -1,0 +1,80 @@
+{
+  "geocoding": {
+    "version": "0.2",
+    "attribution": "https://openrouteservice.org/terms-of-service/#attribution-geocode",
+    "query": {
+      "text": "Rotenturmstrasse 1 1010 Wien",
+      "size": 10,
+      "private": false,
+      "lang": {
+        "name": "English",
+        "iso6391": "en",
+        "iso6393": "eng",
+        "via": "default",
+        "defaulted": true
+      },
+      "querySize": 20,
+      "parser": "libpostal",
+      "parsed_text": {
+        "street": "rotenturmstrasse",
+        "housenumber": "1",
+        "postalcode": "1010",
+        "city": "wien"
+      }
+    },
+    "engine": {
+      "name": "Pelias",
+      "author": "Mapzen",
+      "version": "1.0"
+    },
+    "timestamp": 1748948796648
+  },
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.372924,
+          48.209379
+        ]
+      },
+      "properties": {
+        "id": "node/437160498",
+        "gid": "openstreetmap:address:node/437160498",
+        "layer": "address",
+        "source": "openstreetmap",
+        "source_id": "node/437160498",
+        "name": "Rotenturmstraße 1-3",
+        "housenumber": "1-3",
+        "street": "Rotenturmstraße",
+        "postalcode": "1010",
+        "confidence": 1,
+        "match_type": "exact",
+        "accuracy": "point",
+        "country": "Austria",
+        "country_gid": "whosonfirst:country:85632785",
+        "country_a": "AUT",
+        "region": "Vienna",
+        "region_gid": "whosonfirst:region:85681667",
+        "region_a": "WI",
+        "localadmin": "Wien",
+        "localadmin_gid": "whosonfirst:localadmin:1108838101",
+        "locality": "Vienna",
+        "locality_gid": "whosonfirst:locality:101748073",
+        "neighbourhood": "Inner CIty",
+        "neighbourhood_gid": "whosonfirst:neighbourhood:85898685",
+        "continent": "Europe",
+        "continent_gid": "whosonfirst:continent:102191581",
+        "label": "Rotenturmstraße 1-3, Vienna, Austria"
+      }
+    }
+  ],
+  "bbox": [
+    16.372924,
+    48.209379,
+    16.372924,
+    48.209379
+  ]
+}

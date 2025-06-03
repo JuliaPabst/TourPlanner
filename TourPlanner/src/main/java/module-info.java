@@ -12,8 +12,10 @@ module org.tourplanner {
     // JavaFX
     requires javafx.controls;
     requires javafx.fxml;
-    requires java.desktop;
     requires static lombok;
+    requires java.net.http;
+    requires com.fasterxml.jackson.databind;
+    requires java.desktop;
 
     opens org.tourplanner.view to javafx.fxml;
     opens org.tourplanner to javafx.fxml;
