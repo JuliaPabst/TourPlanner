@@ -5,13 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="28563466-d155-4117-a6f3-036ad5da4c5f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/OpenRouteService-tests.http" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/tourplanner/GeoCoord.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/tourplanner/OpenRouteServiceAgent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/tourplanner/OpenRouteServiceAgentTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/tourplanner/OpenRouteServiceAgentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/tourplanner/OpenRouteServiceAgentTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,7 +110,7 @@
       <recent name="org.tourplanner.model" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.OpenRouteServiceAgentTest">
+  <component name="RunManager" selected="Application.TourPlannerApplication">
     <configuration name="TourPlannerApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.tourplanner.TourPlannerApplication" />
       <module name="TourPlanner" />
@@ -232,26 +226,11 @@
       <workItem from="1748272670680" duration="633000" />
       <workItem from="1748355130665" duration="15591000" />
       <workItem from="1748861927230" duration="2786000" />
-      <workItem from="1748948786312" duration="3310000" />
+      <workItem from="1748948786312" duration="3699000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/test/java/org/tourplanner/OpenRouteServiceAgentTest.java</url>
-          <line>17</line>
-          <properties class="org.tourplanner.OpenRouteServiceAgentTest" method="GeoCoord_whenFHTWPostal_thenFHTWGeoCoords">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

@@ -20,7 +20,7 @@ class OpenRouteServiceAgentTest {
         String postalAdresse = "Höchstädtplatz, 6, 1200 Wien";
 
         // Act
-        GeoCoord result = serviceAgent.geoCoord(postalAdresse);
+        GeoCoord result = serviceAgent.geoCode(postalAdresse);
 
         // Assert
         assertNotNull(result);
@@ -34,7 +34,7 @@ class OpenRouteServiceAgentTest {
         String postalAdresse = "Rotenturmstrasse 1, 1010 Wien";
 
         // Act
-        GeoCoord result = serviceAgent.geoCoord(postalAdresse);
+        GeoCoord result = serviceAgent.geoCode(postalAdresse);
 
         // Assert
         assertNotNull(result);
@@ -53,5 +53,11 @@ class OpenRouteServiceAgentTest {
 
         // Assert
          assertNotNull(result);
+         var bbox = result.get("bbox");
+         assertNotNull(bbox);
+         assertEquals(bbox.get(0).asDouble(), 16.371256);
+         assertEquals(bbox.get(1).asDouble(), 48.20916);
+         assertEquals(bbox.get(2).asDouble(), 16.383488);
+         assertEquals(bbox.get(3).asDouble(), 48.238904);
     }
 }

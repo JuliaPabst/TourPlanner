@@ -25,7 +25,7 @@ public class OpenRouteServiceAgent {
         this.apiKey = apiKey;
     }
 
-    public GeoCoord geoCoord(String postalAddress) {
+    public GeoCoord geoCode(String postalAddress) {
         try {
             postalAddress = URLEncoder.encode(postalAddress, "UTF-8");
         } catch (UnsupportedEncodingException e) {
