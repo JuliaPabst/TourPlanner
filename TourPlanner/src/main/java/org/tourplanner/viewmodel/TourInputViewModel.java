@@ -22,7 +22,7 @@ public class TourInputViewModel {
     private final StringProperty description = new SimpleStringProperty("");
     private final StringProperty from = new SimpleStringProperty("");
     private final StringProperty to = new SimpleStringProperty("");
-    private final ObjectProperty<TransportType> transportType = new SimpleObjectProperty<>(TransportType.BIKE);
+    private final ObjectProperty<TransportType> transportType = new SimpleObjectProperty<>(TransportType.FOOT_HIKING);
     private final IntegerProperty distance = new SimpleIntegerProperty(0);
     private final IntegerProperty estimatedTime = new SimpleIntegerProperty(0);
 
@@ -69,7 +69,7 @@ public class TourInputViewModel {
         description.set("");
         from.set("");
         to.set("");
-        transportType.set(TransportType.BIKE);
+        transportType.set(TransportType.FOOT_HIKING);
         distance.set(0);
         estimatedTime.set(0);
     }
@@ -123,7 +123,7 @@ public class TourInputViewModel {
         toProperty().set("");
         distanceProperty().set(0);
         estimatedTimeProperty().set(0);
-        transportTypeProperty().set(TransportType.HIKE);
+        transportTypeProperty().set(TransportType.FOOT_HIKING);
         editingTour.set(null);
     }
 

@@ -32,7 +32,7 @@ class TourInputViewModelTest {
         assertEquals("", viewModel.toProperty().get());
         assertEquals(0, viewModel.distanceProperty().get());
         assertEquals(0, viewModel.estimatedTimeProperty().get());
-        assertEquals(TransportType.BIKE, viewModel.transportTypeProperty().get());
+        assertEquals(TransportType.FOOT_HIKING, viewModel.transportTypeProperty().get());
     }
 
     @Test
@@ -44,7 +44,7 @@ class TourInputViewModelTest {
         viewModel.toProperty().set("Salzburg");
         viewModel.distanceProperty().set(150);
         viewModel.estimatedTimeProperty().set(300);
-        viewModel.transportTypeProperty().set(TransportType.HIKE);
+        viewModel.transportTypeProperty().set(TransportType.FOOT_HIKING);
 
         AtomicReference<Tour> createdTourRef = new AtomicReference<>();
         viewModel.addTourCreatedListener(evt -> {
@@ -65,7 +65,7 @@ class TourInputViewModelTest {
         assertEquals("Salzburg", createdTour.getTo());
         assertEquals(150, createdTour.getDistance());
         assertEquals(300, createdTour.getEstimatedTime());
-        assertEquals(TransportType.HIKE, createdTour.getTransportType());
+        assertEquals(TransportType.FOOT_HIKING, createdTour.getTransportType());
 
         verify(mockTourManager).createNewTour(createdTour);
 
@@ -76,7 +76,7 @@ class TourInputViewModelTest {
         assertEquals("", viewModel.toProperty().get());
         assertEquals(0, viewModel.distanceProperty().get());
         assertEquals(0, viewModel.estimatedTimeProperty().get());
-        assertEquals(TransportType.BIKE, viewModel.transportTypeProperty().get()); // back to default
+        assertEquals(TransportType.FOOT_HIKING, viewModel.transportTypeProperty().get()); // back to default
     }
 
     @Test
@@ -117,7 +117,7 @@ class TourInputViewModelTest {
                 "Along the Danube",
                 "Vienna",
                 "Linz",
-                TransportType.BIKE,
+                TransportType.FOOT_HIKING,
                 200,
                 240,
                 null,
@@ -132,7 +132,7 @@ class TourInputViewModelTest {
         assertEquals("Linz", viewModel.toProperty().get());
         assertEquals(200, viewModel.distanceProperty().get());
         assertEquals(240, viewModel.estimatedTimeProperty().get());
-        assertEquals(TransportType.BIKE, viewModel.transportTypeProperty().get());
+        assertEquals(TransportType.FOOT_HIKING, viewModel.transportTypeProperty().get());
     }
 
     @Test
@@ -143,7 +143,7 @@ class TourInputViewModelTest {
                 "Old desc",
                 "A",
                 "B",
-                TransportType.HIKE,
+                TransportType.FOOT_HIKING,
                 10,
                 20,
                 null,
@@ -158,7 +158,7 @@ class TourInputViewModelTest {
         viewModel.toProperty().set("Y");
         viewModel.distanceProperty().set(99);
         viewModel.estimatedTimeProperty().set(999);
-        viewModel.transportTypeProperty().set(TransportType.RUNNING);
+        viewModel.transportTypeProperty().set(TransportType.FOOT_HIKING);
 
         AtomicReference<Tour> updatedRef = new AtomicReference<>();
         viewModel.addTourEditedListener(evt -> {
@@ -177,7 +177,7 @@ class TourInputViewModelTest {
         assertEquals("Y", updatedTour.getTo());
         assertEquals(99, updatedTour.getDistance());
         assertEquals(999, updatedTour.getEstimatedTime());
-        assertEquals(TransportType.RUNNING, updatedTour.getTransportType());
+        assertEquals(TransportType.FOOT_HIKING, updatedTour.getTransportType());
 
         verify(mockTourManager).replaceTour(oldTour, updatedTour);
         verify(mockTourListViewModel).selectTour(updatedTour);

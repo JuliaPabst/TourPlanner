@@ -5,7 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="28563466-d155-4117-a6f3-036ad5da4c5f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/tourplanner/OpenRouteServiceAgentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/tourplanner/OpenRouteServiceAgentTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tourplanner/persistence/entity/Tour.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tourplanner/persistence/entity/Tour.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tourplanner/persistence/entity/TransportType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tourplanner/persistence/entity/TransportType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tourplanner/view/TourInputController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tourplanner/view/TourInputController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tourplanner/viewmodel/TourInputViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tourplanner/viewmodel/TourInputViewModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/tourplanner/tour-input.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/tourplanner/tour-input.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,6 +59,7 @@
     "HTTP Request.OpenRouteService-tests | GeoCode-Search FHTW.executor": "Run",
     "HTTP Request.OpenRouteService-tests | GeoCode-Search Rotenturmstrasse 1.executor": "Run",
     "HTTP Request.OpenRouteService-tests | GeoCode-Search Zanoni.executor": "Run",
+    "JUnit.OpenRouteServiceAgentTest.GeoCoord_whenFHTWPostal_thenFHTWGeoCoords.executor": "Run",
     "JUnit.OpenRouteServiceAgentTest.directions_whenFHTWtoZanoni_thenOk.executor": "Run",
     "JUnit.OpenRouteServiceAgentTest.executor": "Run",
     "JUnit.RouteInputViewModelTest.executor": "Run",
@@ -79,7 +86,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
+    "settings.editor.selected.configurable": "reference.settingsdialog.project.grazie",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -127,9 +134,6 @@
     <configuration name="OpenRouteService-tests | Directions from FHTW to Rotenturmstrasse 1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/OpenRouteService-tests.http" index="3" requestIdentifier="Directions from FHTW to Rotenturmstrasse 1" runType="Run single request">
       <method v="2" />
     </configuration>
-    <configuration name="OpenRouteService-tests | GeoCode-Search FHTW" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/OpenRouteService-tests.http" requestIdentifier="GeoCode-Search FHTW" runType="Run single request">
-      <method v="2" />
-    </configuration>
     <configuration name="OpenRouteService-tests | GeoCode-Search Rotenturmstrasse 1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/OpenRouteService-tests.http" index="2" requestIdentifier="GeoCode-Search Rotenturmstrasse 1" runType="Run single request">
       <method v="2" />
     </configuration>
@@ -144,6 +148,22 @@
       <option name="PACKAGE_NAME" value="org.tourplanner" />
       <option name="MAIN_CLASS_NAME" value="org.tourplanner.OpenRouteServiceAgentTest" />
       <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OpenRouteServiceAgentTest.GeoCoord_whenFHTWPostal_thenFHTWGeoCoords" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TourPlanner" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.tourplanner.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.tourplanner" />
+      <option name="MAIN_CLASS_NAME" value="org.tourplanner.OpenRouteServiceAgentTest" />
+      <option name="METHOD_NAME" value="GeoCoord_whenFHTWPostal_thenFHTWGeoCoords" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -184,18 +204,18 @@
       <item itemvalue="Application.TourPlannerApplication" />
       <item itemvalue="HTTP Request.OpenRouteService-tests | Directions from FHTW to Rotenturmstrasse 1" />
       <item itemvalue="HTTP Request.OpenRouteService-tests | GeoCode-Search Rotenturmstrasse 1" />
-      <item itemvalue="HTTP Request.OpenRouteService-tests | GeoCode-Search FHTW" />
       <item itemvalue="JUnit.RouteInputViewModelTest" />
+      <item itemvalue="JUnit.OpenRouteServiceAgentTest.GeoCoord_whenFHTWPostal_thenFHTWGeoCoords" />
       <item itemvalue="JUnit.OpenRouteServiceAgentTest" />
       <item itemvalue="JUnit.OpenRouteServiceAgentTest.directions_whenFHTWtoZanoni_thenOk" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="HTTP Request.OpenRouteService-tests | Directions from FHTW to Rotenturmstrasse 1" />
+        <item itemvalue="JUnit.OpenRouteServiceAgentTest.GeoCoord_whenFHTWPostal_thenFHTWGeoCoords" />
         <item itemvalue="JUnit.OpenRouteServiceAgentTest" />
         <item itemvalue="JUnit.OpenRouteServiceAgentTest.directions_whenFHTWtoZanoni_thenOk" />
-        <item itemvalue="HTTP Request.OpenRouteService-tests | Directions from FHTW to Rotenturmstrasse 1" />
         <item itemvalue="HTTP Request.OpenRouteService-tests | GeoCode-Search Rotenturmstrasse 1" />
-        <item itemvalue="HTTP Request.OpenRouteService-tests | GeoCode-Search FHTW" />
       </list>
     </recent_temporary>
   </component>
@@ -226,7 +246,9 @@
       <workItem from="1748272670680" duration="633000" />
       <workItem from="1748355130665" duration="15591000" />
       <workItem from="1748861927230" duration="2786000" />
-      <workItem from="1748948786312" duration="3699000" />
+      <workItem from="1748948786312" duration="4406000" />
+      <workItem from="1750140581580" duration="29000" />
+      <workItem from="1750239979475" duration="3618000" />
     </task>
     <servers />
   </component>

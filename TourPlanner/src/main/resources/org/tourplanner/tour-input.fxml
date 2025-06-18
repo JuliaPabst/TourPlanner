@@ -37,10 +37,16 @@
     <ComboBox fx:id="newTourTransportTypeBox" GridPane.rowIndex="4" GridPane.columnIndex="1">
         <items>
             <FXCollections fx:factory="observableArrayList">
-                <String fx:value="BIKE"/>
-                <String fx:value="HIKE"/>
-                <String fx:value="RUNNING"/>
+                <String fx:value="DRIVING_CAR"/>
+                <String fx:value="DRIVING_HGV"/>
+                <String fx:value="CYCLING_REGULAR"/>
+                <String fx:value="CYCLING_ROAD"/>
+                <String fx:value="CYCLING_MOUNTAIN"/>
+                <String fx:value="CYCLING_ELECTRIC"/>
+                <String fx:value="FOOT_WALKING"/>
+                <String fx:value="FOOT_HIKING"/>
             </FXCollections>
+
         </items>
     </ComboBox>
 

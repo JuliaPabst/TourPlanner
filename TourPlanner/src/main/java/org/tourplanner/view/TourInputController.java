@@ -49,7 +49,17 @@ public class TourInputController implements Initializable {
         Bindings.bindBidirectional(newTourEstimatedTimeField.textProperty(), viewModel.estimatedTimeProperty(), new NumberStringConverter());
 
         // Initialize transport type box
-        newTourTransportTypeBox.getItems().setAll("BIKE", "HIKE", "RUNNING");
+        newTourTransportTypeBox.getItems().setAll(
+                "DRIVING_CAR",
+                "DRIVING_HGV",
+                "CYCLING_REGULAR",
+                "CYCLING_ROAD",
+                "CYCLING_MOUNTAIN",
+                "CYCLING_ELECTRIC",
+                "FOOT_WALKING",
+                "FOOT_HIKING"
+        );
+
         newTourTransportTypeBox.getSelectionModel().select(viewModel.transportTypeProperty().get().name());
 
         // Keep ViewModel in sync with ComboBox selection
