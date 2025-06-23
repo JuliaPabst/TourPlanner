@@ -109,7 +109,7 @@ public class TourListViewModel {
 
         fromLabel.set("From: " + tour.getFrom());
         toLabel.set("To: " + tour.getTo());
-        transportTypeLabel.set(tour.getTransportType().name());
+        transportTypeLabel.set(tour.getTransportType().getLabel());
         distanceLabel.set("Distance: " + tour.getDistance() + " km");
         timeLabel.set("Est. time: " + tour.getEstimatedTime() + " min");
         descriptionText.set(tour.getTourDescription());

@@ -5,9 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="28563466-d155-4117-a6f3-036ad5da4c5f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tourplanner/persistence/entity/TransportType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tourplanner/persistence/entity/TransportType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tourplanner/view/TourInputController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tourplanner/view/TourInputController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/tourplanner/tour-input.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/tourplanner/tour-input.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tourplanner/viewmodel/TourListViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tourplanner/viewmodel/TourListViewModel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -251,5 +249,8 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="LAST_COMMIT_MESSAGE" value="" />
   </component>
 </project>
