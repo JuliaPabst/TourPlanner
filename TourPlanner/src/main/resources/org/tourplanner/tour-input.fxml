@@ -36,12 +36,6 @@
     <Label text="Transport Type:" GridPane.rowIndex="4"/>
     <ComboBox fx:id="newTourTransportTypeBox" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
 
-    <Label text="Distance (km):" GridPane.rowIndex="5"/>
-    <TextField fx:id="newTourDistanceField" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
-
-    <Label text="Estimated Time (min):" GridPane.rowIndex="6"/>
-    <TextField fx:id="newTourEstimatedTimeField" GridPane.rowIndex="6" GridPane.columnIndex="1"/>
-
     <Button text="Save Tour" fx:id="saveTourButton" onAction="#onSaveButtonClick"
             GridPane.rowIndex="7" GridPane.columnIndex="1" GridPane.halignment="RIGHT"
             styleClass="action-button"/>

@@ -91,18 +91,25 @@ public class OpenRouteServiceAgent {
         }
     }
 
-    public static enum RouteType {
-        CAR("driving-car");
+    public enum RouteType {
+        DRIVING_CAR("driving-car"),
+        DRIVING_HGV("driving-hgv"),
+        CYCLING_REGULAR("cycling-regular"),
+        CYCLING_ROAD("cycling-road"),
+        CYCLING_MOUNTAIN("cycling-mountain"),
+        CYCLING_ELECTRIC("cycling-electric"),
+        FOOT_WALKING("foot-walking"),
+        FOOT_HIKING("foot-hiking");
 
-        private final String s;
+        private final String orsName;
 
-        RouteType(String s){
-            this.s = s;
+        RouteType(String orsName) {
+            this.orsName = orsName;
         }
 
         @Override
         public String toString() {
-            return s;
+            return orsName;
         }
     }
 }

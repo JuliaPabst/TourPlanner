@@ -132,7 +132,7 @@ public class TourInputViewModel {
             throw new IllegalArgumentException("Could not geocode start or end address.");
         }
 
-        var routeJson = orsAgent.directions(OpenRouteServiceAgent.RouteType.CAR, start, end);
+        var routeJson = orsAgent.directions(mapToRouteType(transportType.get()), start, end);
         if (routeJson == null) {
             throw new IllegalArgumentException("Could not calculate route.");
         }
@@ -146,6 +146,18 @@ public class TourInputViewModel {
         estimatedTime.set(newTime);
     }
 
+    private OpenRouteServiceAgent.RouteType mapToRouteType(TransportType transportType) {
+        return switch (transportType) {
+            case DRIVING_CAR -> OpenRouteServiceAgent.RouteType.DRIVING_CAR;
+            case DRIVING_HGV -> OpenRouteServiceAgent.RouteType.DRIVING_HGV;
+            case CYCLING_REGULAR -> OpenRouteServiceAgent.RouteType.CYCLING_REGULAR;
+            case CYCLING_ROAD -> OpenRouteServiceAgent.RouteType.CYCLING_ROAD;
+            case CYCLING_MOUNTAIN -> OpenRouteServiceAgent.RouteType.CYCLING_MOUNTAIN;
+            case CYCLING_ELECTRIC -> OpenRouteServiceAgent.RouteType.CYCLING_ELECTRIC;
+            case FOOT_WALKING -> OpenRouteServiceAgent.RouteType.FOOT_WALKING;
+            case FOOT_HIKING -> OpenRouteServiceAgent.RouteType.FOOT_HIKING;
+        };
+    }
 
     public void resetFields() {
         nameProperty().set("");
@@ -161,14 +173,6 @@ public class TourInputViewModel {
     private void validateInput() {
         if (name.get().isBlank() || from.get().isBlank() || to.get().isBlank()) {
             throw new IllegalArgumentException("Required fields must not be empty.");
-        }
-
-        if (distance.get() <= 0) {
-            throw new IllegalArgumentException("Distance must be greater than 0.");
-        }
-
-        if (estimatedTime.get() <= 0) {
-            throw new IllegalArgumentException("Estimated time must be greater than 0.");
         }
     }
 

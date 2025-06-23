@@ -34,8 +34,6 @@ public class TourInputController implements Initializable {
     @FXML private TextField newTourFromField;
     @FXML private TextField newTourToField;
     @FXML private ComboBox<TransportType> newTourTransportTypeBox;
-    @FXML private TextField newTourDistanceField;
-    @FXML private TextField newTourEstimatedTimeField;
     @FXML private Button saveTourButton;
 
     @Override
@@ -45,9 +43,6 @@ public class TourInputController implements Initializable {
         Bindings.bindBidirectional(newTourDescriptionField.textProperty(), viewModel.descriptionProperty());
         Bindings.bindBidirectional(newTourFromField.textProperty(), viewModel.fromProperty());
         Bindings.bindBidirectional(newTourToField.textProperty(), viewModel.toProperty());
-        Bindings.bindBidirectional(newTourDistanceField.textProperty(), viewModel.distanceProperty(), new NumberStringConverter());
-        Bindings.bindBidirectional(newTourEstimatedTimeField.textProperty(), viewModel.estimatedTimeProperty(), new NumberStringConverter());
-
         // Populate ComboBox with enum values
         newTourTransportTypeBox.getItems().setAll(TransportType.values());
 
