@@ -33,7 +33,7 @@ public class TourInputController implements Initializable {
     @FXML private TextField newTourDescriptionField;
     @FXML private TextField newTourFromField;
     @FXML private TextField newTourToField;
-    @FXML private ComboBox<String> newTourTransportTypeBox;
+    @FXML private ComboBox<TransportType> newTourTransportTypeBox;
     @FXML private TextField newTourDistanceField;
     @FXML private TextField newTourEstimatedTimeField;
     @FXML private Button saveTourButton;
@@ -48,33 +48,29 @@ public class TourInputController implements Initializable {
         Bindings.bindBidirectional(newTourDistanceField.textProperty(), viewModel.distanceProperty(), new NumberStringConverter());
         Bindings.bindBidirectional(newTourEstimatedTimeField.textProperty(), viewModel.estimatedTimeProperty(), new NumberStringConverter());
 
-        // Initialize transport type box
-        newTourTransportTypeBox.getItems().setAll(
-                "DRIVING_CAR",
-                "DRIVING_HGV",
-                "CYCLING_REGULAR",
-                "CYCLING_ROAD",
-                "CYCLING_MOUNTAIN",
-                "CYCLING_ELECTRIC",
-                "FOOT_WALKING",
-                "FOOT_HIKING"
-        );
+        // Populate ComboBox with enum values
+        newTourTransportTypeBox.getItems().setAll(TransportType.values());
 
-        newTourTransportTypeBox.getSelectionModel().select(viewModel.transportTypeProperty().get().name());
-
-        // Keep ViewModel in sync with ComboBox selection
-        newTourTransportTypeBox.valueProperty().addListener((obs, oldVal, newVal) -> {
-            if (newVal != null) {
-                viewModel.transportTypeProperty().set(TransportType.valueOf(newVal));
+        // Show user-friendly labels
+        newTourTransportTypeBox.setCellFactory(cb -> new ListCell<>() {
+            @Override
+            protected void updateItem(TransportType item, boolean empty) {
+                super.updateItem(item, empty);
+                setText(empty || item == null ? null : item.getLabel());
+            }
+        });
+        newTourTransportTypeBox.setButtonCell(new ListCell<>() {
+            @Override
+            protected void updateItem(TransportType item, boolean empty) {
+                super.updateItem(item, empty);
+                setText(empty || item == null ? null : item.getLabel());
             }
         });
 
-        viewModel.transportTypeProperty().addListener((obs, oldVal, newVal) -> {
-            if (newVal != null) {
-                newTourTransportTypeBox.getSelectionModel().select(newVal.name());
-            }
-        });
+        // Bind ComboBox to ViewModel
+        newTourTransportTypeBox.valueProperty().bindBidirectional(viewModel.transportTypeProperty());
     }
+
 
     @FXML
     public void onSaveButtonClick(ActionEvent actionEvent) {
