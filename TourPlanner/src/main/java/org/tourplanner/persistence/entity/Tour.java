@@ -33,8 +33,8 @@ public class Tour{
     @Column(name= "to_location")
     private String to;
 
-    @Column(name = "transport_type", columnDefinition = "transport_type")
     @Enumerated(EnumType.STRING)
+    @Column(name = "transport_type"/*, columnDefinition = "transport_type"*/)
     private TransportType transportType;
 
     @Column(name= "distance")
