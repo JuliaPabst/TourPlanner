@@ -27,4 +27,5 @@ module org.tourplanner {
     exports org.tourplanner.persistence.entity;
     exports org.tourplanner.persistence.repository;
     exports org.tourplanner.service;
+    opens org.tourplanner.service to javafx.fxml;
 }

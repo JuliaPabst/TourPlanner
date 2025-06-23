@@ -1,7 +1,10 @@
-package org.tourplanner;
+package org.tourplanner.service;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
+import org.tourplanner.persistence.entity.GeoCoord;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -16,12 +19,11 @@ import java.util.Locale;
 /**
  * Service-Agent for calling the REST API of www.openrouteservice.org
  */
+@Service
 public class OpenRouteServiceAgent {
-    private static final String API_KEY= "5b3ce3597851110001cf6248b8e1f20dec4249ed8b7c216a8d9057d5";
+    private final String apiKey;
 
-    private String apiKey;
-
-    public OpenRouteServiceAgent(String apiKey) {
+    public OpenRouteServiceAgent(@Value("${openroute.api.key}") String apiKey) {
         this.apiKey = apiKey;
     }
 
@@ -89,7 +91,7 @@ public class OpenRouteServiceAgent {
         }
     }
 
-    static enum RouteType {
+    public static enum RouteType {
         CAR("driving-car");
 
         private final String s;

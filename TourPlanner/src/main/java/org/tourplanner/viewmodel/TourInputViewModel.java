@@ -1,7 +1,10 @@
 package org.tourplanner.viewmodel;
 
 import javafx.beans.property.*;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.tourplanner.persistence.entity.GeoCoord;
+import org.tourplanner.service.OpenRouteServiceAgent;
 import org.tourplanner.persistence.entity.Tour;
 import org.tourplanner.persistence.entity.TransportType;
 import org.tourplanner.service.TourManager;
@@ -16,6 +19,8 @@ public class TourInputViewModel {
 
     private final TourListViewModel tourListViewModel;
 
+    private final OpenRouteServiceAgent orsAgent;
+
     private final ObjectProperty<Tour> editingTour = new SimpleObjectProperty<>(null);
 
     private final StringProperty name = new SimpleStringProperty("");
@@ -29,9 +34,10 @@ public class TourInputViewModel {
     private final PropertyChangeSupport tourCreatedEvent = new PropertyChangeSupport(this);
     private final PropertyChangeSupport tourEditedEvent = new PropertyChangeSupport(this);
 
-    public TourInputViewModel(TourManager tourManager, TourListViewModel tourListViewModel) {
+    public TourInputViewModel(TourManager tourManager, TourListViewModel tourListViewModel, OpenRouteServiceAgent orsAgent) {
         this.tourManager = tourManager;
         this.tourListViewModel = tourListViewModel;
+        this.orsAgent = orsAgent;
     }
 
     public StringProperty nameProperty() { return name; }
@@ -46,6 +52,7 @@ public class TourInputViewModel {
 
     public void createNewTour() {
         validateInput();
+        calculateAndSetRouteMetrics();
 
         Tour newTour = new Tour(
                 null, // tourId (null for new)
@@ -94,6 +101,7 @@ public class TourInputViewModel {
             return;
         }
 
+        calculateAndSetRouteMetrics();
         Tour updated = new Tour(
                 null,
                 nameProperty().get(),
@@ -115,6 +123,29 @@ public class TourInputViewModel {
         editingTour.set(null); // clear edit mode
         resetFields();
     }
+
+    private void calculateAndSetRouteMetrics() {
+        GeoCoord start = orsAgent.geoCode(from.get());
+        GeoCoord end = orsAgent.geoCode(to.get());
+
+        if (start == null || end == null) {
+            throw new IllegalArgumentException("Could not geocode start or end address.");
+        }
+
+        var routeJson = orsAgent.directions(OpenRouteServiceAgent.RouteType.CAR, start, end);
+        if (routeJson == null) {
+            throw new IllegalArgumentException("Could not calculate route.");
+        }
+
+        int newDistance = (int) (routeJson.get("features").get(0)
+                .get("properties").get("segments").get(0).get("distance").asDouble() / 1000);
+        int newTime = (int) (routeJson.get("features").get(0)
+                .get("properties").get("segments").get(0).get("duration").asDouble() / 60);
+
+        distance.set(newDistance);
+        estimatedTime.set(newTime);
+    }
+
 
     public void resetFields() {
         nameProperty().set("");

@@ -5,7 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="28563466-d155-4117-a6f3-036ad5da4c5f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tourplanner/viewmodel/TourListViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tourplanner/viewmodel/TourListViewModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tourplanner/GeoCoord.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tourplanner/persistence/entity/GeoCoord.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tourplanner/OpenRouteServiceAgent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tourplanner/service/OpenRouteServiceAgent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tourplanner/viewmodel/TourInputViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tourplanner/viewmodel/TourInputViewModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/tourplanner/OpenRouteServiceAgentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/tourplanner/OpenRouteServiceAgentTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -135,7 +139,7 @@
       <module name="TourPlanner" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.tourplanner.*" />
+          <option name="PATTERN" value="org.tourplanner.persistence.entity.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -150,7 +154,7 @@
       <module name="TourPlanner" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.tourplanner.*" />
+          <option name="PATTERN" value="org.tourplanner.persistence.entity.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -166,7 +170,7 @@
       <module name="TourPlanner" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.tourplanner.*" />
+          <option name="PATTERN" value="org.tourplanner.persistence.entity.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
