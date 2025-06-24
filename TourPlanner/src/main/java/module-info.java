@@ -10,11 +10,11 @@ module org.tourplanner {
     requires org.hibernate.orm.core;
 
     // JavaFX
-    requires javafx.controls;
     requires javafx.fxml;
     requires static lombok;
-    requires java.net.http;
     requires com.fasterxml.jackson.databind;
+    requires javafx.web;
+    requires java.net.http;
     requires java.desktop;
 
     opens org.tourplanner.view to javafx.fxml;

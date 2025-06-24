@@ -23,6 +23,8 @@ public class TourInputViewModel {
 
     private final ObjectProperty<Tour> editingTour = new SimpleObjectProperty<>(null);
 
+    private String routeJsonString;
+
     private final StringProperty name = new SimpleStringProperty("");
     private final StringProperty description = new SimpleStringProperty("");
     private final StringProperty from = new SimpleStringProperty("");
@@ -38,6 +40,7 @@ public class TourInputViewModel {
         this.tourManager = tourManager;
         this.tourListViewModel = tourListViewModel;
         this.orsAgent = orsAgent;
+        this.routeJsonString = "";
     }
 
     public StringProperty nameProperty() { return name; }
@@ -55,7 +58,7 @@ public class TourInputViewModel {
         calculateAndSetRouteMetrics();
 
         Tour newTour = new Tour(
-                null, // tourId (null for new)
+                null, // tourId
                 name.get(),
                 description.get(),
                 from.get(),
@@ -63,9 +66,10 @@ public class TourInputViewModel {
                 transportType.get(),
                 distance.get(),
                 estimatedTime.get(),
-                null, // routeInformation
-                new ArrayList<>() // tourLogs
+                routeJsonString,
+                new ArrayList<>()
         );
+
 
         tourManager.createNewTour(newTour);
 
@@ -102,23 +106,25 @@ public class TourInputViewModel {
         }
 
         calculateAndSetRouteMetrics();
-        Tour updated = new Tour(
-                null,
-                nameProperty().get(),
-                descriptionProperty().get(),
-                fromProperty().get(),
-                toProperty().get(),
-                transportTypeProperty().get(),
-                distanceProperty().get(),
-                estimatedTimeProperty().get(),
-                editingTour.get().getRouteInformation(),
+
+        Tour updatedTour = new Tour(
+                null, // tourId
+                name.get(),
+                description.get(),
+                from.get(),
+                to.get(),
+                transportType.get(),
+                distance.get(),
+                estimatedTime.get(),
+                routeJsonString,
                 new ArrayList<>()
         );
 
-        tourManager.replaceTour(editingTour.get(), updated);
-        tourListViewModel.selectTour(updated);
 
-        fireTourEdited(updated);
+        tourManager.replaceTour(editingTour.get(), updatedTour);
+        tourListViewModel.selectTour(updatedTour);
+
+        fireTourEdited(updatedTour);
 
         editingTour.set(null); // clear edit mode
         resetFields();
@@ -137,6 +143,8 @@ public class TourInputViewModel {
             throw new IllegalArgumentException("Could not calculate route.");
         }
 
+        routeJsonString = routeJson.toString(); // <-- Save the full JSON string for DB
+
         int newDistance = (int) (routeJson.get("features").get(0)
                 .get("properties").get("segments").get(0).get("distance").asDouble() / 1000);
         int newTime = (int) (routeJson.get("features").get(0)
@@ -145,6 +153,7 @@ public class TourInputViewModel {
         distance.set(newDistance);
         estimatedTime.set(newTime);
     }
+
 
     private OpenRouteServiceAgent.RouteType mapToRouteType(TransportType transportType) {
         return switch (transportType) {
@@ -167,6 +176,7 @@ public class TourInputViewModel {
         distanceProperty().set(0);
         estimatedTimeProperty().set(0);
         transportTypeProperty().set(TransportType.FOOT_HIKING);
+        routeJsonString = "";
         editingTour.set(null);
     }
 

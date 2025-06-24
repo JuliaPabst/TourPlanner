@@ -4,6 +4,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.web.WebView?>
 
 <VBox spacing="10" styleClass="tour-detail-box" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.tourplanner.view.TourDetailController">
     <padding>
@@ -42,7 +43,7 @@
 
     <VBox spacing="5">
         <Label fx:id="mapSectionTitle" styleClass="tour-section-title" text="Map" />
-        <ImageView fx:id="mapImageView" fitHeight="150" fitWidth="300" preserveRatio="true" />
+        <WebView fx:id="mapWebView" prefHeight="150" prefWidth="300" />
     </VBox>
 
     <VBox spacing="5">

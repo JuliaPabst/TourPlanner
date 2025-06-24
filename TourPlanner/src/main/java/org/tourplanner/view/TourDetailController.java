@@ -8,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.web.WebView;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.collections.ListChangeListener;
@@ -18,6 +19,10 @@ import org.tourplanner.service.TourLogManager;
 import org.tourplanner.view.util.ModalService;
 import org.tourplanner.viewmodel.TourInputViewModel;
 import org.tourplanner.viewmodel.TourListViewModel;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.net.URISyntaxException;
 
 import java.io.IOException;
 import java.net.URL;
@@ -55,7 +60,7 @@ public class TourDetailController implements Initializable {
     @FXML
     private Label childFriendlyLabel;
     @FXML
-    private ImageView mapImageView;
+    private WebView mapWebView;
     @FXML
     private Label descriptionText;
     @FXML
@@ -152,7 +157,7 @@ public class TourDetailController implements Initializable {
         popularityLabel.setText("");
         childFriendlyLabel.setText("");
 
-        mapImageView.setImage(null);
+        mapWebView.getEngine().loadContent("<html><body><p>No map selected</p></body></html>");
         routeSectionTitle.setText("");
         transportTypeSectionTitle.setText("");
         statsSectionTitle.setText("");
@@ -176,8 +181,13 @@ public class TourDetailController implements Initializable {
         mapSectionTitle.setText("Map");
         descriptionSectionTitle.setText("Description");
 
-        // TODO: Load actual image
-        mapImageView.setImage(new Image(Objects.requireNonNull(getClass().getResource("/testImage.jpeg")).toExternalForm()));
+        String routeJson = tour.getRouteInformation();
+        if (routeJson != null && !routeJson.isBlank()) {
+            String htmlContent = loadLeafletHtmlWithRoute(routeJson);
+            mapWebView.getEngine().loadContent(htmlContent, "text/html");
+        } else {
+            mapWebView.getEngine().loadContent("<html><body><p>No map available</p></body></html>");
+        }
     }
 
     @FXML
@@ -214,5 +224,18 @@ public class TourDetailController implements Initializable {
                 "Are you sure you want to delete \"" + selected.getTourName() + "\"?",
                 () -> listViewModel.deleteTour(selected)
         );
+    }
+
+    private String loadLeafletHtmlWithRoute(String routeJson) {
+        try {
+            URL url = getClass().getResource("/leaflet.html");
+            if (url == null) throw new IOException("leaflet.html not found in resources.");
+
+            String content = Files.readString(Paths.get(url.toURI()), StandardCharsets.UTF_8);
+            return content.replace("{{MY_DIRECTIONS}}", routeJson);
+        } catch (IOException | URISyntaxException e) {
+            e.printStackTrace();
+            return "<html><body><p>Error loading map</p></body></html>";
+        }
     }
 }

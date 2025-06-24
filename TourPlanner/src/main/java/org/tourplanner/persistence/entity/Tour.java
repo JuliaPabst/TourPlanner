@@ -43,7 +43,7 @@ public class Tour{
     @Column(name= "estimated_time")
     private int estimatedTime;
 
-    @Column(name= "route_information")
+    @Column(name = "route_information", columnDefinition = "TEXT")
     private String routeInformation;
 
     @OneToMany(mappedBy = "tour", cascade = CascadeType.ALL)
