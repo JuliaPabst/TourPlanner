@@ -36,7 +36,8 @@ public class OpenRouteServiceAgent {
         }
         String url = String.format("https://api.openrouteservice.org/geocode/search?api_key=%s&text=%s", apiKey, postalAddress);
 
-        try (HttpClient client = HttpClient.newHttpClient();){
+        HttpClient client = HttpClient.newHttpClient();
+        try {
             HttpRequest request = HttpRequest.newBuilder().uri(URI.create(url)).GET().build();
 
             HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
@@ -70,7 +71,8 @@ public class OpenRouteServiceAgent {
 
         String url = String.format("https://api.openrouteservice.org/v2/directions/%s?api_key=%s&start=%s,%s&end=%s,%s", routeType.toString(), apiKey, formatter.format(start.lat()), formatter.format(start.lon()), formatter.format(end.lat()), formatter.format(end.lon()));
 
-        try (HttpClient client = HttpClient.newHttpClient();){
+        HttpClient client = HttpClient.newHttpClient();
+        try {
             HttpRequest request = HttpRequest.newBuilder().uri(URI.create(url)).GET().build();
 
             HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());

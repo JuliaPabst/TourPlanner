@@ -12,6 +12,7 @@
   <artifactId>TourplannerSpring</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <properties>
+    <java.version>19</java.version>
     <javafx.version>19.0.2.1</javafx.version>
   </properties>
   <name>Tourplanner</name>
@@ -29,9 +30,6 @@
     <tag/>
     <url/>
   </scm>
-  <properties>
-    <java.version>19.0.2.1</java.version>
-  </properties>
   <dependencies>
     <dependency>
       <groupId>org.openjfx</groupId>

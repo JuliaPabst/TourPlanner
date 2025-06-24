@@ -35,7 +35,7 @@ public class TourListViewModel {
         this.metricsCalculator = new TourMetricsCalculator();
 
         if (!filteredTours.isEmpty()) {
-            selectedTour.set(filteredTours.getFirst());
+            selectedTour.set(filteredTours.get(0));
         }
     }
 
