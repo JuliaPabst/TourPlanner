@@ -8,6 +8,13 @@ import org.tourplanner.service.TourManager;
 import org.tourplanner.service.TourLogManager;
 import org.tourplanner.service.TourMetricsCalculator;
 
+import java.io.IOException;
+import java.net.URISyntaxException;
+import java.net.URL;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 @Component
 public class TourListViewModel {
     private final FilteredList<Tour> filteredTours;
@@ -27,6 +34,7 @@ public class TourListViewModel {
     private final StringProperty descriptionText = new SimpleStringProperty();
     private final StringProperty popularityText = new SimpleStringProperty();
     private final StringProperty childFriendlyText = new SimpleStringProperty();
+    private final StringProperty mapHtmlContent = new SimpleStringProperty();
 
     public TourListViewModel(TourManager tourManager, TourLogManager logManager) {
         this.filteredTours = new FilteredList<>(tourManager.getTourList(), p -> true);
@@ -47,7 +55,9 @@ public class TourListViewModel {
         selectedTour.set(tour);
     }
 
-    public BooleanProperty showNoSelectionMessageProperty() { return showNoSelectionMessage; }
+    public BooleanProperty showNoSelectionMessageProperty() {
+        return showNoSelectionMessage;
+    }
 
     public FilteredList<Tour> getTours() {
         return filteredTours;
@@ -82,9 +92,9 @@ public class TourListViewModel {
             boolean matchesTourName = tour.getTourName().toLowerCase().contains(lowerQuery);
 
             boolean matchesLog = logManager.getLogList().stream()
-                    .filter(log -> log.getTour() != null
-                            && tour.getTourId() != null
-                            && tour.getTourId().equals(log.getTour().getTourId()))
+                    .filter(log -> log.getTour() != null &&
+                            tour.getTourId() != null &&
+                            tour.getTourId().equals(log.getTour().getTourId()))
                     .anyMatch(log ->
                             (log.getComment() != null && log.getComment().toLowerCase().contains(lowerQuery)) ||
                                     (log.getUsername() != null && log.getUsername().toLowerCase().contains(lowerQuery))
@@ -103,9 +113,10 @@ public class TourListViewModel {
     public StringProperty descriptionTextProperty() { return descriptionText; }
     public StringProperty popularityTextProperty() { return popularityText; }
     public StringProperty childFriendlyTextProperty() { return childFriendlyText; }
+    public StringProperty mapHtmlContentProperty() { return mapHtmlContent; }
 
     public void updateDisplayData(Tour tour) {
-        if(tour == null) return;
+        if (tour == null) return;
 
         fromLabel.set("From: " + tour.getFrom());
         toLabel.set("To: " + tour.getTo());
@@ -119,5 +130,24 @@ public class TourListViewModel {
 
         int childFriendliness = getChildFriendliness(tour);
         childFriendlyText.set("Child-friendly: " + "★".repeat(childFriendliness));
+
+        mapHtmlContent.set(generateMapHtml(tour.getRouteInformation()));
+    }
+
+    private String generateMapHtml(String routeJson) {
+        if(routeJson == null || routeJson.isBlank()) {
+            return "<html><body><p>No map available</p></body></html>";
+        }
+
+        try {
+            URL url = getClass().getResource("/leaflet.html");
+            if(url == null) throw new IOException("leaflet.html not found in resources.");
+
+            String content = Files.readString(Paths.get(url.toURI()), StandardCharsets.UTF_8);
+            return content.replace("{{MY_DIRECTIONS}}", routeJson);
+        } catch(IOException | URISyntaxException e) {
+            e.printStackTrace();
+            return "<html><body><p>Error loading map</p></body></html>";
+        }
     }
 }

@@ -6,8 +6,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.web.WebView;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -19,14 +17,9 @@ import org.tourplanner.service.TourLogManager;
 import org.tourplanner.view.util.ModalService;
 import org.tourplanner.viewmodel.TourInputViewModel;
 import org.tourplanner.viewmodel.TourListViewModel;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.net.URISyntaxException;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.Objects;
 import java.util.ResourceBundle;
 
 @Controller
@@ -87,6 +80,10 @@ public class TourDetailController implements Initializable {
         descriptionText.textProperty().bind(listViewModel.descriptionTextProperty());
         popularityLabel.textProperty().bind(listViewModel.popularityTextProperty());
         childFriendlyLabel.textProperty().bind(listViewModel.childFriendlyTextProperty());
+
+        listViewModel.mapHtmlContentProperty().addListener((obs, oldHtml, newHtml) -> {
+            mapWebView.getEngine().loadContent(newHtml, "text/html");
+        });
     }
 
     private void unbindDetailLabels() {
@@ -108,17 +105,19 @@ public class TourDetailController implements Initializable {
         listViewModel.selectedTourProperty().addListener((obs, oldTour, newTour) -> {
             if(newTour != null) {
                 listViewModel.showNoSelectionMessageProperty().set(false);
-                updateView(newTour);
+                listViewModel.updateDisplayData(newTour);
+                updateUiVisibility(true, newTour.getTourName());
             } else {
                 listViewModel.showNoSelectionMessageProperty().set(true);
+                showNoSelectionMessage();
             }
         });
 
-        // Listen for changes in logs that may require an UI update
+        // Listen for changes in logs that may require a UI update
         logManager.getLogList().addListener((ListChangeListener<TourLog>) change -> {
             Tour current = listViewModel.selectedTourProperty().get();
             if(current != null) {
-                updateView(current);
+                listViewModel.updateDisplayData(current);
             }
         });
 
@@ -133,12 +132,26 @@ public class TourDetailController implements Initializable {
         Tour current = listViewModel.selectedTourProperty().get();
         if(current != null) {
             listViewModel.showNoSelectionMessageProperty().set(false);
-            updateView(current);
+            listViewModel.updateDisplayData(current);
+            updateUiVisibility(true, current.getTourName());
         } else {
             listViewModel.showNoSelectionMessageProperty().set(true);
         }
 
         deleteButton.setDisable(false); // optional
+    }
+
+    private void updateUiVisibility(boolean visible, String tourTitle) {
+        editButton.setVisible(visible);
+        deleteButton.setVisible(visible);
+        titleLabel.setText(tourTitle);
+
+        routeSectionTitle.setText("Route");
+        transportTypeSectionTitle.setText("Transport Type");
+        statsSectionTitle.setText("Stats");
+        metricsSectionTitle.setText("Metrics");
+        mapSectionTitle.setText("Map");
+        descriptionSectionTitle.setText("Description");
     }
 
     private void showNoSelectionMessage() {
@@ -164,30 +177,6 @@ public class TourDetailController implements Initializable {
         metricsSectionTitle.setText("");
         mapSectionTitle.setText("");
         descriptionSectionTitle.setText("");
-    }
-
-    private void updateView(Tour tour) {
-        editButton.setVisible(true);
-        deleteButton.setVisible(true);
-
-        titleLabel.setText(tour.getTourName());
-        bindDetailLabels();
-        listViewModel.updateDisplayData(tour);
-
-        routeSectionTitle.setText("Route");
-        transportTypeSectionTitle.setText("Transport Type");
-        statsSectionTitle.setText("Stats");
-        metricsSectionTitle.setText("Metrics");
-        mapSectionTitle.setText("Map");
-        descriptionSectionTitle.setText("Description");
-
-        String routeJson = tour.getRouteInformation();
-        if (routeJson != null && !routeJson.isBlank()) {
-            String htmlContent = loadLeafletHtmlWithRoute(routeJson);
-            mapWebView.getEngine().loadContent(htmlContent, "text/html");
-        } else {
-            mapWebView.getEngine().loadContent("<html><body><p>No map available</p></body></html>");
-        }
     }
 
     @FXML
@@ -224,18 +213,5 @@ public class TourDetailController implements Initializable {
                 "Are you sure you want to delete \"" + selected.getTourName() + "\"?",
                 () -> listViewModel.deleteTour(selected)
         );
-    }
-
-    private String loadLeafletHtmlWithRoute(String routeJson) {
-        try {
-            URL url = getClass().getResource("/leaflet.html");
-            if (url == null) throw new IOException("leaflet.html not found in resources.");
-
-            String content = Files.readString(Paths.get(url.toURI()), StandardCharsets.UTF_8);
-            return content.replace("{{MY_DIRECTIONS}}", routeJson);
-        } catch (IOException | URISyntaxException e) {
-            e.printStackTrace();
-            return "<html><body><p>Error loading map</p></body></html>";
-        }
     }
 }
