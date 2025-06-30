@@ -4,10 +4,18 @@ import org.tourplanner.persistence.entity.Tour;
 import org.tourplanner.persistence.entity.TourLog;
 
 import java.util.List;
+import java.util.Objects;
+import java.util.stream.Collectors;
 
 public class TourMetricsCalculator {
     public int calculatePopularity(List<TourLog> allLogs, Tour tour) {
-        var logs = allLogs.stream().filter(log -> log.getTour().equals(tour)).toList();
+        if(tour == null || tour.getTourId() == null) {
+            return 0;
+        }
+
+        List<TourLog> logs = allLogs.stream()
+                .filter(log -> log.getTour() != null && Objects.equals(log.getTour().getTourId(), tour.getTourId()))
+                .toList();
 
         if(logs.isEmpty()) return 0;
 
@@ -28,7 +36,14 @@ public class TourMetricsCalculator {
     }
 
     public int calculateChildFriendliness(List<TourLog> allLogs, Tour tour) {
-        var logs = allLogs.stream().filter(log -> log.getTour().equals(tour)).toList();
+        if(tour == null || tour.getTourId() == null) {
+            return 0;
+        }
+
+        List<TourLog> logs = allLogs.stream()
+                .filter(log -> log.getTour() != null && Objects.equals(log.getTour().getTourId(), tour.getTourId()))
+                .toList();
+
         if(logs.isEmpty()) return 0;
 
         // Convert difficulty to stars
