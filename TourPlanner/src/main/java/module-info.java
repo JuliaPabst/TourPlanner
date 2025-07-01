@@ -16,6 +16,7 @@ module org.tourplanner {
     requires javafx.web;
     requires java.net.http;
     requires java.desktop;
+    requires jakarta.validation;
 
     opens org.tourplanner.view to javafx.fxml;
     opens org.tourplanner to javafx.fxml;
@@ -28,4 +29,5 @@ module org.tourplanner {
     exports org.tourplanner.persistence.repository;
     exports org.tourplanner.service;
     opens org.tourplanner.service to javafx.fxml;
+    opens org.tourplanner.config;
 }
