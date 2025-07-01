@@ -8,9 +8,12 @@ import org.springframework.stereotype.Service;
 import org.tourplanner.persistence.entity.Tour;
 import org.tourplanner.persistence.entity.TourLog;
 import org.tourplanner.persistence.repository.TourRepository;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 @Service
 public class TourManager {
+    private static final Logger log = LogManager.getLogger(TourManager.class);
     TourRepository tourRepo;
 
     @Getter
@@ -27,8 +30,10 @@ public class TourManager {
     }
 
     public void createNewTour(Tour newTour) {
+        log.info("Creating new tour: {}", newTour.getTourName());
         tourList.add(newTour);
         tourRepo.save(newTour);
+        log.debug("Tour saved with id {}", newTour.getTourId());
     }
 
     public void replaceTour(Tour oldTour, Tour newTour) {
@@ -62,6 +67,7 @@ public class TourManager {
     }
 
     public void deleteTour(Tour tour) {
+        log.warn("Deleting tour id={} name={}", tour.getTourId(), tour.getTourName());
         tourList.remove(tour);
         tourRepo.delete(tour); // Delete from DB
     }

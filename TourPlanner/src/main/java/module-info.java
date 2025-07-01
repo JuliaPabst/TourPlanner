@@ -18,8 +18,12 @@ module org.tourplanner {
     requires java.desktop;
     requires jakarta.validation;
 
+    // log4j2
+    requires org.apache.logging.log4j;
+    requires org.apache.logging.log4j.core;
+
     opens org.tourplanner.view to javafx.fxml;
-    opens org.tourplanner to javafx.fxml;
+    opens org.tourplanner to javafx.fxml, org.apache.logging.log4j, org.apache.logging.log4j.core;
     opens org.tourplanner.persistence.entity;
 
     exports org.tourplanner;
