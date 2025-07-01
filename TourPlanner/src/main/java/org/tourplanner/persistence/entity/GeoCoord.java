@@ -1,3 +1,3 @@
 package org.tourplanner.persistence.entity;
 
-public record GeoCoord(double lat, double lon) {}
+public record GeoCoord(double lon, double lat) {}

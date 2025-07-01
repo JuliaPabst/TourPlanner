@@ -5,14 +5,16 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.tourplanner.persistence.entity.GeoCoord;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
 import java.net.URI;
 import java.net.URLEncoder;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.nio.charset.StandardCharsets;
 import java.text.NumberFormat;
 import java.util.Locale;
 
@@ -21,74 +23,79 @@ import java.util.Locale;
  */
 @Service
 public class OpenRouteServiceAgent {
+    private static final Logger log = LogManager.getLogger(OpenRouteServiceAgent.class);
     private final String apiKey;
+    private final HttpClient client = HttpClient.newHttpClient();
+    private final ObjectMapper mapper = new ObjectMapper();
 
     public OpenRouteServiceAgent(@Value("${openroute.api.key}") String apiKey) {
         this.apiKey = apiKey;
+        log.debug("OpenRouteServiceAgent initialized with apiKey");
     }
 
     public GeoCoord geoCode(String postalAddress) {
-        try {
-            postalAddress = URLEncoder.encode(postalAddress, "UTF-8");
-        } catch (UnsupportedEncodingException e) {
-            System.err.println("Unsupported characters in postal address:  " + e.getMessage());
-            return null;
-        }
-        String url = String.format("https://api.openrouteservice.org/geocode/search?api_key=%s&text=%s", apiKey, postalAddress);
+        log.info("Geocoding address: {}", postalAddress);
+        String encoded;
+        encoded = URLEncoder.encode(postalAddress, StandardCharsets.UTF_8);
+        String url = String.format("https://api.openrouteservice.org/geocode/search?api_key=%s&text=%s", apiKey, encoded);
 
-        HttpClient client = HttpClient.newHttpClient();
+        HttpRequest request = HttpRequest.newBuilder().uri(URI.create(url)).GET().build();
         try {
-            HttpRequest request = HttpRequest.newBuilder().uri(URI.create(url)).GET().build();
-
             HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+            log.debug("Geocode HTTP status: {}", response.statusCode());
 
             if(response.statusCode() == 200) {
-                ObjectMapper mapper = new ObjectMapper();
                 JsonNode root = mapper.readTree(response.body());
+                log.trace("Geocode response payload: {}", root.toPrettyString());
 
                 try {
                     var coords = root.get("features").get(0).get("geometry").get("coordinates");
-                    return new GeoCoord(coords.get(0).asDouble(), coords.get(1).asDouble());
+                    double lon = coords.get(0).asDouble();
+                    double lat = coords.get(1).asDouble();
+                    log.info("Parsed coordinates: lon={}, lat={}", lon, lat);
+                    return new GeoCoord(lon, lat);
                 } catch (Exception e){
-                    System.err.println("Failed to parse REST response " + root.toPrettyString());
+                    log.error("Failed to parse geocode response: {}", root.toPrettyString(), e);
                     return null;
                 }
             } else {
-                System.err.println("Failed to process request: " + response.body());
+                log.error("Geocode request failed (status={}): {}", response.statusCode(), response.body());
                 return null;
             }
-
         } catch (IOException | InterruptedException e) {
-            System.err.println(e.getMessage());
+            log.error("Exception during geocode request: {}", e.getMessage(), e);
             return null;
         }
     }
 
     public JsonNode directions(RouteType routeType, GeoCoord start, GeoCoord end) {
-        // convert double to string using . as comma
-        var formatter = NumberFormat.getNumberInstance(Locale.UK);
-        formatter.setMaximumFractionDigits(6);
+        log.info("Requesting directions: {} -> {} via {}", start, end, routeType);
+        NumberFormat fmt = NumberFormat.getNumberInstance(Locale.US);
+        fmt.setMaximumFractionDigits(6);
 
-        String url = String.format("https://api.openrouteservice.org/v2/directions/%s?api_key=%s&start=%s,%s&end=%s,%s", routeType.toString(), apiKey, formatter.format(start.lat()), formatter.format(start.lon()), formatter.format(end.lat()), formatter.format(end.lon()));
+        String url = String.format("https://api.openrouteservice.org/v2/directions/%s?api_key=%s&start=%s,%s&end=%s,%s",
+                routeType,
+                apiKey,
+                fmt.format(start.lon()), fmt.format(start.lat()),
+                fmt.format(end.lon()), fmt.format(end.lat())
+        );
 
-        HttpClient client = HttpClient.newHttpClient();
+        HttpRequest request = HttpRequest.newBuilder().uri(URI.create(url)).GET().build();
         try {
-            HttpRequest request = HttpRequest.newBuilder().uri(URI.create(url)).GET().build();
-
             HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+            log.debug("Directions HTTP status: {}", response.statusCode());
 
             if(response.statusCode() == 200) {
-                ObjectMapper mapper = new ObjectMapper();
                 JsonNode root = mapper.readTree(response.body());
-                System.out.println(root.toPrettyString());
+                log.trace("Directions response payload: {}", root.toPrettyString());
                 return root;
             } else {
-                System.err.println("Failed to process request: " + response.body());
+                log.error("Directions request failed (status={}): {}", response.statusCode(), response.body());
                 return null;
             }
 
         } catch (IOException | InterruptedException e) {
-            System.err.println(e.getMessage());
+            log.error("Exception during directions request: {}", e.getMessage(), e);
             return null;
         }
     }
