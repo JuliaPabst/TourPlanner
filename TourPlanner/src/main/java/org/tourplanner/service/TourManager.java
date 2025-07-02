@@ -11,63 +11,72 @@ import org.tourplanner.persistence.repository.TourRepository;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.util.List;
+
 @Service
 public class TourManager {
     private static final Logger log = LogManager.getLogger(TourManager.class);
-    TourRepository tourRepo;
+    private final TourRepository tourRepo;
+    private final TourLogManager tourLogManager;
 
     @Getter
     private final ObservableList<Tour> tourList = FXCollections.observableArrayList();
-    private final TourLogManager tourLogManager;
 
     @Autowired
     public TourManager(TourLogManager tourLogManager, TourRepository repository) {
         this.tourLogManager = tourLogManager;
         this.tourRepo = repository;
 
+        log.debug("Initializing TourManager and loading all tours from DB");
+        List<Tour> allTours = tourRepo.findAll();
         // Load initial tours from the database
-        tourList.setAll(tourRepo.findAll());
+        tourList.setAll(allTours);
+        log.info("Loaded {} tours", allTours.size());
     }
 
     public void createNewTour(Tour newTour) {
         log.info("Creating new tour: {}", newTour.getTourName());
-        tourList.add(newTour);
-        tourRepo.save(newTour);
+        Tour savedTour = tourRepo.save(newTour);
+        tourList.add(savedTour);
         log.debug("Tour saved with id {}", newTour.getTourId());
     }
 
     public void replaceTour(Tour oldTour, Tour newTour) {
+        log.info("Replacing tour id={} name={}", oldTour.getTourId(), newTour.getTourName());
         int index = tourList.indexOf(oldTour);
-        if (index >= 0) {
-            // Ensure we update the existing DB entry, not insert a new one
-            newTour.setTourId(oldTour.getTourId());
+        if(index < 0) {
+            log.warn("Cannot replace tour: old tour not found in list (id={})", oldTour.getTourId());
+            return;
+        }
 
-            // Persist updated tour
-            Tour savedTour = tourRepo.save(newTour);
+        // Ensure we update the existing DB entry, not insert a new one
+        newTour.setTourId(oldTour.getTourId());
+        // Persist updated tour
+        Tour savedTour = tourRepo.save(newTour);
+        tourList.set(index, savedTour);
 
-            tourList.set(index, savedTour);
-            for (int i = 0; i < tourLogManager.getLogList().size(); i++) {
-                TourLog log = tourLogManager.getLogList().get(i);
-                if (log.getTour().equals(oldTour)) {
-                    TourLog updatedLog = new TourLog(
-                            log.getDate(),
-                            log.getUsername(),
-                            log.getTotalTime(),
-                            log.getTotalDistance(),
-                            log.getDifficulty(),
-                            log.getRating(),
-                            log.getComment(),
-                            savedTour
-                    );
+        for (int i = 0; i < tourLogManager.getLogList().size(); i++) {
+            TourLog log = tourLogManager.getLogList().get(i);
+            if (log.getTour().equals(oldTour)) {
+                TourLog updatedLog = new TourLog(
+                        log.getDate(),
+                        log.getUsername(),
+                        log.getTotalTime(),
+                        log.getTotalDistance(),
+                        log.getDifficulty(),
+                        log.getRating(),
+                        log.getComment(),
+                        savedTour
+                );
 
-                    tourLogManager.updateLog(log, updatedLog);
-                }
+                tourLogManager.updateLog(log, updatedLog);
             }
         }
+        log.debug("Tour id={} updated and logs reassociated", oldTour.getTourId());
     }
 
     public void deleteTour(Tour tour) {
-        log.warn("Deleting tour id={} name={}", tour.getTourId(), tour.getTourName());
+        log.info("Deleting tour id={} name={}", tour.getTourId(), tour.getTourName());
         tourList.remove(tour);
         tourRepo.delete(tour); // Delete from DB
     }

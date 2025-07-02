@@ -30,7 +30,7 @@ public class OpenRouteServiceAgent {
 
     public OpenRouteServiceAgent(@Value("${openroute.api.key}") String apiKey) {
         this.apiKey = apiKey;
-        log.debug("OpenRouteServiceAgent initialized with apiKey");
+        log.debug("OpenRouteServiceAgent initialized");
     }
 
     public GeoCoord geoCode(String postalAddress) {
@@ -46,7 +46,7 @@ public class OpenRouteServiceAgent {
 
             if(response.statusCode() == 200) {
                 JsonNode root = mapper.readTree(response.body());
-                log.trace("Geocode response payload: {}", root.toPrettyString());
+                log.debug("Geocode response payload: {}", root.toPrettyString());
 
                 try {
                     var coords = root.get("features").get(0).get("geometry").get("coordinates");
@@ -87,7 +87,7 @@ public class OpenRouteServiceAgent {
 
             if(response.statusCode() == 200) {
                 JsonNode root = mapper.readTree(response.body());
-                log.trace("Directions response payload: {}", root.toPrettyString());
+                log.debug("Directions response payload: {}", root.toPrettyString());
                 return root;
             } else {
                 log.error("Directions request failed (status={}): {}", response.statusCode(), response.body());
