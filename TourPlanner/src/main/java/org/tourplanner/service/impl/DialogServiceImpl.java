@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.tourplanner.TourPlannerApplication;
 import org.tourplanner.config.ReportProperties;
 import org.tourplanner.service.DialogService;
+import javafx.scene.control.Alert;
 
 import java.awt.Desktop;
 import java.io.File;
@@ -58,6 +59,15 @@ public class DialogServiceImpl implements DialogService {
         if(Desktop.isDesktopSupported()) {
             Desktop.getDesktop().open(path.toFile());
         }
+    }
+
+    @Override
+    public void showMessageBox(String title, String header, String message) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle(title);
+        alert.setHeaderText(header);
+        alert.setContentText(message);
+        alert.showAndWait();
     }
 
     private FileChooser buildChooser(String title, String extDesc, String ext, String suggestedName) {

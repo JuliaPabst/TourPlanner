@@ -55,6 +55,10 @@ public class TourListViewModel {
         selectedTour.set(tour);
     }
 
+    public Tour getSelectedTour() {
+        return selectedTour.get();
+    }
+
     public BooleanProperty showNoSelectionMessageProperty() {
         return showNoSelectionMessage;
     }

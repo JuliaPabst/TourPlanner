@@ -18,4 +18,6 @@ public interface DialogService {
                             Window owner);
 
     void showFile(Path file) throws IOException;
+
+    void showMessageBox(String title, String header, String message);
 }
