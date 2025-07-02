@@ -1,6 +1,7 @@
 package org.tourplanner;
 
 import javafx.application.Application;
+import javafx.application.HostServices;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -16,6 +17,7 @@ import java.io.IOException;
 public class TourPlannerApplication extends Application {
     private static final Logger log = LogManager.getLogger(TourPlannerApplication.class);
     private ConfigurableApplicationContext springContext;
+    public static HostServices HOST_SERVICES;
 
     @Override
     public void init() {
@@ -31,6 +33,7 @@ public class TourPlannerApplication extends Application {
         fxmlLoader.setControllerFactory(springContext::getBean);
         Parent root = fxmlLoader.load();
         showStage(stage, root);
+        HOST_SERVICES = getHostServices();
         log.info("JavaFX application started");
     }
 

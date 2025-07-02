@@ -1,22 +1,14 @@
 package org.tourplanner.view;
 
-import javafx.scene.Parent;
 import org.springframework.stereotype.Controller;
-import org.tourplanner.service.TourManager;
 import org.tourplanner.viewmodel.MainViewModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
 import org.tourplanner.viewmodel.TourInputViewModel;
 import org.tourplanner.viewmodel.TourLogInputViewModel;
 
-
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -38,5 +30,15 @@ public class MainController implements Initializable {
     @FXML
     public void onExitButtonClick(ActionEvent actionEvent) {
         System.exit(0);
+    }
+
+    @FXML
+    private void onTourReportButtonClick(ActionEvent actionEvent) {
+        mainViewModel.createTourReport();
+    }
+
+    @FXML
+    private void onSummaryReportButtonClick(ActionEvent actionEvent) {
+        mainViewModel.createSummaryReport();
     }
 }

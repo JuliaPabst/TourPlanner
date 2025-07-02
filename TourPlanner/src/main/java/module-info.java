@@ -22,6 +22,11 @@ module org.tourplanner {
     requires org.apache.logging.log4j;
     requires org.apache.logging.log4j.core;
 
+    // iText
+    requires jakarta.annotation;
+    requires layout;
+    requires kernel;
+
     opens org.tourplanner.view to javafx.fxml;
     opens org.tourplanner to javafx.fxml, org.apache.logging.log4j, org.apache.logging.log4j.core;
     opens org.tourplanner.persistence.entity;
@@ -32,6 +37,9 @@ module org.tourplanner {
     exports org.tourplanner.persistence.entity;
     exports org.tourplanner.persistence.repository;
     exports org.tourplanner.service;
+    exports org.tourplanner.service.impl to spring.beans;
+    opens org.tourplanner.service.impl to spring.core;
     opens org.tourplanner.service to javafx.fxml;
     opens org.tourplanner.config;
+    exports org.tourplanner.config;
 }

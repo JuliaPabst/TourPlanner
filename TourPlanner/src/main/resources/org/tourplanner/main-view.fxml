@@ -57,9 +57,11 @@
                 <ColumnConstraints percentWidth="50"/>
               </columnConstraints>
               <Button text="Tour Report" styleClass="secondary-button"
-                      GridPane.columnIndex="0" maxWidth="Infinity"/>
+                      GridPane.columnIndex="0" maxWidth="Infinity"
+                      onAction="#onTourReportButtonClick"/>
               <Button text="Summary Report" styleClass="secondary-button"
-                      GridPane.columnIndex="1" maxWidth="Infinity"/>
+                      GridPane.columnIndex="1" maxWidth="Infinity"
+                      onAction="#onSummaryReportButtonClick"/>
             </GridPane>
           </VBox>
         </VBox>
