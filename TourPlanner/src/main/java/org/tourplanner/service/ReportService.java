@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 import org.tourplanner.persistence.entity.Tour;
 import org.tourplanner.persistence.entity.TourLog;
 import org.tourplanner.persistence.repository.TourLogRepository;
+import org.tourplanner.persistence.repository.TourRepository;
 import org.tourplanner.service.MapSnapshotService;
 
 import java.io.IOException;
@@ -27,6 +28,7 @@ import java.util.stream.Stream;
 @Service
 @RequiredArgsConstructor
 public class ReportService {
+    private final TourRepository tourRepo;
     private final TourLogRepository logRepo;
     private final MapSnapshotService mapSnap;
     private final TourMetricsCalculator metrics = new TourMetricsCalculator();
@@ -47,11 +49,36 @@ public class ReportService {
     }
 
     public void generateSummaryReport(Path target) throws IOException {
+        List<Tour> tours = tourRepo.findAll();
         try(PdfWriter writer = new PdfWriter(target.toString());
             PdfDocument pdf = new PdfDocument(writer);
             Document doc = new Document(pdf)) {
 
-            doc.add(new Paragraph("Summary Report – Placeholder"));
+            doc.add(new Paragraph("Summary Report"));
+
+            Table table = new Table(UnitValue.createPercentArray(new float[]{4,2,2,2}))
+                    .useAllAvailableWidth();
+            Stream.of("Tour","Ø Distance [km]","Ø Time [min]","Ø Rating")
+                    .forEach(h -> table.addHeaderCell(new Cell().add(new Paragraph(h))));
+
+            for(Tour tour : tours) {
+                List<TourLog> logs = logRepo.findByTourOrderByDate(tour);
+
+                String avgDist, avgTime, avgRating;
+                if(logs.isEmpty()) {
+                    avgDist = avgTime = avgRating = "N/A";
+                } else {
+                    avgDist = String.format("%.1f", logs.stream().mapToDouble(TourLog::getTotalDistance).average().orElse(0));
+                    avgTime = String.format("%.1f", logs.stream().mapToInt(TourLog::getTotalTime).average().orElse(0));
+                    avgRating = String.format("%.1f", logs.stream().mapToInt(TourLog::getRating).average().orElse(0));
+                }
+
+                table.addCell(tour.getTourName());
+                table.addCell(avgDist);
+                table.addCell(avgTime);
+                table.addCell(avgRating);
+            }
+            doc.add(table);
         }
     }
 

@@ -75,11 +75,21 @@ public class MainViewModel {
                 "summary-report.pdf", null);
         if(target == null) return;
 
-        try {
-            reports.generateSummaryReport(target);
-            dialog.showFile(target);
-        } catch(IOException ex) {
-            ex.printStackTrace();
-        }
+        Task<Void> task = new Task<>() {
+            @Override protected Void call() throws Exception {
+                reports.generateSummaryReport(target);
+                return null;
+            }
+        };
+        task.setOnSucceeded(e -> Platform.runLater(() -> {
+            try {
+                dialog.showFile(target);
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        }));
+        task.setOnFailed(e -> Platform.runLater(() ->
+                dialog.showMessageBox("Error", null, task.getException().getMessage())));
+        new Thread(task,"summary-task").start();
     }
 }
