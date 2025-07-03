@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.tourplanner.persistence.entity.Tour;
 import org.tourplanner.persistence.entity.TourLog;
 import org.tourplanner.persistence.repository.TourLogRepository;
+import org.tourplanner.service.TourMetricsCalculator;
 
 import java.io.IOException;
 import java.nio.file.Path;
@@ -23,6 +24,7 @@ import java.util.stream.Stream;
 @RequiredArgsConstructor
 public class ReportService {
     private final TourLogRepository logRepo;
+    private final TourMetricsCalculator metrics = new TourMetricsCalculator();
 
     public void generateTourReport(Tour tour, Path target) throws IOException {
         List<TourLog> logs = logRepo.findByTourOrderByDate(tour);
@@ -64,6 +66,14 @@ public class ReportService {
 
         table.addCell(new Cell().add(new Paragraph("Transport")));
         table.addCell(new Cell().add(new Paragraph(tour.getTransportType().getLabel())));
+
+        int popularity = metrics.calculatePopularity(logRepo.findAll(), tour);
+        table.addCell(new Cell().add(new Paragraph("Popularity")));
+        table.addCell(new Cell().add(new Paragraph(popularity + " Stars")));
+
+        int child = metrics.calculateChildFriendliness(logRepo.findAll(), tour);
+        table.addCell(new Cell().add(new Paragraph("Child-friendly")));
+        table.addCell(new Cell().add(new Paragraph(child + " Stars")));
 
         doc.add(table);
     }
