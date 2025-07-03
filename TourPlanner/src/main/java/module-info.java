@@ -28,6 +28,7 @@ module org.tourplanner {
     requires kernel;
 
     requires javafx.controls;
+    requires io;
 
     opens org.tourplanner.view to javafx.fxml;
     opens org.tourplanner to javafx.fxml, org.apache.logging.log4j, org.apache.logging.log4j.core;

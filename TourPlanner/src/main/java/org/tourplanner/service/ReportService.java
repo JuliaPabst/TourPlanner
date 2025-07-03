@@ -1,5 +1,7 @@
 package org.tourplanner.service;
 
+import com.itextpdf.io.image.ImageData;
+import com.itextpdf.io.image.ImageDataFactory;
 import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.layout.Document;
@@ -7,14 +9,15 @@ import com.itextpdf.layout.element.Cell;
 import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.element.Table;
 import com.itextpdf.layout.properties.UnitValue;
+import com.itextpdf.layout.element.Image;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.tourplanner.persistence.entity.Tour;
 import org.tourplanner.persistence.entity.TourLog;
 import org.tourplanner.persistence.repository.TourLogRepository;
-import org.tourplanner.service.TourMetricsCalculator;
 
 import java.io.IOException;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
@@ -35,6 +38,7 @@ public class ReportService {
 
             doc.add(new Paragraph("Tour Report – " + tour.getTourName()));
             addMetaTable(tour, doc);
+            addMapImage(tour, doc);
             addLogsTable(logs, doc);
         }
     }
@@ -104,6 +108,20 @@ public class ReportService {
         }
         doc.add(new Paragraph("\nTour Logs"));   // small heading
         doc.add(table);
+    }
+
+    private void addMapImage(Tour tour, Document doc) throws IOException {
+        Path img = Path.of("maps", tour.getTourId() + ".png"); // e.g. maps/3.png
+
+        if(Files.exists(img)) {
+            ImageData data = ImageDataFactory.create(img.toUri().toString()); // Convert Path to URI String
+            Image map = new Image(data).scaleToFit(400, 300);
+
+            doc.add(new Paragraph("\nMap"));
+            doc.add(map);
+        } else {
+            doc.add(new Paragraph("\nMap image not available"));
+        }
     }
 
 }
