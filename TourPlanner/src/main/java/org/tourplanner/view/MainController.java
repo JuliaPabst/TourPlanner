@@ -41,4 +41,9 @@ public class MainController implements Initializable {
     private void onSummaryReportButtonClick(ActionEvent actionEvent) {
         mainViewModel.createSummaryReport();
     }
+
+    @FXML private void onExportToursClick() {
+        mainViewModel.exportTours();
+    }
+
 }

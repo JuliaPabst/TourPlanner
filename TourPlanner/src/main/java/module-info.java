@@ -47,4 +47,5 @@ module org.tourplanner {
     opens org.tourplanner.service to javafx.fxml, spring.core;
     opens org.tourplanner.config;
     exports org.tourplanner.config;
+    exports org.tourplanner.backup to com.fasterxml.jackson.databind;
 }

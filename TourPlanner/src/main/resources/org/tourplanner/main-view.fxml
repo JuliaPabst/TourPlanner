@@ -47,7 +47,8 @@
               <Button text="Import Tours" styleClass="secondary-button"
                       GridPane.columnIndex="0" maxWidth="Infinity"/>
               <Button text="Export Tours" styleClass="secondary-button"
-                      GridPane.columnIndex="1" maxWidth="Infinity"/>
+                      GridPane.columnIndex="1" maxWidth="Infinity"
+                      onAction="#onExportToursClick"/>
             </GridPane>
 
             <Label text="Reports" styleClass="section-title"/>
