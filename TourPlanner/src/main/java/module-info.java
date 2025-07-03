@@ -17,6 +17,8 @@ module org.tourplanner {
     requires java.net.http;
     requires java.desktop;
     requires jakarta.validation;
+    requires javafx.swing;
+    requires javafx.graphics;
 
     // log4j2
     requires org.apache.logging.log4j;
@@ -42,7 +44,7 @@ module org.tourplanner {
     exports org.tourplanner.service;
     exports org.tourplanner.service.impl to spring.beans;
     opens org.tourplanner.service.impl to spring.core;
-    opens org.tourplanner.service to javafx.fxml;
+    opens org.tourplanner.service to javafx.fxml, spring.core;
     opens org.tourplanner.config;
     exports org.tourplanner.config;
 }

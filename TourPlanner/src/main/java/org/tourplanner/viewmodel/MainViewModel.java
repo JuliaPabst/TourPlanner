@@ -1,6 +1,8 @@
 package org.tourplanner.viewmodel;
 
+import javafx.application.Platform;
 import javafx.collections.ObservableList;
+import javafx.concurrent.Task;
 import org.springframework.stereotype.Component;
 import org.tourplanner.persistence.entity.Tour;
 import org.tourplanner.service.DialogService;
@@ -27,7 +29,7 @@ public class MainViewModel {
         this.tourListViewModel = tourListViewModel;
     }
 
-    // create observable Array list here 
+    // create observable Array list here
     public ObservableList<Tour> getTourList() {
         return tourManager.getTourList();
     }
@@ -44,13 +46,27 @@ public class MainViewModel {
                 selectedTour.getTourName() + "-report.pdf", null);
         if(target == null) return;
 
-        try {
-            reports.generateTourReport(selectedTour, target);
-            dialog.showFile(target);          // open automatically
-        } catch(IOException ex) {
-            ex.printStackTrace();
-            dialog.showMessageBox("Error creating tour report", null, ex.getLocalizedMessage());
-        }
+        Task<Void> task = getVoidTask(selectedTour, target);
+        new Thread(task, "report-task").start();
+    }
+
+    private Task<Void> getVoidTask(Tour selectedTour, Path target) {
+        Task<Void> task = new Task<>() {
+            @Override protected Void call() throws Exception {
+                reports.generateTourReport(selectedTour, target);
+                return null;
+            }
+        };
+        task.setOnSucceeded(e -> Platform.runLater(() -> {
+            try {
+                dialog.showFile(target);
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        }));
+        task.setOnFailed(e -> Platform.runLater(() ->
+                dialog.showMessageBox("Error", null, task.getException().getMessage())));
+        return task;
     }
 
     public void createSummaryReport() {

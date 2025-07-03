@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 import org.tourplanner.persistence.entity.Tour;
 import org.tourplanner.persistence.entity.TourLog;
 import org.tourplanner.persistence.repository.TourLogRepository;
+import org.tourplanner.service.MapSnapshotService;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -27,9 +28,11 @@ import java.util.stream.Stream;
 @RequiredArgsConstructor
 public class ReportService {
     private final TourLogRepository logRepo;
+    private final MapSnapshotService mapSnap;
     private final TourMetricsCalculator metrics = new TourMetricsCalculator();
 
     public void generateTourReport(Tour tour, Path target) throws IOException {
+        mapSnap.ensureMapImage(tour);
         List<TourLog> logs = logRepo.findByTourOrderByDate(tour);
 
         try(PdfWriter writer = new PdfWriter(target.toString());
