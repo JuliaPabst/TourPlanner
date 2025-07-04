@@ -16,6 +16,7 @@ import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.List;
 
 @Component
 public class TourListViewModel {
@@ -23,6 +24,7 @@ public class TourListViewModel {
     private final TourManager tourManager;
     private final TourLogManager logManager;
     private final TourMetricsCalculator metricsCalculator;
+    private TourMetricsCalculator calculator;
 
     private final ObjectProperty<Tour> selectedTour = new SimpleObjectProperty<>();
     private final BooleanProperty showNoSelectionMessage = new SimpleBooleanProperty(true);
@@ -97,7 +99,9 @@ public class TourListViewModel {
     }
 
     public void filterByFullText(String query, TourLogManager logManager) {
-        if(query == null || query.isBlank()) {
+        TourMetricsCalculator calculator = new TourMetricsCalculator();
+
+        if (query == null || query.isBlank()) {
             filteredTours.setPredicate(tour -> true);
             return;
         }
@@ -107,16 +111,26 @@ public class TourListViewModel {
         filteredTours.setPredicate(tour -> {
             boolean matchesTourName = tour.getTourName().toLowerCase().contains(lowerQuery);
 
-            boolean matchesLog = logManager.getLogList().stream()
+            List<TourLog> logs = logManager.getLogList().stream()
                     .filter(log -> log.getTour() != null &&
                             tour.getTourId() != null &&
                             tour.getTourId().equals(log.getTour().getTourId()))
-                    .anyMatch(log ->
-                            (log.getComment() != null && log.getComment().toLowerCase().contains(lowerQuery)) ||
-                                    (log.getUsername() != null && log.getUsername().toLowerCase().contains(lowerQuery))
-                    );
+                    .toList();
 
-            return matchesTourName || matchesLog;
+            boolean matchesLogContent = logs.stream().anyMatch(log ->
+                    (log.getComment() != null && log.getComment().toLowerCase().contains(lowerQuery)) ||
+                            (log.getUsername() != null && log.getUsername().toLowerCase().contains(lowerQuery))
+            );
+
+            // Computed: average rating
+            double avgRating = logs.stream().mapToInt(TourLog::getRating).average().orElse(0.0);
+            boolean matchesAvgRating = String.format("%.1f", avgRating).contains(lowerQuery);
+
+            // Computed: child-friendliness
+            int childFriendliness = calculator.calculateChildFriendliness(logs, tour);
+            boolean matchesChildFriendly = String.valueOf(childFriendliness).contains(lowerQuery);
+
+            return matchesTourName || matchesLogContent || matchesAvgRating || matchesChildFriendly;
         });
     }
 

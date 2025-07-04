@@ -148,3 +148,339 @@
 2025-07-04 13:35:38.305 [SpringApplicationShutdownHook] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
 2025-07-04 13:35:38.306 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
 2025-07-04 13:35:38.307 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-07-04 13:42:11.048 [main] INFO  org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [org.tourplanner.TourPlannerConfigTest]: TourPlannerConfigTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2025-07-04 13:42:11.165 [main] INFO  org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration org.tourplanner.TourPlannerConfig for test class org.tourplanner.TourPlannerConfigTest
+2025-07-04 13:42:11.356 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.2.Final
+2025-07-04 13:42:11.387 [main] INFO  org.tourplanner.TourPlannerConfigTest - Starting TourPlannerConfigTest using Java 21.0.7 with PID 41559 (started by julia.pabst in /Users/julia.pabst/Library/Mobile Documents/com~apple~CloudDocs/Desktop/FH_Technikum/Semester4/SWEN2/TourPlanner/TourPlanner)
+2025-07-04 13:42:11.387 [main] INFO  org.tourplanner.TourPlannerConfigTest - No active profile set, falling back to 1 default profile: "default"
+2025-07-04 13:42:11.719 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-07-04 13:42:11.854 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 128 ms. Found 2 JPA repository interfaces.
+2025-07-04 13:42:12.219 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-07-04 13:42:12.267 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version [WORKING]
+2025-07-04 13:42:12.299 [main] INFO  org.hibernate.cache.internal.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-07-04 13:42:12.374 [main] INFO  org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-07-04 13:42:12.391 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-07-04 13:42:12.679 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@2a8e30e3
+2025-07-04 13:42:12.681 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-07-04 13:42:12.777 [main] INFO  org.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.5
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-07-04 13:42:13.703 [main] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-07-04 13:42:13.849 [main] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-07-04 13:42:14.219 [main] INFO  org.tourplanner.service.TourLogManager - Loaded 2 tour logs
+2025-07-04 13:42:14.256 [main] INFO  org.tourplanner.service.TourManager - Loaded 8 tours
+2025-07-04 13:42:14.538 [main] INFO  org.tourplanner.TourPlannerConfigTest - Started TourPlannerConfigTest in 3.295 seconds (process running for 5.088)
+2025-07-04 13:42:14.560 [main] INFO  org.tourplanner.service.OpenRouteServiceAgent - Requesting directions: GeoCoord[lon=16.378317, lat=48.238992] -> GeoCoord[lon=16.372924, lat=48.209379] via driving-car
+2025-07-04 13:42:14.968 [main] INFO  org.tourplanner.service.OpenRouteServiceAgent - Geocoding address: Höchstädtplatz 6, 1200 Wien
+2025-07-04 13:42:16.044 [main] INFO  org.tourplanner.service.OpenRouteServiceAgent - Parsed coordinates: lon=16.378317, lat=48.238992
+2025-07-04 13:42:16.046 [main] INFO  org.tourplanner.service.OpenRouteServiceAgent - Geocoding address: Rotenturmstrasse 1, 1010 Wien
+2025-07-04 13:42:16.192 [main] INFO  org.tourplanner.service.OpenRouteServiceAgent - Parsed coordinates: lon=16.372924, lat=48.209379
+2025-07-04 13:42:16.836 [SpringApplicationShutdownHook] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-07-04 13:42:16.838 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-07-04 13:42:16.840 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-07-04 13:42:27.918 [main] INFO  org.tourplanner.TourPlannerApplication - Launching application
+2025-07-04 13:42:27.920 [JavaFX-Launcher] INFO  org.tourplanner.TourPlannerApplication - Initializing Spring context
+2025-07-04 13:42:28.081 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.2.Final
+2025-07-04 13:42:28.132 [JavaFX-Launcher] INFO  org.springframework.boot.SpringApplication - Starting application using Java 21.0.7 with PID 41687 (started by julia.pabst in /Users/julia.pabst/Library/Mobile Documents/com~apple~CloudDocs/Desktop/FH_Technikum/Semester4/SWEN2/TourPlanner/TourPlanner)
+2025-07-04 13:42:28.133 [JavaFX-Launcher] INFO  org.springframework.boot.SpringApplication - No active profile set, falling back to 1 default profile: "default"
+2025-07-04 13:42:28.422 [JavaFX-Launcher] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-07-04 13:42:28.480 [JavaFX-Launcher] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 53 ms. Found 2 JPA repository interfaces.
+2025-07-04 13:42:28.674 [JavaFX-Launcher] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-07-04 13:42:28.697 [JavaFX-Launcher] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version [WORKING]
+2025-07-04 13:42:28.711 [JavaFX-Launcher] INFO  org.hibernate.cache.internal.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-07-04 13:42:28.819 [JavaFX-Launcher] INFO  org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-07-04 13:42:28.831 [JavaFX-Launcher] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-07-04 13:42:28.968 [JavaFX-Launcher] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@33a24fa6
+2025-07-04 13:42:28.969 [JavaFX-Launcher] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-07-04 13:42:29.003 [JavaFX-Launcher] INFO  org.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.5
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-07-04 13:42:29.491 [JavaFX-Launcher] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-07-04 13:42:29.594 [JavaFX-Launcher] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-07-04 13:42:29.837 [JavaFX-Launcher] INFO  org.tourplanner.service.TourLogManager - Loaded 2 tour logs
+2025-07-04 13:42:29.871 [JavaFX-Launcher] INFO  org.tourplanner.service.TourManager - Loaded 8 tours
+2025-07-04 13:42:30.077 [JavaFX-Launcher] INFO  org.springframework.boot.SpringApplication - Started application in 2.126 seconds (process running for 8.077)
+2025-07-04 13:42:30.079 [JavaFX-Launcher] INFO  org.tourplanner.TourPlannerApplication - Spring context initialized successfully.
+2025-07-04 13:42:30.086 [JavaFX Application Thread] INFO  org.tourplanner.TourPlannerApplication - Starting JavaFX application
+2025-07-04 13:42:31.195 [JavaFX Application Thread] INFO  org.tourplanner.TourPlannerApplication - JavaFX application started
+2025-07-04 13:43:37.495 [JavaFX Application Thread] INFO  org.tourplanner.service.OpenRouteServiceAgent - Geocoding address: %S
+2025-07-04 13:43:37.824 [JavaFX Application Thread] ERROR org.tourplanner.service.OpenRouteServiceAgent - Failed to parse geocode response: {
+  "geocoding" : {
+    "version" : "0.2",
+    "attribution" : "https://openrouteservice.org/terms-of-service/#attribution-geocode",
+    "query" : {
+      "text" : "%S",
+      "size" : 10,
+      "layers" : [ "venue", "street", "country", "macroregion", "region", "county", "localadmin", "locality", "borough", "neighbourhood", "continent", "empire", "dependency", "macrocounty", "macrohood", "microhood", "disputed", "postalcode", "ocean", "marinearea" ],
+      "private" : false,
+      "lang" : {
+        "name" : "English",
+        "iso6391" : "en",
+        "iso6393" : "eng",
+        "via" : "default",
+        "defaulted" : true
+      },
+      "querySize" : 20,
+      "parser" : "pelias",
+      "parsed_text" : {
+        "subject" : "%S"
+      }
+    },
+    "warnings" : [ "performance optimization: excluding 'address' layer" ],
+    "engine" : {
+      "name" : "Pelias",
+      "author" : "Mapzen",
+      "version" : "1.0"
+    },
+    "timestamp" : 1751629417804
+  },
+  "type" : "FeatureCollection",
+  "features" : [ ]
+}
+java.lang.NullPointerException: Cannot invoke "com.fasterxml.jackson.databind.JsonNode.get(String)" because the return value of "com.fasterxml.jackson.databind.JsonNode.get(int)" is null
+	at org.tourplanner/org.tourplanner.service.OpenRouteServiceAgent.geoCode(OpenRouteServiceAgent.java:52) ~[classes/:?]
+	at org.tourplanner/org.tourplanner.viewmodel.TourInputViewModel.calculateAndSetRouteMetrics(TourInputViewModel.java:134) ~[classes/:?]
+	at org.tourplanner/org.tourplanner.viewmodel.TourInputViewModel.saveOrUpdateTour(TourInputViewModel.java:108) ~[classes/:?]
+	at org.tourplanner/org.tourplanner.view.TourInputController.onSaveButtonClick(TourInputController.java:73) ~[classes/:?]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
+	at com.sun.javafx.reflect.Trampoline.invoke(MethodUtil.java:77) ~[javafx-base-19.0.2.1-mac-aarch64.jar:?]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
+	at javafx.base/com.sun.javafx.reflect.MethodUtil.invoke(MethodUtil.java:275) ~[javafx-base-19.0.2.1-mac-aarch64.jar:?]
+	at javafx.fxml/com.sun.javafx.fxml.MethodHelper.invoke(MethodHelper.java:84) ~[javafx-fxml-19.0.2.1-mac-aarch64.jar:?]
+	at javafx.fxml/javafx.fxml.FXMLLoader$MethodHandler.invoke(FXMLLoader.java:1852) ~[javafx-fxml-19.0.2.1-mac-aarch64.jar:?]
+	at javafx.fxml/javafx.fxml.FXMLLoader$ControllerMethodEventHandler.handle(FXMLLoader.java:1724) ~[javafx-fxml-19.0.2.1-mac-aarch64.jar:?]
+	at javafx.base/com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:86) ~[javafx-base-19.0.2.1-mac-aarch64.jar:?]
+	at javafx.base/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:234) ~[javafx-base-19.0.2.1-mac-aarch64.jar:?]
+	at javafx.base/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:191) ~[javafx-base-19.0.2.1-mac-aarch64.jar:?]
+	at javafx.base/com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59) ~[javafx-base-19.0.2.1-mac-aarch64.jar:?]
+	at javafx.base/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58) ~[javafx-base-19.0.2.1-mac-aarch64.jar:?]
+	at javafx.base/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-19.0.2.1-mac-aarch64.jar:?]
+	at javafx.base/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56) ~[javafx-base-19.0.2.1-mac-aarch64.jar:?]
+	at javafx.base/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-19.0.2.1-mac-aarch64.jar:?]
+	at javafx.base/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56) ~[javafx-base-19.0.2.1-mac-aarch64.jar:?]
+	at javafx.base/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-19.0.2.1-mac-aarch64.jar:?]
+	at javafx.base/com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74) ~[javafx-base-19.0.2.1-mac-aarch64.jar:?]
+	at javafx.base/com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:49) ~[javafx-base-19.0.2.1-mac-aarch64.jar:?]
+	at javafx.base/javafx.event.Event.fireEvent(Event.java:198) ~[javafx-base-19.0.2.1-mac-aarch64.jar:?]
+	at javafx.graphics/javafx.scene.Node.fireEvent(Node.java:8923) ~[javafx-graphics-19.0.2.1-mac-aarch64.jar:?]
+	at javafx.controls/javafx.scene.control.Button.fire(Button.java:203) ~[javafx-controls-19.0.2.1-mac-aarch64.jar:?]
+	at javafx.controls/com.sun.javafx.scene.control.behavior.ButtonBehavior.mouseReleased(ButtonBehavior.java:207) ~[javafx-controls-19.0.2.1-mac-aarch64.jar:?]
+	at javafx.controls/com.sun.javafx.scene.control.inputmap.InputMap.handle(InputMap.java:274) ~[javafx-controls-19.0.2.1-mac-aarch64.jar:?]
+	at javafx.base/com.sun.javafx.event.CompositeEventHandler$NormalEventHandlerRecord.handleBubblingEvent(CompositeEventHandler.java:247) ~[javafx-base-19.0.2.1-mac-aarch64.jar:?]
+	at javafx.base/com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:80) ~[javafx-base-19.0.2.1-mac-aarch64.jar:?]
+	at javafx.base/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:234) ~[javafx-base-19.0.2.1-mac-aarch64.jar:?]
+	at javafx.base/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:191) ~[javafx-base-19.0.2.1-mac-aarch64.jar:?]
+	at javafx.base/com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59) ~[javafx-base-19.0.2.1-mac-aarch64.jar:?]
+	at javafx.base/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58) ~[javafx-base-19.0.2.1-mac-aarch64.jar:?]
+	at javafx.base/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-19.0.2.1-mac-aarch64.jar:?]
+	at javafx.base/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56) ~[javafx-base-19.0.2.1-mac-aarch64.jar:?]
+	at javafx.base/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-19.0.2.1-mac-aarch64.jar:?]
+	at javafx.base/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56) ~[javafx-base-19.0.2.1-mac-aarch64.jar:?]
+	at javafx.base/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-19.0.2.1-mac-aarch64.jar:?]
+	at javafx.base/com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74) ~[javafx-base-19.0.2.1-mac-aarch64.jar:?]
+	at javafx.base/com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:49) ~[javafx-base-19.0.2.1-mac-aarch64.jar:?]
+	at javafx.base/javafx.event.Event.fireEvent(Event.java:198) ~[javafx-base-19.0.2.1-mac-aarch64.jar:?]
+	at javafx.graphics/javafx.scene.Scene$MouseHandler.process(Scene.java:3894) ~[javafx-graphics-19.0.2.1-mac-aarch64.jar:?]
+	at javafx.graphics/javafx.scene.Scene.processMouseEvent(Scene.java:1887) ~[javafx-graphics-19.0.2.1-mac-aarch64.jar:?]
+	at javafx.graphics/javafx.scene.Scene$ScenePeerListener.mouseEvent(Scene.java:2620) ~[javafx-graphics-19.0.2.1-mac-aarch64.jar:?]
+	at javafx.graphics/com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:411) ~[javafx-graphics-19.0.2.1-mac-aarch64.jar:?]
+	at javafx.graphics/com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:301) ~[javafx-graphics-19.0.2.1-mac-aarch64.jar:?]
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400) ~[?:?]
+	at javafx.graphics/com.sun.javafx.tk.quantum.GlassViewEventHandler.lambda$handleMouseEvent$2(GlassViewEventHandler.java:450) ~[javafx-graphics-19.0.2.1-mac-aarch64.jar:?]
+	at javafx.graphics/com.sun.javafx.tk.quantum.QuantumToolkit.runWithoutRenderLock(QuantumToolkit.java:424) ~[javafx-graphics-19.0.2.1-mac-aarch64.jar:?]
+	at javafx.graphics/com.sun.javafx.tk.quantum.GlassViewEventHandler.handleMouseEvent(GlassViewEventHandler.java:449) ~[javafx-graphics-19.0.2.1-mac-aarch64.jar:?]
+	at javafx.graphics/com.sun.glass.ui.View.handleMouseEvent(View.java:551) ~[javafx-graphics-19.0.2.1-mac-aarch64.jar:?]
+	at javafx.graphics/com.sun.glass.ui.View.notifyMouse(View.java:937) ~[javafx-graphics-19.0.2.1-mac-aarch64.jar:?]
+	at javafx.graphics/com.sun.glass.ui.mac.MacView.notifyMouse(MacView.java:127) ~[javafx-graphics-19.0.2.1-mac-aarch64.jar:?]
+	at javafx.graphics/com.sun.glass.ui.mac.MacApplication._enterNestedEventLoopImpl(Native Method) ~[javafx-graphics-19.0.2.1-mac-aarch64.jar:?]
+	at javafx.graphics/com.sun.glass.ui.mac.MacApplication._enterNestedEventLoop(MacApplication.java:168) ~[javafx-graphics-19.0.2.1-mac-aarch64.jar:?]
+	at javafx.graphics/com.sun.glass.ui.Application.enterNestedEventLoop(Application.java:515) ~[javafx-graphics-19.0.2.1-mac-aarch64.jar:?]
+	at javafx.graphics/com.sun.glass.ui.EventLoop.enter(EventLoop.java:107) ~[javafx-graphics-19.0.2.1-mac-aarch64.jar:?]
+	at javafx.graphics/com.sun.javafx.tk.quantum.QuantumToolkit.enterNestedEventLoop(QuantumToolkit.java:631) ~[javafx-graphics-19.0.2.1-mac-aarch64.jar:?]
+	at javafx.graphics/javafx.stage.Stage.showAndWait(Stage.java:469) ~[javafx-graphics-19.0.2.1-mac-aarch64.jar:?]
+	at org.tourplanner/org.tourplanner.view.TourDetailController.onEditButtonClicked(TourDetailController.java:174) ~[classes/:?]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
+	at com.sun.javafx.reflect.Trampoline.invoke(MethodUtil.java:77) ~[javafx-base-19.0.2.1-mac-aarch64.jar:?]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
+	at javafx.base/com.sun.javafx.reflect.MethodUtil.invoke(MethodUtil.java:275) ~[javafx-base-19.0.2.1-mac-aarch64.jar:?]
+	at javafx.fxml/com.sun.javafx.fxml.MethodHelper.invoke(MethodHelper.java:84) ~[javafx-fxml-19.0.2.1-mac-aarch64.jar:?]
+	at javafx.fxml/javafx.fxml.FXMLLoader$MethodHandler.invoke(FXMLLoader.java:1854) ~[javafx-fxml-19.0.2.1-mac-aarch64.jar:?]
+	at javafx.fxml/javafx.fxml.FXMLLoader$ControllerMethodEventHandler.handle(FXMLLoader.java:1724) ~[javafx-fxml-19.0.2.1-mac-aarch64.jar:?]
+	at javafx.base/com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:86) ~[javafx-base-19.0.2.1-mac-aarch64.jar:?]
+	at javafx.base/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:234) ~[javafx-base-19.0.2.1-mac-aarch64.jar:?]
+	at javafx.base/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:191) ~[javafx-base-19.0.2.1-mac-aarch64.jar:?]
+	at javafx.base/com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59) ~[javafx-base-19.0.2.1-mac-aarch64.jar:?]
+	at javafx.base/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58) ~[javafx-base-19.0.2.1-mac-aarch64.jar:?]
+	at javafx.base/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-19.0.2.1-mac-aarch64.jar:?]
+	at javafx.base/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56) ~[javafx-base-19.0.2.1-mac-aarch64.jar:?]
+	at javafx.base/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-19.0.2.1-mac-aarch64.jar:?]
+	at javafx.base/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56) ~[javafx-base-19.0.2.1-mac-aarch64.jar:?]
+	at javafx.base/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-19.0.2.1-mac-aarch64.jar:?]
+	at javafx.base/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56) ~[javafx-base-19.0.2.1-mac-aarch64.jar:?]
+	at javafx.base/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-19.0.2.1-mac-aarch64.jar:?]
+	at javafx.base/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56) ~[javafx-base-19.0.2.1-mac-aarch64.jar:?]
+	at javafx.base/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-19.0.2.1-mac-aarch64.jar:?]
+	at javafx.base/com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74) ~[javafx-base-19.0.2.1-mac-aarch64.jar:?]
+	at javafx.base/com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:49) ~[javafx-base-19.0.2.1-mac-aarch64.jar:?]
+	at javafx.base/javafx.event.Event.fireEvent(Event.java:198) ~[javafx-base-19.0.2.1-mac-aarch64.jar:?]
+	at javafx.graphics/javafx.scene.Node.fireEvent(Node.java:8923) ~[javafx-graphics-19.0.2.1-mac-aarch64.jar:?]
+	at javafx.controls/javafx.scene.control.Button.fire(Button.java:203) ~[javafx-controls-19.0.2.1-mac-aarch64.jar:?]
+	at javafx.controls/com.sun.javafx.scene.control.behavior.ButtonBehavior.mouseReleased(ButtonBehavior.java:207) ~[javafx-controls-19.0.2.1-mac-aarch64.jar:?]
+	at javafx.controls/com.sun.javafx.scene.control.inputmap.InputMap.handle(InputMap.java:274) ~[javafx-controls-19.0.2.1-mac-aarch64.jar:?]
+	at javafx.base/com.sun.javafx.event.CompositeEventHandler$NormalEventHandlerRecord.handleBubblingEvent(CompositeEventHandler.java:247) ~[javafx-base-19.0.2.1-mac-aarch64.jar:?]
+	at javafx.base/com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:80) ~[javafx-base-19.0.2.1-mac-aarch64.jar:?]
+	at javafx.base/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:234) ~[javafx-base-19.0.2.1-mac-aarch64.jar:?]
+	at javafx.base/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:191) ~[javafx-base-19.0.2.1-mac-aarch64.jar:?]
+	at javafx.base/com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59) ~[javafx-base-19.0.2.1-mac-aarch64.jar:?]
+	at javafx.base/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58) ~[javafx-base-19.0.2.1-mac-aarch64.jar:?]
+	at javafx.base/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-19.0.2.1-mac-aarch64.jar:?]
+	at javafx.base/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56) ~[javafx-base-19.0.2.1-mac-aarch64.jar:?]
+	at javafx.base/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-19.0.2.1-mac-aarch64.jar:?]
+	at javafx.base/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56) ~[javafx-base-19.0.2.1-mac-aarch64.jar:?]
+	at javafx.base/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-19.0.2.1-mac-aarch64.jar:?]
+	at javafx.base/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56) ~[javafx-base-19.0.2.1-mac-aarch64.jar:?]
+	at javafx.base/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-19.0.2.1-mac-aarch64.jar:?]
+	at javafx.base/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56) ~[javafx-base-19.0.2.1-mac-aarch64.jar:?]
+	at javafx.base/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-19.0.2.1-mac-aarch64.jar:?]
+	at javafx.base/com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74) ~[javafx-base-19.0.2.1-mac-aarch64.jar:?]
+	at javafx.base/com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:54) ~[javafx-base-19.0.2.1-mac-aarch64.jar:?]
+	at javafx.base/javafx.event.Event.fireEvent(Event.java:198) ~[javafx-base-19.0.2.1-mac-aarch64.jar:?]
+	at javafx.graphics/javafx.scene.Scene$MouseHandler.process(Scene.java:3894) ~[javafx-graphics-19.0.2.1-mac-aarch64.jar:?]
+	at javafx.graphics/javafx.scene.Scene.processMouseEvent(Scene.java:1887) ~[javafx-graphics-19.0.2.1-mac-aarch64.jar:?]
+	at javafx.graphics/javafx.scene.Scene$ScenePeerListener.mouseEvent(Scene.java:2620) ~[javafx-graphics-19.0.2.1-mac-aarch64.jar:?]
+	at javafx.graphics/com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:411) ~[javafx-graphics-19.0.2.1-mac-aarch64.jar:?]
+	at javafx.graphics/com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:301) ~[javafx-graphics-19.0.2.1-mac-aarch64.jar:?]
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400) ~[?:?]
+	at javafx.graphics/com.sun.javafx.tk.quantum.GlassViewEventHandler.lambda$handleMouseEvent$2(GlassViewEventHandler.java:450) ~[javafx-graphics-19.0.2.1-mac-aarch64.jar:?]
+	at javafx.graphics/com.sun.javafx.tk.quantum.QuantumToolkit.runWithoutRenderLock(QuantumToolkit.java:424) [javafx-graphics-19.0.2.1-mac-aarch64.jar:?]
+	at javafx.graphics/com.sun.javafx.tk.quantum.GlassViewEventHandler.handleMouseEvent(GlassViewEventHandler.java:449) [javafx-graphics-19.0.2.1-mac-aarch64.jar:?]
+	at javafx.graphics/com.sun.glass.ui.View.handleMouseEvent(View.java:551) [javafx-graphics-19.0.2.1-mac-aarch64.jar:?]
+	at javafx.graphics/com.sun.glass.ui.View.notifyMouse(View.java:937) [javafx-graphics-19.0.2.1-mac-aarch64.jar:?]
+	at javafx.graphics/com.sun.glass.ui.mac.MacView.notifyMouse(MacView.java:127) [javafx-graphics-19.0.2.1-mac-aarch64.jar:?]
+2025-07-04 13:43:37.829 [JavaFX Application Thread] INFO  org.tourplanner.service.OpenRouteServiceAgent - Geocoding address: Am Tabor 23, 1020 Wien
+2025-07-04 13:43:42.043 [JavaFX Application Thread] INFO  org.tourplanner.service.OpenRouteServiceAgent - Parsed coordinates: lon=16.383853, lat=48.22508
+2025-07-04 13:43:55.387 [JavaFX Application Thread] INFO  org.tourplanner.service.OpenRouteServiceAgent - Geocoding address: Heinestraße 5, 1020 Wien
+2025-07-04 13:43:55.494 [JavaFX Application Thread] INFO  org.tourplanner.service.OpenRouteServiceAgent - Parsed coordinates: lon=16.383348, lat=48.222048
+2025-07-04 13:43:55.495 [JavaFX Application Thread] INFO  org.tourplanner.service.OpenRouteServiceAgent - Geocoding address: Am Tabor 23, 1020 Wien
+2025-07-04 13:43:59.614 [JavaFX Application Thread] INFO  org.tourplanner.service.OpenRouteServiceAgent - Parsed coordinates: lon=16.383853, lat=48.22508
+2025-07-04 13:43:59.641 [JavaFX Application Thread] INFO  org.tourplanner.service.OpenRouteServiceAgent - Requesting directions: GeoCoord[lon=16.383348, lat=48.222048] -> GeoCoord[lon=16.383853, lat=48.22508] via foot-hiking
+2025-07-04 13:43:59.694 [JavaFX Application Thread] INFO  org.tourplanner.service.TourManager - Replacing tour id=7 name=asd
+2025-07-04 13:50:47.968 [JavaFX Application Thread] INFO  org.tourplanner.service.TourLogManager - Adding new tour log for tour id=7 user=ja
+2025-07-04 13:50:57.121 [JavaFX Application Thread] INFO  org.tourplanner.service.TourLogManager - Adding new tour log for tour id=7 user=a
+2025-07-04 13:51:05.296 [JavaFX Application Thread] INFO  org.tourplanner.service.TourLogManager - Adding new tour log for tour id=7 user=asfd
+2025-07-04 13:51:08.803 [SpringApplicationShutdownHook] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-07-04 13:51:08.810 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-07-04 13:51:08.812 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-07-04 13:51:29.276 [main] INFO  org.tourplanner.TourPlannerApplication - Launching application
+2025-07-04 13:51:29.280 [JavaFX-Launcher] INFO  org.tourplanner.TourPlannerApplication - Initializing Spring context
+2025-07-04 13:51:29.491 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.2.Final
+2025-07-04 13:51:29.539 [JavaFX-Launcher] INFO  org.springframework.boot.SpringApplication - Starting application using Java 21.0.7 with PID 46582 (started by julia.pabst in /Users/julia.pabst/Library/Mobile Documents/com~apple~CloudDocs/Desktop/FH_Technikum/Semester4/SWEN2/TourPlanner/TourPlanner)
+2025-07-04 13:51:29.541 [JavaFX-Launcher] INFO  org.springframework.boot.SpringApplication - No active profile set, falling back to 1 default profile: "default"
+2025-07-04 13:51:29.854 [JavaFX-Launcher] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-07-04 13:51:29.907 [JavaFX-Launcher] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 49 ms. Found 2 JPA repository interfaces.
+2025-07-04 13:51:30.097 [JavaFX-Launcher] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-07-04 13:51:30.123 [JavaFX-Launcher] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version [WORKING]
+2025-07-04 13:51:30.138 [JavaFX-Launcher] INFO  org.hibernate.cache.internal.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-07-04 13:51:30.261 [JavaFX-Launcher] INFO  org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-07-04 13:51:30.274 [JavaFX-Launcher] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-07-04 13:51:30.422 [JavaFX-Launcher] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@382eda7a
+2025-07-04 13:51:30.422 [JavaFX-Launcher] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-07-04 13:51:30.467 [JavaFX-Launcher] INFO  org.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.5
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-07-04 13:51:30.933 [JavaFX-Launcher] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-07-04 13:51:31.020 [JavaFX-Launcher] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-07-04 13:51:31.243 [JavaFX-Launcher] INFO  org.tourplanner.service.TourLogManager - Loaded 5 tour logs
+2025-07-04 13:51:31.280 [JavaFX-Launcher] INFO  org.tourplanner.service.TourManager - Loaded 8 tours
+2025-07-04 13:51:31.461 [JavaFX-Launcher] INFO  org.springframework.boot.SpringApplication - Started application in 2.118 seconds (process running for 8.069)
+2025-07-04 13:51:31.462 [JavaFX-Launcher] INFO  org.tourplanner.TourPlannerApplication - Spring context initialized successfully.
+2025-07-04 13:51:31.466 [JavaFX Application Thread] INFO  org.tourplanner.TourPlannerApplication - Starting JavaFX application
+2025-07-04 13:51:32.489 [JavaFX Application Thread] INFO  org.tourplanner.TourPlannerApplication - JavaFX application started
+2025-07-04 13:51:44.815 [SpringApplicationShutdownHook] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-07-04 13:51:44.825 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-07-04 13:51:44.831 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-07-04 13:55:37.725 [main] INFO  org.tourplanner.TourPlannerApplication - Launching application
+2025-07-04 13:55:37.727 [JavaFX-Launcher] INFO  org.tourplanner.TourPlannerApplication - Initializing Spring context
+2025-07-04 13:55:37.873 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.2.Final
+2025-07-04 13:55:37.911 [JavaFX-Launcher] INFO  org.springframework.boot.SpringApplication - Starting application using Java 21.0.7 with PID 48719 (started by julia.pabst in /Users/julia.pabst/Library/Mobile Documents/com~apple~CloudDocs/Desktop/FH_Technikum/Semester4/SWEN2/TourPlanner/TourPlanner)
+2025-07-04 13:55:37.912 [JavaFX-Launcher] INFO  org.springframework.boot.SpringApplication - No active profile set, falling back to 1 default profile: "default"
+2025-07-04 13:55:38.179 [JavaFX-Launcher] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-07-04 13:55:38.235 [JavaFX-Launcher] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 51 ms. Found 2 JPA repository interfaces.
+2025-07-04 13:55:38.417 [JavaFX-Launcher] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-07-04 13:55:38.437 [JavaFX-Launcher] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version [WORKING]
+2025-07-04 13:55:38.449 [JavaFX-Launcher] INFO  org.hibernate.cache.internal.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-07-04 13:55:38.556 [JavaFX-Launcher] INFO  org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-07-04 13:55:38.568 [JavaFX-Launcher] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-07-04 13:55:38.715 [JavaFX-Launcher] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@4efd541d
+2025-07-04 13:55:38.716 [JavaFX-Launcher] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-07-04 13:55:38.760 [JavaFX-Launcher] INFO  org.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.5
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-07-04 13:55:39.194 [JavaFX-Launcher] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-07-04 13:55:39.302 [JavaFX-Launcher] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-07-04 13:55:39.560 [JavaFX-Launcher] INFO  org.tourplanner.service.TourLogManager - Loaded 5 tour logs
+2025-07-04 13:55:39.598 [JavaFX-Launcher] INFO  org.tourplanner.service.TourManager - Loaded 8 tours
+2025-07-04 13:55:39.778 [JavaFX-Launcher] INFO  org.springframework.boot.SpringApplication - Started application in 2.021 seconds (process running for 7.849)
+2025-07-04 13:55:39.780 [JavaFX-Launcher] INFO  org.tourplanner.TourPlannerApplication - Spring context initialized successfully.
+2025-07-04 13:55:39.786 [JavaFX Application Thread] INFO  org.tourplanner.TourPlannerApplication - Starting JavaFX application
+2025-07-04 13:55:40.828 [JavaFX Application Thread] INFO  org.tourplanner.TourPlannerApplication - JavaFX application started
+2025-07-04 13:58:28.471 [SpringApplicationShutdownHook] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-07-04 13:58:28.485 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-07-04 13:58:28.491 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-07-04 13:58:37.103 [main] INFO  org.tourplanner.TourPlannerApplication - Launching application
+2025-07-04 13:58:37.106 [JavaFX-Launcher] INFO  org.tourplanner.TourPlannerApplication - Initializing Spring context
+2025-07-04 13:58:37.653 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.2.Final
+2025-07-04 13:58:37.884 [JavaFX-Launcher] INFO  org.springframework.boot.SpringApplication - Starting application using Java 21.0.7 with PID 50253 (started by julia.pabst in /Users/julia.pabst/Library/Mobile Documents/com~apple~CloudDocs/Desktop/FH_Technikum/Semester4/SWEN2/TourPlanner/TourPlanner)
+2025-07-04 13:58:37.887 [JavaFX-Launcher] INFO  org.springframework.boot.SpringApplication - No active profile set, falling back to 1 default profile: "default"
+2025-07-04 13:58:38.299 [JavaFX-Launcher] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-07-04 13:58:38.363 [JavaFX-Launcher] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 59 ms. Found 2 JPA repository interfaces.
+2025-07-04 13:58:38.602 [JavaFX-Launcher] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-07-04 13:58:38.636 [JavaFX-Launcher] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version [WORKING]
+2025-07-04 13:58:38.650 [JavaFX-Launcher] INFO  org.hibernate.cache.internal.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-07-04 13:58:38.769 [JavaFX-Launcher] INFO  org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-07-04 13:58:38.782 [JavaFX-Launcher] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-07-04 13:58:39.017 [JavaFX-Launcher] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@7a3b0359
+2025-07-04 13:58:39.019 [JavaFX-Launcher] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-07-04 13:58:39.080 [JavaFX-Launcher] INFO  org.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.5
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-07-04 13:58:39.691 [JavaFX-Launcher] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-07-04 13:58:39.794 [JavaFX-Launcher] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-07-04 13:58:40.085 [JavaFX-Launcher] INFO  org.tourplanner.service.TourLogManager - Loaded 5 tour logs
+2025-07-04 13:58:40.119 [JavaFX-Launcher] INFO  org.tourplanner.service.TourManager - Loaded 8 tours
+2025-07-04 13:58:40.372 [JavaFX-Launcher] INFO  org.springframework.boot.SpringApplication - Started application in 3.215 seconds (process running for 9.125)
+2025-07-04 13:58:40.374 [JavaFX-Launcher] INFO  org.tourplanner.TourPlannerApplication - Spring context initialized successfully.
+2025-07-04 13:58:40.379 [JavaFX Application Thread] INFO  org.tourplanner.TourPlannerApplication - Starting JavaFX application
+2025-07-04 13:58:41.354 [JavaFX Application Thread] INFO  org.tourplanner.TourPlannerApplication - JavaFX application started
+2025-07-04 13:59:06.901 [SpringApplicationShutdownHook] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-07-04 13:59:06.910 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-07-04 13:59:06.918 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
