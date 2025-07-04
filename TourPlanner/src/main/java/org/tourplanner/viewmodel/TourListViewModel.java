@@ -27,6 +27,9 @@ public class TourListViewModel {
     private final ObjectProperty<Tour> selectedTour = new SimpleObjectProperty<>();
     private final BooleanProperty showNoSelectionMessage = new SimpleBooleanProperty(true);
 
+    // UI‑refresh trigger for controllers (increments whenever logs change)
+    private final IntegerProperty refreshToken = new SimpleIntegerProperty(0);
+
     // Display properties for View Binding
     private final StringProperty fromLabel = new SimpleStringProperty();
     private final StringProperty toLabel = new SimpleStringProperty();
@@ -44,13 +47,9 @@ public class TourListViewModel {
         this.logManager = logManager;
         this.metricsCalculator = new TourMetricsCalculator();
 
-        // Refresh display whenever a log for the currently selected tour changes
-        this.logManager.getLogList().addListener((ListChangeListener<TourLog>) change -> {
-            Tour current = selectedTour.get();
-            if(current != null) {
-                updateDisplayData(current);
-            }
-        });
+        // Whenever a log changes, trigger a UI refresh token so Controllers can rebuild list items
+        this.logManager.getLogList().addListener((ListChangeListener<TourLog>) c ->
+                refreshToken.set(refreshToken.get() + 1));
 
         if (!filteredTours.isEmpty()) {
             selectedTour.set(filteredTours.get(0));
@@ -77,6 +76,11 @@ public class TourListViewModel {
         return filteredTours;
     }
 
+    public ReadOnlyIntegerProperty refreshTokenProperty() {
+        return refreshToken;
+    }
+
+    // --- commands exposed to controllers ---
     public void clearDisplayData() {
         fromLabel.set("");
         toLabel.set("");
@@ -131,7 +135,7 @@ public class TourListViewModel {
         });
     }
 
-    // View Bindings
+    // --- view binding getters ---
     public StringProperty fromLabelProperty() { return fromLabel; }
     public StringProperty toLabelProperty() { return toLabel; }
     public StringProperty transportTypeLabelProperty() { return transportTypeLabel; }
@@ -142,6 +146,7 @@ public class TourListViewModel {
     public StringProperty childFriendlyTextProperty() { return childFriendlyText; }
     public StringProperty mapHtmlContentProperty() { return mapHtmlContent; }
 
+    // --- helper to project Tour -> display fields ---
     public void updateDisplayData(Tour tour) {
         if (tour == null) return;
 

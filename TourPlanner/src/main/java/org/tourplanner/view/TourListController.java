@@ -25,12 +25,10 @@ import java.util.ResourceBundle;
 public class TourListController implements Initializable {
     private final TourInputViewModel tourInputViewModel;
     private final TourListViewModel viewModel;
-    private final TourLogManager logManager;
 
-    public TourListController(TourInputViewModel tourInputViewModel, TourListViewModel viewModel, TourLogManager logManager) {
+    public TourListController(TourInputViewModel tourInputViewModel, TourListViewModel viewModel) {
         this.tourInputViewModel = tourInputViewModel;
         this.viewModel = viewModel;
-        this.logManager = logManager;
     }
 
     @FXML
@@ -40,15 +38,10 @@ public class TourListController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         rebuildTourList();
 
+        // Refresh when tour list changes
         viewModel.getTours().addListener((ListChangeListener<Tour>) change -> rebuildTourList());
-        logManager.getLogList().addListener((ListChangeListener<TourLog>) change -> rebuildTourList());
-
-        viewModel.selectedTourProperty().addListener(new ChangeListener<Tour>() {
-            @Override
-            public void changed(ObservableValue<? extends Tour> observable, Tour oldValue, Tour newValue) {
-                System.out.println("Selected Tour: " + newValue);
-            }
-        });
+        // Refresh when popularity / child‑friendliness migh have changed due to log updates
+        viewModel.refreshTokenProperty().addListener((obs, oldValue, newValue) -> rebuildTourList());
     }
 
     private void rebuildTourList() {
