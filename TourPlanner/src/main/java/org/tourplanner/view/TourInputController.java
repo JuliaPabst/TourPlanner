@@ -1,12 +1,15 @@
 package org.tourplanner.view;
 
+import javafx.application.Platform;
 import javafx.beans.binding.Bindings;
+import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 import javafx.util.converter.NumberStringConverter;
+import lombok.Setter;
 import org.springframework.stereotype.Controller;
 import org.tourplanner.persistence.entity.TransportType;
 import org.tourplanner.view.util.ModalService;
@@ -18,12 +21,9 @@ import java.util.ResourceBundle;
 @Controller
 public class TourInputController implements Initializable {
     private final TourInputViewModel viewModel;
+    @Setter
     private Stage dialogStage;
     private boolean listenersInitialized = false;
-
-    public void setDialogStage(Stage dialogStage) {
-        this.dialogStage = dialogStage;
-    }
 
     public TourInputController(TourInputViewModel viewModel) {
         this.viewModel = viewModel;
@@ -68,22 +68,31 @@ public class TourInputController implements Initializable {
 
 
     @FXML
-    public void onSaveButtonClick(ActionEvent actionEvent) {
-        try {
-            viewModel.saveOrUpdateTour();
-            closeModal();
-        }  catch (IllegalArgumentException e) {
-            ModalService.showInfoModal("Invalid Input", e.getMessage());
-        } catch (Exception e) {
-            ModalService.showInfoModal(
-                    "Unexpected Error",
-                    "Something went wrong: " + e.getMessage()
-            );
-        }
+    public void onSaveButtonClick(ActionEvent event) {
+        Stage loadingStage = ModalService.showLoadingModal("Saving tour...");
+
+        viewModel.loadingProperty().addListener((obs, wasLoading, isNowLoading) -> {
+            if (!isNowLoading) {
+                loadingStage.close();
+
+                // If no error, close the tour input modal
+                if (viewModel.errorMessageProperty().get() == null || viewModel.errorMessageProperty().get().isBlank()) {
+                    closeModal();
+                }
+            }
+        });
+
+        viewModel.errorMessageProperty().addListener((obs, oldVal, newVal) -> {
+            if (newVal != null && !newVal.isBlank()) {
+                ModalService.showInfoModal("Error", newVal);
+            }
+        });
+
+        viewModel.prepareAndRunSave();
     }
+
 
     private void closeModal() {
         ((Stage) saveTourButton.getScene().getWindow()).close();
     }
-
 }

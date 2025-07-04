@@ -6,6 +6,7 @@ import javafx.scene.Scene;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import org.tourplanner.persistence.entity.ModalType;
+import org.tourplanner.view.LoadingModalController;
 import org.tourplanner.view.ModalController;
 
 import java.io.IOException;
@@ -50,4 +51,26 @@ public class ModalService {
         }
     }
 
+    public static Stage showLoadingModal(String message) {
+        try {
+            FXMLLoader loader = new FXMLLoader(ModalService.class.getResource("/org/tourplanner/loading-modal.fxml"));
+            Parent root = loader.load();
+
+            LoadingModalController controller = loader.getController();
+
+            Stage stage = new Stage();
+            controller.setStage(stage);
+
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.setTitle("Loading...");
+            stage.setResizable(false);
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.show();
+
+            return stage;
+        } catch (IOException e) {
+            throw new RuntimeException("Failed to load loading modal", e);
+        }
+    }
 }

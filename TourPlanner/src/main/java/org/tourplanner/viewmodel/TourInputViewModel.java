@@ -1,7 +1,9 @@
 package org.tourplanner.viewmodel;
 
+import javafx.application.Platform;
 import javafx.beans.property.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import javafx.concurrent.Task;
 import org.springframework.stereotype.Component;
 import org.tourplanner.persistence.entity.GeoCoord;
 import org.tourplanner.service.OpenRouteServiceAgent;
@@ -36,6 +38,10 @@ public class TourInputViewModel {
     private final PropertyChangeSupport tourCreatedEvent = new PropertyChangeSupport(this);
     private final PropertyChangeSupport tourEditedEvent = new PropertyChangeSupport(this);
 
+    private final BooleanProperty loading = new SimpleBooleanProperty(false);
+    private final StringProperty errorMessage = new SimpleStringProperty();
+    private final ObjectProperty<Task<Void>> currentSaveTask = new SimpleObjectProperty<>();
+
     public TourInputViewModel(TourManager tourManager, TourListViewModel tourListViewModel, OpenRouteServiceAgent orsAgent) {
         this.tourManager = tourManager;
         this.tourListViewModel = tourListViewModel;
@@ -43,6 +49,8 @@ public class TourInputViewModel {
         this.routeJsonString = "";
     }
 
+    public BooleanProperty loadingProperty() { return loading; }
+    public StringProperty errorMessageProperty() { return errorMessage; }
     public StringProperty nameProperty() { return name; }
     public StringProperty descriptionProperty() { return description; }
     public StringProperty fromProperty() { return from; }
@@ -130,7 +138,38 @@ public class TourInputViewModel {
         resetFields();
     }
 
-    private void calculateAndSetRouteMetrics() {
+    public void prepareAndRunSave() {
+        Task<Void> task = new Task<>() {
+            @Override
+            protected Void call() {
+                try {
+                    calculateAndSetRouteMetrics();
+                    Platform.runLater(() -> {
+                        try {
+                            saveOrUpdateTour();
+                            loading.set(false);
+                            errorMessage.set(null);
+                        } catch (Exception e) {
+                            errorMessage.set("Failed to save: " + e.getMessage());
+                            loading.set(false);
+                        }
+                    });
+                } catch (Exception ex) {
+                    Platform.runLater(() -> {
+                        errorMessage.set("Failed to calculate route: " + ex.getMessage());
+                        loading.set(false);
+                    });
+                }
+                return null;
+            }
+        };
+
+        currentSaveTask.set(task);
+        loading.set(true);
+        new Thread((Runnable) task, "save-tour-task").start();
+    }
+
+    public void calculateAndSetRouteMetrics() {
         GeoCoord start = orsAgent.geoCode(from.get());
         GeoCoord end = orsAgent.geoCode(to.get());
 
