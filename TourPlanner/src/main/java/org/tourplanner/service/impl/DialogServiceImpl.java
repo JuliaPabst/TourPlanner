@@ -1,6 +1,7 @@
 package org.tourplanner.service.impl;
 
 import jakarta.annotation.PostConstruct;
+import javafx.scene.control.ButtonType;
 import javafx.stage.FileChooser;
 import javafx.stage.Window;
 import org.springframework.stereotype.Service;
@@ -63,10 +64,11 @@ public class DialogServiceImpl implements DialogService {
 
     @Override
     public void showMessageBox(String title, String header, String message) {
-        Alert alert = new Alert(Alert.AlertType.ERROR);
+        Alert alert = new Alert(Alert.AlertType.NONE);
         alert.setTitle(title);
         alert.setHeaderText(header);
         alert.setContentText(message);
+        alert.getButtonTypes().add(ButtonType.OK);
         alert.showAndWait();
     }
 

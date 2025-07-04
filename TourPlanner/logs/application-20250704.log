@@ -484,3 +484,232 @@ java.lang.NullPointerException: Cannot invoke "com.fasterxml.jackson.databind.Js
 2025-07-04 13:59:06.901 [SpringApplicationShutdownHook] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
 2025-07-04 13:59:06.910 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
 2025-07-04 13:59:06.918 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-07-04 13:59:15.438 [main] INFO  org.tourplanner.TourPlannerApplication - Launching application
+2025-07-04 13:59:15.439 [JavaFX-Launcher] INFO  org.tourplanner.TourPlannerApplication - Initializing Spring context
+2025-07-04 13:59:15.589 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.2.Final
+2025-07-04 13:59:15.634 [JavaFX-Launcher] INFO  org.springframework.boot.SpringApplication - Starting application using Java 21.0.7 with PID 50613 (started by julia.pabst in /Users/julia.pabst/Library/Mobile Documents/com~apple~CloudDocs/Desktop/FH_Technikum/Semester4/SWEN2/TourPlanner/TourPlanner)
+2025-07-04 13:59:15.635 [JavaFX-Launcher] INFO  org.springframework.boot.SpringApplication - No active profile set, falling back to 1 default profile: "default"
+2025-07-04 13:59:15.941 [JavaFX-Launcher] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-07-04 13:59:16.004 [JavaFX-Launcher] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 58 ms. Found 2 JPA repository interfaces.
+2025-07-04 13:59:16.198 [JavaFX-Launcher] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-07-04 13:59:16.219 [JavaFX-Launcher] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version [WORKING]
+2025-07-04 13:59:16.233 [JavaFX-Launcher] INFO  org.hibernate.cache.internal.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-07-04 13:59:16.355 [JavaFX-Launcher] INFO  org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-07-04 13:59:16.369 [JavaFX-Launcher] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-07-04 13:59:16.509 [JavaFX-Launcher] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@486a3a1c
+2025-07-04 13:59:16.510 [JavaFX-Launcher] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-07-04 13:59:16.553 [JavaFX-Launcher] INFO  org.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.5
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-07-04 13:59:17.098 [JavaFX-Launcher] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-07-04 13:59:17.217 [JavaFX-Launcher] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-07-04 13:59:17.483 [JavaFX-Launcher] INFO  org.tourplanner.service.TourLogManager - Loaded 5 tour logs
+2025-07-04 13:59:17.524 [JavaFX-Launcher] INFO  org.tourplanner.service.TourManager - Loaded 8 tours
+2025-07-04 13:59:17.716 [JavaFX-Launcher] INFO  org.springframework.boot.SpringApplication - Started application in 2.247 seconds (process running for 7.995)
+2025-07-04 13:59:17.718 [JavaFX-Launcher] INFO  org.tourplanner.TourPlannerApplication - Spring context initialized successfully.
+2025-07-04 13:59:17.722 [JavaFX Application Thread] INFO  org.tourplanner.TourPlannerApplication - Starting JavaFX application
+2025-07-04 13:59:18.716 [JavaFX Application Thread] INFO  org.tourplanner.TourPlannerApplication - JavaFX application started
+2025-07-04 13:59:39.631 [JavaFX Application Thread] INFO  org.tourplanner.service.TourLogManager - Updating tour log id=3
+2025-07-04 14:00:49.703 [JavaFX Application Thread] INFO  org.tourplanner.service.OpenRouteServiceAgent - Geocoding address: Heldenplatz, 1010 Wien
+2025-07-04 14:00:49.958 [JavaFX Application Thread] INFO  org.tourplanner.service.OpenRouteServiceAgent - Parsed coordinates: lon=16.363254, lat=48.205984
+2025-07-04 14:00:49.958 [JavaFX Application Thread] INFO  org.tourplanner.service.OpenRouteServiceAgent - Geocoding address: Stephansplatz, 1010 Wien
+2025-07-04 14:00:50.044 [JavaFX Application Thread] INFO  org.tourplanner.service.OpenRouteServiceAgent - Parsed coordinates: lon=16.37407, lat=48.208351
+2025-07-04 14:00:50.051 [JavaFX Application Thread] INFO  org.tourplanner.service.OpenRouteServiceAgent - Requesting directions: GeoCoord[lon=16.363254, lat=48.205984] -> GeoCoord[lon=16.37407, lat=48.208351] via foot-hiking
+2025-07-04 14:00:50.111 [JavaFX Application Thread] INFO  org.tourplanner.service.TourManager - Creating new tour: Testa
+2025-07-04 14:01:06.518 [JavaFX Application Thread] INFO  org.tourplanner.service.TourManager - Deleting tour id=8 name=Test 2
+2025-07-04 14:01:10.594 [JavaFX Application Thread] INFO  org.tourplanner.service.TourManager - Deleting tour id=10 name=Test
+2025-07-04 14:01:15.196 [JavaFX Application Thread] INFO  org.tourplanner.service.TourManager - Deleting tour id=11 name=Test
+2025-07-04 14:01:19.640 [JavaFX Application Thread] INFO  org.tourplanner.service.TourManager - Deleting tour id=4 name=Test
+2025-07-04 14:01:19.641 [JavaFX Application Thread] INFO  org.tourplanner.service.TourLogManager - Deleting 1 log(s) belonging to tour id=4
+2025-07-04 14:01:23.750 [JavaFX Application Thread] INFO  org.tourplanner.service.TourManager - Deleting tour id=6 name=a
+2025-07-04 14:01:30.375 [JavaFX Application Thread] INFO  org.tourplanner.service.TourManager - Deleting tour id=9 name=Test3
+2025-07-04 14:01:33.387 [JavaFX Application Thread] INFO  org.tourplanner.service.TourManager - Deleting tour id=5 name=aa
+2025-07-04 14:02:08.286 [JavaFX Application Thread] INFO  org.tourplanner.service.TourLogManager - Adding new tour log for tour id=7 user=a
+2025-07-04 14:02:26.480 [JavaFX Application Thread] INFO  org.tourplanner.service.TourLogManager - Updating tour log id=4
+2025-07-04 14:02:48.458 [JavaFX Application Thread] INFO  org.tourplanner.service.TourLogManager - Updating tour log id=5
+2025-07-04 14:02:59.034 [JavaFX Application Thread] INFO  org.tourplanner.service.TourLogManager - Updating tour log id=6
+2025-07-04 14:04:13.454 [JavaFX Application Thread] INFO  org.tourplanner.service.TourLogManager - Deleting tour log id=3 from tour id=7
+2025-07-04 14:04:15.929 [JavaFX Application Thread] INFO  org.tourplanner.service.TourLogManager - Deleting tour log id=7 from tour id=7
+2025-07-04 14:04:53.665 [JavaFX Application Thread] INFO  org.tourplanner.service.TourLogManager - Adding new tour log for tour id=12 user=a
+2025-07-04 14:05:50.013 [JavaFX Application Thread] INFO  org.tourplanner.service.TourManager - Deleting tour id=7 name=asd
+2025-07-04 14:05:50.016 [JavaFX Application Thread] INFO  org.tourplanner.service.TourLogManager - Deleting 3 log(s) belonging to tour id=7
+2025-07-04 14:05:53.060 [JavaFX Application Thread] INFO  org.tourplanner.service.TourManager - Deleting tour id=12 name=Testa
+2025-07-04 14:05:53.060 [JavaFX Application Thread] INFO  org.tourplanner.service.TourLogManager - Deleting 1 log(s) belonging to tour id=12
+2025-07-04 14:06:03.745 [import-task] INFO  org.tourplanner.service.OpenRouteServiceAgent - Geocoding address: Heinestraße 5, 1020 Wien
+2025-07-04 14:06:03.919 [import-task] INFO  org.tourplanner.service.OpenRouteServiceAgent - Parsed coordinates: lon=16.383348, lat=48.222048
+2025-07-04 14:06:03.920 [import-task] INFO  org.tourplanner.service.OpenRouteServiceAgent - Geocoding address: Am Tabor 23, 1020 Wien
+2025-07-04 14:06:08.092 [import-task] INFO  org.tourplanner.service.OpenRouteServiceAgent - Parsed coordinates: lon=16.383853, lat=48.22508
+2025-07-04 14:06:08.094 [import-task] INFO  org.tourplanner.service.OpenRouteServiceAgent - Requesting directions: GeoCoord[lon=16.383348, lat=48.222048] -> GeoCoord[lon=16.383853, lat=48.22508] via foot-hiking
+2025-07-04 14:06:08.766 [import-task] INFO  org.tourplanner.service.OpenRouteServiceAgent - Geocoding address: Heldenplatz, 1010 Wien
+2025-07-04 14:06:08.858 [import-task] INFO  org.tourplanner.service.OpenRouteServiceAgent - Parsed coordinates: lon=16.363254, lat=48.205984
+2025-07-04 14:06:08.859 [import-task] INFO  org.tourplanner.service.OpenRouteServiceAgent - Geocoding address: Stephansplatz, 1010 Wien
+2025-07-04 14:06:08.949 [import-task] INFO  org.tourplanner.service.OpenRouteServiceAgent - Parsed coordinates: lon=16.37407, lat=48.208351
+2025-07-04 14:06:08.949 [import-task] INFO  org.tourplanner.service.OpenRouteServiceAgent - Requesting directions: GeoCoord[lon=16.363254, lat=48.205984] -> GeoCoord[lon=16.37407, lat=48.208351] via foot-hiking
+2025-07-04 14:06:09.020 [JavaFX Application Thread] INFO  org.tourplanner.service.TourManager - Refreshing tour list from database
+2025-07-04 14:07:00.977 [JavaFX Application Thread] INFO  org.tourplanner.service.TourManager - Deleting tour id=13 name=asd
+2025-07-04 14:07:00.978 [JavaFX Application Thread] INFO  org.tourplanner.service.TourLogManager - Deleting 3 log(s) belonging to tour id=13
+2025-07-04 14:07:04.395 [JavaFX Application Thread] INFO  org.tourplanner.service.TourManager - Deleting tour id=14 name=Testa
+2025-07-04 14:07:04.396 [JavaFX Application Thread] INFO  org.tourplanner.service.TourLogManager - Deleting 1 log(s) belonging to tour id=14
+2025-07-04 14:07:09.130 [import-task] INFO  org.tourplanner.service.OpenRouteServiceAgent - Geocoding address: Heinestraße 5, 1020 Wien
+2025-07-04 14:07:09.303 [import-task] INFO  org.tourplanner.service.OpenRouteServiceAgent - Parsed coordinates: lon=16.383348, lat=48.222048
+2025-07-04 14:07:09.303 [import-task] INFO  org.tourplanner.service.OpenRouteServiceAgent - Geocoding address: Am Tabor 23, 1020 Wien
+2025-07-04 14:07:13.528 [import-task] INFO  org.tourplanner.service.OpenRouteServiceAgent - Parsed coordinates: lon=16.383853, lat=48.22508
+2025-07-04 14:07:13.530 [import-task] INFO  org.tourplanner.service.OpenRouteServiceAgent - Requesting directions: GeoCoord[lon=16.383348, lat=48.222048] -> GeoCoord[lon=16.383853, lat=48.22508] via foot-hiking
+2025-07-04 14:07:13.634 [import-task] INFO  org.tourplanner.service.OpenRouteServiceAgent - Geocoding address: Heldenplatz, 1010 Wien
+2025-07-04 14:07:13.721 [import-task] INFO  org.tourplanner.service.OpenRouteServiceAgent - Parsed coordinates: lon=16.363254, lat=48.205984
+2025-07-04 14:07:13.721 [import-task] INFO  org.tourplanner.service.OpenRouteServiceAgent - Geocoding address: Stephansplatz, 1010 Wien
+2025-07-04 14:07:13.807 [import-task] INFO  org.tourplanner.service.OpenRouteServiceAgent - Parsed coordinates: lon=16.37407, lat=48.208351
+2025-07-04 14:07:13.807 [import-task] INFO  org.tourplanner.service.OpenRouteServiceAgent - Requesting directions: GeoCoord[lon=16.363254, lat=48.205984] -> GeoCoord[lon=16.37407, lat=48.208351] via foot-hiking
+2025-07-04 14:07:13.877 [JavaFX Application Thread] INFO  org.tourplanner.service.TourManager - Refreshing tour list from database
+2025-07-04 14:09:32.989 [SpringApplicationShutdownHook] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-07-04 14:09:32.997 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-07-04 14:09:33.001 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-07-04 14:09:42.597 [main] INFO  org.tourplanner.TourPlannerApplication - Launching application
+2025-07-04 14:09:42.598 [JavaFX-Launcher] INFO  org.tourplanner.TourPlannerApplication - Initializing Spring context
+2025-07-04 14:09:42.785 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.2.Final
+2025-07-04 14:09:42.850 [JavaFX-Launcher] INFO  org.springframework.boot.SpringApplication - Starting application using Java 21.0.7 with PID 56182 (started by julia.pabst in /Users/julia.pabst/Library/Mobile Documents/com~apple~CloudDocs/Desktop/FH_Technikum/Semester4/SWEN2/TourPlanner/TourPlanner)
+2025-07-04 14:09:42.852 [JavaFX-Launcher] INFO  org.springframework.boot.SpringApplication - No active profile set, falling back to 1 default profile: "default"
+2025-07-04 14:09:43.813 [JavaFX-Launcher] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-07-04 14:09:43.906 [JavaFX-Launcher] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 85 ms. Found 2 JPA repository interfaces.
+2025-07-04 14:09:44.153 [JavaFX-Launcher] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-07-04 14:09:44.179 [JavaFX-Launcher] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version [WORKING]
+2025-07-04 14:09:44.195 [JavaFX-Launcher] INFO  org.hibernate.cache.internal.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-07-04 14:09:44.321 [JavaFX-Launcher] INFO  org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-07-04 14:09:44.336 [JavaFX-Launcher] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-07-04 14:09:44.511 [JavaFX-Launcher] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@291d5c00
+2025-07-04 14:09:44.512 [JavaFX-Launcher] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-07-04 14:09:44.551 [JavaFX-Launcher] INFO  org.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.5
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-07-04 14:09:45.048 [JavaFX-Launcher] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-07-04 14:09:45.139 [JavaFX-Launcher] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-07-04 14:09:45.396 [JavaFX-Launcher] INFO  org.tourplanner.service.TourLogManager - Loaded 4 tour logs
+2025-07-04 14:09:45.422 [JavaFX-Launcher] INFO  org.tourplanner.service.TourManager - Loaded 2 tours
+2025-07-04 14:09:45.630 [JavaFX-Launcher] INFO  org.springframework.boot.SpringApplication - Started application in 2.995 seconds (process running for 8.776)
+2025-07-04 14:09:45.631 [JavaFX-Launcher] INFO  org.tourplanner.TourPlannerApplication - Spring context initialized successfully.
+2025-07-04 14:09:45.635 [JavaFX Application Thread] INFO  org.tourplanner.TourPlannerApplication - Starting JavaFX application
+2025-07-04 14:09:46.625 [JavaFX Application Thread] INFO  org.tourplanner.TourPlannerApplication - JavaFX application started
+2025-07-04 14:09:53.702 [JavaFX Application Thread] INFO  org.tourplanner.service.TourManager - Deleting tour id=15 name=asd
+2025-07-04 14:09:53.704 [JavaFX Application Thread] INFO  org.tourplanner.service.TourLogManager - Deleting 3 log(s) belonging to tour id=15
+2025-07-04 14:09:56.683 [JavaFX Application Thread] INFO  org.tourplanner.service.TourManager - Deleting tour id=16 name=Testa
+2025-07-04 14:09:56.683 [JavaFX Application Thread] INFO  org.tourplanner.service.TourLogManager - Deleting 1 log(s) belonging to tour id=16
+2025-07-04 14:10:04.999 [import-task] INFO  org.tourplanner.service.OpenRouteServiceAgent - Geocoding address: Heinestraße 5, 1020 Wien
+2025-07-04 14:10:05.202 [import-task] INFO  org.tourplanner.service.OpenRouteServiceAgent - Parsed coordinates: lon=16.383348, lat=48.222048
+2025-07-04 14:10:05.203 [import-task] INFO  org.tourplanner.service.OpenRouteServiceAgent - Geocoding address: Am Tabor 23, 1020 Wien
+2025-07-04 14:10:09.347 [import-task] INFO  org.tourplanner.service.OpenRouteServiceAgent - Parsed coordinates: lon=16.383853, lat=48.22508
+2025-07-04 14:10:09.352 [import-task] INFO  org.tourplanner.service.OpenRouteServiceAgent - Requesting directions: GeoCoord[lon=16.383348, lat=48.222048] -> GeoCoord[lon=16.383853, lat=48.22508] via foot-hiking
+2025-07-04 14:10:09.485 [import-task] INFO  org.tourplanner.service.OpenRouteServiceAgent - Geocoding address: Heldenplatz, 1010 Wien
+2025-07-04 14:10:09.595 [import-task] INFO  org.tourplanner.service.OpenRouteServiceAgent - Parsed coordinates: lon=16.363254, lat=48.205984
+2025-07-04 14:10:09.595 [import-task] INFO  org.tourplanner.service.OpenRouteServiceAgent - Geocoding address: Stephansplatz, 1010 Wien
+2025-07-04 14:10:09.689 [import-task] INFO  org.tourplanner.service.OpenRouteServiceAgent - Parsed coordinates: lon=16.37407, lat=48.208351
+2025-07-04 14:10:09.689 [import-task] INFO  org.tourplanner.service.OpenRouteServiceAgent - Requesting directions: GeoCoord[lon=16.363254, lat=48.205984] -> GeoCoord[lon=16.37407, lat=48.208351] via foot-hiking
+2025-07-04 14:10:09.756 [JavaFX Application Thread] INFO  org.tourplanner.service.TourManager - Refreshing tour list from database
+2025-07-04 14:10:35.512 [SpringApplicationShutdownHook] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-07-04 14:10:35.525 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-07-04 14:10:35.534 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-07-04 14:10:45.277 [main] INFO  org.tourplanner.TourPlannerApplication - Launching application
+2025-07-04 14:10:45.279 [JavaFX-Launcher] INFO  org.tourplanner.TourPlannerApplication - Initializing Spring context
+2025-07-04 14:10:45.428 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.2.Final
+2025-07-04 14:10:45.463 [JavaFX-Launcher] INFO  org.springframework.boot.SpringApplication - Starting application using Java 21.0.7 with PID 56743 (started by julia.pabst in /Users/julia.pabst/Library/Mobile Documents/com~apple~CloudDocs/Desktop/FH_Technikum/Semester4/SWEN2/TourPlanner/TourPlanner)
+2025-07-04 14:10:45.463 [JavaFX-Launcher] INFO  org.springframework.boot.SpringApplication - No active profile set, falling back to 1 default profile: "default"
+2025-07-04 14:10:45.737 [JavaFX-Launcher] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-07-04 14:10:45.788 [JavaFX-Launcher] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 46 ms. Found 2 JPA repository interfaces.
+2025-07-04 14:10:45.969 [JavaFX-Launcher] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-07-04 14:10:45.988 [JavaFX-Launcher] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version [WORKING]
+2025-07-04 14:10:46.002 [JavaFX-Launcher] INFO  org.hibernate.cache.internal.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-07-04 14:10:46.104 [JavaFX-Launcher] INFO  org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-07-04 14:10:46.116 [JavaFX-Launcher] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-07-04 14:10:46.258 [JavaFX-Launcher] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@42ab3cb3
+2025-07-04 14:10:46.259 [JavaFX-Launcher] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-07-04 14:10:46.300 [JavaFX-Launcher] INFO  org.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.5
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-07-04 14:10:46.753 [JavaFX-Launcher] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-07-04 14:10:46.852 [JavaFX-Launcher] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-07-04 14:10:47.088 [JavaFX-Launcher] INFO  org.tourplanner.service.TourLogManager - Loaded 4 tour logs
+2025-07-04 14:10:47.113 [JavaFX-Launcher] INFO  org.tourplanner.service.TourManager - Loaded 2 tours
+2025-07-04 14:10:47.287 [JavaFX-Launcher] INFO  org.springframework.boot.SpringApplication - Started application in 1.976 seconds (process running for 7.716)
+2025-07-04 14:10:47.288 [JavaFX-Launcher] INFO  org.tourplanner.TourPlannerApplication - Spring context initialized successfully.
+2025-07-04 14:10:47.292 [JavaFX Application Thread] INFO  org.tourplanner.TourPlannerApplication - Starting JavaFX application
+2025-07-04 14:10:48.266 [JavaFX Application Thread] INFO  org.tourplanner.TourPlannerApplication - JavaFX application started
+2025-07-04 14:11:16.742 [JavaFX Application Thread] INFO  org.tourplanner.service.TourManager - Deleting tour id=17 name=asd
+2025-07-04 14:11:16.744 [JavaFX Application Thread] INFO  org.tourplanner.service.TourLogManager - Deleting 3 log(s) belonging to tour id=17
+2025-07-04 14:11:23.089 [JavaFX Application Thread] INFO  org.tourplanner.service.TourManager - Deleting tour id=18 name=Testa
+2025-07-04 14:11:23.091 [JavaFX Application Thread] INFO  org.tourplanner.service.TourLogManager - Deleting 1 log(s) belonging to tour id=18
+2025-07-04 14:11:31.160 [import-task] INFO  org.tourplanner.service.OpenRouteServiceAgent - Geocoding address: Heinestraße 5, 1020 Wien
+2025-07-04 14:11:31.335 [import-task] INFO  org.tourplanner.service.OpenRouteServiceAgent - Parsed coordinates: lon=16.383348, lat=48.222048
+2025-07-04 14:11:31.336 [import-task] INFO  org.tourplanner.service.OpenRouteServiceAgent - Geocoding address: Am Tabor 23, 1020 Wien
+2025-07-04 14:11:35.469 [import-task] INFO  org.tourplanner.service.OpenRouteServiceAgent - Parsed coordinates: lon=16.383853, lat=48.22508
+2025-07-04 14:11:35.473 [import-task] INFO  org.tourplanner.service.OpenRouteServiceAgent - Requesting directions: GeoCoord[lon=16.383348, lat=48.222048] -> GeoCoord[lon=16.383853, lat=48.22508] via foot-hiking
+2025-07-04 14:11:35.593 [import-task] INFO  org.tourplanner.service.OpenRouteServiceAgent - Geocoding address: Heldenplatz, 1010 Wien
+2025-07-04 14:11:35.726 [import-task] INFO  org.tourplanner.service.OpenRouteServiceAgent - Parsed coordinates: lon=16.363254, lat=48.205984
+2025-07-04 14:11:35.726 [import-task] INFO  org.tourplanner.service.OpenRouteServiceAgent - Geocoding address: Stephansplatz, 1010 Wien
+2025-07-04 14:11:35.816 [import-task] INFO  org.tourplanner.service.OpenRouteServiceAgent - Parsed coordinates: lon=16.37407, lat=48.208351
+2025-07-04 14:11:35.817 [import-task] INFO  org.tourplanner.service.OpenRouteServiceAgent - Requesting directions: GeoCoord[lon=16.363254, lat=48.205984] -> GeoCoord[lon=16.37407, lat=48.208351] via foot-hiking
+2025-07-04 14:11:35.894 [JavaFX Application Thread] INFO  org.tourplanner.service.TourManager - Refreshing tour list from database
+2025-07-04 14:12:37.899 [SpringApplicationShutdownHook] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-07-04 14:12:37.905 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-07-04 14:12:37.911 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-07-04 14:12:46.724 [main] INFO  org.tourplanner.TourPlannerApplication - Launching application
+2025-07-04 14:12:46.726 [JavaFX-Launcher] INFO  org.tourplanner.TourPlannerApplication - Initializing Spring context
+2025-07-04 14:12:46.869 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.2.Final
+2025-07-04 14:12:46.910 [JavaFX-Launcher] INFO  org.springframework.boot.SpringApplication - Starting application using Java 21.0.7 with PID 57859 (started by julia.pabst in /Users/julia.pabst/Library/Mobile Documents/com~apple~CloudDocs/Desktop/FH_Technikum/Semester4/SWEN2/TourPlanner/TourPlanner)
+2025-07-04 14:12:46.911 [JavaFX-Launcher] INFO  org.springframework.boot.SpringApplication - No active profile set, falling back to 1 default profile: "default"
+2025-07-04 14:12:47.183 [JavaFX-Launcher] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-07-04 14:12:47.235 [JavaFX-Launcher] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 47 ms. Found 2 JPA repository interfaces.
+2025-07-04 14:12:47.415 [JavaFX-Launcher] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-07-04 14:12:47.435 [JavaFX-Launcher] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version [WORKING]
+2025-07-04 14:12:47.447 [JavaFX-Launcher] INFO  org.hibernate.cache.internal.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-07-04 14:12:47.546 [JavaFX-Launcher] INFO  org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-07-04 14:12:47.557 [JavaFX-Launcher] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-07-04 14:12:47.695 [JavaFX-Launcher] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@4aa79040
+2025-07-04 14:12:47.696 [JavaFX-Launcher] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-07-04 14:12:47.736 [JavaFX-Launcher] INFO  org.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.5
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-07-04 14:12:48.191 [JavaFX-Launcher] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-07-04 14:12:48.281 [JavaFX-Launcher] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-07-04 14:12:48.509 [JavaFX-Launcher] INFO  org.tourplanner.service.TourLogManager - Loaded 4 tour logs
+2025-07-04 14:12:48.529 [JavaFX-Launcher] INFO  org.tourplanner.service.TourManager - Loaded 2 tours
+2025-07-04 14:12:48.703 [JavaFX-Launcher] INFO  org.springframework.boot.SpringApplication - Started application in 1.946 seconds (process running for 7.607)
+2025-07-04 14:12:48.704 [JavaFX-Launcher] INFO  org.tourplanner.TourPlannerApplication - Spring context initialized successfully.
+2025-07-04 14:12:48.708 [JavaFX Application Thread] INFO  org.tourplanner.TourPlannerApplication - Starting JavaFX application
+2025-07-04 14:12:49.656 [JavaFX Application Thread] INFO  org.tourplanner.TourPlannerApplication - JavaFX application started
+2025-07-04 14:12:55.891 [JavaFX Application Thread] INFO  org.tourplanner.service.TourManager - Deleting tour id=19 name=asd
+2025-07-04 14:12:55.893 [JavaFX Application Thread] INFO  org.tourplanner.service.TourLogManager - Deleting 3 log(s) belonging to tour id=19
+2025-07-04 14:12:58.960 [JavaFX Application Thread] INFO  org.tourplanner.service.TourManager - Deleting tour id=20 name=Testa
+2025-07-04 14:12:58.960 [JavaFX Application Thread] INFO  org.tourplanner.service.TourLogManager - Deleting 1 log(s) belonging to tour id=20
+2025-07-04 14:13:06.156 [import-task] INFO  org.tourplanner.service.OpenRouteServiceAgent - Geocoding address: Heinestraße 5, 1020 Wien
+2025-07-04 14:13:07.801 [import-task] INFO  org.tourplanner.service.OpenRouteServiceAgent - Parsed coordinates: lon=16.383348, lat=48.222048
+2025-07-04 14:13:07.801 [import-task] INFO  org.tourplanner.service.OpenRouteServiceAgent - Geocoding address: Am Tabor 23, 1020 Wien
+2025-07-04 14:13:11.931 [import-task] INFO  org.tourplanner.service.OpenRouteServiceAgent - Parsed coordinates: lon=16.383853, lat=48.22508
+2025-07-04 14:13:11.937 [import-task] INFO  org.tourplanner.service.OpenRouteServiceAgent - Requesting directions: GeoCoord[lon=16.383348, lat=48.222048] -> GeoCoord[lon=16.383853, lat=48.22508] via foot-hiking
+2025-07-04 14:13:12.054 [import-task] INFO  org.tourplanner.service.OpenRouteServiceAgent - Geocoding address: Heldenplatz, 1010 Wien
+2025-07-04 14:13:12.141 [import-task] INFO  org.tourplanner.service.OpenRouteServiceAgent - Parsed coordinates: lon=16.363254, lat=48.205984
+2025-07-04 14:13:12.141 [import-task] INFO  org.tourplanner.service.OpenRouteServiceAgent - Geocoding address: Stephansplatz, 1010 Wien
+2025-07-04 14:13:12.229 [import-task] INFO  org.tourplanner.service.OpenRouteServiceAgent - Parsed coordinates: lon=16.37407, lat=48.208351
+2025-07-04 14:13:12.230 [import-task] INFO  org.tourplanner.service.OpenRouteServiceAgent - Requesting directions: GeoCoord[lon=16.363254, lat=48.205984] -> GeoCoord[lon=16.37407, lat=48.208351] via foot-hiking
+2025-07-04 14:13:12.301 [JavaFX Application Thread] INFO  org.tourplanner.service.TourManager - Refreshing tour list from database
+2025-07-04 14:14:16.792 [SpringApplicationShutdownHook] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-07-04 14:14:16.797 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-07-04 14:14:16.802 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
