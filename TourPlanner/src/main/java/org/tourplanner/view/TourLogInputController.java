@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.tourplanner.persistence.entity.Difficulty;
 import org.tourplanner.view.util.ModalService;
 import org.tourplanner.viewmodel.TourLogInputViewModel;
+import org.tourplanner.utils.NumberTextFormatters;
 
 import java.net.URL;
 import java.time.format.DateTimeParseException;
@@ -43,25 +44,8 @@ public class TourLogInputController implements Initializable {
         logDatePicker.valueProperty().bindBidirectional(viewModel.dateProperty());
         usernameField.textProperty().bindBidirectional(viewModel.usernameProperty());
 
-        totalTimeField.setTextFormatter(new TextFormatter<>(new IntegerStringConverter()));
-        totalTimeField.setText(String.valueOf(viewModel.totalTimeProperty().get()));
-        totalTimeField.textProperty().addListener((obs, oldVal, newVal) -> {
-            try {
-                if(!newVal.isBlank()) {
-                    viewModel.totalTimeProperty().set(Integer.parseInt(newVal));
-                }
-            } catch(NumberFormatException ignored) {}
-        });
-
-        totalDistanceField.setTextFormatter(new TextFormatter<>(new DoubleStringConverter()));
-        totalDistanceField.setText(String.valueOf(viewModel.totalDistanceProperty().get()));
-        totalDistanceField.textProperty().addListener((obs, oldVal, newVal) -> {
-            try {
-                if(!newVal.isBlank()) {
-                    viewModel.totalDistanceProperty().set(Double.parseDouble(newVal));
-                }
-            } catch(NumberFormatException ignored) {}
-        });
+        totalTimeField.setTextFormatter(NumberTextFormatters.forInteger(viewModel.totalTimeProperty()));
+        totalDistanceField.setTextFormatter(NumberTextFormatters.forDouble(viewModel.totalDistanceProperty()));
 
         commentArea.textProperty().bindBidirectional(viewModel.commentProperty());
 
