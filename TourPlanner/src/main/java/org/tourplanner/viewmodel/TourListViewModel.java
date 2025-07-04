@@ -161,7 +161,7 @@ public class TourListViewModel {
             if(url == null) throw new IOException("leaflet.html not found in resources.");
 
             String content = Files.readString(Paths.get(url.toURI()), StandardCharsets.UTF_8);
-            return content.replace("{{MY_DIRECTIONS}}", routeJson);
+            return content.replace("{MY_DIRECTIONS}", routeJson);
         } catch(IOException | URISyntaxException e) {
             e.printStackTrace();
             return "<html><body><p>Error loading map</p></body></html>";

@@ -2,7 +2,6 @@
 
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.web.WebView?>
 
@@ -43,7 +42,7 @@
 
     <VBox spacing="5">
         <Label fx:id="mapSectionTitle" styleClass="tour-section-title" text="Map" />
-        <WebView fx:id="mapWebView" prefHeight="150" prefWidth="300" />
+        <WebView fx:id="mapWebView" prefHeight="300" prefWidth="300" />
     </VBox>
 
     <VBox spacing="5">

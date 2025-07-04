@@ -19,16 +19,31 @@ import java.io.IOException;
 import java.nio.file.*;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 @Service
 public class MapSnapshotService {
 
+    private static final Logger log = LogManager.getLogger(MapSnapshotService.class);
     private Path mapDir;
 
     @PostConstruct
     private void init() throws IOException {
         mapDir = Paths.get("maps");
         Files.createDirectories(mapDir);
+    }
+
+    public void invalidateMapImage(Tour tour) {
+        if(tour == null || tour.getTourId() == null) return;
+        Path img = mapDir.resolve(tour.getTourId() + ".png");
+        try {
+            if(Files.deleteIfExists(img)) {
+                log.debug("Outdated map image {} removed", img);
+            }
+        } catch(IOException ex) {
+            log.error("Failed to delete old map image {} -> {}", img, ex.getMessage());
+        }
     }
 
     public void ensureMapImage(Tour tour) {
@@ -63,7 +78,8 @@ public class MapSnapshotService {
         Stage stage = new Stage(StageStyle.TRANSPARENT);   // invisible window
         stage.setScene(scene);
         stage.setOpacity(0);
-        stage.setX(-2000); stage.setY(-2000);
+        stage.setX(-2000);
+        stage.setY(-2000);
         stage.show();
 
         web.getEngine().loadContent(HtmlUtil.wrapLeaflet(tour.getRouteInformation()), "text/html");

@@ -12,20 +12,25 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.util.List;
+import java.util.Objects;
 
 @Service
 public class TourManager {
     private static final Logger log = LogManager.getLogger(TourManager.class);
     private final TourRepository tourRepository;
     private final TourLogManager tourLogManager;
+    private final MapSnapshotService mapSnapshotService;
 
     @Getter
     private final ObservableList<Tour> tourList = FXCollections.observableArrayList();
 
     @Autowired
-    public TourManager(TourLogManager tourLogManager, TourRepository tourRepository) {
+    public TourManager(TourLogManager tourLogManager,
+                       TourRepository tourRepository,
+                       MapSnapshotService mapSnapshotService) {
         this.tourLogManager = tourLogManager;
         this.tourRepository = tourRepository;
+        this.mapSnapshotService = mapSnapshotService;
 
         log.debug("Initializing TourManager and loading all tours from DB");
         List<Tour> allTours = tourRepository.findAll();
@@ -47,6 +52,11 @@ public class TourManager {
         if(index < 0) {
             log.warn("Cannot replace tour: old tour not found in list (id={})", oldTour.getTourId());
             return;
+        }
+
+        // Invalidate cached map if route changed
+        if(!Objects.equals(oldTour.getRouteInformation(), newTour.getRouteInformation())) {
+            mapSnapshotService.invalidateMapImage(oldTour);
         }
 
         // Persist updated tour
@@ -75,6 +85,7 @@ public class TourManager {
 
     public void deleteTour(Tour tour) {
         log.info("Deleting tour id={} name={}", tour.getTourId(), tour.getTourName());
+        mapSnapshotService.invalidateMapImage(tour); // delete PNG as well
         tourLogManager.deleteLogsForTour(tour);
         tourList.remove(tour);
         tourRepository.delete(tour); // Delete from DB
