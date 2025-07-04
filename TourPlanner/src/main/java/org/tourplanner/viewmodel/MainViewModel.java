@@ -143,4 +143,9 @@ public class MainViewModel {
                         task.getException().getMessage())));
         new Thread(task, "import-task").start();
     }
+
+    public void exitApplication() {
+        Platform.exit();        // for clean JavaFX shutdown
+        System.exit(0);  // JVM shutdown
+    }
 }

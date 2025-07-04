@@ -29,7 +29,7 @@ public class MainController implements Initializable {
 
     @FXML
     public void onExitButtonClick(ActionEvent actionEvent) {
-        System.exit(0);
+        mainViewModel.exitApplication();
     }
 
     @FXML
