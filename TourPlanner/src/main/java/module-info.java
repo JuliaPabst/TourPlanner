@@ -31,6 +31,7 @@ module org.tourplanner {
 
     requires javafx.controls;
     requires io;
+    requires spring.tx;
 
     opens org.tourplanner.view to javafx.fxml;
     opens org.tourplanner to javafx.fxml, org.apache.logging.log4j, org.apache.logging.log4j.core;

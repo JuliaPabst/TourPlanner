@@ -5,6 +5,7 @@ import javafx.collections.ObservableList;
 import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.tourplanner.persistence.entity.Tour;
 import org.tourplanner.persistence.entity.TourLog;
 import org.tourplanner.persistence.repository.TourLogRepository;
 import org.apache.logging.log4j.LogManager;
@@ -38,7 +39,6 @@ public class TourLogManager {
     public void updateLog(TourLog oldLog, TourLog updatedLog) {
         log.info("Updating tour log id={}", oldLog.getTourLogId());
         updatedLog.setTourLogId(oldLog.getTourLogId());
-        updatedLog.setTour(oldLog.getTour());
 
         tourLogRepo.save(updatedLog);
         refreshLogList(); // Reload full list so FilteredList updates correctly
@@ -49,6 +49,21 @@ public class TourLogManager {
         log.info("Deleting tour log id={} from tour id={}", logEntry.getTourLogId(), logEntry.getTour().getTourId());
         tourLogRepo.delete(logEntry);     // Remove from DB
         logList.remove(logEntry);         // Remove from ObservableList
+    }
+
+    public void deleteLogsForTour(Tour tour) {
+        if(tour == null || tour.getTourId() == null) return;
+
+        List<TourLog> toDelete = logList.stream()
+                .filter(l -> l.getTour() != null &&
+                        tour.getTourId().equals(l.getTour().getTourId()))
+                .toList();
+        if(toDelete.isEmpty()) return;
+
+        log.info("Deleting {} log(s) belonging to tour id={}",
+                toDelete.size(), tour.getTourId());
+        tourLogRepo.deleteAll(toDelete);
+        logList.removeAll(toDelete);
     }
 
     public void refreshLogList() {

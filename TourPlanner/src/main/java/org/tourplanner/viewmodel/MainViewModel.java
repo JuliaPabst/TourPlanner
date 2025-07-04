@@ -5,10 +5,7 @@ import javafx.collections.ObservableList;
 import javafx.concurrent.Task;
 import org.springframework.stereotype.Component;
 import org.tourplanner.persistence.entity.Tour;
-import org.tourplanner.service.BackupService;
-import org.tourplanner.service.DialogService;
-import org.tourplanner.service.ReportService;
-import org.tourplanner.service.TourManager;
+import org.tourplanner.service.*;
 
 import java.io.IOException;
 import java.nio.file.Path;
@@ -20,17 +17,19 @@ public class MainViewModel {
     private final ReportService reports;
     private final TourListViewModel tourListViewModel;
     private final BackupService backupService;
+    private final TourLogManager tourLogManager;
 
     public MainViewModel(TourManager tourManager,
                          DialogService dialog,
                          ReportService reports,
                          TourListViewModel tourListViewModel,
-                         BackupService backupService) {
+                         BackupService backupService, TourLogManager tourLogManager) {
         this.tourManager = tourManager;
         this.dialog = dialog;
         this.reports = reports;
         this.tourListViewModel = tourListViewModel;
         this.backupService = backupService;
+        this.tourLogManager = tourLogManager;
     }
 
     // create observable Array list here
@@ -118,5 +117,30 @@ public class MainViewModel {
         task.setOnFailed(e -> Platform.runLater(() ->
                 dialog.showMessageBox("Error", null, task.getException().getMessage())));
         new Thread(task, "export-task").start();
+    }
+
+    public void importTours() {
+        Path src = dialog.showFileOpenDialog(
+                "Import Tours", "JSON file", "*.json", null);
+        if(src == null) return;
+
+        Task<Void> task = new Task<>() {
+            @Override
+            protected Void call() throws Exception {
+                backupService.importTours(src);
+                return null;
+            }
+        };
+        task.setOnSucceeded(e -> Platform.runLater(() -> {
+            // Reload TourManager to update the UI
+            tourManager.reloadTours();
+            tourLogManager.refreshLogList();
+            dialog.showMessageBox("Import finished", null,
+                    "Tours were successfully imported.");
+        }));
+        task.setOnFailed(e -> Platform.runLater(() ->
+                dialog.showMessageBox("Error", null,
+                        task.getException().getMessage())));
+        new Thread(task, "import-task").start();
     }
 }

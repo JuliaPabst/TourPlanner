@@ -46,4 +46,7 @@ public class MainController implements Initializable {
         mainViewModel.exportTours();
     }
 
+    @FXML private void onImportToursClick() {
+        mainViewModel.importTours();
+    }
 }

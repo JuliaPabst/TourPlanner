@@ -159,16 +159,7 @@ public class TourDetailController implements Initializable {
         deleteButton.setVisible(false);
 
         titleLabel.setText("Please select a tour from the overview on the left");
-        unbindDetailLabels();
-
-        fromLabel.setText("");
-        toLabel.setText("");
-        transportTypeLabel.setText("");
-        distanceLabel.setText("");
-        timeLabel.setText("");
-        descriptionText.setText("");
-        popularityLabel.setText("");
-        childFriendlyLabel.setText("");
+        listViewModel.clearDisplayData();
 
         mapWebView.getEngine().loadContent("<html><body><p>No map selected</p></body></html>");
         routeSectionTitle.setText("");

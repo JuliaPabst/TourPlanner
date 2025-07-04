@@ -67,10 +67,23 @@ public class TourListViewModel {
         return filteredTours;
     }
 
+    public void clearDisplayData() {
+        fromLabel.set("");
+        toLabel.set("");
+        transportTypeLabel.set("");
+        distanceLabel.set("");
+        timeLabel.set("");
+        descriptionText.set("");
+        popularityText.set("");
+        childFriendlyText.set("");
+        mapHtmlContent.set("<html><body><p>No map selected</p></body></html>");
+    }
+
     public void deleteTour(Tour tour) {
         tourManager.deleteTour(tour);
         if (selectedTour.get() == tour) {
-            selectedTour.set(null); // Clear selection
+            selectedTour.set(null);
+            clearDisplayData();
         }
     }
 

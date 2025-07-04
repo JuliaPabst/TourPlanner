@@ -16,19 +16,19 @@ import java.util.List;
 @Service
 public class TourManager {
     private static final Logger log = LogManager.getLogger(TourManager.class);
-    private final TourRepository tourRepo;
+    private final TourRepository tourRepository;
     private final TourLogManager tourLogManager;
 
     @Getter
     private final ObservableList<Tour> tourList = FXCollections.observableArrayList();
 
     @Autowired
-    public TourManager(TourLogManager tourLogManager, TourRepository repository) {
+    public TourManager(TourLogManager tourLogManager, TourRepository tourRepository) {
         this.tourLogManager = tourLogManager;
-        this.tourRepo = repository;
+        this.tourRepository = tourRepository;
 
         log.debug("Initializing TourManager and loading all tours from DB");
-        List<Tour> allTours = tourRepo.findAll();
+        List<Tour> allTours = tourRepository.findAll();
         // Load initial tours from the database
         tourList.setAll(allTours);
         log.info("Loaded {} tours", allTours.size());
@@ -36,7 +36,7 @@ public class TourManager {
 
     public void createNewTour(Tour newTour) {
         log.info("Creating new tour: {}", newTour.getTourName());
-        Tour savedTour = tourRepo.save(newTour);
+        Tour savedTour = tourRepository.save(newTour);
         tourList.add(savedTour);
         log.debug("Tour saved with id {}", newTour.getTourId());
     }
@@ -49,27 +49,25 @@ public class TourManager {
             return;
         }
 
-        // Ensure we update the existing DB entry, not insert a new one
-        newTour.setTourId(oldTour.getTourId());
         // Persist updated tour
-        Tour savedTour = tourRepo.save(newTour);
+        newTour.setTourId(oldTour.getTourId());
+        Tour savedTour = tourRepository.save(newTour);
         tourList.set(index, savedTour);
 
-        for (int i = 0; i < tourLogManager.getLogList().size(); i++) {
-            TourLog log = tourLogManager.getLogList().get(i);
-            if (log.getTour().equals(oldTour)) {
-                TourLog updatedLog = new TourLog(
-                        log.getDate(),
-                        log.getUsername(),
-                        log.getTotalTime(),
-                        log.getTotalDistance(),
-                        log.getDifficulty(),
-                        log.getRating(),
-                        log.getComment(),
+        for(TourLog logEntry : tourLogManager.getLogList()) {
+            if(logEntry.getTour().equals(oldTour)) {
+                TourLog patched = new TourLog(
+                        logEntry.getDate(),
+                        logEntry.getUsername(),
+                        logEntry.getTotalTime(),
+                        logEntry.getTotalDistance(),
+                        logEntry.getDifficulty(),
+                        logEntry.getRating(),
+                        logEntry.getComment(),
                         savedTour
                 );
 
-                tourLogManager.updateLog(log, updatedLog);
+                tourLogManager.updateLog(logEntry, patched);
             }
         }
         log.debug("Tour id={} updated and logs reassociated", oldTour.getTourId());
@@ -77,7 +75,15 @@ public class TourManager {
 
     public void deleteTour(Tour tour) {
         log.info("Deleting tour id={} name={}", tour.getTourId(), tour.getTourName());
+        tourLogManager.deleteLogsForTour(tour);
         tourList.remove(tour);
-        tourRepo.delete(tour); // Delete from DB
+        tourRepository.delete(tour); // Delete from DB
+    }
+
+    public void reloadTours() {
+        log.info("Refreshing tour list from database");
+        List<Tour> reloadedTours = tourRepository.findAll();
+        tourList.setAll(reloadedTours);
+        log.debug("Tour list refreshed, {} tours loaded", reloadedTours.size());
     }
 }

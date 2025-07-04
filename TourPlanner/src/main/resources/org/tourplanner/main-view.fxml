@@ -45,7 +45,8 @@
                 <ColumnConstraints percentWidth="50"/>
               </columnConstraints>
               <Button text="Import Tours" styleClass="secondary-button"
-                      GridPane.columnIndex="0" maxWidth="Infinity"/>
+                      GridPane.columnIndex="0" maxWidth="Infinity"
+                      onAction="#onImportToursClick"/>
               <Button text="Export Tours" styleClass="secondary-button"
                       GridPane.columnIndex="1" maxWidth="Infinity"
                       onAction="#onExportToursClick"/>
