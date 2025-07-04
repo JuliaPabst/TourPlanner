@@ -1,6 +1,7 @@
 package org.tourplanner.viewmodel;
 
 import javafx.beans.property.*;
+import lombok.Getter;
 import org.springframework.stereotype.Component;
 import org.tourplanner.persistence.entity.Difficulty;
 import org.tourplanner.persistence.entity.Tour;
@@ -12,6 +13,7 @@ import java.beans.PropertyChangeSupport;
 
 @Component
 public class TourLogInputViewModel {
+    @Getter
     private final TourLogListViewModel logListViewModel;
     private final TourListViewModel tourListViewModel;
 
@@ -40,8 +42,6 @@ public class TourLogInputViewModel {
     public ObjectProperty<Difficulty> difficultyProperty() { return difficulty; }
     public IntegerProperty ratingProperty() { return rating; }
     public StringProperty commentProperty() { return comment; }
-
-    public TourLogListViewModel getLogListViewModel() { return logListViewModel; }
 
     public void startEditing(TourLog log) {
         editingLog.set(log);
@@ -89,9 +89,6 @@ public class TourLogInputViewModel {
     private void validateInput() {
         if(username.get().isBlank()) {
             throw new IllegalStateException("Username cannot be empty");
-        }
-        if(totalTime.get() <= 0 || totalDistance.get() <= 0) {
-            throw new IllegalStateException("Time and distance must be greater than 0");
         }
         if(rating.get() < 1 || rating.get() > 5) {
             throw new IllegalStateException("Rating must be between 1 and 5");

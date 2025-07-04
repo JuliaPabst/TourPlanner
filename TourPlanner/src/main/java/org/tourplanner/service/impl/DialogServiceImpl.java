@@ -26,7 +26,7 @@ public class DialogServiceImpl implements DialogService {
     }
 
     @PostConstruct
-    private void initDefaults() {
+    void initDefaults() {
         lastDirectory = Paths.get(props.getDefaultDir());
         lastFileName = props.getDefaultFile();
     }

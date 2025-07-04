@@ -1,0 +1,150 @@
+2025-07-04 11:49:21.446 [main] INFO  org.tourplanner.TourPlannerApplication - Launching application
+2025-07-04 11:49:21.448 [JavaFX-Launcher] INFO  org.tourplanner.TourPlannerApplication - Initializing Spring context
+2025-07-04 11:49:21.705 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.2.Final
+2025-07-04 11:49:21.759 [JavaFX-Launcher] INFO  org.springframework.boot.SpringApplication - Starting application using Java 21.0.7 with PID 79063 (started by julia.pabst in /Users/julia.pabst/Library/Mobile Documents/com~apple~CloudDocs/Desktop/FH_Technikum/Semester4/SWEN2/TourPlanner/TourPlanner)
+2025-07-04 11:49:21.760 [JavaFX-Launcher] INFO  org.springframework.boot.SpringApplication - No active profile set, falling back to 1 default profile: "default"
+2025-07-04 11:49:22.129 [JavaFX-Launcher] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-07-04 11:49:22.192 [JavaFX-Launcher] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 57 ms. Found 2 JPA repository interfaces.
+2025-07-04 11:49:22.379 [JavaFX-Launcher] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-07-04 11:49:22.399 [JavaFX-Launcher] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version [WORKING]
+2025-07-04 11:49:22.412 [JavaFX-Launcher] INFO  org.hibernate.cache.internal.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-07-04 11:49:22.512 [JavaFX-Launcher] INFO  org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-07-04 11:49:22.524 [JavaFX-Launcher] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-07-04 11:49:22.685 [JavaFX-Launcher] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@5aafdc1a
+2025-07-04 11:49:22.685 [JavaFX-Launcher] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-07-04 11:49:22.727 [JavaFX-Launcher] INFO  org.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.5
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-07-04 11:49:23.266 [JavaFX-Launcher] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-07-04 11:49:23.380 [JavaFX-Launcher] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-07-04 11:49:23.645 [JavaFX-Launcher] INFO  org.tourplanner.service.TourLogManager - Loaded 2 tour logs
+2025-07-04 11:49:23.681 [JavaFX-Launcher] INFO  org.tourplanner.service.TourManager - Loaded 8 tours
+2025-07-04 11:49:23.865 [JavaFX-Launcher] INFO  org.springframework.boot.SpringApplication - Started application in 2.371 seconds (process running for 8.154)
+2025-07-04 11:49:23.867 [JavaFX-Launcher] INFO  org.tourplanner.TourPlannerApplication - Spring context initialized successfully.
+2025-07-04 11:49:23.872 [JavaFX Application Thread] INFO  org.tourplanner.TourPlannerApplication - Starting JavaFX application
+2025-07-04 11:49:24.837 [JavaFX Application Thread] INFO  org.tourplanner.TourPlannerApplication - JavaFX application started
+2025-07-04 11:49:31.646 [JavaFX Application Thread] INFO  org.tourplanner.service.OpenRouteServiceAgent - Geocoding address: Linz
+2025-07-04 11:49:31.825 [JavaFX Application Thread] INFO  org.tourplanner.service.OpenRouteServiceAgent - Parsed coordinates: lon=14.306943, lat=48.284136
+2025-07-04 11:49:31.825 [JavaFX Application Thread] INFO  org.tourplanner.service.OpenRouteServiceAgent - Geocoding address: Wien
+2025-07-04 11:49:31.909 [JavaFX Application Thread] INFO  org.tourplanner.service.OpenRouteServiceAgent - Parsed coordinates: lon=16.348388, lat=48.198674
+2025-07-04 11:49:31.911 [JavaFX Application Thread] INFO  org.tourplanner.service.OpenRouteServiceAgent - Requesting directions: GeoCoord[lon=14.306943, lat=48.284136] -> GeoCoord[lon=16.348388, lat=48.198674] via foot-hiking
+2025-07-04 11:49:32.244 [JavaFX Application Thread] INFO  org.tourplanner.service.TourManager - Replacing tour id=6 name=a
+2025-07-04 11:52:12.049 [JavaFX Application Thread] INFO  org.tourplanner.service.OpenRouteServiceAgent - Geocoding address: Linz
+2025-07-04 11:52:12.201 [JavaFX Application Thread] INFO  org.tourplanner.service.OpenRouteServiceAgent - Parsed coordinates: lon=14.306943, lat=48.284136
+2025-07-04 11:52:12.202 [JavaFX Application Thread] INFO  org.tourplanner.service.OpenRouteServiceAgent - Geocoding address: Wien
+2025-07-04 11:52:12.293 [JavaFX Application Thread] INFO  org.tourplanner.service.OpenRouteServiceAgent - Parsed coordinates: lon=16.348388, lat=48.198674
+2025-07-04 11:52:12.293 [JavaFX Application Thread] INFO  org.tourplanner.service.OpenRouteServiceAgent - Requesting directions: GeoCoord[lon=14.306943, lat=48.284136] -> GeoCoord[lon=16.348388, lat=48.198674] via foot-hiking
+2025-07-04 11:52:12.605 [JavaFX Application Thread] INFO  org.tourplanner.service.TourManager - Replacing tour id=6 name=aa
+2025-07-04 11:52:12.605 [JavaFX Application Thread] WARN  org.tourplanner.service.TourManager - Cannot replace tour: old tour not found in list (id=6)
+2025-07-04 11:54:12.588 [SpringApplicationShutdownHook] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-07-04 11:54:12.596 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-07-04 11:54:12.600 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-07-04 12:34:38.119 [main] INFO  org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [org.tourplanner.TourPlannerConfigTest]: TourPlannerConfigTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2025-07-04 12:34:38.206 [main] INFO  org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration org.tourplanner.TourPlannerConfig for test class org.tourplanner.TourPlannerConfigTest
+2025-07-04 12:34:38.362 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.2.Final
+2025-07-04 12:34:38.387 [main] INFO  org.tourplanner.TourPlannerConfigTest - Starting TourPlannerConfigTest using Java 21.0.7 with PID 3925 (started by julia.pabst in /Users/julia.pabst/Library/Mobile Documents/com~apple~CloudDocs/Desktop/FH_Technikum/Semester4/SWEN2/TourPlanner/TourPlanner)
+2025-07-04 12:34:38.388 [main] INFO  org.tourplanner.TourPlannerConfigTest - No active profile set, falling back to 1 default profile: "default"
+2025-07-04 12:34:38.641 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-07-04 12:34:38.690 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 45 ms. Found 2 JPA repository interfaces.
+2025-07-04 12:34:38.925 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-07-04 12:34:38.953 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version [WORKING]
+2025-07-04 12:34:38.972 [main] INFO  org.hibernate.cache.internal.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-07-04 12:34:39.136 [main] INFO  org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-07-04 12:34:39.154 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-07-04 12:34:39.307 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@213012a0
+2025-07-04 12:34:39.308 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-07-04 12:34:39.368 [main] INFO  org.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.5
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-07-04 12:34:40.116 [main] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-07-04 12:34:40.244 [main] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-07-04 12:34:40.581 [main] INFO  org.tourplanner.service.TourLogManager - Loaded 2 tour logs
+2025-07-04 12:34:40.626 [main] INFO  org.tourplanner.service.TourManager - Loaded 8 tours
+2025-07-04 12:34:40.852 [main] INFO  org.tourplanner.TourPlannerConfigTest - Started TourPlannerConfigTest in 2.583 seconds (process running for 3.432)
+2025-07-04 12:34:41.207 [SpringApplicationShutdownHook] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-07-04 12:34:41.208 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-07-04 12:34:41.211 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-07-04 12:47:32.947 [main] INFO  org.tourplanner.TourPlannerApplication - Launching application
+2025-07-04 12:47:32.950 [JavaFX-Launcher] INFO  org.tourplanner.TourPlannerApplication - Initializing Spring context
+2025-07-04 12:47:33.159 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.2.Final
+2025-07-04 12:47:33.206 [JavaFX-Launcher] INFO  org.springframework.boot.SpringApplication - Starting application using Java 21.0.7 with PID 11502 (started by julia.pabst in /Users/julia.pabst/Library/Mobile Documents/com~apple~CloudDocs/Desktop/FH_Technikum/Semester4/SWEN2/TourPlanner/TourPlanner)
+2025-07-04 12:47:33.208 [JavaFX-Launcher] INFO  org.springframework.boot.SpringApplication - No active profile set, falling back to 1 default profile: "default"
+2025-07-04 12:47:33.524 [JavaFX-Launcher] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-07-04 12:47:33.580 [JavaFX-Launcher] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 51 ms. Found 2 JPA repository interfaces.
+2025-07-04 12:47:33.766 [JavaFX-Launcher] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-07-04 12:47:33.789 [JavaFX-Launcher] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version [WORKING]
+2025-07-04 12:47:33.806 [JavaFX-Launcher] INFO  org.hibernate.cache.internal.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-07-04 12:47:34.006 [JavaFX-Launcher] INFO  org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-07-04 12:47:34.020 [JavaFX-Launcher] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-07-04 12:47:34.151 [JavaFX-Launcher] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@6edd33d4
+2025-07-04 12:47:34.151 [JavaFX-Launcher] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-07-04 12:47:34.194 [JavaFX-Launcher] INFO  org.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.5
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-07-04 12:47:34.654 [JavaFX-Launcher] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-07-04 12:47:34.746 [JavaFX-Launcher] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-07-04 12:47:34.979 [JavaFX-Launcher] INFO  org.tourplanner.service.TourLogManager - Loaded 2 tour logs
+2025-07-04 12:47:35.017 [JavaFX-Launcher] INFO  org.tourplanner.service.TourManager - Loaded 8 tours
+2025-07-04 12:47:35.212 [JavaFX-Launcher] INFO  org.springframework.boot.SpringApplication - Started application in 2.22 seconds (process running for 8.08)
+2025-07-04 12:47:35.213 [JavaFX-Launcher] INFO  org.tourplanner.TourPlannerApplication - Spring context initialized successfully.
+2025-07-04 12:47:35.218 [JavaFX Application Thread] INFO  org.tourplanner.TourPlannerApplication - Starting JavaFX application
+2025-07-04 12:47:36.349 [JavaFX Application Thread] INFO  org.tourplanner.TourPlannerApplication - JavaFX application started
+2025-07-04 12:48:01.097 [JavaFX Application Thread] INFO  org.tourplanner.service.OpenRouteServiceAgent - Geocoding address: Hochstädtplatz, 1200 Wien
+2025-07-04 12:48:01.353 [JavaFX Application Thread] INFO  org.tourplanner.service.OpenRouteServiceAgent - Parsed coordinates: lon=16.377229, lat=48.239676
+2025-07-04 12:48:01.353 [JavaFX Application Thread] INFO  org.tourplanner.service.OpenRouteServiceAgent - Geocoding address: Am Tabor 23, 1020 Wien
+2025-07-04 12:48:05.538 [JavaFX Application Thread] INFO  org.tourplanner.service.OpenRouteServiceAgent - Parsed coordinates: lon=16.383853, lat=48.22508
+2025-07-04 12:48:05.545 [JavaFX Application Thread] INFO  org.tourplanner.service.OpenRouteServiceAgent - Requesting directions: GeoCoord[lon=16.377229, lat=48.239676] -> GeoCoord[lon=16.383853, lat=48.22508] via foot-hiking
+2025-07-04 12:48:05.625 [JavaFX Application Thread] INFO  org.tourplanner.service.TourManager - Replacing tour id=7 name=asd
+2025-07-04 13:28:45.937 [SpringApplicationShutdownHook] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-07-04 13:28:45.949 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-07-04 13:28:45.952 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-07-04 13:35:34.565 [main] INFO  org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [org.tourplanner.TourPlannerConfigTest]: TourPlannerConfigTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2025-07-04 13:35:34.661 [main] INFO  org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration org.tourplanner.TourPlannerConfig for test class org.tourplanner.TourPlannerConfigTest
+2025-07-04 13:35:34.807 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.2.Final
+2025-07-04 13:35:34.830 [main] INFO  org.tourplanner.TourPlannerConfigTest - Starting TourPlannerConfigTest using Java 21.0.7 with PID 37168 (started by julia.pabst in /Users/julia.pabst/Library/Mobile Documents/com~apple~CloudDocs/Desktop/FH_Technikum/Semester4/SWEN2/TourPlanner/TourPlanner)
+2025-07-04 13:35:34.830 [main] INFO  org.tourplanner.TourPlannerConfigTest - No active profile set, falling back to 1 default profile: "default"
+2025-07-04 13:35:35.078 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-07-04 13:35:35.138 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 53 ms. Found 2 JPA repository interfaces.
+2025-07-04 13:35:35.367 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-07-04 13:35:35.400 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version [WORKING]
+2025-07-04 13:35:35.418 [main] INFO  org.hibernate.cache.internal.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-07-04 13:35:35.512 [main] INFO  org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-07-04 13:35:35.530 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-07-04 13:35:35.736 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@1b800a11
+2025-07-04 13:35:35.736 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-07-04 13:35:35.788 [main] INFO  org.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.5
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-07-04 13:35:36.293 [main] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-07-04 13:35:36.450 [main] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-07-04 13:35:36.741 [main] INFO  org.tourplanner.service.TourLogManager - Loaded 2 tour logs
+2025-07-04 13:35:36.774 [main] INFO  org.tourplanner.service.TourManager - Loaded 8 tours
+2025-07-04 13:35:37.104 [main] INFO  org.tourplanner.TourPlannerConfigTest - Started TourPlannerConfigTest in 2.387 seconds (process running for 4.019)
+2025-07-04 13:35:37.124 [main] INFO  org.tourplanner.service.OpenRouteServiceAgent - Requesting directions: GeoCoord[lon=16.378317, lat=48.238992] -> GeoCoord[lon=16.372924, lat=48.209379] via driving-car
+2025-07-04 13:35:37.470 [main] INFO  org.tourplanner.service.OpenRouteServiceAgent - Geocoding address: Höchstädtplatz 6, 1200 Wien
+2025-07-04 13:35:37.614 [main] INFO  org.tourplanner.service.OpenRouteServiceAgent - Parsed coordinates: lon=16.378317, lat=48.238992
+2025-07-04 13:35:37.615 [main] INFO  org.tourplanner.service.OpenRouteServiceAgent - Geocoding address: Rotenturmstrasse 1, 1010 Wien
+2025-07-04 13:35:37.743 [main] INFO  org.tourplanner.service.OpenRouteServiceAgent - Parsed coordinates: lon=16.372924, lat=48.209379
+2025-07-04 13:35:38.305 [SpringApplicationShutdownHook] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-07-04 13:35:38.306 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-07-04 13:35:38.307 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
