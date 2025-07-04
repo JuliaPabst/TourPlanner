@@ -1,9 +1,11 @@
 package org.tourplanner.viewmodel;
 
 import javafx.beans.property.*;
+import javafx.collections.ListChangeListener;
 import javafx.collections.transformation.FilteredList;
 import org.springframework.stereotype.Component;
 import org.tourplanner.persistence.entity.Tour;
+import org.tourplanner.persistence.entity.TourLog;
 import org.tourplanner.service.TourManager;
 import org.tourplanner.service.TourLogManager;
 import org.tourplanner.service.TourMetricsCalculator;
@@ -41,6 +43,14 @@ public class TourListViewModel {
         this.tourManager = tourManager;
         this.logManager = logManager;
         this.metricsCalculator = new TourMetricsCalculator();
+
+        // Refresh display whenever a log for the currently selected tour changes
+        this.logManager.getLogList().addListener((ListChangeListener<TourLog>) change -> {
+            Tour current = selectedTour.get();
+            if(current != null) {
+                updateDisplayData(current);
+            }
+        });
 
         if (!filteredTours.isEmpty()) {
             selectedTour.set(filteredTours.get(0));

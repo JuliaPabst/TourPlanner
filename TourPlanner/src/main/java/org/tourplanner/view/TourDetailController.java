@@ -13,7 +13,6 @@ import javafx.collections.ListChangeListener;
 import org.springframework.stereotype.Controller;
 import org.tourplanner.persistence.entity.Tour;
 import org.tourplanner.persistence.entity.TourLog;
-import org.tourplanner.service.TourLogManager;
 import org.tourplanner.view.util.ModalService;
 import org.tourplanner.viewmodel.TourInputViewModel;
 import org.tourplanner.viewmodel.TourListViewModel;
@@ -63,12 +62,10 @@ public class TourDetailController implements Initializable {
 
     private final TourListViewModel listViewModel;
     private final TourInputViewModel inputViewModel;
-    private final TourLogManager logManager;
 
-    public TourDetailController(TourListViewModel listViewModel, TourInputViewModel inputViewModel, TourLogManager logManager) {
+    public TourDetailController(TourListViewModel listViewModel, TourInputViewModel inputViewModel) {
         this.listViewModel = listViewModel;
         this.inputViewModel = inputViewModel;
-        this.logManager = logManager;
     }
 
     private void bindDetailLabels() {
@@ -86,17 +83,6 @@ public class TourDetailController implements Initializable {
         });
     }
 
-    private void unbindDetailLabels() {
-        fromLabel.textProperty().unbind();
-        toLabel.textProperty().unbind();
-        transportTypeLabel.textProperty().unbind();
-        distanceLabel.textProperty().unbind();
-        timeLabel.textProperty().unbind();
-        descriptionText.textProperty().unbind();
-        popularityLabel.textProperty().unbind();
-        childFriendlyLabel.textProperty().unbind();
-    }
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         bindDetailLabels();
@@ -110,14 +96,6 @@ public class TourDetailController implements Initializable {
             } else {
                 listViewModel.showNoSelectionMessageProperty().set(true);
                 showNoSelectionMessage();
-            }
-        });
-
-        // Listen for changes in logs that may require a UI update
-        logManager.getLogList().addListener((ListChangeListener<TourLog>) change -> {
-            Tour current = listViewModel.selectedTourProperty().get();
-            if(current != null) {
-                listViewModel.updateDisplayData(current);
             }
         });
 
