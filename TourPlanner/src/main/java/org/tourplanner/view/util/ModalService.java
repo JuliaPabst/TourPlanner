@@ -8,10 +8,12 @@ import javafx.stage.Stage;
 import org.tourplanner.persistence.entity.ModalType;
 import org.tourplanner.view.LoadingModalController;
 import org.tourplanner.view.ModalController;
+import javafx.application.Platform;
 
 import java.io.IOException;
 
 public class ModalService {
+    private static Stage currentLoadingStage;
 
     public static void showInfoModal(String title, String contentText) {
         try {
@@ -68,9 +70,23 @@ public class ModalService {
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.show();
 
+            currentLoadingStage = stage; // Save reference
             return stage;
         } catch (IOException e) {
             throw new RuntimeException("Failed to load loading modal", e);
+        }
+    }
+
+    public static void closeAnyLoadingModal() {
+        Stage stageToClose = currentLoadingStage;
+
+        if (stageToClose != null) {
+            Platform.runLater(() -> {
+                if (stageToClose.isShowing()) {
+                    stageToClose.close();
+                }
+            });
+            currentLoadingStage = null; // set outside runLater to avoid race conditions
         }
     }
 }

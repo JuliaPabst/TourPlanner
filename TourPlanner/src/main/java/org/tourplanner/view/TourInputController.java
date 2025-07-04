@@ -64,18 +64,13 @@ public class TourInputController implements Initializable {
 
         // Bind ComboBox to ViewModel
         newTourTransportTypeBox.valueProperty().bindBidirectional(viewModel.transportTypeProperty());
+        setupViewModelListeners();
     }
 
-
-    @FXML
-    public void onSaveButtonClick(ActionEvent event) {
-        Stage loadingStage = ModalService.showLoadingModal("Saving tour...");
-
+    private void setupViewModelListeners() {
         viewModel.loadingProperty().addListener((obs, wasLoading, isNowLoading) -> {
             if (!isNowLoading) {
-                loadingStage.close();
-
-                // If no error, close the tour input modal
+                ModalService.closeAnyLoadingModal();
                 if (viewModel.errorMessageProperty().get() == null || viewModel.errorMessageProperty().get().isBlank()) {
                     closeModal();
                 }
@@ -87,7 +82,12 @@ public class TourInputController implements Initializable {
                 ModalService.showInfoModal("Error", newVal);
             }
         });
+    }
 
+
+    @FXML
+    public void onSaveButtonClick(ActionEvent event) {
+        ModalService.showLoadingModal("Saving tour...");
         viewModel.prepareAndRunSave();
     }
 
