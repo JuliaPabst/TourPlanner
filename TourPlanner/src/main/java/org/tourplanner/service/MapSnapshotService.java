@@ -62,9 +62,9 @@ public class MapSnapshotService {
             Platform.runLater(job);
 
         try {
-            boolean finished = latch.await(15, TimeUnit.SECONDS);
+            boolean finished = latch.await(5, TimeUnit.SECONDS);
             if(!finished) {
-                System.err.println("Map snapshot timed out");
+                log.error("Map snapshot timed out");
             }
         } catch (InterruptedException ignored) {}
     }
@@ -86,14 +86,15 @@ public class MapSnapshotService {
 
         web.getEngine().getLoadWorker().stateProperty().addListener((obs, ov, nv) -> {
             if(nv == Worker.State.SUCCEEDED) {
-                // wait a biit for leaflet tiles
+                // wait a bit for leaflet tiles
                 PauseTransition wait = new PauseTransition(Duration.seconds(3));
                 wait.setOnFinished(e -> {
                     BufferedImage awt = SwingFXUtils.fromFXImage(web.snapshot(null, null), null);
                     try {
                         ImageIO.write(awt, "png", img.toFile());
+                        log.debug("Map snapshot saved to {}", img);
                     } catch(IOException ex) {
-                        ex.printStackTrace();
+                        log.error("Failed to save map snapshot to {} -> {}", img, ex.getMessage(), ex);
                     } finally {
                         stage.close();      // tidy up
                         latch.countDown();  // snapshot finished
