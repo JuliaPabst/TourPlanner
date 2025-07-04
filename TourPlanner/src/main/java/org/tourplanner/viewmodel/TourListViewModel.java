@@ -56,29 +56,14 @@ public class TourListViewModel {
         }
     }
 
-    public ObjectProperty<Tour> selectedTourProperty() {
-        return selectedTour;
-    }
+    // -- basic state --
+    public ObjectProperty<Tour> selectedTourProperty() { return selectedTour; }
+    public void selectTour(Tour tour) { selectedTour.set(tour); }
+    public Tour getSelectedTour() { return selectedTour.get(); }
 
-    public void selectTour(Tour tour) {
-        selectedTour.set(tour);
-    }
-
-    public Tour getSelectedTour() {
-        return selectedTour.get();
-    }
-
-    public BooleanProperty showNoSelectionMessageProperty() {
-        return showNoSelectionMessage;
-    }
-
-    public FilteredList<Tour> getTours() {
-        return filteredTours;
-    }
-
-    public ReadOnlyIntegerProperty refreshTokenProperty() {
-        return refreshToken;
-    }
+    public BooleanProperty showNoSelectionMessageProperty() { return showNoSelectionMessage; }
+    public FilteredList<Tour> getTours() { return filteredTours; }
+    public ReadOnlyIntegerProperty refreshTokenProperty() { return refreshToken; }
 
     // --- commands exposed to controllers ---
     public void clearDisplayData() {
@@ -181,5 +166,14 @@ public class TourListViewModel {
             e.printStackTrace();
             return "<html><body><p>Error loading map</p></body></html>";
         }
+    }
+
+    // --- presentation helpers (used by controllers) ---
+    public String formatDistanceAndTime(Tour tour) {
+        return tour.getDistance() + " km | " + tour.getEstimatedTime() + " min";
+    }
+
+    public String formatPopularity(Tour tour) {
+        return "Popularity: " + "★".repeat(getPopularity(tour));
     }
 }

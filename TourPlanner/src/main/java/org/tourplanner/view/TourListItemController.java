@@ -34,12 +34,10 @@ public class TourListItemController {
         titleLabel.setText(tour.getTourName());
         fromLabel.setText("From: " + tour.getFrom());
         toLabel.setText("To: " + tour.getTo());
-        distanceLabel.setText(tour.getDistance() + " km | " + tour.getEstimatedTime() + " min");
+
         if(viewModel != null) {
-            int popularity = viewModel.getPopularity(tour);
-            popularityLabel.setText("Popularity: " + "★".repeat(popularity));
-        } else {
-            popularityLabel.setText("Popularity: N/A");
+            distanceLabel.setText(viewModel.formatDistanceAndTime(tour));
+            popularityLabel.setText(viewModel.formatPopularity(tour));
         }
     }
 

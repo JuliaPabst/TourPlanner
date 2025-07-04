@@ -97,6 +97,14 @@ public class TourDetailController implements Initializable {
             }
         });
 
+        // Refresh metrics when the underlying logs change
+        listViewModel.refreshTokenProperty().addListener((obs, o, n) -> {
+            Tour current = listViewModel.getSelectedTour();
+            if(current != null) {
+                listViewModel.updateDisplayData(current);
+            }
+        });
+
         // Bind visibility and messages to boolean property
         listViewModel.showNoSelectionMessageProperty().addListener((obs, wasVisible, isVisible) -> {
             if(isVisible) {

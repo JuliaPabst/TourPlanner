@@ -1,7 +1,5 @@
 package org.tourplanner.view;
 
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.ListChangeListener;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,8 +10,6 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import org.springframework.stereotype.Controller;
 import org.tourplanner.persistence.entity.Tour;
-import org.tourplanner.persistence.entity.TourLog;
-import org.tourplanner.service.TourLogManager;
 import org.tourplanner.viewmodel.TourInputViewModel;
 import org.tourplanner.viewmodel.TourListViewModel;
 
@@ -53,8 +49,8 @@ public class TourListController implements Initializable {
                 VBox tourBox = loader.load();
 
                 TourListItemController controller = loader.getController();
-                controller.setTour(tour);
                 controller.setViewModel(viewModel);
+                controller.setTour(tour);
 
                 tourListContainer.getChildren().add(tourBox);
             } catch (IOException e) {
