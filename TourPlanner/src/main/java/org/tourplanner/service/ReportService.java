@@ -23,6 +23,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.util.Locale;
 import java.util.stream.Stream;
 
 @Service
@@ -68,9 +69,9 @@ public class ReportService {
                 if(logs.isEmpty()) {
                     avgDist = avgTime = avgRating = "N/A";
                 } else {
-                    avgDist = String.format("%.1f", logs.stream().mapToDouble(TourLog::getTotalDistance).average().orElse(0));
-                    avgTime = String.format("%.1f", logs.stream().mapToInt(TourLog::getTotalTime).average().orElse(0));
-                    avgRating = String.format("%.1f", logs.stream().mapToInt(TourLog::getRating).average().orElse(0));
+                    avgDist = String.format(Locale.US, "%.1f", logs.stream().mapToDouble(TourLog::getTotalDistance).average().orElse(0));
+                    avgTime = String.format(Locale.US, "%.1f", logs.stream().mapToInt(TourLog::getTotalTime).average().orElse(0));
+                    avgRating = String.format(Locale.US, "%.1f", logs.stream().mapToInt(TourLog::getRating).average().orElse(0));
                 }
 
                 table.addCell(tour.getTourName());
