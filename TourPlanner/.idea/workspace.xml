@@ -7,7 +7,6 @@
     <list default="true" id="28563466-d155-4117-a6f3-036ad5da4c5f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/application-20250704.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/application-20250704.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tourplanner/service/impl/DialogServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tourplanner/service/impl/DialogServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,68 +45,75 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.HelloApplication.executor": "Run",
-    "Application.TourPlannerApplication.executor": "Run",
-    "HTTP Request.OpenRouteService-tests | Directions from FHTW to Rotenturmstrasse 1.executor": "Run",
-    "HTTP Request.OpenRouteService-tests | Directions from FHTW to Zanoni.executor": "Run",
-    "HTTP Request.OpenRouteService-tests | GeoCode-Search FHTW.executor": "Run",
-    "HTTP Request.OpenRouteService-tests | GeoCode-Search Rotenturmstrasse 1.executor": "Run",
-    "HTTP Request.OpenRouteService-tests | GeoCode-Search Zanoni.executor": "Run",
-    "JUnit.BackupServiceTest (1).executor": "Run",
-    "JUnit.BackupServiceTest.executor": "Run",
-    "JUnit.DialogServiceImplTest.executor": "Run",
-    "JUnit.MainViewModelTest.executor": "Run",
-    "JUnit.MainViewModelTest.exportTours_callsExportAllTours.executor": "Run",
-    "JUnit.MapSnapshotServiceTest.executor": "Run",
-    "JUnit.OpenRouteServiceAgentTest (1).executor": "Run",
-    "JUnit.OpenRouteServiceAgentTest.GeoCoord_whenFHTWPostal_thenFHTWGeoCoords.executor": "Run",
-    "JUnit.OpenRouteServiceAgentTest.directions_whenFHTWtoZanoni_thenOk.executor": "Run",
-    "JUnit.OpenRouteServiceAgentTest.executor": "Run",
-    "JUnit.ReportServiceTest.executor": "Coverage",
-    "JUnit.ReportServiceTest.generateSummaryReport_includesAverageValues_whenLogsExist.executor": "Run",
-    "JUnit.ReportServiceTest.generateSummaryReport_includesCorrectAverageValues_inPdf.executor": "Run",
-    "JUnit.ReportServiceTest.generateTourReport_createsPdfFile.executor": "Run",
-    "JUnit.ReportServiceTest.generateTourReport_includesMetadataAndLogEntries.executor": "Run",
-    "JUnit.RouteInputViewModelTest.executor": "Run",
-    "JUnit.RouteListViewModelTest.executor": "Run",
-    "JUnit.SearchBarViewModelTest.executor": "Run",
-    "JUnit.TourInputViewModelTest.executor": "Run",
-    "JUnit.TourListViewModelTest.executor": "Run",
-    "JUnit.TourLogInputViewModelTest.executor": "Run",
-    "JUnit.TourLogListViewModelTest.executor": "Run",
-    "JUnit.TourMetricsCalculatorTest.executor": "Run",
-    "JUnit.TourPlannerConfigTest.executor": "Run",
-    "JUnit.Unnamed.executor": "Run",
-    "Maven.TourPlanner [clean].executor": "Run",
-    "Maven.TourPlanner [compile].executor": "Run",
-    "Maven.TourPlanner [package].executor": "Run",
-    "Maven.TourPlanner [test].executor": "Run",
-    "Maven.TourPlanner [validate].executor": "Run",
-    "Maven.TourPlanner [verify].executor": "Run",
-    "Maven.TourplannerSpring [clean].executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/julia.pabst/Library/Mobile Documents/com~apple~CloudDocs/Desktop/FH_Technikum/Semester4/SWEN2/TourPlanner/TourPlanner",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.HelloApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.TourPlannerApplication.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.OpenRouteService-tests | Directions from FHTW to Rotenturmstrasse 1.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.OpenRouteService-tests | Directions from FHTW to Zanoni.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.OpenRouteService-tests | GeoCode-Search FHTW.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.OpenRouteService-tests | GeoCode-Search Rotenturmstrasse 1.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.OpenRouteService-tests | GeoCode-Search Zanoni.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BackupServiceTest (1).executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BackupServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.DialogServiceImplTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.MainViewModelTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.MainViewModelTest.exportTours_callsExportAllTours.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.MapSnapshotServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.OpenRouteServiceAgentTest (1).executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.OpenRouteServiceAgentTest.GeoCoord_whenFHTWPostal_thenFHTWGeoCoords.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.OpenRouteServiceAgentTest.directions_whenFHTWtoZanoni_thenOk.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.OpenRouteServiceAgentTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ReportServiceTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.ReportServiceTest.generateSummaryReport_includesAverageValues_whenLogsExist.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ReportServiceTest.generateSummaryReport_includesCorrectAverageValues_inPdf.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ReportServiceTest.generateTourReport_createsPdfFile.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ReportServiceTest.generateTourReport_includesMetadataAndLogEntries.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.RouteInputViewModelTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.RouteListViewModelTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.SearchBarViewModelTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TourInputViewModelTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TourListViewModelTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TourLogInputViewModelTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TourLogListViewModelTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TourMetricsCalculatorTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TourPlannerConfigTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.Unnamed.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.TourPlanner [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.TourPlanner [compile].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.TourPlanner [package].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.TourPlanner [test].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.TourPlanner [validate].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.TourPlanner [verify].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.TourplannerSpring [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.TourplannerSpring [compile].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.TourplannerSpring [package].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.TourplannerSpring [test].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.TourplannerSpring [validate].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/julia.pabst/Library/Mobile Documents/com~apple~CloudDocs/Desktop/FH_Technikum/Semester4/SWEN2/TourPlanner/TourPlanner&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "postgresql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/resources" />
@@ -132,8 +138,10 @@
       <recent name="org.tourplanner.model" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.TourPlannerApplication">
+  <component name="RunManager" selected="JUnit.Unnamed">
     <configuration name="TourPlannerApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="temurin-21" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="org.tourplanner.TourPlannerApplication" />
       <module name="TourPlanner" />
       <extension name="coverage">
@@ -225,6 +233,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TourPlannerConfigTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TourPlanner" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.tourplanner.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.tourplanner" />
+      <option name="MAIN_CLASS_NAME" value="org.tourplanner.TourPlannerConfigTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Unnamed" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
       <module name="TourPlanner" />
       <option name="PACKAGE_NAME" value="" />
@@ -239,6 +262,7 @@
       <item itemvalue="Application.TourPlannerApplication" />
       <item itemvalue="JUnit.RouteInputViewModelTest" />
       <item itemvalue="JUnit.Unnamed" />
+      <item itemvalue="JUnit.TourPlannerConfigTest" />
       <item itemvalue="JUnit.ReportServiceTest" />
       <item itemvalue="JUnit.ReportServiceTest.generateSummaryReport_includesAverageValues_whenLogsExist" />
       <item itemvalue="JUnit.ReportServiceTest.generateSummaryReport_includesCorrectAverageValues_inPdf" />
@@ -246,11 +270,11 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.TourPlannerConfigTest" />
         <item itemvalue="Application.TourPlannerApplication" />
         <item itemvalue="JUnit.ReportServiceTest" />
         <item itemvalue="JUnit.ReportServiceTest.generateTourReport_includesMetadataAndLogEntries" />
         <item itemvalue="JUnit.ReportServiceTest.generateSummaryReport_includesCorrectAverageValues_inPdf" />
-        <item itemvalue="JUnit.ReportServiceTest.generateSummaryReport_includesAverageValues_whenLogsExist" />
       </list>
     </recent_temporary>
   </component>
@@ -287,6 +311,10 @@
       <workItem from="1750689696310" duration="1534000" />
       <workItem from="1750749559252" duration="483000" />
       <workItem from="1750750068116" duration="2850000" />
+      <workItem from="1751718907469" duration="178000" />
+      <workItem from="1751719132620" duration="306000" />
+      <workItem from="1751719464443" duration="147000" />
+      <workItem from="1751719740456" duration="293000" />
     </task>
     <servers />
   </component>
@@ -317,6 +345,10 @@
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/TourPlanner$ReportServiceTest.ic" NAME="ReportServiceTest Coverage Results" MODIFIED="1751628559452" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">

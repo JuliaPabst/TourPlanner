@@ -4,6 +4,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.tourplanner.persistence.entity.Difficulty;
 import org.tourplanner.persistence.entity.Tour;
 import org.tourplanner.persistence.entity.TourLog;
 import org.tourplanner.service.TourManager;
@@ -52,6 +53,7 @@ class TourListViewModelTest {
         TourLog log = new TourLog();
         log.setTour(hikingTour);
         log.setComment("Awesome view from the top!");
+        log.setDifficulty(Difficulty.MEDIUM);
 
         logList.add(log);
 

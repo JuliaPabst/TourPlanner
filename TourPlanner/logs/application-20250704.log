@@ -713,3 +713,109 @@ java.lang.NullPointerException: Cannot invoke "com.fasterxml.jackson.databind.Js
 2025-07-04 14:14:16.792 [SpringApplicationShutdownHook] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
 2025-07-04 14:14:16.797 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
 2025-07-04 14:14:16.802 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-07-04 14:48:00.249 [main] INFO  org.tourplanner.TourPlannerApplication - Launching application
+2025-07-04 14:48:00.251 [JavaFX-Launcher] INFO  org.tourplanner.TourPlannerApplication - Initializing Spring context
+2025-07-04 14:48:00.478 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.2.Final
+2025-07-04 14:48:00.520 [JavaFX-Launcher] INFO  org.springframework.boot.SpringApplication - Starting application using Java 21.0.7 with PID 77638 (started by julia.pabst in /Users/julia.pabst/Library/Mobile Documents/com~apple~CloudDocs/Desktop/FH_Technikum/Semester4/SWEN2/TourPlanner/TourPlanner)
+2025-07-04 14:48:00.521 [JavaFX-Launcher] INFO  org.springframework.boot.SpringApplication - No active profile set, falling back to 1 default profile: "default"
+2025-07-04 14:48:00.806 [JavaFX-Launcher] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-07-04 14:48:00.860 [JavaFX-Launcher] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 49 ms. Found 2 JPA repository interfaces.
+2025-07-04 14:48:01.045 [JavaFX-Launcher] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-07-04 14:48:01.071 [JavaFX-Launcher] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version [WORKING]
+2025-07-04 14:48:01.085 [JavaFX-Launcher] INFO  org.hibernate.cache.internal.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-07-04 14:48:01.199 [JavaFX-Launcher] INFO  org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-07-04 14:48:01.211 [JavaFX-Launcher] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-07-04 14:48:01.411 [JavaFX-Launcher] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@5650522d
+2025-07-04 14:48:01.415 [JavaFX-Launcher] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-07-04 14:48:01.534 [JavaFX-Launcher] INFO  org.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.5
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-07-04 14:48:02.292 [JavaFX-Launcher] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-07-04 14:48:02.409 [JavaFX-Launcher] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-07-04 14:48:02.711 [JavaFX-Launcher] INFO  org.tourplanner.service.TourLogManager - Loaded 2 tour logs
+2025-07-04 14:48:02.734 [JavaFX-Launcher] INFO  org.tourplanner.service.TourManager - Loaded 2 tours
+2025-07-04 14:48:02.964 [JavaFX-Launcher] INFO  org.springframework.boot.SpringApplication - Started application in 2.676 seconds (process running for 8.502)
+2025-07-04 14:48:02.966 [JavaFX-Launcher] INFO  org.tourplanner.TourPlannerApplication - Spring context initialized successfully.
+2025-07-04 14:48:02.971 [JavaFX Application Thread] INFO  org.tourplanner.TourPlannerApplication - Starting JavaFX application
+2025-07-04 14:48:04.085 [JavaFX Application Thread] INFO  org.tourplanner.TourPlannerApplication - JavaFX application started
+2025-07-04 14:48:12.556 [JavaFX Application Thread] INFO  org.tourplanner.service.TourManager - Deleting tour id=24 name=Vienna City Walk
+2025-07-04 14:48:12.557 [JavaFX Application Thread] INFO  org.tourplanner.service.TourLogManager - Deleting 1 log(s) belonging to tour id=24
+2025-07-04 14:48:15.589 [JavaFX Application Thread] INFO  org.tourplanner.service.TourManager - Deleting tour id=25 name=Vienna City Walk
+2025-07-04 14:48:15.589 [JavaFX Application Thread] INFO  org.tourplanner.service.TourLogManager - Deleting 1 log(s) belonging to tour id=25
+2025-07-04 14:48:29.122 [import-task] INFO  org.tourplanner.service.OpenRouteServiceAgent - Geocoding address: Schönbrunn Palace, Vienna
+2025-07-04 14:48:29.382 [import-task] INFO  org.tourplanner.service.OpenRouteServiceAgent - Parsed coordinates: lon=16.313298, lat=48.185025
+2025-07-04 14:48:29.382 [import-task] INFO  org.tourplanner.service.OpenRouteServiceAgent - Geocoding address: St. Stephen's Cathedral, Vienna
+2025-07-04 14:48:29.554 [import-task] INFO  org.tourplanner.service.OpenRouteServiceAgent - Parsed coordinates: lon=116.281517, lat=39.810427
+2025-07-04 14:48:29.559 [import-task] INFO  org.tourplanner.service.OpenRouteServiceAgent - Requesting directions: GeoCoord[lon=16.313298, lat=48.185025] -> GeoCoord[lon=116.281517, lat=39.810427] via foot-hiking
+2025-07-04 14:48:29.609 [import-task] ERROR org.tourplanner.service.OpenRouteServiceAgent - Directions request failed (status=400): {"error":{"code":2004,"message":"Request parameters exceed the server configuration limits. The approximated route distance must not be greater than 6000000.0 meters."},"info":{"engine":{"build_date":"2025-06-06T15:39:25Z","graph_version":"2","graph_date":"2025-07-02T20:51:16Z","osm_date":"1970-01-01T00:00:00Z","version":"9.3.0"},"timestamp":1751633309596}}
+2025-07-04 14:48:48.069 [import-task] INFO  org.tourplanner.service.OpenRouteServiceAgent - Geocoding address: Schönbrunn Palace, Vienna
+2025-07-04 14:48:51.817 [import-task] INFO  org.tourplanner.service.OpenRouteServiceAgent - Parsed coordinates: lon=16.313298, lat=48.185025
+2025-07-04 14:48:51.817 [import-task] INFO  org.tourplanner.service.OpenRouteServiceAgent - Geocoding address: St. Stephen's Cathedral, Vienna
+2025-07-04 14:48:51.996 [import-task] INFO  org.tourplanner.service.OpenRouteServiceAgent - Parsed coordinates: lon=116.281517, lat=39.810427
+2025-07-04 14:48:51.996 [import-task] INFO  org.tourplanner.service.OpenRouteServiceAgent - Requesting directions: GeoCoord[lon=16.313298, lat=48.185025] -> GeoCoord[lon=116.281517, lat=39.810427] via foot-hiking
+2025-07-04 14:48:52.047 [import-task] ERROR org.tourplanner.service.OpenRouteServiceAgent - Directions request failed (status=400): {"error":{"code":2004,"message":"Request parameters exceed the server configuration limits. The approximated route distance must not be greater than 6000000.0 meters."},"info":{"engine":{"build_date":"2025-06-06T15:39:25Z","graph_version":"2","graph_date":"2025-07-02T20:51:16Z","osm_date":"1970-01-01T00:00:00Z","version":"9.3.0"},"timestamp":1751633332031}}
+2025-07-04 14:49:02.034 [import-task] INFO  org.tourplanner.service.OpenRouteServiceAgent - Geocoding address: Schwedenplatz, 1010 Wien
+2025-07-04 14:49:02.152 [import-task] INFO  org.tourplanner.service.OpenRouteServiceAgent - Parsed coordinates: lon=16.378669, lat=48.211258
+2025-07-04 14:49:02.152 [import-task] INFO  org.tourplanner.service.OpenRouteServiceAgent - Geocoding address: Museumsquartier, 1070 Wien
+2025-07-04 14:49:02.253 [import-task] INFO  org.tourplanner.service.OpenRouteServiceAgent - Parsed coordinates: lon=16.358093, lat=48.204364
+2025-07-04 14:49:02.254 [import-task] INFO  org.tourplanner.service.OpenRouteServiceAgent - Requesting directions: GeoCoord[lon=16.378669, lat=48.211258] -> GeoCoord[lon=16.358093, lat=48.204364] via foot-walking
+2025-07-04 14:49:02.385 [import-task] INFO  org.tourplanner.service.OpenRouteServiceAgent - Geocoding address: Handelskai 265, 1020 Wien
+2025-07-04 14:49:02.484 [import-task] INFO  org.tourplanner.service.OpenRouteServiceAgent - Parsed coordinates: lon=16.4131, lat=48.220714
+2025-07-04 14:49:02.484 [import-task] INFO  org.tourplanner.service.OpenRouteServiceAgent - Geocoding address: Kaisermühlen VIC, 1220 Wien
+2025-07-04 14:49:02.622 [import-task] INFO  org.tourplanner.service.OpenRouteServiceAgent - Parsed coordinates: lon=145.0, lat=-37.0
+2025-07-04 14:49:02.622 [import-task] INFO  org.tourplanner.service.OpenRouteServiceAgent - Requesting directions: GeoCoord[lon=16.4131, lat=48.220714] -> GeoCoord[lon=145.0, lat=-37.0] via cycling-regular
+2025-07-04 14:49:02.732 [import-task] ERROR org.tourplanner.service.OpenRouteServiceAgent - Directions request failed (status=400): {"error":{"code":2004,"message":"Request parameters exceed the server configuration limits. The approximated route distance must not be greater than 6000000.0 meters."},"info":{"engine":{"build_date":"2025-06-06T15:39:25Z","graph_version":"2","graph_date":"2025-06-22T07:54:02Z","osm_date":"1970-01-01T00:00:00Z","version":"9.3.0"},"timestamp":1751633342687}}
+2025-07-04 14:52:08.912 [import-task] INFO  org.tourplanner.service.OpenRouteServiceAgent - Geocoding address: Heinestraße 5, 1020 Wien
+2025-07-04 14:52:09.088 [import-task] INFO  org.tourplanner.service.OpenRouteServiceAgent - Parsed coordinates: lon=16.383348, lat=48.222048
+2025-07-04 14:52:09.088 [import-task] INFO  org.tourplanner.service.OpenRouteServiceAgent - Geocoding address: Am Tabor 23, 1020 Wien
+2025-07-04 14:52:13.197 [import-task] INFO  org.tourplanner.service.OpenRouteServiceAgent - Parsed coordinates: lon=16.383853, lat=48.22508
+2025-07-04 14:52:13.198 [import-task] INFO  org.tourplanner.service.OpenRouteServiceAgent - Requesting directions: GeoCoord[lon=16.383348, lat=48.222048] -> GeoCoord[lon=16.383853, lat=48.22508] via foot-hiking
+2025-07-04 14:52:13.287 [import-task] INFO  org.tourplanner.service.OpenRouteServiceAgent - Geocoding address: Heldenplatz, 1010 Wien
+2025-07-04 14:52:13.373 [import-task] INFO  org.tourplanner.service.OpenRouteServiceAgent - Parsed coordinates: lon=16.363254, lat=48.205984
+2025-07-04 14:52:13.373 [import-task] INFO  org.tourplanner.service.OpenRouteServiceAgent - Geocoding address: Stephansplatz, 1010 Wien
+2025-07-04 14:52:13.453 [import-task] INFO  org.tourplanner.service.OpenRouteServiceAgent - Parsed coordinates: lon=16.37407, lat=48.208351
+2025-07-04 14:52:13.453 [import-task] INFO  org.tourplanner.service.OpenRouteServiceAgent - Requesting directions: GeoCoord[lon=16.363254, lat=48.205984] -> GeoCoord[lon=16.37407, lat=48.208351] via foot-hiking
+2025-07-04 14:52:13.530 [JavaFX Application Thread] INFO  org.tourplanner.service.TourManager - Refreshing tour list from database
+2025-07-04 15:31:03.559 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m47s247ms).
+2025-07-04 16:07:52.874 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=48s853ms).
+2025-07-04 16:26:09.350 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=17m46s450ms).
+2025-07-04 18:53:00.249 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=36m48s911ms).
+2025-07-04 19:25:39.927 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=32m39s680ms).
+2025-07-04 20:26:22.028 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h42s95ms).
+2025-07-04 20:36:43.482 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=10m21s460ms).
+2025-07-04 20:52:16.870 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=15m33s390ms).
+2025-07-04 22:00:05.271 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h7m48s398ms).
+2025-07-04 22:37:39.171 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=37m33s904ms).
+2025-07-04 22:53:31.432 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=15m52s253ms).
+2025-07-04 23:01:13.348 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=7m41s923ms).
+2025-07-04 23:11:35.049 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=8m51s672ms).
+2025-07-04 23:34:44.691 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=23m9s642ms).
+2025-07-05 00:29:04.147 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=54m19s456ms).
+2025-07-05 01:48:05.155 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h19m1s7ms).
+2025-07-05 02:34:28.342 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=46m23s183ms).
+2025-07-05 03:14:39.375 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=40m11s37ms).
+2025-07-05 03:38:54.030 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=22m14s619ms).
+2025-07-05 04:06:17.155 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=27m23s116ms).
+2025-07-05 04:33:22.203 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=27m5s46ms).
+2025-07-05 05:41:17.228 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h7m55s35ms).
+2025-07-05 06:57:01.647 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h15m44s420ms).
+2025-07-05 07:48:28.063 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=51m26s416ms).
+2025-07-05 08:33:31.174 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=45m3s112ms).
+2025-07-05 09:10:14.678 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=36m43s502ms).
+2025-07-05 10:11:09.448 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h54s772ms).
+2025-07-05 10:33:25.289 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=22m15s841ms).
+2025-07-05 11:12:18.510 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=38m53s218ms).
+2025-07-05 12:12:39.655 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h21s144ms).
+2025-07-05 12:16:27.783 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=3m48s129ms).
+2025-07-05 12:41:48.854 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=23m51s).
+2025-07-05 13:13:54.149 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=32m5s295ms).
+2025-07-05 13:17:49.385 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=3m55s234ms).
+2025-07-05 14:10:34.029 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=51m14s609ms).
+2025-07-05 14:20:12.921 [SpringApplicationShutdownHook] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-07-05 14:20:12.940 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-07-05 14:20:12.958 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
