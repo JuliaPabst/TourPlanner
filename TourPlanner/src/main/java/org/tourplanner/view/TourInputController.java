@@ -6,11 +6,11 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
-import javafx.util.converter.NumberStringConverter;
 import org.springframework.stereotype.Controller;
 import org.tourplanner.persistence.entity.TransportType;
 import org.tourplanner.view.util.ModalService;
 import org.tourplanner.viewmodel.TourInputViewModel;
+import org.tourplanner.exception.ValidationException;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -72,7 +72,7 @@ public class TourInputController implements Initializable {
         try {
             viewModel.saveOrUpdateTour();
             closeModal();
-        }  catch (IllegalArgumentException e) {
+        }  catch (ValidationException e) {
             ModalService.showInfoModal("Invalid Input", e.getMessage());
         } catch (Exception e) {
             ModalService.showInfoModal(

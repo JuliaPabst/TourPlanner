@@ -5,6 +5,7 @@ import javafx.collections.ObservableList;
 import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.tourplanner.exception.PersistenceException;
 import org.tourplanner.persistence.entity.Tour;
 import org.tourplanner.persistence.entity.TourLog;
 import org.tourplanner.persistence.repository.TourRepository;
@@ -41,9 +42,14 @@ public class TourManager {
 
     public void createNewTour(Tour newTour) {
         log.info("Creating new tour: {}", newTour.getTourName());
-        Tour savedTour = tourRepository.save(newTour);
-        tourList.add(savedTour);
-        log.debug("Tour saved with id {}", newTour.getTourId());
+        try{
+            Tour savedTour = tourRepository.save(newTour);
+            tourList.add(savedTour);
+            log.debug("Tour saved with id {}", newTour.getTourId());
+        } catch(RuntimeException ex) {
+            log.error("DB error while saving new tour", ex);
+            throw new PersistenceException("Could not save tour to database", ex);
+        }
     }
 
     public void replaceTour(Tour oldTour, Tour newTour) {
@@ -54,47 +60,62 @@ public class TourManager {
             return;
         }
 
-        // Invalidate cached map if route changed
-        if(!Objects.equals(oldTour.getRouteInformation(), newTour.getRouteInformation())) {
-            mapSnapshotService.invalidateMapImage(oldTour);
-        }
-
-        // Persist updated tour
-        newTour.setTourId(oldTour.getTourId());
-        Tour savedTour = tourRepository.save(newTour);
-        tourList.set(index, savedTour);
-
-        for(TourLog logEntry : tourLogManager.getLogList()) {
-            if(logEntry.getTour().equals(oldTour)) {
-                TourLog patched = new TourLog(
-                        logEntry.getDate(),
-                        logEntry.getUsername(),
-                        logEntry.getTotalTime(),
-                        logEntry.getTotalDistance(),
-                        logEntry.getDifficulty(),
-                        logEntry.getRating(),
-                        logEntry.getComment(),
-                        savedTour
-                );
-
-                tourLogManager.updateLog(logEntry, patched);
+        try {
+            // Invalidate cached map if route changed
+            if(!Objects.equals(oldTour.getRouteInformation(), newTour.getRouteInformation())) {
+                mapSnapshotService.invalidateMapImage(oldTour);
             }
+
+            // Persist updated tour
+            newTour.setTourId(oldTour.getTourId());
+            Tour savedTour = tourRepository.save(newTour);
+            tourList.set(index, savedTour);
+
+            for(TourLog logEntry : tourLogManager.getLogList()) {
+                if(logEntry.getTour().equals(oldTour)) {
+                    TourLog patched = new TourLog(
+                            logEntry.getDate(),
+                            logEntry.getUsername(),
+                            logEntry.getTotalTime(),
+                            logEntry.getTotalDistance(),
+                            logEntry.getDifficulty(),
+                            logEntry.getRating(),
+                            logEntry.getComment(),
+                            savedTour
+                    );
+
+                    tourLogManager.updateLog(logEntry, patched);
+                }
+            }
+            log.debug("Tour id={} updated and logs reassociated", oldTour.getTourId());
+        } catch(RuntimeException ex) {
+            log.error("DB error while replacing tour", ex);
+            throw new PersistenceException("Could not replace tour in database", ex);
         }
-        log.debug("Tour id={} updated and logs reassociated", oldTour.getTourId());
     }
 
     public void deleteTour(Tour tour) {
         log.info("Deleting tour id={} name={}", tour.getTourId(), tour.getTourName());
-        mapSnapshotService.invalidateMapImage(tour); // delete PNG as well
-        tourLogManager.deleteLogsForTour(tour);
-        tourList.remove(tour);
-        tourRepository.delete(tour); // Delete from DB
+        try {
+            mapSnapshotService.invalidateMapImage(tour); // delete PNG as well
+            tourLogManager.deleteLogsForTour(tour);
+            tourList.remove(tour);
+            tourRepository.delete(tour); // Delete from DB
+        } catch(RuntimeException ex) {
+            log.error("DB error while deleting tour", ex);
+            throw new PersistenceException("Could not delete tour from database", ex);
+        }
     }
 
     public void reloadTours() {
         log.info("Refreshing tour list from database");
-        List<Tour> reloadedTours = tourRepository.findAll();
-        tourList.setAll(reloadedTours);
-        log.debug("Tour list refreshed, {} tours loaded", reloadedTours.size());
+        try {
+            List<Tour> reloadedTours = tourRepository.findAll();
+            tourList.setAll(reloadedTours);
+            log.debug("Tour list refreshed, {} tours loaded", reloadedTours.size());
+        } catch(RuntimeException ex) {
+            log.error("DB error while reloading tour list", ex);
+            throw new PersistenceException("Could not reload tour list from database", ex);
+        }
     }
 }

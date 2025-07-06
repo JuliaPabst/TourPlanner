@@ -11,6 +11,7 @@ import org.tourplanner.persistence.entity.Tour;
 import org.tourplanner.persistence.entity.TransportType;
 import org.tourplanner.service.OpenRouteServiceAgent;
 import org.tourplanner.service.TourManager;
+import org.tourplanner.exception.ValidationException;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
@@ -68,7 +69,7 @@ public class TourInputViewModelTest {
         viewModel.fromProperty().set("");
         viewModel.toProperty().set("");
 
-        Exception exception = assertThrows(IllegalArgumentException.class, viewModel::createNewTour);
+        Exception exception = assertThrows(ValidationException.class, viewModel::createNewTour);
         assertEquals("Required fields must not be empty.", exception.getMessage());
     }
 }

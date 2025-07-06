@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 import org.tourplanner.persistence.entity.Difficulty;
 import org.tourplanner.persistence.entity.Tour;
 import org.tourplanner.persistence.entity.TourLog;
+import org.tourplanner.exception.ValidationException;
 
 import java.time.LocalDate;
 import java.beans.PropertyChangeListener;
@@ -61,7 +62,7 @@ public class TourLogInputViewModel {
 
         Tour selectedTour = tourListViewModel.selectedTourProperty().get();
         if(selectedTour == null) {
-            throw new IllegalStateException("No tour selected");
+            throw new ValidationException("No tour selected");
         }
 
         TourLog newLog = new TourLog(
@@ -88,10 +89,13 @@ public class TourLogInputViewModel {
 
     private void validateInput() {
         if(username.get().isBlank()) {
-            throw new IllegalStateException("Username cannot be empty");
+            throw new ValidationException("Username cannot be empty");
+        }
+        if(totalTime.get() <= 0 || totalDistance.get() <= 0) {
+            throw new ValidationException("Time and distance must me greater than 0");
         }
         if(rating.get() < 1 || rating.get() > 5) {
-            throw new IllegalStateException("Rating must be between 1 and 5");
+            throw new ValidationException("Rating must be between 1 and 5");
         }
     }
 

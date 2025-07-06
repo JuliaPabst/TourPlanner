@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.tourplanner.persistence.entity.GeoCoord;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.tourplanner.exception.RoutingException;
 
 import java.io.IOException;
 import java.net.URI;
@@ -35,41 +36,44 @@ public class OpenRouteServiceAgent {
 
     public GeoCoord geoCode(String postalAddress) {
         log.info("Geocoding address: {}", postalAddress);
+
         String encoded;
         encoded = URLEncoder.encode(postalAddress, StandardCharsets.UTF_8);
+
         String url = String.format("https://api.openrouteservice.org/geocode/search?api_key=%s&text=%s", apiKey, encoded);
 
         HttpRequest request = HttpRequest.newBuilder().uri(URI.create(url)).GET().build();
+
         try {
             HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
             log.debug("Geocode HTTP status: {}", response.statusCode());
 
-            if(response.statusCode() == 200) {
-                JsonNode root = mapper.readTree(response.body());
-                log.debug("Geocode response payload: {}", root.toPrettyString());
-
-                try {
-                    var coords = root.get("features").get(0).get("geometry").get("coordinates");
-                    double lon = coords.get(0).asDouble();
-                    double lat = coords.get(1).asDouble();
-                    log.info("Parsed coordinates: lon={}, lat={}", lon, lat);
-                    return new GeoCoord(lon, lat);
-                } catch (Exception e){
-                    log.error("Failed to parse geocode response: {}", root.toPrettyString(), e);
-                    return null;
-                }
-            } else {
-                log.error("Geocode request failed (status={}): {}", response.statusCode(), response.body());
-                return null;
+            if(response.statusCode() != 200) {
+                throw new RoutingException("Geocode request failed (HTTP " + response.statusCode() + ")" + response.body());
             }
+
+            JsonNode root = mapper.readTree(response.body());
+            log.debug("Geocode payload: {}", root.toPrettyString());
+
+            JsonNode coords = root.at("/features/0/geometry/coordinates");
+            if(coords.isMissingNode() || coords.size() < 2) {
+                throw new RoutingException("Geocode response did not contain coordinates");
+            }
+
+            double lon = coords.get(0).asDouble();
+            double lat = coords.get(1).asDouble();
+            log.info("Parsed coordinates: lon={}, lat={}", lon, lat);
+            return new GeoCoord(lon, lat);
+
         } catch (IOException | InterruptedException e) {
-            log.error("Exception during geocode request: {}", e.getMessage(), e);
-            return null;
+            Thread.currentThread().interrupt();
+            throw new RoutingException("Failed to contact routing service", e);
         }
     }
 
     public JsonNode directions(RouteType routeType, GeoCoord start, GeoCoord end) {
         log.info("Requesting directions: {} -> {} via {}", start, end, routeType);
+
         NumberFormat fmt = NumberFormat.getNumberInstance(Locale.US);
         fmt.setMaximumFractionDigits(6);
 
@@ -81,22 +85,22 @@ public class OpenRouteServiceAgent {
         );
 
         HttpRequest request = HttpRequest.newBuilder().uri(URI.create(url)).GET().build();
+
         try {
             HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
             log.debug("Directions HTTP status: {}", response.statusCode());
 
-            if(response.statusCode() == 200) {
-                JsonNode root = mapper.readTree(response.body());
-                log.debug("Directions response payload: {}", root.toPrettyString());
-                return root;
-            } else {
-                log.error("Directions request failed (status={}): {}", response.statusCode(), response.body());
-                return null;
+            if(response.statusCode() != 200) {
+                throw new RoutingException("Directions request failed (HTTP " + response.statusCode() + ")" + response.body());
             }
 
+            JsonNode root = mapper.readTree(response.body());
+            log.debug("Directions response payload: {}", root.toPrettyString());
+            return root;
+
         } catch (IOException | InterruptedException e) {
-            log.error("Exception during directions request: {}", e.getMessage(), e);
-            return null;
+            Thread.currentThread().interrupt();
+            throw new RoutingException("Failed to contact routing service", e);
         }
     }
 

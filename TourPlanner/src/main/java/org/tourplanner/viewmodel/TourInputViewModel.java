@@ -1,13 +1,15 @@
 package org.tourplanner.viewmodel;
 
+import com.fasterxml.jackson.databind.JsonNode;
 import javafx.beans.property.*;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.tourplanner.persistence.entity.GeoCoord;
 import org.tourplanner.service.OpenRouteServiceAgent;
 import org.tourplanner.persistence.entity.Tour;
 import org.tourplanner.persistence.entity.TransportType;
 import org.tourplanner.service.TourManager;
+import org.tourplanner.exception.ValidationException;
+import org.tourplanner.exception.RoutingException;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
@@ -131,27 +133,26 @@ public class TourInputViewModel {
     }
 
     private void calculateAndSetRouteMetrics() {
-        GeoCoord start = orsAgent.geoCode(from.get());
-        GeoCoord end = orsAgent.geoCode(to.get());
+        try {
+            GeoCoord start = orsAgent.geoCode(from.get());
+            GeoCoord end = orsAgent.geoCode(to.get());
 
-        if (start == null || end == null) {
-            throw new IllegalArgumentException("Could not geocode start or end address.");
+            JsonNode routeJson = orsAgent.directions(mapToRouteType(transportType.get()), start, end);
+
+            routeJsonString = routeJson.toString(); // Save the full JSON string for DB
+
+            int newDistance = (int) (routeJson.get("features").get(0)
+                    .get("properties").get("segments").get(0)
+                    .get("distance").asDouble() / 1000);
+            int newTime = (int) (routeJson.get("features").get(0)
+                    .get("properties").get("segments").get(0)
+                    .get("duration").asDouble() / 60);
+
+            distance.set(newDistance);
+            estimatedTime.set(newTime);
+        } catch (RoutingException ex) {
+            throw new ValidationException(ex.getMessage(), ex);
         }
-
-        var routeJson = orsAgent.directions(mapToRouteType(transportType.get()), start, end);
-        if (routeJson == null) {
-            throw new IllegalArgumentException("Could not calculate route.");
-        }
-
-        routeJsonString = routeJson.toString(); // <-- Save the full JSON string for DB
-
-        int newDistance = (int) (routeJson.get("features").get(0)
-                .get("properties").get("segments").get(0).get("distance").asDouble() / 1000);
-        int newTime = (int) (routeJson.get("features").get(0)
-                .get("properties").get("segments").get(0).get("duration").asDouble() / 60);
-
-        distance.set(newDistance);
-        estimatedTime.set(newTime);
     }
 
 
@@ -182,7 +183,7 @@ public class TourInputViewModel {
 
     private void validateInput() {
         if (name.get().isBlank() || from.get().isBlank() || to.get().isBlank()) {
-            throw new IllegalArgumentException("Required fields must not be empty.");
+            throw new ValidationException("Required fields must not be empty.");
         }
     }
 

@@ -5,13 +5,12 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
-import javafx.util.converter.DoubleStringConverter;
-import javafx.util.converter.IntegerStringConverter;
 import org.springframework.stereotype.Controller;
 import org.tourplanner.persistence.entity.Difficulty;
 import org.tourplanner.view.util.ModalService;
 import org.tourplanner.viewmodel.TourLogInputViewModel;
 import org.tourplanner.utils.NumberTextFormatters;
+import org.tourplanner.exception.ValidationException;
 
 import java.net.URL;
 import java.time.format.DateTimeParseException;
@@ -72,7 +71,7 @@ public class TourLogInputController implements Initializable {
         try {
             viewModel.saveOrUpdateLog();
             closeDialog();
-        } catch(IllegalArgumentException | DateTimeParseException e) {
+        } catch(ValidationException | DateTimeParseException e) {
             ModalService.showInfoModal("Invalid Input", e.getMessage());
         } catch(Exception e) {
             ModalService.showInfoModal("Unexpected Error", "Something went wrong: " + e.getMessage());

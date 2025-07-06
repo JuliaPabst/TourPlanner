@@ -1,7 +1,9 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="TourPlannerApplication" type="Application" factoryName="Application" nameIsGenerated="true">
+    <option name="ALTERNATIVE_JRE_PATH" value="19" />
+    <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
     <option name="MAIN_CLASS_NAME" value="org.tourplanner.TourPlannerApplication" />
-    <module name="TourPlanner" />
+    <module name="TourplannerSpring" />
     <extension name="coverage">
       <pattern>
         <option name="PATTERN" value="org.tourplanner.view.*" />

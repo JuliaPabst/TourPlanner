@@ -2,6 +2,7 @@ package org.tourplanner.viewmodel;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.tourplanner.exception.ValidationException;
 import org.tourplanner.persistence.entity.Difficulty;
 import org.tourplanner.persistence.entity.Tour;
 import org.tourplanner.persistence.entity.TourLog;
@@ -37,7 +38,7 @@ public class TourLogInputViewModelTest {
         viewModel.ratingProperty().set(0);  // invalid rating
 
         // Act + Assert
-        Exception exception = assertThrows(IllegalStateException.class, () -> {
+        Exception exception = assertThrows(ValidationException.class, () -> {
             viewModel.saveOrUpdateLog();
         });
 
@@ -57,7 +58,7 @@ public class TourLogInputViewModelTest {
         viewModel.ratingProperty().set(3);
 
         // Act + Assert
-        Exception exception = assertThrows(IllegalStateException.class, () -> {
+        Exception exception = assertThrows(ValidationException.class, () -> {
             viewModel.saveOrUpdateLog();
         });
 
