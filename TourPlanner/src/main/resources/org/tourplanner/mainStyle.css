@@ -1,6 +1,6 @@
 /* === Global === */
 .root {
-    -fx-font-family: "Roboto", sans-serif;
+    -fx-font-family: "Roboto", "Segoe UI", "San Francisco", sans-serif;
     -fx-background-color: #f9f9fb;
     -fx-font-size: 13px;
 }
@@ -18,15 +18,6 @@
     -fx-background-radius: 4px;
     -fx-padding: 6px 12px;
 }
-
-/*
-.danger-button {
-    -fx-background-color: #e53935;
-    -fx-text-fill: white;
-    -fx-font-weight: bold;
-    -fx-background-radius: 4px;
-    -fx-padding: 6px 12px;
-}*/
 
 .danger-button {
     -fx-background-color: #ef4444;

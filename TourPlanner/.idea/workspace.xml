@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="28563466-d155-4117-a6f3-036ad5da4c5f" name="Changes" comment="" />
+    <list default="true" id="28563466-d155-4117-a6f3-036ad5da4c5f" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tourplanner/service/ReportService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tourplanner/service/ReportService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tourplanner/utils/ViewModelInitializer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/tourplanner/mainStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/tourplanner/mainStyle.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/testImage.jpeg" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,8 +22,8 @@
       <list>
         <option value="FxmlFile" />
         <option value="Enum" />
-        <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -135,12 +142,12 @@
       <recent name="org.tourplanner.model" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.Unnamed">
+  <component name="RunManager" selected="Application.TourPlannerApplication">
     <configuration name="TourPlannerApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="ALTERNATIVE_JRE_PATH" value="temurin-21" />
+      <option name="ALTERNATIVE_JRE_PATH" value="19" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="org.tourplanner.TourPlannerApplication" />
-      <module name="TourPlanner" />
+      <module name="TourplannerSpring" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="org.tourplanner.*" />
@@ -267,8 +274,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.TourPlannerConfigTest" />
         <item itemvalue="Application.TourPlannerApplication" />
+        <item itemvalue="JUnit.TourPlannerConfigTest" />
         <item itemvalue="JUnit.ReportServiceTest" />
         <item itemvalue="JUnit.ReportServiceTest.generateTourReport_includesMetadataAndLogEntries" />
         <item itemvalue="JUnit.ReportServiceTest.generateSummaryReport_includesCorrectAverageValues_inPdf" />

@@ -20,7 +20,6 @@ import org.tourplanner.persistence.entity.Tour;
 import org.tourplanner.persistence.entity.TourLog;
 import org.tourplanner.persistence.repository.TourLogRepository;
 import org.tourplanner.persistence.repository.TourRepository;
-import org.tourplanner.service.MapSnapshotService;
 
 import java.io.IOException;
 import java.nio.file.Files;
