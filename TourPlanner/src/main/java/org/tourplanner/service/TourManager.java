@@ -52,12 +52,12 @@ public class TourManager {
         }
     }
 
-    public void replaceTour(Tour oldTour, Tour newTour) {
+    public Tour replaceTour(Tour oldTour, Tour newTour) {
         log.info("Replacing tour id={} name={}", oldTour.getTourId(), newTour.getTourName());
         int index = tourList.indexOf(oldTour);
         if(index < 0) {
             log.warn("Cannot replace tour: old tour not found in list (id={})", oldTour.getTourId());
-            return;
+            return null;
         }
 
         try {
@@ -88,6 +88,7 @@ public class TourManager {
                 }
             }
             log.debug("Tour id={} updated and logs reassociated", oldTour.getTourId());
+            return savedTour;
         } catch(RuntimeException ex) {
             log.error("DB error while replacing tour", ex);
             throw new PersistenceException("Could not replace tour in database", ex);

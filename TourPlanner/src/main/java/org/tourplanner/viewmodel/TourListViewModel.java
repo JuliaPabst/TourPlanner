@@ -87,6 +87,7 @@ public class TourListViewModel {
         if (selectedTour.get() == tour) {
             selectedTour.set(null);
             clearDisplayData();
+            showNoSelectionMessageProperty().set(true);
         }
     }
 

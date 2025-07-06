@@ -74,6 +74,7 @@ public class TourInputViewModel {
 
 
         tourManager.createNewTour(newTour);
+        tourListViewModel.selectTour(newTour);
 
         fireTourCreated(newTour);
 
@@ -123,8 +124,8 @@ public class TourInputViewModel {
         );
 
 
-        tourManager.replaceTour(editingTour.get(), updatedTour);
-        tourListViewModel.selectTour(updatedTour);
+        Tour savedTour = tourManager.replaceTour(editingTour.get(), updatedTour);
+        tourListViewModel.selectTour(savedTour);
 
         fireTourEdited(updatedTour);
 

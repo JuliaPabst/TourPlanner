@@ -85,6 +85,9 @@ public class TourDetailController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         bindDetailLabels();
 
+        showNoSelectionMessage();
+        listViewModel.showNoSelectionMessageProperty().set(true);
+
         // React to selection changes
         listViewModel.selectedTourProperty().addListener((obs, oldTour, newTour) -> {
             if(newTour != null) {
@@ -120,6 +123,7 @@ public class TourDetailController implements Initializable {
             updateUiVisibility(true, current.getTourName());
         } else {
             listViewModel.showNoSelectionMessageProperty().set(true);
+            showNoSelectionMessage();
         }
 
         deleteButton.setDisable(false); // optional
@@ -145,7 +149,7 @@ public class TourDetailController implements Initializable {
         titleLabel.setText("Please select a tour from the overview on the left");
         listViewModel.clearDisplayData();
 
-        mapWebView.getEngine().loadContent("<html><body><p>No map selected</p></body></html>");
+        mapWebView.getEngine().loadContent("");
         routeSectionTitle.setText("");
         transportTypeSectionTitle.setText("");
         statsSectionTitle.setText("");
