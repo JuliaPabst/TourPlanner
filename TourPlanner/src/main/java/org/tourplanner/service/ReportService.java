@@ -1,10 +1,14 @@
 package org.tourplanner.service;
 
+import com.itextpdf.io.font.constants.StandardFonts;
 import com.itextpdf.io.image.ImageData;
 import com.itextpdf.io.image.ImageDataFactory;
+import com.itextpdf.kernel.font.PdfFont;
+import com.itextpdf.kernel.font.PdfFontFactory;
 import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.layout.Document;
+import com.itextpdf.layout.element.*;
 import com.itextpdf.layout.element.Cell;
 import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.element.Table;
@@ -42,10 +46,16 @@ public class ReportService {
             PdfDocument pdf = new PdfDocument(writer);
             Document doc = new Document(pdf)) {
 
-            doc.add(new Paragraph("Tour Report – " + tour.getTourName()));
-            addMetaTable(tour, doc);
-            addMapImage(tour, doc);
-            addLogsTable(logs, doc);
+            PdfFont bold = PdfFontFactory.createFont(StandardFonts.HELVETICA_BOLD);
+            PdfFont italic = PdfFontFactory.createFont(StandardFonts.HELVETICA_OBLIQUE);
+
+            // Title
+            doc.add(new Paragraph(new Text("Tour Report").setFont(bold).setFontSize(18)));
+            doc.add(new Paragraph(new Text("Tour: " + tour.getTourName()).setFont(italic).setFontSize(12)).setMarginBottom(10));
+
+            addMetaTable(tour, doc, bold);
+            addMapImage(tour, doc, bold);
+            addLogsTable(logs, doc, bold);
         }
     }
 
@@ -55,12 +65,14 @@ public class ReportService {
             PdfDocument pdf = new PdfDocument(writer);
             Document doc = new Document(pdf)) {
 
-            doc.add(new Paragraph("Summary Report"));
+            PdfFont bold = PdfFontFactory.createFont(StandardFonts.HELVETICA_BOLD);
+
+            doc.add(new Paragraph(new Text("Summary Report").setFont(bold).setFontSize(18)).setMarginBottom(10));
 
             Table table = new Table(UnitValue.createPercentArray(new float[]{4,2,2,2}))
                     .useAllAvailableWidth();
             Stream.of("Tour","Ø Distance [km]","Ø Time [min]","Ø Rating")
-                    .forEach(h -> table.addHeaderCell(new Cell().add(new Paragraph(h))));
+                    .forEach(h -> table.addHeaderCell(new Cell().add(new Paragraph(h).setFont(bold))));
 
             for(Tour tour : tours) {
                 List<TourLog> logs = logRepo.findByTourOrderByDate(tour);
@@ -83,37 +95,41 @@ public class ReportService {
         }
     }
 
-    private void addMetaTable(Tour tour, Document doc) {
+    private void addMetaTable(Tour tour, Document doc, PdfFont boldFont) {
+        doc.add(new Paragraph("\nTour Details").setFont(boldFont).setFontSize(14).setMarginTop(10));
+
         Table table = new Table(UnitValue.createPercentArray(2))
                 .useAllAvailableWidth();
 
-        table.addCell(new Cell().add(new Paragraph("From")));
+        table.addCell(new Cell().add(new Paragraph("From").setFont(boldFont)));
         table.addCell(new Cell().add(new Paragraph(tour.getFrom())));
 
-        table.addCell(new Cell().add(new Paragraph("To")));
+        table.addCell(new Cell().add(new Paragraph("To").setFont(boldFont)));
         table.addCell(new Cell().add(new Paragraph(tour.getTo())));
 
-        table.addCell(new Cell().add(new Paragraph("Distance [km]")));
+        table.addCell(new Cell().add(new Paragraph("Distance [km]").setFont(boldFont)));
         table.addCell(new Cell().add(new Paragraph(String.valueOf(tour.getDistance()))));
 
-        table.addCell(new Cell().add(new Paragraph("Est. time [min]")));
+        table.addCell(new Cell().add(new Paragraph("Est. time [min]").setFont(boldFont)));
         table.addCell(new Cell().add(new Paragraph(String.valueOf(tour.getEstimatedTime()))));
 
-        table.addCell(new Cell().add(new Paragraph("Transport")));
+        table.addCell(new Cell().add(new Paragraph("Transport").setFont(boldFont)));
         table.addCell(new Cell().add(new Paragraph(tour.getTransportType().getLabel())));
 
         int popularity = metrics.calculatePopularity(logRepo.findAll(), tour);
-        table.addCell(new Cell().add(new Paragraph("Popularity")));
+        table.addCell(new Cell().add(new Paragraph("Popularity").setFont(boldFont)));
         table.addCell(new Cell().add(new Paragraph(popularity + " Stars")));
 
         int child = metrics.calculateChildFriendliness(logRepo.findAll(), tour);
-        table.addCell(new Cell().add(new Paragraph("Child-friendly")));
+        table.addCell(new Cell().add(new Paragraph("Child-friendly").setFont(boldFont)));
         table.addCell(new Cell().add(new Paragraph(child + " Stars")));
 
         doc.add(table);
     }
 
-    private void addLogsTable(List<TourLog> logs, Document doc) {
+    private void addLogsTable(List<TourLog> logs, Document doc, PdfFont boldFont) {
+        doc.add(new Paragraph("\nTour Logs").setFont(boldFont).setFontSize(14).setMarginTop(10));
+
         if(logs.isEmpty()) {
             doc.add(new Paragraph("No logs available"));
             return;
@@ -124,7 +140,7 @@ public class ReportService {
                 .useAllAvailableWidth();
 
         Stream.of("Date","User","Distance [km]","Time [min]","Difficulty","Rating","Comment")
-                .forEach(h -> table.addHeaderCell(new Cell().add(new Paragraph(h))));
+                .forEach(h -> table.addHeaderCell(new Cell().add(new Paragraph(h).setFont(boldFont))));
 
         DateTimeFormatter fmt = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
@@ -137,18 +153,18 @@ public class ReportService {
             table.addCell(String.valueOf(l.getRating()));
             table.addCell(l.getComment() == null ? "" : l.getComment());
         }
-        doc.add(new Paragraph("\nTour Logs"));   // small heading
+
         doc.add(table);
     }
 
-    private void addMapImage(Tour tour, Document doc) throws IOException {
+    private void addMapImage(Tour tour, Document doc, PdfFont boldFont) throws IOException {
+        doc.add(new Paragraph("\nMap").setFont(boldFont).setFontSize(14).setMarginTop(10));
+
         Path img = Path.of("maps", tour.getTourId() + ".png"); // e.g. maps/3.png
 
         if(Files.exists(img)) {
             ImageData data = ImageDataFactory.create(img.toUri().toString()); // Convert Path to URI String
             Image map = new Image(data).scaleToFit(400, 300);
-
-            doc.add(new Paragraph("\nMap"));
             doc.add(map);
         } else {
             doc.add(new Paragraph("\nMap image not available"));
