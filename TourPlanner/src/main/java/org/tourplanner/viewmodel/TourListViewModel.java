@@ -43,11 +43,13 @@ public class TourListViewModel {
     private final StringProperty childFriendlyText = new SimpleStringProperty();
     private final StringProperty mapHtmlContent = new SimpleStringProperty();
 
-    public TourListViewModel(TourManager tourManager, TourLogManager logManager) {
+    public TourListViewModel(TourManager tourManager,
+                             TourLogManager logManager,
+                             TourMetricsCalculator metricsCalculator) {
         this.filteredTours = new FilteredList<>(tourManager.getTourList(), p -> true);
         this.tourManager = tourManager;
         this.logManager = logManager;
-        this.metricsCalculator = new TourMetricsCalculator();
+        this.metricsCalculator = metricsCalculator;
 
         // Whenever a log changes, trigger a UI refresh token so Controllers can rebuild list items
         this.logManager.getLogList().addListener((ListChangeListener<TourLog>) c ->

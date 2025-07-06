@@ -9,6 +9,7 @@ import org.tourplanner.persistence.entity.Tour;
 import org.tourplanner.persistence.entity.TourLog;
 import org.tourplanner.service.TourManager;
 import org.tourplanner.service.TourLogManager;
+import org.tourplanner.service.TourMetricsCalculator;
 
 import java.util.List;
 
@@ -26,6 +27,7 @@ class TourListViewModelTest {
     void setup() {
         // Arrange: Mock dependencies and set up data
         TourManager tourManager = mock(TourManager.class);
+        TourMetricsCalculator calculator = mock(TourMetricsCalculator.class);
         logManager = mock(TourLogManager.class);
 
         tourList = FXCollections.observableArrayList();
@@ -34,7 +36,7 @@ class TourListViewModelTest {
         when(tourManager.getTourList()).thenReturn(tourList);
         when(logManager.getLogList()).thenReturn(logList);
 
-        viewModel = new TourListViewModel(tourManager, logManager);
+        viewModel = new TourListViewModel(tourManager, logManager, calculator);
     }
 
     @Test

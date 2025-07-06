@@ -1,5 +1,6 @@
 package org.tourplanner.service;
 
+import org.springframework.stereotype.Component;
 import org.tourplanner.persistence.entity.Tour;
 import org.tourplanner.persistence.entity.TourLog;
 import org.apache.logging.log4j.LogManager;
@@ -8,6 +9,7 @@ import org.apache.logging.log4j.Logger;
 import java.util.List;
 import java.util.Objects;
 
+@Component
 public class TourMetricsCalculator {
     private static final Logger log = LogManager.getLogger(TourMetricsCalculator.class);
 
