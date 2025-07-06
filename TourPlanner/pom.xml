@@ -22,6 +22,7 @@
     <java.version>19</java.version>
     <javafx.version>19.0.2.1</javafx.version>
     <itext.version>9.0.0</itext.version>
+    <lombok.version>1.18.38</lombok.version>
   </properties>
 
   <!-- ============================================================= -->
@@ -161,6 +162,23 @@
   <build>
     <plugins>
       <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.13.0</version>
+        <configuration>
+          <source>${java.version}</source>
+          <target>${java.version}</target>
+          <!-- Puts Lombok on the annotation-processor path -->
+          <annotationProcessorPaths>
+            <path>
+              <groupId>org.projectlombok</groupId>
+              <artifactId>lombok</artifactId>
+              <version>${lombok.version}</version>
+            </path>
+          </annotationProcessorPaths>
+        </configuration>
+      </plugin>
+      <plugin>
+        <!-- Spring Boot plugin -->
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
       </plugin>
